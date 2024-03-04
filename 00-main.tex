@@ -7,6 +7,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%              PLEASE CHECK THE README.MD FILE BEFORE YOU PROCEED            %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -54,8 +55,7 @@
 
 %%%%%%%%%%% list of variables for different formatting settings %%%%%%%%%%%%%%%%
 
-% if possible, make all of your changes here in the variables 
-% before tweaking original settings down below
+% if possible, please make your formatting changes here through the variables 
 
 \def\NoSectionLevel{3}              % no of levels for sections ... to subsubsection
 \def\TocIndent{0}                   % indentation in the list of figs and tables
@@ -94,8 +94,8 @@
 
 
 
-%% unless you really know what following things meand and what JH library 
-%% requires, please do not change the following PDF/A settings.
+%% unless you really know what following things mean and what Johns Hopkins
+%% library requires, please do not change the following PDF/A settings.
 
 %%%%%%%%%%%%%%%%%%%% JH Library-specific settings for PDF/A %%%%%%%%%%%%%%%%%%%
 
@@ -113,8 +113,6 @@
 
 
 
-%% if possible, make all of your changes here in the variables. you should be able
-%% to make most common changes here before tweaking original settings down below.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LaTeX Packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -135,8 +133,8 @@
 % bibliographic package (make sure your bib file is in BibLaTeX format)
 % use Zotero or some other reference manager to generate the BibLaTeX file
 % change the style or other options as needed
-\usepackage[backend=biber, style=apa, isbn=false, url=false, doi=true]{biblatex}
-% \usepackage[backend=biber, style=nature, maxnames=9, date=year, isbn=false, url=false, doi=true]{biblatex}
+% \usepackage[backend=biber, style=apa, isbn=false, url=false, doi=true]{biblatex}
+\usepackage[backend=biber, style=nature, maxnames=9, date=year, isbn=false, url=false, doi=true]{biblatex}
 
 \usepackage{blindtext}
 
@@ -165,7 +163,7 @@
 \usepackage{booktabs,longtable,makecell,multicol,multirow,tabularx,xltabular}
 %\usepackage[protrusion]{microtype}
 \usepackage{textcomp}
-\usepackage{sectsty}
+% \usepackage{sectsty}
 
 
 \usepackage{setspace}
@@ -174,12 +172,13 @@
 \usepackage{soul}
 \usepackage[titles]{tocloft}
 \usepackage{parskip}
+\usepackage{pdfpages}
 \usepackage{titlesec}
 %\usepackage{tocbibind}
 \usepackage{tikz}
 \usetikzlibrary{positioning}
 \usetikzlibrary{shapes,arrows}
-\usepackage{subcaption}    % Individual panel and caption
+\usepackage{subcaption}                     % individual panel and caption
 
 
 %% add or change more packages and options as you need
@@ -188,16 +187,17 @@
 
 
 
-
+%% if possible, make all of your changes through the defined variables above.
+%% you can make most common changes there before tweaking following settings.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%% if you are unhappy about some specific formatting and can not change them by
-%% changing defined variables in the beginning, only then proceed to the next 
-%% sections which includes loading proper package options, redefining different
-%% segments, document formatting, settings for special packages (epigraph, 
-%% algorithm, listings, etc). please be cautious before making any changes.
+%% if you are really unhappy about some specific formatting and can not change 
+%% them by changing defined variables in the beginning, only then proceed to the 
+%% next  sections which includes loading proper package options, redefining 
+%% differentenvironments, document formatting, settings for special packages 
+%% (epigraph, algorithm, listings, etc). be cautious before making any changes.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PACKAGE OPTIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -219,6 +219,7 @@
 \hypersetup{linktocpage, unicode, colorlinks=true, citecolor=blue, filecolor=blue, linkcolor=blue, urlcolor=blue}
 % add 'linktoc=all' option to the above list for making the items in the 
 % table of contents as clickable links
+\urlstyle{rm}
 
 
 %% settings for caption package (customize or add more as needed)
@@ -359,6 +360,13 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%% END DOCUMENT FORMATTING %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%% if you plan on using quotes, you may need specialized epigraph settings.
+%% hopefully the following settings work for you (examples given in chapters)
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% EPIGRAPH SETTINGS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%% Following settings allow the epigraph and the underline 
@@ -407,7 +415,8 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% EPIGRAPH SETTINGS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
+%% if you plan on adding algorithms and codes in your thesis, the these settings
+%%  may be helpful. you can tweak them based on your need and preferences.
 
 %%%%%%%%%%%%%%%%%%%%%% ALGORITHM AND LISTING SETTINGS %%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -438,16 +447,11 @@ aboveskip=0.5cm}
 %%%%%%%%%%%%%%%%%%%% END ALGORITHM AND LISTING SETTINGS %%%%%%%%%%%%%%%%%%%%%%%
 
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% add all your custom math settings and macros in the following section
+%% this is where LaTeX supremacy becomes a thing. you can customize a lot.
 
 %%%%%%%%%%%%%%%%%%%%%%% MATH SETTINGS AND MACROS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -496,22 +500,22 @@ aboveskip=0.5cm}
 
 
 %% chapter header and page numbering set up
-%% if you want to remove the headers, comment following 4 lines
+% header unnumbered chapters (to remove the headers, comment out the following lines)
 \pagestyle{fancy}
 \fancyhead[R]{}                         % empty top-right header throughout the document
 \fancyhead[L]{\nouppercase \leftmark}   % avoiding upper-case in header
-\pagenumbering{roman}
-\setcounter{page}{2}
-\doublespacing
+\pagenumbering{roman}                   % pagination style: roman numeral
+\setcounter{page}{2}                    % page counter starts at roman ii
+\doublespacing                          % double spacing for the contents
 
 
-% add abstract, dedication, and acknowledgment
+%% add abstract, dedication, and acknowledgment (and any other front matter)
 \include{02-abstract}
 \include{03-dedication}
 \include{04-acknowledgement}
 
-
-\onehalfspacing                 % one-half spacing for the table of contents
+% single spacing is too cluttered and double spacing is too wide-spread
+\onehalfspacing                         % one-half spacing for the table of contents
 \renewcommand{\contentsname}{Table of Contents}
 \tableofcontents
 \listoftables
@@ -529,9 +533,9 @@ aboveskip=0.5cm}
 
 \clearpage
 \pagenumbering{arabic}
-\doublespacing          % restore double spacing in chapter contents
+\doublespacing                          % restore double spacing in chapter contents
 
-%% full header for the numbered chapters (to remove header comment the following lines)
+%% full header for the numbered chapters (to remove header comment out the following lines)
 \renewcommand{\chaptermark}[1]{\markboth{#1}{#1}}
 \fancyhead[L]{\chaptername\ \thechapter. \nouppercase \leftmark}
 
@@ -554,22 +558,30 @@ aboveskip=0.5cm}
 
 %% references
 \clearpage
-\singlespacing  % single spacing for the bib items (otherwise it looks too spread out)
-% unnumbered header (to remove the headers, comment out the following line)
+\singlespacing      % single spacing for the bib items (looks too spread out in double)
+% you can also change 'BibItemSeparation' variable to control the spacing
+% header unnumbered chapters (to remove the headers, comment out the following line)
 \fancyhead[L]{\nouppercase \leftmark}
 
 \include{10-references}
 
 
-%% appendices
+%% appendix chapters
 \doublespacing  % restoring double spacing for the contents in appendices
-%% if you want to remove the headers, comment out the following line
+%% full header for appendix chapters (to remove the headers, comment out the following line)
 \fancyhead[L]{\appendixname\ \thechapter. \nouppercase \leftmark}
 
 \include{11-appendix-A}
 \include{12-appendix-B}
 
 %% add more appendix chapters as you need
+
+
+%% you can also add biographical sketch/ CV in here 
+%% you can write it as other chapters and add the chapter in here
+%% if you already have CV as a PDF, add it to the main directory, then use:
+
+% \includepdf[pages=-]{John_Doe_CV.pdf}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%% END BACK MATTER %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
