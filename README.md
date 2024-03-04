@@ -29,10 +29,13 @@ Since the template is based on the report class, it is subdivided into multiple 
 - Updated the appearance of table of contents, list of figures, and list of tables.
 
 
+## How to use the template
+
+I prefer using Overleaf for all of my LaTeX compilation and I recommend it storngly. You can also to do locally. I am assuming at this stage you have a stable LaTeX system ready either locally on your computer or you're using an online platform and compile LaTeX scripts. Locally, you need to compile `00-main.tex` file using `pdflatex` which will call all the auxilary files to produce the PDF. For Overleaf, you can clone or download the repository and upload it as a .zip file to Overleaf by creating a New Project. It should compile without any error. There might be warnings, but you can ignore them. Go through the main file and other files to understand the structure of the template. Your bibliographic file has to be in BibLaTeX format. Use a citation manager to export it.
+
 
 ## Some useful comments and suggestions for using the template
 
-Please read the following suggestions before you start using the template:
 
 - Some necessary variables to customize the formatting of the document are included at the beginning of the document. Understand what each variable does and change them as needed to customize the dissertation formatting there.
 - Most common packages are added in the `LaTeX Package` sections. Add your package in there.
