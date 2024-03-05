@@ -191,8 +191,6 @@
 
 %% add more packages and/or change options of the packages as needed
 
-%% add more packages and/or change options of the packages as needed
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LaTeX Packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -222,9 +220,8 @@
 
 %% settings for the hyperref package
 \hypersetup{linktocpage, unicode, colorlinks=true, citecolor=blue, filecolor=blue, linkcolor=blue, urlcolor=blue}
-% add 'linktoc=all' option to the above list for making the items in the 
-% table of contents as clickable links
-\urlstyle{rm}
+% add 'linktoc=all' option to the above list for making the items in TOC as clickable links
+\urlstyle{rm}           % removes default \texttt style for links
 
 
 %% settings for caption package (customize or add more as needed)
@@ -438,6 +435,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% EPIGRAPH SETTINGS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% if you plan on adding algorithms and codes in your thesis, the these settings
@@ -469,7 +467,6 @@ aboveskip=0.5cm}
 \lstset{style=terminal,float=h,language=bash}
 
 %%%%%%%%%%%%%%%%%%%% END ALGORITHM AND LISTING SETTINGS %%%%%%%%%%%%%%%%%%%%%%%
-
 
 
 
@@ -523,18 +520,18 @@ aboveskip=0.5cm}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% FRONT MATTER %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\onehalfspacing                 % for title page
-\include{01-title}              % title page
+\onehalfspacing                             % one-and-half spacing for title page
+\include{01-title}                          % includ the title page
 
 
 %% chapter header and page numbering set up
-% header unnumbered chapters (to remove the headers, comment out the following lines)
+%% header unnumbered chapters (to remove the headers, comment out the following lines)
 \pagestyle{fancy}
-\fancyhead[R]{}                         % empty top-right header throughout the document
-\fancyhead[L]{\nouppercase \leftmark}   % avoiding upper-case in header
-\pagenumbering{roman}                   % pagination style: roman numeral
-\setcounter{page}{2}                    % page counter starts at roman ii
-\MainTextSpacing                        % double spacing for the contents
+\fancyhead[R]{}                             % empty top-right header throughout the document
+\fancyhead[L]{\nouppercase \leftmark}       % avoiding upper-case in header
+\pagenumbering{roman}                       % pagination style: roman numeral
+\setcounter{page}{2}                        % page counter starts at roman ii
+\MainTextSpacing                            % double spacing for the contents
 
 
 %% add abstract, dedication, and acknowledgment (and any other front matter)
@@ -542,8 +539,8 @@ aboveskip=0.5cm}
 \include{03-dedication}
 \include{04-acknowledgement}
 
-% single spacing is too cluttered and double spacing is too wide-spread
-\TOCTextSpacing                        % one-half spacing for the table of contents
+%% single spacing is too cluttered and double spacing is too wide-spread
+\TOCTextSpacing                             % one-half spacing for the table of contents
 \renewcommand{\contentsname}{Table of Contents}
 \tableofcontents
 \listoftables
@@ -559,16 +556,16 @@ aboveskip=0.5cm}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% MAIN TEXT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\clearpage
-\pagenumbering{arabic}
-\MainTextSpacing                        % restore double spacing in chapter contents
+\clearpage                                  % flushes the floats and new page
+\pagenumbering{arabic}                      % arabic page numbering
+\MainTextSpacing                            % restores double spacing in chapter contents
 
 %% full header for the numbered chapters (to remove header comment out the following lines)
 \renewcommand{\chaptermark}[1]{\markboth{#1}{#1}}
 \fancyhead[L]{\chaptername\ \thechapter. \nouppercase \leftmark}
 
 
-%% include all the main chapters
+%% include all the main text chapters
 \include{05-chapter-1}
 \include{06-chapter-2}
 \include{07-chapter-3}
@@ -587,16 +584,16 @@ aboveskip=0.5cm}
 
 %% references
 \clearpage
-\BibTextSpacing         % single spacing for the bib items (too widespread otherwise)
+\BibTextSpacing                     % single spacing for the bib items (too widespread otherwise)
 % you can also change 'BibItemSeparation' variable to control the spacing
 % header unnumbered chapters (to remove the headers, comment out the following line)
 \fancyhead[L]{\nouppercase \leftmark}
 
-\include{10-references}
+\include{10-references}             % include reference chapter
 
 
 %% appendix chapters
-\MainTextSpacing        % restoring double spacing for the contents in appendices
+\MainTextSpacing                    % restoring double spacing for the contents in appendices
 %% full header for appendix chapters (to remove the headers, comment out the following line)
 \fancyhead[L]{\appendixname\ \thechapter. \nouppercase \leftmark}
 
