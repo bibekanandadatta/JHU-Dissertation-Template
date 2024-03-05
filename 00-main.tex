@@ -57,25 +57,25 @@
 %% if possible, please make your formatting changes here through the variables 
 %% go through all the variables and understand what role they play in formatting
 
-\def\FontPackage{lmodern}           % latin modern font (you can also change it to times)
-\def\BibFileName{thesis.bib}        % name of BibLaTeX file with all the bibliography
-\def\FigurePath{figures}            % subdirectory for the figure files
+\def\FontPackage{lmodern}                   % latin modern font (you can also change it to times)
+\def\BibFileName{thesis.bib}                % name of BibLaTeX file with all the bibliography
+\def\FigurePath{figures}                    % subdirectory for the figure files
 
 
-\def\NoSectionLevel{3}              % 3 levels for sections ... to subsubsection
-\def\TocIndent{0}                   % indentation in the list of figs and tables
-\def\NoTocLevel{3}                  % no of levels showed in the table of contents
+\def\NoSectionLevel{3}                      % 3 levels for sections ... to subsubsection
+\def\TocIndent{0}                           % indentation in the list of figs and tables
+\def\NoTocLevel{3}                          % no of levels showed in the table of contents
 %% 3 levels mean chapter, section, subsection. increase if you want more to show in TOC
 
-\def\MainTextSpacing{\doublespacing}% double spacing in main text (JH library requirement)
-\def\TOCTextSpacing{\onehalfspacing}% one-half spacing for TOC texts
-\def\BibTextSpacing{\singlespacing} % single spacing for bibliography
+\def\MainTextSpacing{\doublespacing}        % double spacing in main text (JH library requirement)
+\def\TOCTextSpacing{\onehalfspacing}        % one-half spacing for TOC texts
+\def\BibTextSpacing{\singlespacing}         % single spacing for bibliography
 %% JH library does not specify spacing for TOC and bibliographic references
 
 
-\def\ChapterTopSpace{-48}           % white space on top of the chapter heading (unit: pt)
-\def\ChapterToTitle{-12}            % space between chapter to title (unit: pt)
-\def\TitleToText{18}                % space between the chapter title to the following text (unit: pt)
+\def\ChapterTopSpace{-48}                   % white space on top of the chapter heading (unit: pt)
+\def\ChapterToTitle{-12}                    % space between chapter to title (unit: pt)
+\def\TitleToText{18}                        % space between the chapter title to the following text (unit: pt)
 
 
 % font format for chapter heading and title
@@ -98,16 +98,21 @@
 \def\GlobalTableSpacing{1.5}                % global spacing parameter for table
 
 
-\def\ParagraphSpacing{\baselineskip}% spacing between paragraph
-\def\ParagraphIndent{0}             % indentation at the beginning of the paragraph
-\def\FullCiteSpacing{1.25}          % spacing in a fullcite item
-\def\BibItemSpacing{\baselineskip}  % spacing between bibliographic items in reference
-\def\FootnoteSpacing{0.75\baselineskip} % spacing between footnotes
-\def\CaptionSpacing{0}                  % spacing between the figure and the caption (unit: pt)
+\def\ParagraphSpacing{\baselineskip}        % spacing between paragraph
+\def\ParagraphIndent{0}                     % indentation at the beginning of the paragraph
+\def\FullCiteSpacing{1.25}                  % spacing in a fullcite item
+\def\BibItemSpacing{\baselineskip}          % spacing between bibliographic items in reference
+\def\FootnoteSpacing{0.75\baselineskip}     % spacing between footnotes
+\def\CaptionSpacing{0}                      % spacing between the figure and the caption (unit: pt)
 
 %%%%%%%%%%% list of variables for different formatting settings %%%%%%%%%%%%%%%
 
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% unless you really know what following things mean and what Johns Hopkins
+%% library requires, please do not change the following PDF/A settings.
 
 %%%%%%%%%%%%%%%%%%%% JH Library-specific settings for PDF/A %%%%%%%%%%%%%%%%%%%
 
@@ -118,29 +123,31 @@
 
 % Needed to create a PDF/A file
 \usepackage[a-1b]{pdfx}
-\usepackage{pax,pdfpages}
 
 %%%%%%%%%%%%%%%%%%%% JH Library-specific settings for PDF/A %%%%%%%%%%%%%%%%%%%
 
 
 
-%% add packages as you need but remember sometimes the order of the packages matter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% add packages as you need but remember sometimes the order of the packages matter.
+%% here they are added in alphabetic order or based on their purpose.
 %% you may get warning/ error for the order in which packages are included
 %% you may have to change the options in biblatex package for bibliography
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LaTeX Packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\usepackage[utf8]{inputenc}	    %input
-\DeclareUnicodeCharacter{2212}{-}
-
+\usepackage[utf8]{inputenc}	                % for encoding input character
+\DeclareUnicodeCharacter{2212}{-}           % defining unicode character
+%% may need to define more if some unicode characters appears somewhere in your thesis
 
 %% math packages
-\usepackage{amsfonts,amssymb,amsmath,amsthm,dsfont,mathtools,mathbbol,siunitx,upgreek,mathrsfs,cancel}
-\usepackage{autobreak}
-\usepackage[ruled]{algorithm2e} %algorithm package
-\usepackage[titletoc]{appendix}
-\usepackage[american]{babel}
+\usepackage{amsfonts,amssymb,amsmath,amsthm,autobreak,cancel,dsfont,mathtools,mathbbol,mathrsfs,siunitx,upgreek}
 
+\usepackage[ruled]{algorithm2e}             % to manage algorithm environment
+\usepackage[titletoc]{appendix}             % to manage appendix chapters
+\usepackage[american]{babel}                % for different language typography
 
 %% bibliographic package (make sure your bib file is in BibLaTeX format)
 %% use Zotero or some other reference manager to generate the BibLaTeX file
@@ -148,43 +155,41 @@
 \usepackage[backend=biber, style=nature, maxnames=9, date=year, isbn=false, url=false, doi=true]{biblatex}
 % \usepackage[backend=biber, style=apa, isbn=false, url=false, doi=true]{biblatex}
 
-
 \usepackage{blindtext}                      % to generate random filler texts
-\usepackage{calc}
+\usepackage{calc}                           % to set arithmetic arguments for spacing
 \usepackage{caption}                        % to manage captions
-\usepackage{color,xcolor}                   % color related packages
+\usepackage{color}                          % color related packages
 \usepackage{epigraph,varwidth}              % for managing quotes
-\usepackage{enumitem}			            % list environment
-\usepackage{float}
-\usepackage[T1]{fontenc}
-\usepackage{graphicx}
+\usepackage{enumitem}                       % to manage list environment
+\usepackage{float}                          % to manage floating environment
+\usepackage[T1]{fontenc}                    % for font encoding
+\usepackage[bottom]{footmisc}               % footnote environment management
+\usepackage{graphicx,wrapfig}               % to manage images
 
-
-\usepackage{geometry}                       % managing margins
+\usepackage{geometry}                       % to manage margins and others
 \usepackage{fancyhdr}                       % for header/ footer settings
 \usepackage[pdfa]{hyperref}                 % for hyperlinks
 \usepackage[all]{hypcap}                    % for captions on the side of figures
-\usepackage{ifthen}
+\usepackage{ifthen}                         % if-then statement in algorithm
 \usepackage{lscape}                         % landscape mode
 \usepackage[pagewise,mathlines]{lineno}     % linenumbers
-\usepackage{csquotes}                       % for quote environment
-
+\usepackage{csquotes}                       % to manage quote environment
 
 \usepackage{listings}                       % to include codes
+
 %% table related packages
 \usepackage{booktabs,longtable,makecell,multicol,multirow,tabularx,xltabular}
-\usepackage{textcomp}
 
-
-\usepackage{setspace}
-\usepackage{seqsplit}
-\usepackage[rightcaption]{sidecap}
-\usepackage{soul}
+\usepackage{setspace}                       % sets space between lines
+\usepackage{seqsplit}                       % splits long character sequence
+\usepackage[rightcaption]{sidecap}          % for sideway captions
 \usepackage[titles]{tocloft}                % to manage table of contents
-\usepackage{parskip}                        
-\usepackage{titlesec}
+\usepackage{textcomp}                       % text companion fonts in TS1
+\usepackage{titlesec}                       % managing different titles
 \usepackage{tikz}                           % drawing related package
 \usepackage{subcaption}                     % individual panel and caption
+
+%% add more packages and/or change options of the packages as needed
 
 %% add more packages and/or change options of the packages as needed
 
@@ -192,20 +197,15 @@
 
 
 
-%% if possible, make all of your changes through the defined variables above.
-%% you can make most common changes there before tweaking following settings.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%% if you are really unhappy about some specific formatting and can not change 
-%% them by changing defined variables in the beginning, only then proceed to the 
-%% next  sections which includes loading proper package options, redefining 
-%% differentenvironments, document formatting, settings for special packages 
-%% (epigraph, algorithm, listings, etc). be cautious before making any changes.
+%% optional settings for different packages are added here.
+%% if you want to enhance options for an already exisiting package, do it here.
+%% in case you add a new package, you can put the settings here as well.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PACKAGE OPTIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %% add all the images to that folder for cleaner file management
 %% you can add images in chapter-wise PDF format (my preference).
 \graphicspath{{\FigurePath/}}
@@ -241,6 +241,20 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PACKAGE OPTIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% if possible, make all of your changes through the defined variables above.
+%% you can make most common changes there before tweaking following settings.
+%% if you are really unhappy about some specific formatting and can not change 
+%% them by changing defined variables in the beginning, only then proceed to the 
+%% next  sections which includes loading proper package options, redefining 
+%% differentenvironments, document formatting, settings for special packages 
+%% (epigraph, algorithm, listings, etc). be cautious before making any changes.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% REDEFINITION %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -307,7 +321,6 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% DOCUMENT FORMATTING %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
 %% choice a font form (or add something else) for your thesis (uncomment one option)
 \usepackage{\FontPackage}
 
@@ -343,7 +356,6 @@
 \makeatother
 
 
-
 %%%% using titlesec package for sections, subsection, ... heading format
 \titleformat*{\section}{\SectionFont}
 \titleformat*{\subsection}{\SubsectionFont}
@@ -364,18 +376,12 @@
 \DeclareBibliographyCategory{fullcited}
 \newcommand{\mybibexclude}[1]{\addtocategory{fullcited}{#1}}
 
-
-%% unless you really know what following things mean and what Johns Hopkins
-%% library requires, please do not change the following PDF/A settings.
-
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%% END DOCUMENT FORMATTING %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% following two sections are optional and will be required if you use specific packages
 
@@ -431,6 +437,9 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% EPIGRAPH SETTINGS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 %% if you plan on adding algorithms and codes in your thesis, the these settings
 %%  may be helpful. you can tweak them based on your need and preferences.
 
@@ -462,8 +471,9 @@ aboveskip=0.5cm}
 %%%%%%%%%%%%%%%%%%%% END ALGORITHM AND LISTING SETTINGS %%%%%%%%%%%%%%%%%%%%%%%
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% add all your custom math settings and macros in the following section.
 %% this is where LaTeX supremacy becomes a thing. you can customize a lot.
@@ -471,7 +481,7 @@ aboveskip=0.5cm}
 %%%%%%%%%%%%%%%%%%%%%%% MATH SETTINGS AND MACROS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \allowdisplaybreaks[1]
-\setcounter{MaxMatrixCols}{20}
+\setcounter{MaxMatrixCols}{20}          % no of maximum columns in matrix
 \numberwithin{equation}{chapter}        % eqn no with chapter prefix
 \newcommand{\dC}{$^{\circ}$C}           % degree celcius symbol
 \newcommand{\vect}[1]{\mathbf{#1}}      % boldface for vectors and tensors
@@ -484,6 +494,8 @@ aboveskip=0.5cm}
 %%%%%%%%%%%%%%%%%%%%%%% MATH SETTINGS AND MACROS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% add all your non-mathematical macros and other random settings in here.
 
@@ -504,9 +516,9 @@ aboveskip=0.5cm}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%% DOCUMENT BEGINS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%
+
 % \linenumbers                  % may be useful during drafting
 \begin{document}
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% FRONT MATTER %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
