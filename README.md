@@ -20,16 +20,19 @@ This template is also [available on Overleaf as a template](https://www.overleaf
 
 ## What is included in this version of the template
 
-Since the template is based on the report class, it is subdivided into multiple chapters. For all the front matters (mandatory or optional), technical chapters, and back matters (references and appendices), there are separate .tex files. The `00-main.tex` file is the driver or root file which includes all the preamble, document settings, package settings, and macros as needed. I would recommend going through the different sections of this file before you start working on to understand the available packages and options. 
+Since the template is based on the report class, it is subdivided into multiple chapters. There are separate .tex files for all the front matters (mandatory or optional), technical chapters, and back matters (references and appendices).
+
+- `00-main.tex` file is the driver or root file which includes all the preamble, document settings, package settings, and macros as needed as well as the auxiliary .tex files for each chapter. I would recommend going through the different sections of this file before you start working on to understand the available packages and options. 
+- `figures` subdirectory contains all the figures for the thesis. You can add the figures as chapter-wise PDF files or as just individual images with allowable extensions.
+- `thesis.bib` file is a biblatex file which contains all the bibliographic items. I use Zotero to generate biblatex file.
 
 Compared to the previous version of the thesis template, the current version includes the following customizations:
-
-- Reduced the font size for chapter # and chapter title and white space throughout the document.
-- Reorganization of the necessary packages (you may need more) and their settings.
-- Modularized all the settings, formatting, and macros. You can add more as needed.
-- Added specific settings for adding quotes (epigraph) in each chapter. 
-- Added sentence-case header option with underline for each chapter.
-- Updated the appearance of table of contents, list of figures, and list of tables.
+  - Reduced the font size for chapter # and chapter title and white space throughout the document.
+  - Reorganization of the necessary packages (you may need more) and their settings.
+  - Modularized all the settings, formatting, and macros. You can add more as needed.
+  - Added specific settings for adding quotes (epigraph) in each chapter. 
+  - Added sentence-case header option with underline for each chapter.
+  - Updated the appearance of table of contents, list of figures, and list of tables.
 
 
 
