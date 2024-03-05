@@ -12,26 +12,26 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % This is an unofficial dissertation template for Johns Hopkins University.
-% As of February 2024, the template follows the dissertation formatting 
+% As of March 04, 2024, the template follows the dissertation formatting 
 % requirements provided by the  Johns Hopkins University Sheridan Library.
 % It is the user's responsibility to ensure that the current requirements are 
 % followed: https://www.library.jhu.edu/library-services/electronic-theses-dissertations/formatting-requirements/
 
-% GitHub repository: https://github.com/bibekananda-datta/JHU-Dissertation-Template
+%% GitHub: https://github.com/bibekananda-datta/JHU-Dissertation-Template
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% VERSION HISTORY %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % The report-class-based template was created by R. Jacob Vogelstein in May 2007
-% Updated by Noah J. Cowan on March 1, 2010
+% Updated by Noah J. Cowan on March 01, 2010
 % Updated by Brian D. Weitzner on April 29, 2014 
 % Updated by John Muschelli on January 29, 2016 
 % Updated by Leonardo Collado Torres on April 13, 2016 
 % Updated by John Clayton in December 2019
-% Updated by Bibekananda Datta on March 04, 2024
+% Last Updated by Bibekananda Datta on March 04, 2024
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% VERSION HISTORY %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -50,52 +50,64 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-
 \documentclass[12pt]{report}
 
 %%%%%%%%%%% list of variables for different formatting settings %%%%%%%%%%%%%%%%
 
-% if possible, please make your formatting changes here through the variables 
+%% if possible, please make your formatting changes here through the variables 
+%% go through all the variables and understand what role they play in formatting
 
-\def\NoSectionLevel{3}              % no of levels for sections ... to subsubsection
+\def\FontPackage{lmodern}           % latin modern font (you can also change it to times)
+\def\BibFileName{thesis.bib}        % name of BibLaTeX file with all the bibliography
+\def\FigurePath{figures}            % subdirectory for the figure files
+
+
+\def\NoSectionLevel{3}              % 3 levels for sections ... to subsubsection
 \def\TocIndent{0}                   % indentation in the list of figs and tables
 \def\NoTocLevel{3}                  % no of levels showed in the table of contents
+%% 3 levels mean chapter, section, subsection. increase if you want more to show in TOC
+
+\def\MainTextSpacing{\doublespacing}% double spacing in main text (JH library requirement)
+\def\TOCTextSpacing{\onehalfspacing}% one-half spacing for TOC texts
+\def\BibTextSpacing{\singlespacing} % single spacing for bibliography
+%% JH library does not specify spacing for TOC and bibliographic references
 
 
-\def\ChapterTopSpace{-48}           % white space on top of the chapter heading
-\def\ChapterToTitle{-12}            % space between chapter to title
-\def\TitleToText{18}                % space between the chapter title to the following text
+\def\ChapterTopSpace{-48}           % white space on top of the chapter heading (unit: pt)
+\def\ChapterToTitle{-12}            % space between chapter to title (unit: pt)
+\def\TitleToText{18}                % space between the chapter title to the following text (unit: pt)
+
 
 % font format for chapter heading and title
 \def\ChapterFont{\singlespacing \Large \bfseries}
 \def\SectionFont{\large\bfseries}           % section heading font format
 \def\SubsectionFont{\normalsize\bfseries}   % subsection heading font format
 \def\SubsubsectionFont{\normalsize\itshape} % subsubsection heading font format
-\def\CaptionFontSize{small}         %caption font size
-\def\CaptionFontType{bf}            % boldface font for captions
-\def\CaptionSeparator{colon}        % separates caption heading from text. can use 'period' as well
-\def\CodeFont{\footnotesize\ttfamily} % font for including codes
+\def\CaptionFontSize{small}                 % caption font size
+\def\CaptionFontType{bf}                    % boldface label for captions
+\def\CaptionSeparator{colon}                % separates caption heading from text. can use 'period' as well
+\def\CodeFont{\footnotesize\ttfamily}       % font for including codes using listing
 
-\def\QuoteWidth{0.65\textwidth}     % width of quote in epigraph
-\def\GlobalTableSpacing{1.5}        % global spacing parameter for table (double spaced)
+
+%% if you have a longer quote, you may have to change it.
+\def\QuoteWidth{0.65\textwidth}             % width of quote in epigraph
+
+
+%% if this seems too widespread for you, try changing it locally using
+%% \begin{group} ... \renewcommand{\arraystretch} ... \end{group} commands
+\def\GlobalTableSpacing{1.5}                % global spacing parameter for table
+
+
 \def\ParagraphSpacing{\baselineskip}% spacing between paragraph
 \def\ParagraphIndent{0}             % indentation at the beginning of the paragraph
 \def\FullCiteSpacing{1.25}          % spacing in a fullcite item
 \def\BibItemSpacing{\baselineskip}  % spacing between bibliographic items in reference
 \def\FootnoteSpacing{0.75\baselineskip} % spacing between footnotes
-\def\CaptionSpacing{0}              % spacing between the figure and the caption (unit: pt)
-
-
-\def\FontPackage{lmodern}           % latin modern font (you can also change it to times)
-\def\BibFileName{thesis.bib}        % name of BibLaTeX file with all the bibliography
-\def\FigurePath{figures}            % subdirectory for the figure files
+\def\CaptionSpacing{0}                  % spacing between the figure and the caption (unit: pt)
 
 %%%%%%%%%%% list of variables for different formatting settings %%%%%%%%%%%%%%%
 
 
-
-%% unless you really know what following things mean and what Johns Hopkins
-%% library requires, please do not change the following PDF/A settings.
 
 %%%%%%%%%%%%%%%%%%%% JH Library-specific settings for PDF/A %%%%%%%%%%%%%%%%%%%
 
@@ -106,17 +118,17 @@
 
 % Needed to create a PDF/A file
 \usepackage[a-1b]{pdfx}
-\usepackage{pdfpages}
-\usepackage{pax}
+\usepackage{pax,pdfpages}
 
 %%%%%%%%%%%%%%%%%%%% JH Library-specific settings for PDF/A %%%%%%%%%%%%%%%%%%%
 
 
 
+%% add packages as you need but remember sometimes the order of the packages matter
+%% you may get warning/ error for the order in which packages are included
+%% you may have to change the options in biblatex package for bibliography
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LaTeX Packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%% add packages as you need but remember sometimes the order of the packages matter
 
 \usepackage[utf8]{inputenc}	    %input
 \DeclareUnicodeCharacter{2212}{-}
@@ -130,58 +142,51 @@
 \usepackage[american]{babel}
 
 
-% bibliographic package (make sure your bib file is in BibLaTeX format)
-% use Zotero or some other reference manager to generate the BibLaTeX file
-% change the style or other options as needed
-% \usepackage[backend=biber, style=apa, isbn=false, url=false, doi=true]{biblatex}
+%% bibliographic package (make sure your bib file is in BibLaTeX format)
+%% use Zotero or some other reference manager to generate the BibLaTeX file
+%% change the style or other options as needed 
 \usepackage[backend=biber, style=nature, maxnames=9, date=year, isbn=false, url=false, doi=true]{biblatex}
+% \usepackage[backend=biber, style=apa, isbn=false, url=false, doi=true]{biblatex}
 
-\usepackage{blindtext}
 
+\usepackage{blindtext}                      % to generate random filler texts
 \usepackage{calc}
-\usepackage{caption}
-\usepackage{color,xcolor}
-\usepackage{epigraph,varwidth}
-\usepackage{enumitem}			%list environment
+\usepackage{caption}                        % to manage captions
+\usepackage{color,xcolor}                   % color related packages
+\usepackage{epigraph,varwidth}              % for managing quotes
+\usepackage{enumitem}			            % list environment
 \usepackage{float}
 \usepackage[T1]{fontenc}
 \usepackage{graphicx}
 
 
-\usepackage{geometry}
-\usepackage{fancyhdr}
-\usepackage[pdfa]{hyperref}
+\usepackage{geometry}                       % managing margins
+\usepackage{fancyhdr}                       % for header/ footer settings
+\usepackage[pdfa]{hyperref}                 % for hyperlinks
 \usepackage[all]{hypcap}                    % for captions on the side of figures
 \usepackage{ifthen}
-\usepackage{lscape}
+\usepackage{lscape}                         % landscape mode
 \usepackage[pagewise,mathlines]{lineno}     % linenumbers
 \usepackage{csquotes}                       % for quote environment
 
 
 \usepackage{listings}                       % to include codes
-% table related packages
+%% table related packages
 \usepackage{booktabs,longtable,makecell,multicol,multirow,tabularx,xltabular}
-%\usepackage[protrusion]{microtype}
 \usepackage{textcomp}
-% \usepackage{sectsty}
 
 
 \usepackage{setspace}
 \usepackage{seqsplit}
 \usepackage[rightcaption]{sidecap}
 \usepackage{soul}
-\usepackage[titles]{tocloft}
-\usepackage{parskip}
-\usepackage{pdfpages}
+\usepackage[titles]{tocloft}                % to manage table of contents
+\usepackage{parskip}                        
 \usepackage{titlesec}
-%\usepackage{tocbibind}
-\usepackage{tikz}
-\usetikzlibrary{positioning}
-\usetikzlibrary{shapes,arrows}
+\usepackage{tikz}                           % drawing related package
 \usepackage{subcaption}                     % individual panel and caption
 
-
-%% add or change more packages and options as you need
+%% add more packages and/or change options of the packages as needed
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LaTeX Packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -228,6 +233,11 @@
 
 %% settings for listing package to include code
 \lstset{basicstyle=\CodeFont,columns=flexible,breaklines=true}
+
+
+%% settings for TikZ library (you can add more settings here)
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes,arrows}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PACKAGE OPTIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -299,9 +309,7 @@
 
 
 %% choice a font form (or add something else) for your thesis (uncomment one option)
-\usepackage{\FontPackage}       
-% if you want to use Palatino font, use the following and comment above line
-%\usepackage[sc]{mathpazo}      % palatino font family
+\usepackage{\FontPackage}
 
 
 %%%% chapter # and title settings (with gaps)
@@ -357,6 +365,11 @@
 \newcommand{\mybibexclude}[1]{\addtocategory{fullcited}{#1}}
 
 
+%% unless you really know what following things mean and what Johns Hopkins
+%% library requires, please do not change the following PDF/A settings.
+
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%% END DOCUMENT FORMATTING %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -364,8 +377,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
+%% following two sections are optional and will be required if you use specific packages
+
 %% if you plan on using quotes, you may need specialized epigraph settings.
-%% hopefully the following settings work for you (examples given in chapters)
+%% hopefully the following settings will work for you if the quote is small.
+%% epigraph examples given in chapters 2 and 3 for relatively small quotes.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% EPIGRAPH SETTINGS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -428,7 +444,6 @@
 \SetCommentSty{mycommfont}
 
 
-
 %% listing package definition (to add code in the document)
 \usepackage{listings}
 \lstdefinestyle{terminal}{columns=fullflexible,
@@ -450,7 +465,7 @@ aboveskip=0.5cm}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-%% add all your custom math settings and macros in the following section
+%% add all your custom math settings and macros in the following section.
 %% this is where LaTeX supremacy becomes a thing. you can customize a lot.
 
 %%%%%%%%%%%%%%%%%%%%%%% MATH SETTINGS AND MACROS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -470,7 +485,7 @@ aboveskip=0.5cm}
 
 
 
-%% add all your non-mathematical macros and other random settings in here
+%% add all your non-mathematical macros and other random settings in here.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% OTHER MACROS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -489,8 +504,9 @@ aboveskip=0.5cm}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%% DOCUMENT BEGINS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%
-% \linenumbers              %% may be useful during drafting
+% \linenumbers                  % may be useful during drafting
 \begin{document}
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% FRONT MATTER %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -506,7 +522,7 @@ aboveskip=0.5cm}
 \fancyhead[L]{\nouppercase \leftmark}   % avoiding upper-case in header
 \pagenumbering{roman}                   % pagination style: roman numeral
 \setcounter{page}{2}                    % page counter starts at roman ii
-\doublespacing                          % double spacing for the contents
+\MainTextSpacing                        % double spacing for the contents
 
 
 %% add abstract, dedication, and acknowledgment (and any other front matter)
@@ -515,7 +531,7 @@ aboveskip=0.5cm}
 \include{04-acknowledgement}
 
 % single spacing is too cluttered and double spacing is too wide-spread
-\onehalfspacing                         % one-half spacing for the table of contents
+\TOCTextSpacing                        % one-half spacing for the table of contents
 \renewcommand{\contentsname}{Table of Contents}
 \tableofcontents
 \listoftables
@@ -533,7 +549,7 @@ aboveskip=0.5cm}
 
 \clearpage
 \pagenumbering{arabic}
-\doublespacing                          % restore double spacing in chapter contents
+\MainTextSpacing                        % restore double spacing in chapter contents
 
 %% full header for the numbered chapters (to remove header comment out the following lines)
 \renewcommand{\chaptermark}[1]{\markboth{#1}{#1}}
@@ -554,11 +570,12 @@ aboveskip=0.5cm}
 
 
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% BACK MATTER %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% references
 \clearpage
-\singlespacing      % single spacing for the bib items (looks too spread out in double)
+\BibTextSpacing         % single spacing for the bib items (too widespread otherwise)
 % you can also change 'BibItemSeparation' variable to control the spacing
 % header unnumbered chapters (to remove the headers, comment out the following line)
 \fancyhead[L]{\nouppercase \leftmark}
@@ -567,7 +584,7 @@ aboveskip=0.5cm}
 
 
 %% appendix chapters
-\doublespacing  % restoring double spacing for the contents in appendices
+\MainTextSpacing        % restoring double spacing for the contents in appendices
 %% full header for appendix chapters (to remove the headers, comment out the following line)
 \fancyhead[L]{\appendixname\ \thechapter. \nouppercase \leftmark}
 
@@ -584,6 +601,7 @@ aboveskip=0.5cm}
 % \includepdf[pages=-]{John_Doe_CV.pdf}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%% END BACK MATTER %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 
 \end{document}
