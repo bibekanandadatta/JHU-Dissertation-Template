@@ -6,7 +6,7 @@ This template is also [available on Overleaf as a template](https://www.overleaf
 
 
 
-## History of the `report.cls` based template
+## Version history for the template
 
 - The report-class-based template was first created by R. Jacob Vogelstein in May 2007
 - Updated by Noah J. Cowan on March 01, 2010
@@ -17,16 +17,8 @@ This template is also [available on Overleaf as a template](https://www.overleaf
 - The current version is updated by Bibekananda Datta on March 04, 2024
 
 
-
-## What is included in this version of the template
-
-Since the template is based on the report class, it is subdivided into multiple chapters. There are separate .tex files for all the front matters (mandatory or optional), technical chapters, and back matters (references and appendices).
-
-- `00-main.tex` file is the driver or root file which includes all the preamble, document settings, package settings, and macros as needed as well as the auxiliary .tex files for each chapter. I would recommend going through the different sections of this file before you start working on to understand the available packages and options. 
-- `figures` subdirectory contains all the figures for the thesis. You can add the figures as chapter-wise PDF files or as just individual images with allowable extensions.
-- `thesis.bib` file is a biblatex file which contains all the bibliographic items. I use Zotero to generate biblatex file.
-
 Compared to the previous version of the thesis template, the current version includes the following customizations:
+
   - Reduced the font size for chapter # and chapter title and white space throughout the document.
   - Reorganization of the necessary packages (you may need more) and their settings.
   - Modularized all the settings, formatting, and macros. You can add more as needed.
@@ -36,9 +28,21 @@ Compared to the previous version of the thesis template, the current version inc
 
 
 
+## What is included in this version of the template
+
+Since the template is based on the report class, it is subdivided into multiple chapters. There are separate .tex files for all the front matters (mandatory or optional), technical chapters, and back matters (references and appendices).
+
+- `00-main.tex` file is the driver or root file which includes all the preamble, document settings, package settings, and macros as needed as well as the auxiliary .tex files for each chapter. I would recommend going through the different sections of this file before you start working on to understand the available packages and options. 
+- `figures` subdirectory contains all the figures for the thesis. You can add the figures as chapter-wise PDF files or as just individual images with allowable extensions.
+- `thesis.bib` file is a biblatex file which contains all the bibliographic items. Use Zotero or some other citation manager to generate biblatex file.
+- `latexmkrc` additional settings for the make file to generate PDF/A output. This is required to have in the main directory of Overleaf project.
+- `output.xmpdata` contains simple meta-data to be be tagged in the final PDF/A file. This file is optional.
+
+
+
 ## How to use the template on Overleaf
 
-I prefer using Overleaf for all of my LaTeX compilation and I recommend it storngly since Johns Hopkins provides premium account to all students for Overleaf. Premium Overleaf does fast compilation, allows sharing the project with multiple people (advisor, committee members, collaborator, labmates, friends, or family), keep track history which is great. You can recover file if you break it (hopefully you won't). Follow one of the three approaches to get started with this project on Overleaf.
+I prefer using Overleaf for all of my LaTeX compilation and I recommend it storngly since Johns Hopkins provides premium account to all students for Overleaf. Premium Overleaf does fast compilation, allows sharing the project with multiple people (advisor, committee members, collaborator, labmates, friends, or family), keep track history which is great. You can recover file if you break it (hopefully you won't). Follow one of the three approaches to get started with this project on Overleaf. Then go through the main file and other files to see how the template is structured.
 
 - To use it directly on Overleaf, [open the template here](https://www.overleaf.com/latex/templates/johns-hopkins-thesis-slash-dissertation-template/gbfnqqfzffyp). Then click on **Open as Template** and proceed from there to go through the template and edit it.
 
@@ -46,17 +50,26 @@ I prefer using Overleaf for all of my LaTeX compilation and I recommend it storn
   
 - If you have your Overleaf and GitHub account linked and want to have copies of the project in both places, you can **fork** this repository. Then go to Overleaf, Click on **New Project** -> **Import from GitHub**, it should list the forked project for listing. Once imported, you can start working... But Overleaf and GitHub will not sync automatically; you will have to do it.
 
-Once you have imported the project, you need to compile `00-main.tex` file using `pdflatex` option (default on Overleaf) which will call all the auxilary files included to produce the final PDF. It should compile without any error on Overleaf. There might be warnings, but you can ignore them. Go through the main file and other files to understand the structure of the template. Your bibliographic file has to be in BibLaTeX format. Use a citation manager (such as Zotero) to export it in that format.
+Once you have imported the project, you need to compile `00-main.tex` file using `pdflatex` option (default on Overleaf) which will call all the auxilary files included to produce the final PDF. It should compile without any error on Overleaf. There might be warnings, but you can ignore them. 
 
 
-**PS:** In case you prefer to do it locally, clone or download the repository. You need to have a text editor and LaTeX compiler with bunch of packages installed. If you have not done it before, it maybe a bit challenging task to do for the first time. It's been a while I used LaTeX locally (big fan of Overleaf), and I have not done it for this project and will be unable to provide any help on it.
+
+## Generating PDF/A compliant output file
+
+Johns Hopkins Library requires the electronic copy of the thesis should be [generated in PDF/A format](https://www.adobe.com/uk/acrobat/resources/document-files/pdf-types/pdf-a.html) which is not trivial. Compiling LaTeX document is a bit of involved process but thanks to Overleaf that we do not really have to worry about it. [Check here to learn how do they do it](https://www.overleaf.com/learn/how-to/How_does_Overleaf_compile_my_project%3F). I have not done the compilation locally for this project and do not plan on doing it. So I am unable to provide any help in that regard.
+
+- Learn about [latexmkrc file on Overleaf](https://www.overleaf.com/learn/latex/Articles/How_to_use_latexmkrc_with_Overleaf) which you will need to generate PDF/A file.
+- [This documentation](https://www.overleaf.com/latex/templates/creating-pdf-slash-a-and-pdf-slash-x-files-with-the-pdfx-package/bbbycnbyqhnm) provides details on how to generate PDF/A compilant output on Overleaf. **Open as Template** to see what is included in the project.
+  - Briefly, PDF/A compliant output is generating by including `\usepackage{pdfx}` command in the preamble, and to ensure the compilation worked properly, the project directory needs to include `latexmkrc` input file in which you will need to specify the timezone; [check supported timezones here](https://www.php.net/manual/en/timezones.php).
+  - Optionally, to include the meta-data in the generated PDF, you can edit the `output.xmpdata`. The given fields are very simple.
 
 
 
 ## Some useful comments and suggestions for using the template
 
+Overleaf has a huge collection of tutorials and examples on different LaTeX-related typesetting topics (margins and page size, table, footnote, bibliography management). You will most likely to find what you need there. But some specific suggestions for this template and projects are below:
 
-- Some necessary variables to customize the formatting of the document are included at the beginning of the document. You can customize different spacing and style options using these variables. For most cases, tweaking these variables to your need and preference will be more than good enough to get desired format which conforms to library requirement. So, try to understand what each variable does by tweaking them before you start putting your contents in there, and finalize them as needed to customize the dissertation formatting there.
+- Most of the necessary variables to customize the formatting of the document are included at the beginning of the document. You can customize different spacing and style options using these variables. For most cases, tweaking these variables to your need and preference will be more than good enough to get desired format which conforms to library requirement. So, try to understand what each variable does by tweaking them before you start putting your contents in there, and finalize them as needed to customize the dissertation formatting there.
 
 - In addition to these variables, if your bib file has a different name than the current file, then change the `BibFileName` varibale. Make sure to specify the correct name for the `graphicspath` as well.
 
@@ -82,7 +95,7 @@ Once you have imported the project, you need to compile `00-main.tex` file using
 
 - Add your math macros and settings in the `Math Settings and Macros` section. There's a section for non-math LaTeX macros as well.
 
-- If you find all the packages and their settings and macros to be overwhelming and distracting during the editing process, you can cut and paste all these contents to a separate `settings.tex` file (name it as you like) in the project directory. Then you can use the command `input{settings.tex}` to make your main file appear cleaner and less distracting. `\input{}` command literally pastes content from the source file. This is what I personally do for such larger project.
+- If you find all the packages and their settings and macros to be overwhelming and distracting during the editing process, you can cut and paste all these contents to a separate `settings.tex` file (name it as you like) in the project directory. Then you can use the command `input{settings.tex}` to make your main file appear cleaner and less distracting. `\input{}` command literally pastes content from the source file. See [managing large project on Overleaf](https://www.overleaf.com/learn/latex/Management_in_a_large_project).
 
 - If the chapter name is too long, you may have to customize the header spacing in the geometry settings options to accommodate that. Alternatively, you can use it with a short header option. But if it gets difficult to customize, you may want to remove all the header options by commenting them out in the main file.
 
