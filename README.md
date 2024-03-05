@@ -20,7 +20,9 @@ This template is also [available on Overleaf as a template](https://www.overleaf
 
 ## What is included in this version of the template
 
-Since the template is based on the report class, it is subdivided into multiple chapters. For all the front matters (mandatory or optional), technical chapters, and back matters (references and appendices), there are separate .tex files. The `00-main.tex` file is the driver or root file which includes all the preamble, document settings, package settings, and macros as needed. I would recommend going through the different sections of this file before you start working on to understand the available packages and options. Compared to the previous version of the thesis template, the current version includes the following customizations:
+Since the template is based on the report class, it is subdivided into multiple chapters. For all the front matters (mandatory or optional), technical chapters, and back matters (references and appendices), there are separate .tex files. The `00-main.tex` file is the driver or root file which includes all the preamble, document settings, package settings, and macros as needed. I would recommend going through the different sections of this file before you start working on to understand the available packages and options. 
+
+Compared to the previous version of the thesis template, the current version includes the following customizations:
 
 - Reduced the font size for chapter # and chapter title and white space throughout the document.
 - Reorganization of the necessary packages (you may need more) and their settings.
