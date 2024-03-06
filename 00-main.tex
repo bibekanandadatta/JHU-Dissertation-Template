@@ -46,19 +46,19 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% VERSION HISTORY %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
 
-\documentclass[12pt]{report}                % define the document class
+\documentclass[12pt]{report}                % define the report document class
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% if possible, please make your formatting changes here through the variables 
 %% go through all the variables and understand what role they play in formatting
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%% list of variables for different formatting settings %%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%% LIST OF VARIABLES FOR FORMATTING %%%%%%%%%%%%%%%%%%%%%%%%
 
 \def\FontPackage{lmodern}                   % latin modern font (you can also change it to times)
 \def\BibFileName{thesis.bib}                % name of BibLaTeX file with all the bibliography
@@ -68,7 +68,7 @@
 \def\NoSectionLevel{3}                      % 3 levels for sections ... to subsubsection
 \def\TocIndent{0}                           % indentation in the list of figs and tables
 \def\NoTocLevel{3}                          % no of levels showed in the table of contents
-%% 3 levels mean chapter, section, subsection. increase if you want more to show in TOC
+%% 3 levels mean section to subsubsection.. decrease if you want less to showup in TOC
 
 \def\MainTextSpacing{\doublespacing}        % double spacing in main text (JH library requirement)
 \def\TOCTextSpacing{\onehalfspacing}        % one-half spacing for TOC texts
@@ -108,43 +108,31 @@
 \def\FootnoteSpacing{0.75\baselineskip}     % spacing between footnotes
 \def\CaptionSpacing{0}                      % spacing between the figure and the caption (unit: pt)
 
-%%%%%%%%%%% list of variables for different formatting settings %%%%%%%%%%%%%%%
-
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%% unless you really know what following things mean and what Johns Hopkins
-%% library requires, please do not change the following PDF/A settings.
-
-%%%%%%%%%%%%%%%%%%%% JH Library-specific settings for PDF/A %%%%%%%%%%%%%%%%%%%
-
-%% PDF Creation settings (required for JH library)
+%% pdflatex compression settings to generate compressed PDF
 \pdfcompresslevel=9
 \pdfminorversion=5
 \pdfobjcompresslevel=2
 
-% Needed to create a PDF/A file
-\usepackage[a-1b]{pdfx}
-
-%%%%%%%%%%%%%%%%%%%% JH Library-specific settings for PDF/A %%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%% END LIST OF VARIABLES FOR FORMATTING %%%%%%%%%%%%%%%%%%%%%%
 
 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%% add packages as you need but remember sometimes the order of the packages matter.
-%% here they are added in alphabetic order or based on their purpose.
+%% add packages as needed but sometimes the order of the packages matter.
+%% I primarily tried to load the packages in alphabetical order unless or 
+%% based on their functionalities (all math/ table packages) unless there 
+%% is an issue with dependency, then I included packages in that order.
 %% you may get warning/ error for the order in which packages are included
 %% you may have to change the options in biblatex package for bibliography
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LaTeX Packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LaTeX PACKAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \usepackage[utf8]{inputenc}	                % for encoding input character
-\DeclareUnicodeCharacter{2212}{-}           % defining unicode character
-%% may need to define more if some unicode characters appears somewhere in your thesis
+\usepackage[pagewise,mathlines]{lineno}     % linenumbers for drafting
+
 
 %% math packages
 \usepackage{amsfonts,amssymb,amsmath,amsthm,autobreak,cancel,dsfont,mathtools,mathbbol,mathrsfs,siunitx,upgreek}
@@ -155,7 +143,7 @@
 
 %% bibliographic package (make sure your bib file is in BibLaTeX format)
 %% use Zotero or some other reference manager to generate the BibLaTeX file
-%% change the style or other options as needed 
+%% change the style or other options if you need to
 \usepackage[backend=biber, style=nature, maxnames=9, date=year, isbn=false, url=false, doi=true]{biblatex}
 % \usepackage[backend=biber, style=apa, isbn=false, url=false, doi=true]{biblatex}
 
@@ -163,31 +151,31 @@
 \usepackage{calc}                           % to set arithmetic arguments for spacing
 \usepackage{caption}                        % to manage captions
 \usepackage{color}                          % color related packages
-\usepackage{epigraph,varwidth}              % for managing quotes
+\usepackage{csquotes,epigraph,varwidth}     % for managing quotes
 \usepackage{enumitem}                       % to manage list environment
 \usepackage{float}                          % to manage floating environment
 \usepackage[T1]{fontenc}                    % for font encoding
 \usepackage[bottom]{footmisc}               % footnote environment management
 \usepackage{graphicx,wrapfig}               % to manage images
-
 \usepackage{geometry}                       % to manage margins and others
 \usepackage{fancyhdr}                       % for header/ footer settings
+\usepackage[dvipsnames]{xcolor}
+\usepackage[a-1b]{pdfx}                     % to generate PDF/A file (before hyperref)
 \usepackage[pdfa]{hyperref}                 % for hyperlinks
 \usepackage[all]{hypcap}                    % for captions on the side of figures
 \usepackage{ifthen}                         % if-then statement in algorithm
 \usepackage{lscape}                         % landscape mode
-\usepackage[pagewise,mathlines]{lineno}     % linenumbers
-\usepackage{csquotes}                       % to manage quote environment
-
 \usepackage{listings}                       % to include codes
 
 %% table related packages
 \usepackage{booktabs,longtable,makecell,multicol,multirow,tabularx,xltabular}
 
+
 \usepackage{setspace}                       % sets space between lines
 \usepackage{seqsplit}                       % splits long character sequence
 \usepackage[rightcaption]{sidecap}          % for sideway captions
 \usepackage[titles]{tocloft}                % to manage table of contents
+\usepackage{parskip}
 \usepackage{textcomp}                       % text companion fonts in TS1
 \usepackage{titlesec}                       % managing different titles
 \usepackage{tikz}                           % drawing related package
@@ -195,7 +183,8 @@
 
 %% add more packages and/or change options of the packages as needed
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LaTeX Packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% END LaTeX PACKAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 
 
@@ -203,11 +192,16 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%% optional settings for different packages are added here.
-%% if you want to enhance options for an already exisiting package, do it here.
-%% in case you add a new package, you can put the settings here as well.
+%% if possible, make all of your changes through the defined variables above.
+%% you can make most common changes there before tweaking following settings.
+%% if you are really specific about some formatting and can not change them
+%% by changing defined variables in the beginning, only then proceed to the 
+%% next sections which includes loading proper package options, redefining 
+%% different environments, document formatting, settings for special packages 
+%% (epigraph, algorithm, listings, etc). be cautious before making any changes.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PACKAGE OPTIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 %% add all the images to that folder for cleaner file management
 %% you can add images in chapter-wise PDF format (my preference).
 \graphicspath{{\FigurePath/}}
@@ -216,16 +210,16 @@
 %% this file has to be in BibLaTeX format. Use Zotero or some other citation manager to generate the .bib file in BibLaTeX format.
 \addbibresource{\BibFileName}
 
-%% margin settings required by JH library (geometry package)
+
+%% margin settings required by JH library using geometry package
 %% if you have a long chapter title you may need to customize the header settings here
 \geometry{letterpaper, left=1.5in, right=1.0in, top=1.0in, bottom=1.0in, includehead, headheight=30pt, headsep=10pt, includefoot, heightrounded}
-
 
 
 %% settings for the hyperref package
 \hypersetup{linktocpage, unicode, colorlinks=true, citecolor=blue, filecolor=blue, linkcolor=blue, urlcolor=blue}
 % add 'linktoc=all' option to the above list for making the items in TOC as clickable links
-\urlstyle{rm}           % removes default \texttt style for links
+\urlstyle{rm}           % removes default \texttt style for hyperlinks
 
 
 %% settings for caption package (customize or add more as needed)
@@ -237,27 +231,18 @@
 
 
 %% settings for TikZ library (you can add more settings here)
-\usetikzlibrary{positioning}
-\usetikzlibrary{shapes,arrows}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PACKAGE OPTIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usetikzlibrary{positioning,shapes,arrows}
 
 
+%% may need to define more unicode characters if they appear in your thesis
+\DeclareUnicodeCharacter{2212}{-}           % defining unicode character '-'
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% END PACKAGE OPTIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%% if possible, make all of your changes through the defined variables above.
-%% you can make most common changes there before tweaking following settings.
-%% if you are really unhappy about some specific formatting and can not change 
-%% them by changing defined variables in the beginning, only then proceed to the 
-%% next  sections which includes loading proper package options, redefining 
-%% differentenvironments, document formatting, settings for special packages 
-%% (epigraph, algorithm, listings, etc). be cautious before making any changes.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% REDEFINITION %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% REDEFINITION OF ENVIRONMENT %%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%% UNNUMBERED CHAPTERS, SECTION, and SUBSECTION COMMAND for ADDING to TOC
 % removes the 'Chapter #' title while keeping it listed in the TOC
@@ -281,21 +266,24 @@
   \subsubsection*{#1}%
   \addcontentsline{toc}{subsubsection}{#1}}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% REDEFINITION %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%% END REDEFINITION OF ENVIRONMENT %%%%%%%%%%%%%%%%%%%%%%%%
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% DOCUMENT FORMATTING %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% SETTINGS FOR TOC %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% choice a font form (or add something else) for your thesis
+\usepackage{\FontPackage}
 
 %%%% TOC shows (chapter to subsection) in the list
 \setcounter{tocdepth}{\NoTocLevel}
-\setcounter{secnumdepth}{\NoSectionLevel}       % section to ... subsubsection
+\setcounter{secnumdepth}{\NoSectionLevel}       % section to ... subsubsection ...
+
 
 \setlength{\cftfigindent}{\TocIndent pt}        % indentation from figures in lof
 \setlength{\cfttabindent}{\TocIndent pt}        % indentation from tables in lot
 
 
-% dots for chapters too
+%%%% dots for chapters too
 \renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
 
 
@@ -316,17 +304,9 @@
 \renewcommand{\cfttabpresnum}{\bfseries Table }
 \setlength{\cfttabnumwidth}{\widthof{\textbf{Table~99.100~}}}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% SETTINGS FOR TOC %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%% DOCUMENT FORMATTING %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%% choice a font form (or add something else) for your thesis (uncomment one option)
-\usepackage{\FontPackage}
-
-
-%%%% chapter # and title settings (with gaps)
+%%%% chapter # and title settings (with white space)
 %% if you use an epigraph after the chapter title then perhaps reduce the first \vspace* from 0 pt to -(some_value)
 \makeatletter
 \def\@makechapterhead#1{%
@@ -382,9 +362,10 @@
 
 
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%% following two sections are optional and will be required if you use specific packages
+%% following sections are optional and will be required for using specific packages
 
 %% if you plan on using quotes, you may need specialized epigraph settings.
 %% hopefully the following settings will work for you if the quote is small.
@@ -392,8 +373,8 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% EPIGRAPH SETTINGS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%% Following settings allow the epigraph and the underline 
-%%% settings for arbitrary epigraph length
+%%%% Following settings allow the epigraph and the underline 
+%% settings for arbitrary epigraph length
 \renewcommand{\epigraphflush}{flushright}
 \renewcommand{\epigraphsize}{\small}
 \setlength{\epigraphwidth}{\QuoteWidth}
@@ -456,7 +437,6 @@
 
 
 %% listing package definition (to add code in the document)
-\usepackage{listings}
 \lstdefinestyle{terminal}{columns=fullflexible,
 keepspaces=true,
 breaklines=true,
@@ -512,16 +492,11 @@ aboveskip=0.5cm}
 
 
 
-
-
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%% DOCUMENT BEGINS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% \linenumbers                  % may be useful during drafting
 \begin{document}
 
-
+% \linenumbers                  % may be useful during drafting
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% FRONT MATTER %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \onehalfspacing                             % one-and-half spacing for title page
