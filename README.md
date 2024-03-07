@@ -99,7 +99,7 @@ Overleaf has a huge collection of tutorials and examples on different LaTeX-rela
 
 - If the chapter name is too long, you may have to customize the header spacing in the geometry settings options to accommodate that. Alternatively, you can use it with a short header option. But if it gets difficult to customize, you may want to remove all the header options by commenting them out in the main file.
 
-- Keep writing ... and Happy Graduation 🎉!
+- Keep writing ... and Happy Graduation :tada:!
 
 
 ## Contributing to the project
