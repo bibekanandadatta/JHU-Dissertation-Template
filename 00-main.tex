@@ -46,13 +46,10 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% VERSION HISTORY %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-
-\documentclass[12pt]{report}                % define the report document class
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% if possible, please make your formatting changes here through the variables 
@@ -118,6 +115,7 @@
 
 
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% add packages as needed but sometimes the order of the packages matter.
@@ -127,8 +125,9 @@
 %% you may get warning/ error for the order in which packages are included
 %% you may have to change the options in biblatex package for bibliography
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LaTeX PACKAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%% LaTeX CLASS AND PACKAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\documentclass[12pt]{report}                % report document class w/ 12 pt font
 
 \usepackage[utf8]{inputenc}	                % for encoding input character
 \usepackage[pagewise,mathlines]{lineno}     % linenumbers for drafting
@@ -183,7 +182,7 @@
 
 %% add more packages and/or change options of the packages as needed
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% END LaTeX PACKAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%% END LaTeX CLASS AND PACKAGES %%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
@@ -241,7 +240,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% END PACKAGE OPTIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-%%%%%%%%%%%%%%%%%%%%%%%% REDEFINITION OF ENVIRONMENT %%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% REDEFINITION OF ENVIRONMENTS %%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%% UNNUMBERED CHAPTERS, SECTION, and SUBSECTION COMMAND for ADDING to TOC
 % removes the 'Chapter #' title while keeping it listed in the TOC
@@ -265,7 +264,7 @@
   \subsubsection*{#1}%
   \addcontentsline{toc}{subsubsection}{#1}}
 
-%%%%%%%%%%%%%%%%%%%%%%% END REDEFINITION OF ENVIRONMENT %%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%% END REDEFINITION OF ENVIRONMENTS %%%%%%%%%%%%%%%%%%%%%%%
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% DOCUMENT FORMATTING %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -469,7 +468,7 @@ aboveskip=0.5cm}
 
 %% these are just some examples; add more macros for your custom symbols
 
-%%%%%%%%%%%%%%%%%%%%%%% MATH SETTINGS AND MACROS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%% END MATH SETTINGS AND MACROS %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
@@ -485,7 +484,9 @@ aboveskip=0.5cm}
 %% you can also add more simple comments here as you need
 %% you can use some other packages for more complicated review and comment section
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% OTHER MACROS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% END OTHER MACROS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 
 
 
@@ -493,11 +494,12 @@ aboveskip=0.5cm}
 
 \begin{document}
 
-% \linenumbers                              % may find useful during drafting
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% FRONT MATTER %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \include{01-title}                          % include the title page
-
+% \linenumbers                              % may find useful during drafting
+% place above comment based on where you want to start line numbering
 
 %% chapter header and page numbering set up
 %% header unnumbered chapters (to remove the headers, comment out the following lines)
