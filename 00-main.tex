@@ -61,9 +61,14 @@
 \def\BibTextSpacing{\singlespacing}         % single spacing for bibliography
 %% JH library does not specify spacing for TOC and bibliographic references
 
-\def\ChapterTopSpace{-48}                   % white space on top of the chapter heading (unit: pt)
+\def\GlobalMargin{1.0in}                    % margin on all sides
+\def\PrintingOffset{0.5in}                  % additional space on the left margin for print copy
+\def\HeaderHeight{20}                       % height of the header (unit: pt)
+\def\HeaderSpace{10}                        % space between header and the following text (unit: pt)
+\def\ChapterTopMargin{-48}                  % white space on top of the chapter heading (unit: pt)
 \def\ChapterToTitle{-12}                    % space between chapter to title (unit: pt)
 \def\TitleToText{18}                        % space between the chapter title to the following text (unit: pt)
+
 
 \def\ParagraphSpacing{\baselineskip}        % spacing between paragraph
 \def\ParagraphIndent{0}                     % indentation at the beginning of the paragraph
@@ -71,6 +76,7 @@
 \def\BibItemSpacing{0.75\baselineskip}      % spacing between bibliographic items in reference
 \def\FootnoteSpacing{0.75\baselineskip}     % spacing between footnotes
 \def\CaptionSpacing{0}                      % spacing between the figure and the caption (unit: pt)
+
 
 %% if you have a longer quote, you may have to change it.
 \def\QuoteWidth{0.65\textwidth}             % width of quote in epigraph
@@ -196,7 +202,8 @@
 
 %% margin settings required by JH library using geometry package
 %% if you have a long chapter title you may need to customize the header settings here
-\geometry{letterpaper, left=1.5in, right=1.0in, top=1.0in, bottom=1.0in, includehead, headheight=30pt, headsep=10pt, includefoot, heightrounded}
+\geometry{letterpaper, margin=\GlobalMargin, bindingoffset=\PrintingOffset, nomarginpar, includehead, headheight=\HeaderHeight pt, headsep=\HeaderSpace pt, includefoot, heightrounded}
+%% you can add showframe option to see how the layout looks like if needed 
 
 
 %% settings for the hyperref package
@@ -219,7 +226,6 @@
 
 %% may need to define more unicode characters if they appear in your thesis
 \DeclareUnicodeCharacter{2212}{-}           % defining unicode character '-'
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% END PACKAGE OPTIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -291,7 +297,7 @@
 %% if you use an epigraph after the chapter title then perhaps reduce the first \vspace* from 0 pt to -(some_value)
 \makeatletter
 \def\@makechapterhead#1{%
-  \vspace*{\ChapterTopSpace \p@}   % white space before the chapter #
+  \vspace*{\ChapterTopMargin \p@}   % white space before the chapter #
   {\parindent \z@ \raggedright \normalfont
     \ifnum \c@secnumdepth >\m@ne
         \ChapterFont \@chapapp\enskip \thechapter 
@@ -308,7 +314,7 @@
 % if you use an epigraph after the chapter title then perhaps reduce the first \vspace* from 0 pt to - (some_value)
 \makeatletter
 \def\@makeschapterhead#1{%
-  \vspace*{\ChapterTopSpace \p@} % white space before to the chapter title
+  \vspace*{\ChapterTopMargin \p@} % white space before to the chapter title
   {\parindent \z@ \raggedright
     \normalfont
     \interlinepenalty\@M
