@@ -98,13 +98,13 @@ Overleaf has a huge collection of tutorials and examples on different LaTeX-rela
 
 - Similarly, for unnumbered sections, subsections, and subsubsections that you would like to add to the table of contents, use `\sect`, `\subsect`, and `\subsubsect` commands, respectively. If you do not any of these environments to be added to the table of contents, then you can use standard * environments; such as `\section*{}`, etc.
 
-- Add your math macros and settings in the `Math Settings and Macros` section. There's a section for non-math LaTeX macros as well.
+- Add your math macros and settings in the `Math Settings and Macros` section. There's a section for non-math LaTeX macros as well. Some examples of both types of macros are added there.
 
 - If you find all the packages and their settings and macros to be overwhelming and distracting during the editing process, you can cut and paste all these contents to a separate `settings.tex` file (name it as you like) in the project directory. Then you can use the command `input{settings.tex}` to make your main file appear cleaner and less distracting. `\input{}` command literally pastes content from the source file. See [managing large project on Overleaf](https://www.overleaf.com/learn/latex/Management_in_a_large_project).
 
 - If the chapter name is too long, you may have to customize the header spacing in the geometry settings options to accommodate that. Alternatively, you can use it with a short header option. But if it gets difficult to customize, you may want to remove all the header options by commenting them out in the main file.
 
-- Finally, you may consider using `microtype` package to have a better type. Check details on using [`microtype` package here](https://www.khirevich.com/latex/microtype/).
+- Finally, you may consider using `microtype` package to have a better typography. Check details on using [`microtype` package for writing thesis here](https://www.khirevich.com/latex/microtype/).
 
 - Keep writing ... and Happy Graduation :tada:!
 
