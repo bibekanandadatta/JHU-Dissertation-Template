@@ -2,7 +2,7 @@
 
 This is an unofficial thesis (masters) or dissertation (PhD) template for Johns Hopkins with recent updates by Bibekananda Datta. As of March 2024, the template follows the dissertation formatting requirements provided by the [Johns Hopkins University Sheridan Library](https://www.library.jhu.edu/library-services/electronic-theses-dissertations/formatting-requirements/). Johns Hopkins Library is flexible in terms of the format except for the title page, margins, and overall double-spaced content. **However, be sure to check the requirements before you proceed any further. It is the user's responsibility to ensure all the formatting requirements are met.**
 
-This template is also [available on Overleaf as a template](https://www.overleaf.com/latex/templates/johns-hopkins-thesis-slash-dissertation-template/gbfnqqfzffyp). Details of using the template or the repository will be found below.
+This template is also [available on Overleaf as an unofficial template](https://www.overleaf.com/latex/templates/johns-hopkins-thesis-slash-dissertation-template/gbfnqqfzffyp).
 
 
 
