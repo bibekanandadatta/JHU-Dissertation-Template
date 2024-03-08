@@ -6,54 +6,42 @@
 %%                           JOHNS HOPKINS UNIVERSITY                         %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%             PLEASE CHECK THE README.MD FILE BEFORE YOU PROCEED             %%
 %%   GitHub: https://github.com/bibekananda-datta/JHU-Dissertation-Template   %%
 %%              it may be conveneint to read this file on GitHub              %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 % This is an unofficial dissertation template for Johns Hopkins University.
 % As of March 04, 2024, the template follows the dissertation formatting 
 % requirements provided by the  Johns Hopkins University Sheridan Library.
 % It is the user's responsibility to ensure that the current requirements are 
 % followed: https://www.library.jhu.edu/library-services/electronic-theses-dissertations/formatting-requirements/
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% VERSION HISTORY %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 % The report-class-based template was created by R. Jacob Vogelstein in May 2007
 % Updated by Noah J. Cowan on March 01, 2010
 % Updated by Brian D. Weitzner on April 29, 2014 
 % Updated by John Muschelli on January 29, 2016 
 % Updated by Leonardo Collado Torres on April 13, 2016 
 % Updated by John Clayton in December 2019
-% Last Updated by Bibekananda Datta on March 04, 2024
-
-%%% CURRENT VERSION INCLUDES:
+% Last Updated by Bibekananda Datta on March 07, 2024
+% This version is heavily edited and customized from the previous version
+%%%%%%%%%%%%%%%%%%%%%%%%%%% CURRENT VERSION INCLUDES %%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Reorganization of the necessary packages (you may need more) and their settings.
 % Modularized all the settings, formatting, and macros. You can add more as needed.
 % Added customization option for font size, typeface, and spacing.
 % Added specific settings for adding quotes before or after the chapter headings.
 % Added settings for including algorithm (algorithm2e) and codes (listing).
 % Updated the appearance of table of contents, list of figures, and list of tables.
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% VERSION HISTORY %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% if possible, please make your formatting changes here through the variables 
 %% go through all the variables and understand what role they play in formatting
-
 %%%%%%%%%%%%%%%%%%%%%% LIST OF VARIABLES FOR FORMATTING %%%%%%%%%%%%%%%%%%%%%%%%
 
 \def\FontPackage{lmodern}                   % latin modern font (you can also change it to times)
@@ -71,10 +59,24 @@
 \def\BibTextSpacing{\singlespacing}         % single spacing for bibliography
 %% JH library does not specify spacing for TOC and bibliographic references
 
-
 \def\ChapterTopSpace{-48}                   % white space on top of the chapter heading (unit: pt)
 \def\ChapterToTitle{-12}                    % space between chapter to title (unit: pt)
 \def\TitleToText{18}                        % space between the chapter title to the following text (unit: pt)
+
+\def\ParagraphSpacing{\baselineskip}        % spacing between paragraph
+\def\ParagraphIndent{0}                     % indentation at the beginning of the paragraph
+\def\FullCiteSpacing{1.25}                  % spacing in a fullcite item
+\def\BibItemSpacing{0.75\baselineskip}      % spacing between bibliographic items in reference
+\def\FootnoteSpacing{0.75\baselineskip}     % spacing between footnotes
+\def\CaptionSpacing{0}                      % spacing between the figure and the caption (unit: pt)
+
+%% if you have a longer quote, you may have to change it.
+\def\QuoteWidth{0.65\textwidth}             % width of quote in epigraph
+
+
+%% if this seems too widespread for you, try changing it locally using
+%% \begin{group} ... \renewcommand{\arraystretch} ... \end{group} commands
+\def\GlobalTableSpacing{1.5}                % global spacing parameter for table
 
 
 % font format for chapter heading and title
@@ -88,22 +90,6 @@
 \def\CodeFont{\footnotesize\ttfamily}       % font for including codes using listing
 
 
-%% if you have a longer quote, you may have to change it.
-\def\QuoteWidth{0.65\textwidth}             % width of quote in epigraph
-
-
-%% if this seems too widespread for you, try changing it locally using
-%% \begin{group} ... \renewcommand{\arraystretch} ... \end{group} commands
-\def\GlobalTableSpacing{1.5}                % global spacing parameter for table
-
-
-\def\ParagraphSpacing{\baselineskip}        % spacing between paragraph
-\def\ParagraphIndent{0}                     % indentation at the beginning of the paragraph
-\def\FullCiteSpacing{1.25}                  % spacing in a fullcite item
-\def\BibItemSpacing{\baselineskip}          % spacing between bibliographic items in reference
-\def\FootnoteSpacing{0.75\baselineskip}     % spacing between footnotes
-\def\CaptionSpacing{0}                      % spacing between the figure and the caption (unit: pt)
-
 %% pdflatex compression settings to generate compressed PDF
 \pdfcompresslevel=9
 \pdfminorversion=5
@@ -116,14 +102,12 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %% add packages as needed but sometimes the order of the packages matter.
 %% I primarily tried to load the packages in alphabetical order unless or 
 %% based on their functionalities (all math/ table packages) unless there 
 %% is an issue with dependency, then I included packages in that order.
 %% you may get warning/ error for the order in which packages are included
 %% you may have to change the options in biblatex package for bibliography
-
 %%%%%%%%%%%%%%%%%%%%%%%%%% LaTeX CLASS AND PACKAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[12pt]{report}                % report document class w/ 12 pt font
@@ -167,14 +151,14 @@
 \usepackage{listings}                       % to include codes
 
 %% table related packages
-\usepackage{booktabs,longtable,makecell,multicol,multirow,tabularx,xltabular}
+\usepackage{booktabs,longtable,dcolumn,makecell,multicol,multirow,tabularx,xltabular}
 
 
 \usepackage{setspace}                       % sets space between lines
 \usepackage{seqsplit}                       % splits long character sequence
 \usepackage[rightcaption]{sidecap}          % for sideway captions
-\usepackage[titles]{tocloft}                % to manage table of contents
-\usepackage{parskip}
+\usepackage[titles]{tocloft}                % to manage table of content
+\usepackage{parskip}                        % paragraph-related spacings (after tocloft)
 \usepackage{textcomp}                       % text companion fonts in TS1
 \usepackage{titlesec}                       % managing different titles
 \usepackage{tikz}                           % drawing related package
@@ -190,7 +174,6 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %% if possible, make all of your changes through the defined variables above.
 %% you can make most common changes there before tweaking following settings.
 %% if you are really specific about some formatting and can not change them
@@ -198,7 +181,6 @@
 %% next sections which includes loading proper package options, redefining 
 %% different environments, document formatting, settings for special packages 
 %% (epigraph, algorithm, listings, etc). be cautious before making any changes.
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PACKAGE OPTIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% add all the images to that folder for cleaner file management
@@ -303,7 +285,6 @@
 \setlength{\cfttabnumwidth}{\widthof{\textbf{Table~99.100~}}}
 
 
-
 %%%% chapter # and title settings (with white space)
 %% if you use an epigraph after the chapter title then perhaps reduce the first \vspace* from 0 pt to -(some_value)
 \makeatletter
@@ -360,13 +341,11 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %% following sections are optional and will be required for using specific packages
 
 %% if you plan on using quotes, you may need specialized epigraph settings.
 %% hopefully the following settings will work for you if the quote is small.
 %% epigraph examples given in chapters 2 and 3 for relatively small quotes.
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% EPIGRAPH SETTINGS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%% Following settings allow the epigraph and the underline 
@@ -418,10 +397,8 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %% if you plan on adding algorithms and codes in your thesis, the these settings
 %%  may be helpful. you can tweak them based on your need and preferences.
-
 %%%%%%%%%%%%%%%%%%%%%% ALGORITHM AND LISTING SETTINGS %%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% settings for algorithm2e package
@@ -451,10 +428,8 @@ aboveskip=0.5cm}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %% add all your custom math settings and macros in the following section.
 %% this is where LaTeX supremacy becomes a thing. you can customize a lot.
-
 %%%%%%%%%%%%%%%%%%%%%%% MATH SETTINGS AND MACROS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \allowdisplaybreaks[1]
@@ -473,9 +448,7 @@ aboveskip=0.5cm}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %% add all your non-mathematical macros and other random settings in here.
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% OTHER MACROS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand{\COMMENT}{\textcolor{red}}
@@ -485,15 +458,14 @@ aboveskip=0.5cm}
 %% you can use some other packages for more complicated review and comment section
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% END OTHER MACROS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%% DOCUMENT BEGINS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%% DOCUMENT BEGINS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% FRONT MATTER %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -559,7 +531,7 @@ aboveskip=0.5cm}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% BACK MATTER %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%% references
+%%% references
 \clearpage
 \BibTextSpacing                     % single spacing for the bib items (too widespread otherwise)
 % you can also change 'BibItemSeparation' variable to control the spacing
@@ -569,7 +541,7 @@ aboveskip=0.5cm}
 \include{10-references}             % include reference chapter
 
 
-%% appendix chapters
+%%% appendix chapters
 \MainTextSpacing                    % restoring double spacing for the contents in appendices
 %% full header for appendix chapters (to remove the headers, comment out the following line)
 \fancyhead[L]{\appendixname\ \thechapter. \nouppercase \leftmark}
@@ -581,14 +553,12 @@ aboveskip=0.5cm}
 
 
 %% you can also add biographical sketch/ CV in here 
-%% you can write it as other chapters and add the chapter in here
-%% if you already have CV as a PDF, add it to the main directory, then use:
+%% you can write it as other chapters and add the chapter in here as before
+%% of if you already have CV as a PDF, add it to the main directory, and use:
 
 % \includepdf[pages=-]{John_Doe_CV.pdf}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%% END BACK MATTER %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
 
 \end{document}
 
