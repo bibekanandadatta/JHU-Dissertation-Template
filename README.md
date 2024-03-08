@@ -92,11 +92,18 @@ Overleaf has a huge collection of tutorials and examples on different LaTeX-rela
 
 - You can also remove the settings for the optional packages that you do not indent to use such as epigraph, listings, algorithm2e, etc. But be careful while doing that; do not break the code.
 
-- If you add a quote before the chapter heading, then you may want to increase the white spacing on top. In this case, all of the Chapters will have white space before Chapter # and title. I personally do not like it in the default font size and spacing.
+- If you add a quote before the chapter heading, then you may want to increase the white spacing on top. In this case, all of the Chapters will have white space before Chapter # and title. I personally did not like the default font size and spacing in the LaTeX `report` class. 
 
 - For unnumbered chapters that you want to add to the table of contents, use the `\chap` command instead of the `\chapter*` command. (see, *Abstract* and *Acknowledgment*, for example). An exception to this is *Dedication* chapter because it does not have chapter title.
 
 - Similarly, for unnumbered sections, subsections, and subsubsections that you would like to add to the table of contents, use `\sect`, `\subsect`, and `\subsubsect` commands, respectively. If you do not any of these environments to be added to the table of contents, then you can use standard * environments; such as `\section*{}`, etc.
+
+- Currently, 3 numbered environments `\section{}`, `\subsection{}`, and `\subsubsection{}` are activated throughout the document and available in table of contents. You can decrease or increase thus by tweaking varialbles: `\NoSectionLevel` and `\NoTocLevel`. I personally prefer 2-3 levels for large documents, otherwise it gets too clumsy and confusing.
+
+- Space around the headings of different environment is managed by `\parskip` package. I found the default settings to be working fine for me. But if you would like to customize it, you can add following command in the preamble:
+  ```
+  \titlespacing*{<environment-name>}{<space-left>}{<space-before>}{<space-after>}
+  ```
 
 - Add your math macros and settings in the `Math Settings and Macros` section. There's a section for non-math LaTeX macros as well. Some examples of both types of macros are added there.
 
@@ -107,7 +114,7 @@ Overleaf has a huge collection of tutorials and examples on different LaTeX-rela
 - If the chapter name is too long, you may have to customize the header spacing in the geometry settings options to accommodate that. Tweak the variables `HeaderHeight` and `HeaderSpace` in the variable declaration section. You can add `showframe` option to the `geometry{}` command to see the layout of your document.
   - If you have one or two chapters with long title, changing it locally for individual chapter is a bit tricky task. In that case, you can use header with a short chapter title option. See the examples are given in individual chapters how to add a shorter title. But if it gets difficult to customize or generalize, you can also consider to remove all the header options by commenting them out in the document section of the `00-main.tex` file.
 
-- Finally, you may consider using `microtype` package to have a better typography. Check details on using [`microtype` package for writing thesis here](https://www.khirevich.com/latex/microtype/).
+- Finally, you may consider using `microtype` package to have a better typography. Check details on using [microtype package for writing thesis here](https://www.khirevich.com/latex/microtype/).
 
 - Keep writing ... and Happy Graduation :tada:!
 
