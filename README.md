@@ -34,7 +34,7 @@ Previous version of the template used default options for LaTeX report class and
 Since the template is based on the report class, it is subdivided into multiple chapters. There are separate .tex files for all the front matters (mandatory or optional), technical chapters, and back matters (references and appendices).
 
 - `00-main.tex` file is the driver or root file which includes all the preamble, document settings, package settings, and macros as needed as well as the auxiliary .tex files for each chapter. I would recommend going through the different sections of this file before you start working on to understand the available packages and options.
-- `filename.tex` these are the .tex file dedicated for individual tasks (such as, title, abstract, references, etc.) or chapters. These files are called from the `00-main.tex` file using an `\include{}` command which flushes all the floating object and start a new page.
+- `filename.tex` these are the .tex files dedicated for individual pages (e.g., title, dedication) or environments (such as, abstract, references, etc.) or chapters. These files are called from the `00-main.tex` file using an `\include{}` command which flushes all the floating object and start a new page.
 - `figures` subdirectory contains all the figures for the thesis. You can add the figures as chapter-wise PDF files or as just individual images with allowable extensions. Images are called using `\includegraphics{}` command in a figure environment. You can also use `\includegraphicx{}` command to avoid using specific image file extension.
 - `thesis.bib` file is a biblatex file which contains all the bibliographic items. Use Zotero or some other citation manager to generate the biblatex file containing all the items.
 - `latexmkrc` additional settings for the make file to generate PDF/A output. This is required to have in the main directory of Overleaf project.
@@ -116,7 +116,7 @@ Overleaf has a huge collection of tutorials and examples on different LaTeX-rela
 
 - Finally, you may consider using `microtype` package to have a better typography. Check details on using [microtype package for writing thesis here](https://www.khirevich.com/latex/microtype/).
 
-- If you would like to use colors in your writing or drawing, you can consider using `xcolor` package with `dvipsnames` option (already added in the preamble). Check on [using colors in LaTeX on Overleaf](https://www.overleaf.com/learn/latex/Using_colors_in_LaTeX).
+- If you would like to use colors in your writing or drawing, you can consider using `xcolor` package with `dvipsnames` option (already added in the preamble). Check [how to use colors in LaTeX on Overleaf](https://www.overleaf.com/learn/latex/Using_colors_in_LaTeX).
 
 - Keep writing ... and Happy Graduation :tada:!
 
