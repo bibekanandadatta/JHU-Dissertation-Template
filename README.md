@@ -84,13 +84,13 @@ Overleaf has a huge collection of tutorials and examples on different LaTeX-rela
  
 - The bibliography file is based on BibLaTeX which is a more modern package compared to BibTeX and natbib. Use Zotero (this is what I use) or some other citation manager to generate a standard BibLaTeX file.
 
-- Most common and popular packages for writing dissertations are added in the `LaTeX Class and Package` sections. Check the packages; add any additional package you need and/or customize your options there.
+- Most common and popular packages for writing dissertations are added in the `LaTeX CLASS AND PACKAGES` sections. Check the packages; add any additional package you need and/or customize your options there.
 
 - By default, tables are defined to have `\arraystretch{1.5}` (which is equivalent to double-spaced text). If you would like to customize the spacing inside a table globally throughout the document, you can try decreasing/ increasing the varible `GlobalTableSpacing`. However, I suggest doing it locally by defining a group for each table (StackExhange or StackOverflow is your friend here) where you can redefine `\arraystretch` for the individual tables as needed. Also if the table is wider than the page during editing, you may want to use the landscape tables which are placed sideways and may go over multiple pages (someone on StackExhange or StackOverflow has done it for sure).
 
-- Most of the common formatting-related settings are available in the `Document Formatting` section in the main file. Additional optional settings related to the table of contents, epigraphs, algorithms, and listing packages are separately available but a little bit more complicated. Unless you really want to customize a whole to your taste very spcifically, you can leave them as it is.
+- Most of the common formatting-related settings are available in the `DOCUMENT FORMATTING` section in the main file. Additional optional settings related to the table of contents, epigraphs, algorithms, and listing packages are separately available but a little bit more complicated. Unless you really want to customize a whole to your taste very spcifically, you can leave them as it is.
 
-- You can also remove the settings for the optional packages that you do not indent to use such as epigraph, listings, algorithm2e, etc. But be careful while doing that; do not break the code.
+- You can also remove the settings for the optional packages that you do not indent to use such as `epigraph`, `listings`, `algorithm2e`, etc. But be careful while doing that; do not break the code.
 
 - If you add a quote before the chapter heading, then you may want to increase the white spacing on top. In this case, all of the Chapters will have white space before Chapter # and title. I personally did not like the default font size and spacing in the LaTeX `report` class. 
 
@@ -100,12 +100,12 @@ Overleaf has a huge collection of tutorials and examples on different LaTeX-rela
 
 - Currently, 3 numbered environments `\section{}`, `\subsection{}`, and `\subsubsection{}` are activated throughout the document and available in table of contents. You can decrease or increase thus by tweaking varialbles: `\NoSectionLevel` and `\NoTocLevel`. I personally prefer 2-3 levels for large documents, otherwise it gets too clumsy and confusing.
 
-- Space around the headings of different environment is managed by `\parskip` package. I found the default settings to be working fine for me. But if you would like to customize it, you can add following command in the preamble:
+- Space around the headings of different environments is managed by `parskip` package. I found the default settings to be working fine for me. But if you would like to customize it, you can add following command in the preamble:
   ```
   \titlespacing*{<environment-name>}{<space-left>}{<space-before>}{<space-after>}
   ```
-
-- Add your math macros and settings in the `Math Settings and Macros` section. There's a section for non-math LaTeX macros as well. Some examples of both types of macros are added there.
+  
+- Add your math macros and settings in the `MATH SETTINGS AND MACROS` section. There's a section for non-math `OTHER MACROS` as well. Some examples of both types of macros are added there.
 
 - You can use `\linenumbers` command from `lineno` package anywhere inside the main text document when you would like to have line numbers on the left margin. It might be useful during the drafting stage.
 
