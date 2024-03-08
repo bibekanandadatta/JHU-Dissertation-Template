@@ -87,7 +87,7 @@ Overleaf has a huge collection of tutorials and examples on different LaTeX-rela
 
 - You can also remove the settings for the optional packages that you do not indent to use such as epigraph, listings, algorithm2e, etc. But be careful while doing that; do not break the code.
 
-- If you add a quote before the chapter heading, then you may want to increase the white spacing on top. In this case, all of the Chapters will have white space before Chapter # and title. I personally did not like it in the previous version of the template.
+- If you add a quote before the chapter heading, then you may want to increase the white spacing on top. In this case, all of the Chapters will have white space before Chapter # and title. I personally do not like it in the default font size and spacing.
 
 - For unnumbered chapters that you want to add to the table of contents, use the `\chap` command instead of the `\chapter*` command. (see, *Abstract* and *Acknowledgment*, for example). An exception to this is *Dedication* chapter because it does not have chapter title.
 
