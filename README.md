@@ -109,12 +109,14 @@ Overleaf has a huge collection of tutorials and examples on different LaTeX-rela
 
 - You can use `\linenumbers` command from `lineno` package anywhere inside the main text document when you would like to have line numbers on the left margin. It might be useful during the drafting stage.
 
-- If you find all the packages and their settings and macros to be overwhelming and distracting during the editing process, you can cut and paste all these contents to a separate `settings.tex` file (name it as you like) in the project directory. Then you can use the command `input{settings.tex}` to make your main file appear cleaner and less distracting. `\input{}` command literally pastes content from the source file. See [managing large project on Overleaf](https://www.overleaf.com/learn/latex/Management_in_a_large_project).
+- If you find all the packages and their settings and macros to be overwhelming and distracting during the editing process, you can cut and paste all these contents to a separate `my-preamble.tex` file (name it as you like) in the project directory. Then you can use the command `input{my-preamble.tex}` to make your main file appear cleaner and less distracting. See [managing large project on Overleaf](https://www.overleaf.com/learn/latex/Management_in_a_large_project).
 
 - If the chapter name is too long, you may have to customize the header spacing in the geometry settings options to accommodate that. Tweak the variables `HeaderHeight` and `HeaderSpace` in the variable declaration section. You can add `showframe` option to the `geometry{}` command to see the layout of your document.
   - If you have one or two chapters with long title, changing it locally for individual chapter is a bit tricky task. In that case, you can use header with a short chapter title option. See the examples are given in individual chapters how to add a shorter title. But if it gets difficult to customize or generalize, you can also consider to remove all the header options by commenting them out in the document section of the `00-main.tex` file.
 
 - Finally, you may consider using `microtype` package to have a better typography. Check details on using [microtype package for writing thesis here](https://www.khirevich.com/latex/microtype/).
+
+- If you would like to use colors in your writing or drawing, you can consider using `xcolor` package with `dvipsnames` option (already added in the preamble). Check on [using colors in LaTeX on Overleaf](https://www.overleaf.com/learn/latex/Using_colors_in_LaTeX).
 
 - Keep writing ... and Happy Graduation :tada:!
 
