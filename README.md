@@ -74,7 +74,7 @@ Overleaf has a huge collection of tutorials and examples on different LaTeX-rela
 
 - Most of the necessary variables to customize the format of the document are included in the beginning of the `00-main.tex` file. You can customize different spacing and style options using these variables. For most cases, tweaking these variables to your need and preference will be more than good enough to get desired format which conforms to library requirement. So, try to understand what each variable does by tweaking them before you start putting your contents in there, and finalize them as needed to customize the dissertation formatting there.
 
-- I prefer using Latin Modern Roman font for documents typeset in LaTeX because the text and math environments have consistent typesetting. You can try other fonts, but you should be careful about being consistent.
+- I prefer using Latin Modern Roman font for documents typeset in LaTeX because the text and math environments have consistent typesetting. You can try other fonts, but you should be careful about being consistent specially for math and text typesettings.
 
 - In addition to these variables, if your bib file has a different name than the current file, then change the `BibFileName` varibale. Make sure to specify the correct name for the `graphicspath` as well.
 
@@ -104,7 +104,8 @@ Overleaf has a huge collection of tutorials and examples on different LaTeX-rela
 
 - If you find all the packages and their settings and macros to be overwhelming and distracting during the editing process, you can cut and paste all these contents to a separate `settings.tex` file (name it as you like) in the project directory. Then you can use the command `input{settings.tex}` to make your main file appear cleaner and less distracting. `\input{}` command literally pastes content from the source file. See [managing large project on Overleaf](https://www.overleaf.com/learn/latex/Management_in_a_large_project).
 
-- If the chapter name is too long, you may have to customize the header spacing in the geometry settings options to accommodate that. Alternatively, you can use it with a short header option. But if it gets difficult to customize, you may want to remove all the header options by commenting them out in the main file.
+- If the chapter name is too long, you may have to customize the header spacing in the geometry settings options to accommodate that. Tweak the variables `HeaderHeight` and `HeaderSpace` in the variable declaration section. You can add `showframe` option to the `geometry{}` command to see the layout of your document.
+  - If you have one or two chapters with long title, changing it locally for individual chapter is a bit tricky task. In that case, you can use header with a short chapter title option. See the examples are given in individual chapters how to add a shorter title. But if it gets difficult to customize or generalize, you can also consider to remove all the header options by commenting them out in the document section of the `00-main.tex` file.
 
 - Finally, you may consider using `microtype` package to have a better typography. Check details on using [`microtype` package for writing thesis here](https://www.khirevich.com/latex/microtype/).
 
