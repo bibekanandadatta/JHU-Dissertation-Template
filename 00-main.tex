@@ -52,8 +52,8 @@
 
 
 \def\NoSectionLevel{3}                      % 3 levels for sections ... to subsubsection
-\def\TocIndent{0}                           % indentation in the list of figs and tables
 \def\NoTocLevel{3}                          % no of levels showed in the table of contents
+\def\TocIndent{0}                           % indentation in the list of figs and tables
 %% 3 levels mean section to subsubsection.. decrease if you want less to showup in TOC
 
 \def\MainTextSpacing{\doublespacing}        % double spacing in main text (JH library requirement)
@@ -74,7 +74,7 @@
 \def\ParagraphIndent{0}                     % indentation at the beginning of the paragraph
 \def\FullCiteSpacing{1.25}                  % spacing in a fullcite item
 \def\BibItemSpacing{0.75\baselineskip}      % spacing between bibliographic items in reference
-\def\FootnoteSpacing{0.75\baselineskip}     % spacing between footnotes
+\def\FootnoteSpacing{\baselineskip}         % spacing between footnotes
 \def\CaptionSpacing{0}                      % spacing between the figure and the caption (unit: pt)
 
 
@@ -146,7 +146,7 @@
 \usepackage{enumitem}                       % to manage list environment
 \usepackage{float}                          % to manage floating environment
 \usepackage[T1]{fontenc}                    % for font encoding
-\usepackage[bottom]{footmisc}               % footnote environment management
+\usepackage[bottom,multiple]{footmisc}      % footnote environment management
 \usepackage{graphicx,wrapfig}               % to manage images
 \usepackage{geometry}                       % to manage margins and others
 \usepackage{fancyhdr}                       % for header/ footer settings
@@ -207,8 +207,8 @@
 
 
 %% settings for the hyperref package
-\hypersetup{linktocpage, unicode, colorlinks=true, citecolor=blue, filecolor=blue, linkcolor=blue, urlcolor=blue}
-% add 'linktoc=all' option to the above list for making the items in TOC as clickable links
+\hypersetup{linktocpage, unicode, linktoc=all, colorlinks=true, citecolor=blue, filecolor=blue, linkcolor=blue, urlcolor=blue}
+
 \urlstyle{rm}           % removes default \texttt style for hyperlinks
 
 
@@ -324,6 +324,10 @@
 \makeatother
 
 
+%%%% to customize space around title headings, use following command:
+% \titlespacing*{environment-name}{space-left}{space-before}{space-after}
+
+
 %%%% using titlesec package for sections, subsection, ... heading format
 \titleformat*{\section}{\SectionFont}
 \titleformat*{\subsection}{\SubsectionFont}
@@ -349,7 +353,7 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% following sections are optional and will be required for using specific packages
+%% following sections will be required only if specific packages are used.
 
 %% if you plan on using quotes, you may need specialized epigraph settings.
 %% hopefully the following settings will work for you if the quote is small.
@@ -406,7 +410,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% if you plan on adding algorithms and codes in your thesis, the these settings
-%%  may be helpful. you can tweak them based on your need and preferences.
+%% may be helpful. you can tweak them based on your need and preferences.
 %%%%%%%%%%%%%%%%%%%%%% ALGORITHM AND LISTING SETTINGS %%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% settings for algorithm2e package
@@ -445,25 +449,27 @@ aboveskip=0.5cm}
 \numberwithin{equation}{chapter}        % eqn no with chapter prefix
 \newcommand{\dC}{$^{\circ}$C}           % degree celcius symbol
 \newcommand{\vect}[1]{\mathbf{#1}}      % boldface for vectors and tensors
+\DeclareMathOperator{\T}{{\top}}        % transpose of a matrix/ tensor
 \DeclareMathOperator{\tr}{tr}           % trace of a matrix
 \DeclareMathOperator{\divg}{div}        % divergence of vector and tensor
 \DeclareMathOperator{\grad}{grad}       % gradient of vector and tensor
+\DeclareMathOperator{\curl}{curl}       % curl of vector and tensor
+
+% theorem-style remark environment
+\theoremstyle{definition}
+\newtheorem{remark}{Remark}
 
 %% these are just some examples; add more macros for your custom symbols
 
 %%%%%%%%%%%%%%%%%%%%% END MATH SETTINGS AND MACROS %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% add all your non-mathematical macros and other random settings in here.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% OTHER MACROS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand{\COMMENT}{\textcolor{red}}
 \newcommand{\ADDCITATION}{\COMMENT{(ADD CITATION)}}
 
 %% you can also add more simple comments here as you need
-%% you can use some other packages for more complicated review and comment section
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% END OTHER MACROS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -498,13 +504,15 @@ aboveskip=0.5cm}
 
 %% single spacing is too cluttered and double spacing is too wide-spread
 \TOCTextSpacing                             % one-half spacing for the table of contents
+{%% a local hyperref settings to appear TOC black but hyperlinked
+\hypersetup{linkcolor=black}
 \renewcommand{\contentsname}{Table of Contents}
 \tableofcontents
 \listoftables
 \addcontentsline{toc}{chapter}{List of Tables}
 \listoffigures
 \addcontentsline{toc}{chapter}{List of Figures}
-
+}
 %%%%%%%%%%%%%%%%%%%%%%%%%%% END FRONT MATTER %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 

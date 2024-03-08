@@ -76,7 +76,7 @@ Overleaf has a huge collection of tutorials and examples on different LaTeX-rela
 
 - I prefer using Latin Modern Roman font for documents typeset in LaTeX because the text and math environments have consistent typesetting. You can try other fonts, but you should be careful about being consistent specially for math and text typesettings.
 
-- In addition to these variables, if your bib file has a different name than the current file, then change the `BibFileName` varibale. Make sure to specify the correct name for the `FigurePath` as well.
+- In addition to these variables, if your bib file has a different name than the current file, then change the `BibFileName` varibale. Make sure to specify the correct name for the `graphicspath` as well.
 
 - Add all the figures in the `figures` subdirectory. If your subdirectory name is different, then change `FigurePath` variable. You can add chapter-wise PDF files (which is what I prefer) or just add all of them as you have them in that directory.
 
