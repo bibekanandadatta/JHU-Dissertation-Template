@@ -100,6 +100,8 @@ Overleaf has a huge collection of tutorials and examples on different LaTeX-rela
 
 - Add your math macros and settings in the `Math Settings and Macros` section. There's a section for non-math LaTeX macros as well. Some examples of both types of macros are added there.
 
+- You can use `\linenumbers` command from `lineno` package anywhere inside the main text document when you would like to have line numbers on the left margin. It might be useful during the drafting stage.
+
 - If you find all the packages and their settings and macros to be overwhelming and distracting during the editing process, you can cut and paste all these contents to a separate `settings.tex` file (name it as you like) in the project directory. Then you can use the command `input{settings.tex}` to make your main file appear cleaner and less distracting. `\input{}` command literally pastes content from the source file. See [managing large project on Overleaf](https://www.overleaf.com/learn/latex/Management_in_a_large_project).
 
 - If the chapter name is too long, you may have to customize the header spacing in the geometry settings options to accommodate that. Alternatively, you can use it with a short header option. But if it gets difficult to customize, you may want to remove all the header options by commenting them out in the main file.
