@@ -7,7 +7,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%             PLEASE CHECK THE README.md FILE BEFORE YOU PROCEED             %%
-%%              it may be conveneint to read this file on GitHub              %%
+%%              it may be convenient to read this file on GitHub              %%
 %%   GitHub: https://github.com/bibekananda-datta/JHU-Dissertation-Template   %%
 %% template hosted on the GitHub repository is likely to be the most updated  %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -54,15 +54,15 @@
 \def\NoSectionLevel{3}                      % 3 levels for sections ... to subsubsection
 \def\NoTocLevel{3}                          % no of levels showed in the table of contents
 \def\TocIndent{0}                           % indentation in the list of figs and tables
-%% 3 levels mean section to subsubsection.. decrease if you want less to showup in TOC
+%% 3 levels mean section to subsubsection.. decrease if you want less to show in TOC
 
-\def\MainTextSpacing{\doublespacing}        % double spacing in main text (JH library requirement)
+\def\MainTextSpacing{\doublespacing}        % double spacing in the main text (JH library requirement)
 \def\TOCTextSpacing{\onehalfspacing}        % one-half spacing for TOC texts
 \def\BibTextSpacing{\singlespacing}         % single spacing for bibliography
 %% JH library does not specify spacing for TOC and bibliographic references
 
 \def\GlobalMargin{1.0in}                    % margin on all sides
-\def\PrintingOffset{0.5in}                  % additional space on the left margin for print copy
+\def\PrintingOffset{0.5in}                  % additional space on the left margin for the print copy
 \def\HeaderHeight{20}                       % height of the header (unit: pt)
 \def\HeaderSpace{10}                        % space between header and the following text (unit: pt)
 \def\ChapterTopMargin{-48}                  % white space on top of the chapter heading (unit: pt)
@@ -110,19 +110,18 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% add packages as needed but sometimes the order of the packages matter.
+%% add packages as needed but sometimes the order of the packages matters.
 %% I primarily tried to load the packages in alphabetical order unless or 
 %% based on their functionalities (all math/ table packages) unless there 
-%% is an issue with dependency, then I included packages in that order.
-%% you may get warning/ error for the order in which packages are included
-%% you may have to change the options in biblatex package for bibliography
+%% is a dependency issue w/ packages, then I included packages in that order.
+%% you may get warnings/ errors for the order in which packages are included
+%% you may have to change the options in biblatex package for the bibliography
 %%%%%%%%%%%%%%%%%%%%%%%%%% LaTeX CLASS AND PACKAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[12pt]{report}                % report document class w/ 12 pt font
 
 \usepackage[utf8]{inputenc}                 % for encoding input character
 \usepackage[pagewise,mathlines]{lineno}     % linenumbers for drafting
-
 
 %% math packages
 \usepackage{amsfonts,amssymb,amsmath,amsthm,autobreak,cancel,dsfont,mathtools,mathbbol,mathrsfs,siunitx,upgreek}
@@ -141,7 +140,7 @@
 \usepackage{calc}                           % to set arithmetic arguments for spacing
 \usepackage{caption}                        % to manage captions
 \usepackage{color}                          % color related packages
-\usepackage{comment}                        % to comment large amount of text as env
+\usepackage{comment}                        % to comment a large amount of text as env
 \usepackage{csquotes,epigraph,varwidth}     % for managing quotes
 \usepackage{enumitem}                       % to manage list environment
 \usepackage{float}                          % to manage floating environment
@@ -183,10 +182,10 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% if possible, make all of your changes through the defined variables above.
-%% you can make most common changes there before tweaking following settings.
+%% you can make the most common changes there before tweaking the following settings.
 %% if you are really specific about some formatting and can not change them
 %% by changing defined variables in the beginning, only then proceed to the 
-%% next sections which includes loading proper package options, redefining 
+%% next sections which include loading proper package options, redefining 
 %% different environments, document formatting, settings for special packages 
 %% (epigraph, algorithm, listings, etc). be cautious before making any changes.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PACKAGE OPTIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -224,8 +223,8 @@
 \usetikzlibrary{positioning,shapes,arrows}
 
 
-%% may need to define more unicode characters if they appear in your thesis
-\DeclareUnicodeCharacter{2212}{-}           % defining unicode character '-'
+%% may need to define more Unicode characters if they appear in your thesis
+\DeclareUnicodeCharacter{2212}{-}           % defining Unicode character '-'
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% END PACKAGE OPTIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -409,8 +408,8 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% if you plan on adding algorithms and codes in your thesis, the these settings
-%% may be helpful. you can tweak them based on your need and preferences.
+%% if you plan on adding algorithms and codes to your thesis, these settings
+%% may be helpful. you can tweak them based on your needs and preferences.
 %%%%%%%%%%%%%%%%%%%%%% ALGORITHM AND LISTING SETTINGS %%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% settings for algorithm2e package
@@ -485,7 +484,7 @@ aboveskip=0.5cm}
 
 \include{01-title}                          % include the title page
 % \linenumbers                              % may find useful during drafting
-% place above comment based on where you want to start line numbering
+% place the above comment based on where you want to start line numbering
 
 %% chapter header and page numbering set up
 %% header unnumbered chapters (to remove the headers, comment out the following lines)
@@ -504,7 +503,7 @@ aboveskip=0.5cm}
 
 %% single spacing is too cluttered and double spacing is too wide-spread
 \TOCTextSpacing                             % one-half spacing for the table of contents
-{%% a local hyperref settings to appear TOC black but hyperlinked
+{%% local hyperref settings to appear TOC black but hyperlinked
 \hypersetup{linkcolor=black}
 \renewcommand{\contentsname}{Table of Contents}
 \tableofcontents
@@ -521,8 +520,8 @@ aboveskip=0.5cm}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% MAIN TEXT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\clearpage                                  % flushes the floats and new page
-\pagenumbering{arabic}                      % arabic page numbering
+\clearpage                                  % flushes the floats and the new page
+\pagenumbering{arabic}                      % Arabic page numbering
 \MainTextSpacing                            % restores double spacing in chapter contents
 
 %% full header for the numbered chapters (to remove header comment out the following lines)
@@ -550,7 +549,7 @@ aboveskip=0.5cm}
 %%% references
 \clearpage
 \BibTextSpacing                     % single spacing for the bib items (too widespread otherwise)
-% you can also change 'BibItemSeparation' variable to control the spacing
+% you can also change the 'BibItemSeparation' variable to control the spacing
 % header unnumbered chapters (to remove the headers, comment out the following line)
 \fancyhead[L]{\nouppercase \leftmark}
 
@@ -568,9 +567,9 @@ aboveskip=0.5cm}
 %% add more appendix chapters as you need
 
 
-%% you can also add biographical sketch/ CV in here 
-%% you can write it as other chapters and add the chapter in here as before
-%% of if you already have CV as a PDF, add it to the main directory, and use:
+%% you can also add a biographical sketch/ CV here 
+%% you can write it as other chapters and add the chapter here as before
+%% if you already have a CV as a PDF, add it to the main directory, and use:
 
 % \includepdf[pages=-]{John_Doe_CV.pdf}
 
