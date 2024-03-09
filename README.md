@@ -34,8 +34,8 @@ The previous version of the template used default options for the LaTeX report c
 Since the template is based on the report class, it is subdivided into multiple chapters. There are separate .tex files for all the front matters (mandatory or optional), technical chapters, and back matters (references and appendices).
 
 - `00-main.tex` file is the driver or root file which includes all the preamble, document settings, package settings, and macros as needed as well as the auxiliary .tex files for each chapter. I would recommend going through the different sections of this file before you start working to understand the available packages and options.
-- `filename.tex` these are the .tex files dedicated for individual pages (e.g., title, dedication) or environments (such as abstract, references, etc.) or chapters. These files are called from the `00-main.tex` file using an `\include{}` command which flushes all the floating objects and starts a new page.
-- `figures` subdirectory contains all the figures for the thesis. You can add the figures as chapter-wise PDF files or as just individual images with allowable extensions. Images are called using `\includegraphics{}` command in a figure environment. You can also use `\includegraphicx{}` command to avoid using specific image file extension.
+- `filename.tex` are the .tex files dedicated for individual pages (e.g., title, dedication) or environments (such as abstract, references, etc.) or chapters. These files are called from the `00-main.tex` file using an `\include{}` command which flushes all the floating objects and starts a new page.
+- `figures` subdirectory contains all the figures for the thesis. You can add the figures as chapter-wise PDF files or as just individual images with allowable extensions. Images are called using the `\includegraphics{}` command in a figure environment. You can also use the `\includegraphicx{}` command to avoid using specific image file extensions.
 - `thesis.bib` file is a biblatex file that contains all the bibliographic items. Use Zotero or some other citation manager to generate the biblatex file containing all the items.
 - `latexmkrc` additional settings for the make file to generate PDF/A output. This is required to be in the main directory of the Overleaf project.
 - `output.xmpdata` contains simple meta-data to be tagged in the final PDF/A file. Usage of this file is optional and the content inside is self-explanatory.
@@ -45,7 +45,7 @@ Since the template is based on the report class, it is subdivided into multiple 
 
 ## How to use the template on Overleaf
 
-I prefer using Overleaf for all of my LaTeX compilation and I recommend it strongly since Johns Hopkins provides the premium account to all students for Overleaf. Premium Overleaf does fast compilation, allows sharing the project with multiple people (advisor, committee members, collaborator, labmates, friends, or family), and keeps track histories which is great. You can recover the files if you break them (hopefully you won't). Follow one of the three approaches to get started with this project on Overleaf. Then go through the main file and other files to see how the template is structured.
+I prefer using Overleaf for all of my LaTeX compilation and I recommend it strongly since Johns Hopkins provides the premium account to all students for Overleaf. Premium Overleaf does fast compilation, allows sharing the project with multiple people (advisor, committee members, collaborator, labmates, friends, or family), and tracks histories which are great. You can recover the files if you break them (hopefully you won't). Follow one of the three approaches to get started with this project on Overleaf. Then go through the main file and other files to see how the template is structured.
 
 - To use it directly on Overleaf, [open the template here](https://www.overleaf.com/latex/templates/johns-hopkins-thesis-slash-dissertation-template/gbfnqqfzffyp). Then click on **Open as Template** and proceed from there to go through the template and edit it.
 
@@ -53,13 +53,13 @@ I prefer using Overleaf for all of my LaTeX compilation and I recommend it stron
   
 - If you have your Overleaf and GitHub account linked and want to have copies of the project in both places, you can **fork** this repository. Then go to Overleaf and click on **New Project** -> **Import from GitHub**, it should list the forked project for listing. Once imported, you can start working on Overleaf. But Overleaf and GitHub will not sync automatically; you will have to do it to have an updated version on GitHub.
 
-Once you have imported the project, you need to compile `00-main.tex` file using `pdflatex` option (default on Overleaf) which will call all the auxiliary files included to produce the final PDF. It should compile without any error on Overleaf. There might be warnings, but you can ignore them. 
+Once you have imported the project, you need to compile `00-main.tex` file using the `pdflatex` option (default on Overleaf) which will call all the auxiliary files included to produce the final PDF. It should compile without any error on Overleaf. There might be warnings, but you can ignore them. 
 
 
 
 ## Notes on generating PDF/A compliant output file for the JH Library
 
-Johns Hopkins Library requires the electronic copy of the thesis should be [generated in PDF/A format](https://www.adobe.com/uk/acrobat/resources/document-files/pdf-types/pdf-a.html) which is not trivial. Compiling LaTeX documents is a bit of an involved process but thanks to Overleaf we do not really have to worry about it. [Check here to learn how they do it](https://www.overleaf.com/learn/how-to/How_does_Overleaf_compile_my_project%3F). I have not done the compilation locally for this project and do not plan on doing it. So I am unable to provide any help in that regard.
+Johns Hopkins Library requires the electronic copy of the thesis should be [generated in PDF/A format](https://www.adobe.com/uk/acrobat/resources/document-files/pdf-types/pdf-a.html) which is not trivial. Compiling LaTeX documents is a bit of an involved process but thanks to Overleaf we do not have to worry about it. [Check here to learn how they do it](https://www.overleaf.com/learn/how-to/How_does_Overleaf_compile_my_project%3F). I have not done the compilation locally for this project and do not plan on doing it. So I am unable to provide any help in that regard.
 
 - Learn about [latexmkrc file on Overleaf](https://www.overleaf.com/learn/latex/Articles/How_to_use_latexmkrc_with_Overleaf) which you will need to generate PDF/A file.
 - [This documentation](https://www.overleaf.com/latex/templates/creating-pdf-slash-a-and-pdf-slash-x-files-with-the-pdfx-package/bbbycnbyqhnm) provides details on how to generate PDF/A compilant output on Overleaf. **Open as Template** to see what is included in the project.
@@ -100,14 +100,14 @@ The most common and popular packages for writing dissertations are added in the 
 
 - Currently, 3 numbered environments `\section{}`, `\subsection{}`, and `\subsubsection{}` are activated throughout the document and available in table of contents. You can decrease or increase this by tweaking variables: `\NoSectionLevel` and `\NoTocLevel`. I personally prefer 2-3 levels for large documents, otherwise, it gets too clumsy and confusing.
 
-- Space around the headings of different environments is managed by `parskip` package. I found the default settings to be working fine for me. But if you would like to customize it, you can add the following command in the preamble:
+- Space around the headings of different environments is managed by the `parskip` package. I found the default settings to be working fine for me. But if you would like to customize it, you can add the following command in the preamble:
   ```
   \titlespacing*{<environment-name>}{<space-left>}{<space-before>}{<space-after>}
   ```
   
 - Add your math macros and settings in the `MATH SETTINGS AND MACROS` section. There's a section for non-math `OTHER MACROS` as well. Some examples of both types of macros are added there.
 
-- You can use `\linenumbers` command from `lineno` package anywhere inside the main text document when you would like to have line numbers on the left margin. It might be useful during the drafting stage.
+- You can use the `\linenumbers` command from the `lineno` package anywhere inside the main text document when you would like to have line numbers on the left margin. It might be useful during the drafting stage.
 
 - If you find all the packages and their settings and macros to be overwhelming and distracting during the editing process, you can cut and paste all these contents to a separate `my-preamble.tex` file (name it as you like) in the project directory. Then you can use the command `input{my-preamble.tex}` to make your main file appear cleaner and less distracting. See [managing a large project on Overleaf](https://www.overleaf.com/learn/latex/Management_in_a_large_project).
 
