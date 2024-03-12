@@ -262,38 +262,25 @@
 \usepackage{\FontPackage}
 
 %%%% TOC shows (chapter to subsection) in the list
-\setcounter{tocdepth}{\NoTocLevel}
-\setcounter{secnumdepth}{\NoSectionLevel}       % section to ... subsubsection ...
-
-
-\setlength{\cftfigindent}{\TocIndent pt}        % indentation from figures in lof
-\setlength{\cfttabindent}{\TocIndent pt}        % indentation from tables in lot
-
-
-%%%% dots for chapters too
-\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
-
+\setcounter{tocdepth}{\NoTocLevel}                      % list depth in ToC
+\setlength{\cftfigindent}{\TocIndent pt}                % indentation from figures in LoF
+\setlength{\cfttabindent}{\TocIndent pt}                % indentation from tables in LoT
+\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}  % dots for chapters too
 
 % tweak to TOC to add 'chapter' to the chapter name instead of a number only
 % set the width of the box based on the longest label name
 \renewcommand{\cftchappresnum}{\chaptername\space}
 \setlength{\cftchapnumwidth}{\widthof{\textbf{Appendix~999~}}}
 
-
-% tweak to TOC to add 'Figure' to the figure caption listing
-% to change the distance to the start of the figure title
+% tweak to LoF/ LoT to add 'Figure' & 'Table' to the figure and table caption listing
+% to change the distance to the start of the figure/ table title
 \renewcommand{\cftfigpresnum}{\bfseries Figure }
-\setlength{\cftfignumwidth}{\widthof{\textbf{Figure~99.999~}}}
-
-
-% tweak to TOC to add 'Table' to the Table caption listing
-% to change the distance to the start of the figure title
 \renewcommand{\cfttabpresnum}{\bfseries Table }
+\setlength{\cftfignumwidth}{\widthof{\textbf{Figure~99.999~}}}
 \setlength{\cfttabnumwidth}{\widthof{\textbf{Table~99.100~}}}
 
 
 %%%% chapter # and title settings (with white space)
-%% if you use an epigraph after the chapter title then perhaps reduce the first \vspace* from 0 pt to -(some_value)
 \makeatletter
 \def\@makechapterhead#1{%
   \vspace*{\ChapterTopMargin \p@}   % white space before the chapter #
@@ -310,7 +297,6 @@
 
 
 %%%% settings for unnumbered chapters
-% if you use an epigraph after the chapter title then perhaps reduce the first \vspace* from 0 pt to - (some_value)
 \makeatletter
 \def\@makeschapterhead#1{%
   \vspace*{\ChapterTopMargin \p@} % white space before to the chapter title
@@ -323,11 +309,12 @@
 \makeatother
 
 
-%%%% to customize space around title headings, use following command:
+%%%% to customize space around title headings, use the following command:
 % \titlespacing*{environment-name}{space-left}{space-before}{space-after}
 
 
 %%%% using titlesec package for sections, subsection, ... heading format
+\setcounter{secnumdepth}{\NoSectionLevel}           % section to ... subsubsection ...
 \titleformat*{\section}{\SectionFont}
 \titleformat*{\subsection}{\SubsectionFont}
 \titleformat*{\subsubsection}{\SubsubsectionFont}
