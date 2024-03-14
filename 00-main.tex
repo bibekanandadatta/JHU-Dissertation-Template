@@ -26,7 +26,7 @@
 % Updated by John Muschelli on January 29, 2016 
 % Updated by Leonardo Collado Torres on April 13, 2016 
 % Updated by John Clayton in December 2019
-% Last Updated by Bibekananda Datta on March 07, 2024
+% Last Updated by Bibekananda Datta on March 14, 2024
 % This version is heavily edited and customized from the previous version
 %%%%%%%%%%%%%%%%%%%%%%%%%%% CURRENT VERSION INCLUDES %%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Reorganization of the necessary packages (you may need more) and their settings.
@@ -123,7 +123,7 @@
 \usepackage[utf8]{inputenc}                 % for encoding input character
 \usepackage[pagewise,mathlines]{lineno}     % linenumbers for drafting
 
-%% math packages
+%% useful math packages
 \usepackage{amsfonts,amssymb,amsmath,amsthm,autobreak,cancel,dsfont,mathtools,mathbbol,mathrsfs,siunitx,upgreek}
 
 \usepackage[ruled]{algorithm2e}             % to manage algorithm environment
@@ -151,9 +151,9 @@
 \usepackage{fancyhdr}                       % for header/ footer settings
 \usepackage[dvipsnames]{xcolor}
 \usepackage[a-1b]{pdfx}                     % to generate PDF/A file (before hyperref)
-\usepackage[pdfa]{hyperref}                 % for hyperlinks
+\usepackage[pdfa]{hyperref}                 % for hyperlink managemebt
 \usepackage[all]{hypcap}                    % for captions on the side of figures
-\usepackage{ifthen}                         % if-then statement in algorithm
+\usepackage{ifthen}                         % if-then statement in LaTeX
 \usepackage{lscape}                         % landscape mode
 \usepackage{listings}                       % to include codes
 
@@ -353,7 +353,7 @@
 \setlength{\epigraphwidth}{\QuoteWidth}
 \renewcommand{\textflush}{flushright}
 \renewcommand{\sourceflush}{flushright}
-% A useful addition
+%% A useful addition
 \newcommand{\epitextfont}{\itshape}
 \newcommand{\episourcefont}{\scshape}
 
@@ -441,7 +441,7 @@ aboveskip=0.5cm}
 \DeclareMathOperator{\grad}{grad}       % gradient of vector and tensor
 \DeclareMathOperator{\curl}{curl}       % curl of vector and tensor
 
-% theorem-style remark environment
+%% theorem-style remark environment
 \theoremstyle{definition}
 \newtheorem{remark}{Remark}
 
@@ -468,29 +468,32 @@ aboveskip=0.5cm}
 \begin{document}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% FRONT MATTER %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\include{01-title}                          % include the title page
 % \linenumbers                              % may find useful during drafting
 % place the above comment based on where you want to start line numbering
+
+%% remember most content on title page has to be single-spaced
+\include{01-title}                          % include the title page
+
 
 %% chapter header and page numbering set up
 %% header unnumbered chapters (to remove the headers, comment out the following lines)
 \pagestyle{fancy}
 \fancyhead[R]{}                             % empty top-right header throughout the document
-\fancyhead[L]{\nouppercase \leftmark}       % avoiding upper-case in header
+\fancyhead[L]{\nouppercase \leftmark}       % avoiding upper-case in the header
 \pagenumbering{roman}                       % pagination style: roman numeral
 \setcounter{page}{2}                        % page counter starts at roman ii
 \MainTextSpacing                            % double spacing for the contents
 
-
-%% add abstract, dedication, and acknowledgment (and any other front matter)
+%% add abstract, dedication, and acknowledgment (and any other front matter here)
 \include{02-abstract}
 \include{03-dedication}
 \include{04-acknowledgement}
 
+
 %% single spacing is too cluttered and double spacing is too wide-spread
 \TOCTextSpacing                             % one-half spacing for the table of contents
-{%% local hyperref settings to appear TOC black but hyperlinked
+{%% local hyperref setting to appear ToC black but hyperlinked
+%% you can comment it to have default blue color ToC
 \hypersetup{linkcolor=black}
 \renewcommand{\contentsname}{Table of Contents}
 \tableofcontents
@@ -509,7 +512,7 @@ aboveskip=0.5cm}
 
 \clearpage                                  % flushes the floats and the new page
 \pagenumbering{arabic}                      % Arabic page numbering
-\MainTextSpacing                            % restores double spacing in chapter contents
+\MainTextSpacing                            % restores double spacing in the chapter contents
 
 %% full header for the numbered chapters (to remove header comment out the following lines)
 \renewcommand{\chaptermark}[1]{\markboth{#1}{#1}}
