@@ -23,7 +23,7 @@ The previous version of the template used default options for the LaTeX report c
   - Added customization options to control the white space for different environments.
   - Reorganized the loading of common packages (you may need more) and their settings.
   - Modularized all the settings, formatting, and macros. You can add more as needed.
-  - Added specific settings for adding quotes (epigraph), algorithms, and codes, in each chapter.
+  - Added specific settings for adding quotes (epigraph) to the chapters
   - Added examples of customized macros for mathematical and non-mathematical environments.
   - Updated the appearance of table of contents, list of figures, and list of tables.
 
@@ -45,7 +45,7 @@ Since the template is based on the report class, it is subdivided into multiple 
 
 ## How to use the template on Overleaf
 
-I prefer using Overleaf for all of my LaTeX compilation and I recommend it strongly since Johns Hopkins provides the premium account to all students for Overleaf. Premium Overleaf does fast compilation, allows sharing the project with multiple people (advisor, committee members, collaborator, labmates, friends, or family), and tracks histories which are great. You can recover the files if you break them (hopefully you won't). Follow one of the three approaches to get started with this project on Overleaf. Then go through the main file and other files to see how the template is structured.
+I prefer using Overleaf for all of my LaTeX compilation and I recommend it strongly since Johns Hopkins provides the premium account to all students for Overleaf. Premium Overleaf does fast compilation, allows sharing the project with multiple people (advisor, committee members, collaborator, labmates, friends, or family), and tracks histories which are great features. You can recover the files if you break them (hopefully you won't). Follow one of the three approaches to get started with this project on Overleaf. Then go through the main file and other files to see how the template is structured.
 
 - To use it directly on Overleaf, [open the template here](https://www.overleaf.com/latex/templates/johns-hopkins-thesis-slash-dissertation-template/gbfnqqfzffyp). Then click on **Open as Template** and proceed from there to go through the template and edit it.
 
@@ -53,18 +53,20 @@ I prefer using Overleaf for all of my LaTeX compilation and I recommend it stron
   
 - If you have your Overleaf and GitHub account linked and want to have copies of the project in both places, you can **fork** this repository. Then go to Overleaf and click on **New Project** -> **Import from GitHub**, it should list the forked project for listing. Once imported, you can start working on Overleaf. But Overleaf and GitHub will not sync automatically; you will have to do it to have an updated version on GitHub.
 
-Once you have imported the project, you need to compile `00-main.tex` file using the `pdflatex` option (default on Overleaf) which will call all the auxiliary files included to produce the final PDF. It should compile without any error on Overleaf. There might be warnings, but you can ignore them. 
+Once you have imported the project, you need to compile the `00-main.tex` file using the `pdflatex` option (default on Overleaf) which will call all the auxiliary files included to produce the final PDF. It should compile without any error on Overleaf. There might be warnings, but you can ignore them. 
 
 
 
 ## Notes on generating PDF/A compliant output file for the JH Library
 
-Johns Hopkins Library requires the electronic copy of the thesis should be [generated in PDF/A format](https://www.adobe.com/uk/acrobat/resources/document-files/pdf-types/pdf-a.html) which is not trivial. Compiling LaTeX documents is a bit of an involved process but thanks to Overleaf we do not have to worry about it. [Check here to learn how do they do it](https://www.overleaf.com/learn/how-to/How_does_Overleaf_compile_my_project%3F). I have not done the compilation locally for this project and do not plan on doing it. So I am unable to provide any help in that regard.
+Johns Hopkins Library requires the electronic copy of the thesis must be [generated in PDF/A format](https://www.adobe.com/uk/acrobat/resources/document-files/pdf-types/pdf-a.html) which is not trivial. Compiling LaTeX documents is a bit of an involved process but thanks to Overleaf we do not have to worry about it. [Check here to learn how do they do it](https://www.overleaf.com/learn/how-to/How_does_Overleaf_compile_my_project%3F). I have not done the compilation locally for this project and do not plan on doing it. So I am unable to provide any help in that regard.
 
 - Learn about [latexmkrc file on Overleaf](https://www.overleaf.com/learn/latex/Articles/How_to_use_latexmkrc_with_Overleaf) which you will need to generate PDF/A file.
 - [This documentation](https://www.overleaf.com/latex/templates/creating-pdf-slash-a-and-pdf-slash-x-files-with-the-pdfx-package/bbbycnbyqhnm) provides details on how to generate PDF/A compilant output on Overleaf. **Open as Template** to see what is included in the project.
   - Briefly, PDF/A compliant output is generated by including `\usepackage{pdfx}` command in the preamble, and to ensure the compilation worked properly, the project directory needs to include `latexmkrc` input file in which you will need to specify the timezone; [check supported timezones here](https://www.php.net/manual/en/timezones.php).
   - Optionally, to include the meta-data in the generated PDF, you can edit the `output.xmpdata`. The given fields are very simple.
+
+- So far, I have not found any convenient way of validating if the generated PDF is compliant with library-specified PDF/A format for free. Hopkins Library has computers with Adobe Acrobat Pro installed that can validate the format of the electronic copy of your thesis. If you or your lab has a license to this program, you can do it there as well. Finally, if you find it is not compliant (for any unknown reason), this program will also allow you to convert the format. 
 
 
 
@@ -76,7 +78,7 @@ Overleaf has a huge collection of tutorials and examples on different LaTeX-rela
 
 - I prefer using Latin Modern Roman font (loaded using the `lmodern` package) for document typeset in LaTeX because the text and math environments have consistent typesetting. You can try other fonts, but you should be careful about being consistent, especially for math and text typesettings. [Follow this discussion on StackExchange to learn more about fonts in LaTeX](https://tex.stackexchange.com/questions/59702/suggest-a-nice-font-family-for-my-basic-latex-template-text-and-math).
 
-- In addition to these variables, if your bib file has a different name than the current file, then change the `BibFileName` variable. 
+- In addition to these variables, if your bib file has a different name than the current file, then change the `BibFileName` variable. Make sure to specify the correct name for the `graphicspath` as well.
 
 - Add all the figures in the `figures` subdirectory. If your subdirectory name is different, then change the `FigurePath` variable. You can add chapter-wise PDF files (which is what I prefer) or just add all of them as you have them in that directory.
 
@@ -88,9 +90,7 @@ The most common and popular packages for writing dissertations are added in the 
 
 - By default, tables are defined to have `\arraystretch{1.5}` (which is equivalent to double-spaced text). If you would like to customize the spacing inside a table globally throughout the document, you can try decreasing/ increasing the variable `GlobalTableSpacing`. However, I suggest doing it locally by defining a group for each table (StackExhange or StackOverflow is your friend here) where you can redefine `\arraystretch` for the individual tables as needed. Also if the table is wider than the page during editing, you may want to use the landscape tables which are placed sideways and may go over multiple pages (someone on StackExhange or StackOverflow has done it for sure).
 
-- Most of the common formatting-related settings are available in the `DOCUMENT FORMATTING` section in the main file. Additional optional settings related to the table of contents, epigraphs, algorithms, and listing packages are separately available but a little bit more complicated. Unless you really want to customize a whole to your taste very specifically, you can leave them as it is.
-
-- You can also remove the settings for the optional packages that you do not intend to use such as `epigraph`, `listings`, `algorithm2e`, etc. But be careful while doing that; do not break the code.
+- Most of the common formatting-related settings are available in the `DOCUMENT FORMATTING` section in the main file. Additional optional settings related to the table of contents, and epigraphs are also available but they are a bit complicated. You are welcome to define your custom settings for other packages as well as needed.
 
 - If you add a quote before the chapter heading, then you may want to increase the white spacing on top. In this case, all of the Chapters will have white space before Chapter # and title. I did not like the default font size and spacing in the LaTeX `report` class. 
 
@@ -109,7 +109,7 @@ The most common and popular packages for writing dissertations are added in the 
 
 - You can use the `\linenumbers` command from the `lineno` package anywhere inside the main text document when you would like to have line numbers on the left margin. It might be useful during the drafting stage.
 
-- If you find all the packages and their settings and macros to be overwhelming and distracting during the editing process, you can cut and paste all these contents to a separate `my-preamble.tex` file (name it as you like) in the project directory. Then you can use the command `input{my-preamble.tex}` to make your main file appear cleaner and less distracting. See [managing a large project on Overleaf](https://www.overleaf.com/learn/latex/Management_in_a_large_project).
+- If you find all the packages and their settings and macros to be overwhelming and distracting during the editing process, you can cut and paste all these contents to a separate `my-preamble.tex` file (name it as you like) in the project directory. Then you can use the command `input{my-preamble.tex}` to make your main file appear cleaner and less distracting. See [managing a large project on Overleaf](https://www.overleaf.com/learn/latex/Management_in_a_large_project). You can also make a LaTeX package for the thesis using `.sty` file.
 
 - If the chapter name is too long, you may have to customize the header spacing in the geometry settings options to accommodate that. Tweak the variables `HeaderHeight` and `HeaderSpace` in the variable declaration section. You can add the `showframe` option to the `geometry{}` command to see the layout of your document.
   - If you have one or two chapters with long titles, changing it locally for individual chapters is a bit tricky task. In that case, you can use a header with a short chapter title option. See the examples given in individual chapters on how to add a shorter title. But if it gets difficult to customize or generalize, you can also consider removing all the header options by commenting them out in the document section of the `00-main.tex` file.

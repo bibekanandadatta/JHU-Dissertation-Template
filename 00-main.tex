@@ -46,49 +46,16 @@
 %% go through all the variables and understand what role they play in formatting
 %%%%%%%%%%%%%%%%%%%%%% LIST OF VARIABLES FOR FORMATTING %%%%%%%%%%%%%%%%%%%%%%%%
 
-\def\FontPackage{lmodern}                   % latin modern font (you can also change it to times)
+%%%% additional paths and files
 \def\BibFileName{thesis.bib}                % name of BibLaTeX file with all the bibliography
 \def\FigurePath{figures}                    % subdirectory for the figure files
 
 
-\def\NoSectionLevel{3}                      % 3 levels for sections ... to subsubsection
-\def\NoTocLevel{3}                          % no of levels showed in the table of contents
-\def\TocIndent{0}                           % indentation in the list of figs and tables
-%% 3 levels mean section to subsubsection.. decrease if you want less to show in TOC
-
-\def\MainTextSpacing{\doublespacing}        % double spacing in the main text (JH library requirement)
-\def\TOCTextSpacing{\onehalfspacing}        % one-half spacing for TOC texts
-\def\BibTextSpacing{\singlespacing}         % single spacing for bibliography
-%% JH library does not specify spacing for TOC and bibliographic references
-
-\def\GlobalMargin{1.0in}                    % margin on all sides
-\def\PrintingOffset{0.5in}                  % additional space on the left margin for the print copy
-\def\HeaderHeight{20}                       % height of the header (unit: pt)
-\def\HeaderSpace{10}                        % space between header and the following text (unit: pt)
-\def\ChapterTopMargin{-48}                  % white space on top of the chapter heading (unit: pt)
-\def\ChapterToTitle{-12}                    % space between chapter to title (unit: pt)
-\def\TitleToText{18}                        % space between the chapter title to the following text (unit: pt)
-
-
-\def\ParagraphSpacing{\baselineskip}        % spacing between paragraph
-\def\ParagraphIndent{0}                     % indentation at the beginning of the paragraph
-\def\FullCiteSpacing{1.25}                  % spacing in a fullcite item
-\def\BibItemSpacing{0.75\baselineskip}      % spacing between bibliographic items in reference
-\def\FootnoteSpacing{\baselineskip}         % spacing between footnotes
-\def\CaptionSpacing{0}                      % spacing between the figure and the caption (unit: pt)
-
-
-%% if you have a longer quote, you may have to change it.
-\def\QuoteWidth{0.65\textwidth}             % width of quote in epigraph
-
-
-%% if this seems too widespread for you, try changing it locally using
-%% \begin{group} ... \renewcommand{\arraystretch} ... \end{group} commands
-\def\GlobalTableSpacing{1.5}                % global spacing parameter for table
-
-
-% font format for chapter heading and title
-\def\ChapterFont{\singlespacing \Large \bfseries}
+%%%% font size and typeset for different environments
+%% check here for details: https://www.sascha-frank.com/latex-font-size.html
+\def\FontPackage{lmodern}                   % latin modern font (you can also change it to times)
+\def\BaseFont{12pt}                         % main text font size for document
+\def\ChapterFont{\singlespacing \Large\bfseries}
 \def\SectionFont{\large\bfseries}           % section heading font format
 \def\SubsectionFont{\normalsize\bfseries}   % subsection heading font format
 \def\SubsubsectionFont{\normalsize\itshape} % subsubsection heading font format
@@ -98,10 +65,50 @@
 \def\CodeFont{\footnotesize\ttfamily}       % font for including codes using listing
 
 
-%% pdflatex compression settings to generate compressed PDF
-\pdfcompresslevel=9
-\pdfminorversion=5
-\pdfobjcompresslevel=2
+%%%% default text spacing set up for the main, front, and back matter
+\def\MainTextSpacing{\doublespacing}        % double spacing in the main text (JH library requirement)
+\def\TOCTextSpacing{\onehalfspacing}        % one-half spacing for TOC texts
+\def\BibTextSpacing{\singlespacing}         % single spacing for bibliography
+%% JH library does not specify spacing for TOC and bibliographic references
+
+
+%%%% spacing between different environments
+\def\ParagraphSpacing{\baselineskip}        % spacing between paragraph
+\def\ParagraphIndent{0}                     % indentation at the beginning of the paragraph
+\def\FullCiteSpacing{1.25}                  % spacing in a fullcite item
+\def\BibItemSpacing{0.75\baselineskip}      % spacing between bibliographic items in reference
+\def\FootnoteSpacing{\baselineskip}         % spacing between footnotes
+\def\CaptionSpacing{0}                      % spacing between the figure and the caption (unit: pt)
+
+%% if you have a longer quote, you may have to change it.
+\def\QuoteWidth{0.65\textwidth}             % width of quote in epigraph
+
+
+%% if this seems too widespread for you, try changing it locally using
+%% \begin{group} ... \renewcommand{\arraystretch} ... \end{group} commands
+\def\GlobalTableSpacing{1.5}                % global spacing parameter for table
+
+%%%% section tree level and their table of content appearance
+\def\NoSectionLevel{3}                      % 3 levels for sections ... to subsubsection
+\def\NoTocLevel{3}                          % no of levels showed in the table of contents
+\def\TocIndent{0}                           % indentation in the list of figs and tables
+%% 3 levels mean: section to subsubsection.. decrease if you want less to show in TOC
+
+
+%%%% document formatting (JH library requirement and customizations)
+\def\GlobalMargin{1.0in}                    % margin on all sides
+\def\PrintingOffset{0.5in}                  % additional space on the left margin for the print copy
+\def\HeaderHeight{20}                       % height of the header (unit: pt)
+\def\HeaderSpace{10}                        % space between header and the following text (unit: pt)
+\def\ChapterTopMargin{-48}                  % white space on top of the chapter heading (unit: pt)
+\def\ChapterToTitle{-12}                    % space between chapter to title (unit: pt)
+\def\TitleToText{18}                        % space between the chapter title to the following text (unit: pt)
+
+
+%%%% pdflatex compression settings to generate compressed PDF (optional)
+% \pdfcompresslevel=9
+% \pdfminorversion=5
+% \pdfobjcompresslevel=2
 
 %%%%%%%%%%%%%%%%%%%% END LIST OF VARIABLES FOR FORMATTING %%%%%%%%%%%%%%%%%%%%%%
 
@@ -118,19 +125,19 @@
 %% you may have to change the options in biblatex package for the bibliography
 %%%%%%%%%%%%%%%%%%%%%%%%%% LaTeX CLASS AND PACKAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\documentclass[12pt]{report}                % report document class w/ 12 pt font
+\documentclass[\BaseFont]{report}           % report document class w/ 12 pt font
 
 \usepackage[utf8]{inputenc}                 % for encoding input character
 \usepackage[pagewise,mathlines]{lineno}     % linenumbers for drafting
 
-%% useful math packages
+%%%% useful math packages
 \usepackage{amsfonts,amssymb,amsmath,amsthm,autobreak,cancel,dsfont,mathtools,mathbbol,mathrsfs,siunitx,upgreek}
 
 \usepackage[ruled]{algorithm2e}             % to manage algorithm environment
 \usepackage[titletoc]{appendix}             % to manage appendix chapters
 \usepackage[american]{babel}                % for different language typography
 
-%% bibliographic package (make sure your bib file is in BibLaTeX format)
+%%%% bibliographic package (make sure your bib file is in BibLaTeX format)
 %% use Zotero or some other reference manager to generate the BibLaTeX file
 %% change the style or other options if you need to
 \usepackage[backend=biber, style=nature, maxnames=9, date=year, isbn=false, url=false, doi=true]{biblatex}
@@ -149,7 +156,7 @@
 \usepackage{graphicx,wrapfig}               % to manage images
 \usepackage{geometry}                       % to manage margins and others
 \usepackage{fancyhdr}                       % for header/ footer settings
-\usepackage[dvipsnames]{xcolor}
+\usepackage[dvipsnames]{xcolor}             % color-related package
 \usepackage[a-1b]{pdfx}                     % to generate PDF/A file (before hyperref)
 \usepackage[pdfa]{hyperref}                 % for hyperlink managemebt
 \usepackage[all]{hypcap}                    % for captions on the side of figures
@@ -157,9 +164,8 @@
 \usepackage{lscape}                         % landscape mode
 \usepackage{listings}                       % to include codes
 
-%% table related packages
+%%%% table-related packages
 \usepackage{booktabs,longtable,dcolumn,makecell,multicol,multirow,tabularx,xltabular}
-
 
 \usepackage{setspace}                       % sets space between lines
 \usepackage{seqsplit}                       % splits long character sequence
@@ -182,8 +188,8 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% if possible, make all of your changes through the defined variables above.
-%% you can make the most common changes there before tweaking the following settings.
-%% if you are really specific about some formatting and can not change them
+%% you can make the most common changes there before tweaking the following 
+%% settings. if you are specific about some formatting and can not change them
 %% by changing defined variables in the beginning, only then proceed to the 
 %% next sections which include loading proper package options, redefining 
 %% different environments, document formatting, settings for special packages 
@@ -195,7 +201,8 @@
 \graphicspath{{\FigurePath/}}
 
 
-%% this file has to be in BibLaTeX format. Use Zotero or some other citation manager to generate the .bib file in BibLaTeX format.
+%% this file has to be in BibLaTeX format. Use Zotero or another citation manager 
+%% to generate the .bib file in BibLaTeX format.
 \addbibresource{\BibFileName}
 
 
@@ -390,38 +397,8 @@
    \vspace{\afterepigraphskip}}}
 \makeatother
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EPIGRAPH SETTINGS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%% END EPIGRAPH SETTINGS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% if you plan on adding algorithms and codes to your thesis, these settings
-%% may be helpful. you can tweak them based on your needs and preferences.
-%%%%%%%%%%%%%%%%%%%%%% ALGORITHM AND LISTING SETTINGS %%%%%%%%%%%%%%%%%%%%%%%%%
-
-%% settings for algorithm2e package
-\renewcommand{\algorithmcfname}{Procedure}
-\SetKwFor{While}{while}{}{end while}%
-\SetArgSty{textnormal}
-\newcommand\mycommfont[1]{\footnotesize\ttfamily\textcolor{blue}{#1}}
-\SetCommentSty{mycommfont}
-
-
-%% listing package definition (to add code in the document)
-\lstdefinestyle{terminal}{columns=fullflexible,
-keepspaces=true,
-breaklines=true,
-basicstyle={\footnotesize\fontfamily{fvm}\fontseries{m}\selectfont},
-keywordstyle={\footnotesize\fontfamily{fvm}\fontseries{b}\selectfont},
-commentstyle={\color{comments}\small\fontfamily{fvm}\itshape\selectfont},
-frame=single,
-xleftmargin=0in,
-backgroundcolor=\color{lightgray!50},
-belowcaptionskip=10pt,
-aboveskip=0.5cm}
-\lstset{style=terminal,float=h,language=bash}
-
-%%%%%%%%%%%%%%%%%%%% END ALGORITHM AND LISTING SETTINGS %%%%%%%%%%%%%%%%%%%%%%%
 
 
 
@@ -440,6 +417,7 @@ aboveskip=0.5cm}
 \DeclareMathOperator{\divg}{div}        % divergence of vector and tensor
 \DeclareMathOperator{\grad}{grad}       % gradient of vector and tensor
 \DeclareMathOperator{\curl}{curl}       % curl of vector and tensor
+
 
 %% theorem-style remark environment
 \theoremstyle{definition}
@@ -467,40 +445,42 @@ aboveskip=0.5cm}
 
 \begin{document}
 
+% \linenumbers                              % useful during drafting
+
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{#1}}
+\fancyhead[R]{}                             % empty top-right header throughout the document
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% FRONT MATTER %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \linenumbers                              % may find useful during drafting
-% place the above comment based on where you want to start line numbering
 
-%% remember most content on title page has to be single-spaced
-\include{01-title}                          % include the title page
-
+\include{01-title}                          % includ the title page
 
 %% chapter header and page numbering set up
 %% header unnumbered chapters (to remove the headers, comment out the following lines)
-\pagestyle{fancy}
-\fancyhead[R]{}                             % empty top-right header throughout the document
-\fancyhead[L]{\nouppercase \leftmark}       % avoiding upper-case in the header
+\fancyhead[L]{\nouppercase \leftmark}       % avoiding upper-case in header
 \pagenumbering{roman}                       % pagination style: roman numeral
 \setcounter{page}{2}                        % page counter starts at roman ii
 \MainTextSpacing                            % double spacing for the contents
 
-%% add abstract, dedication, and acknowledgment (and any other front matter here)
+%%%% add abstract, dedication, and acknowledgment (and any other front matter)
 \include{02-abstract}
 \include{03-dedication}
 \include{04-acknowledgement}
 
 
-%% single spacing is too cluttered and double spacing is too wide-spread
+%%%% single spacing is too cluttered and double spacing is too wide-spread
 \TOCTextSpacing                             % one-half spacing for the table of contents
-{%% local hyperref setting to appear ToC black but hyperlinked
-%% you can comment it to have default blue color ToC
-\hypersetup{linkcolor=black}
+{\hypersetup{linkcolor=black}               % local black hyperlink for TOC
 \renewcommand{\contentsname}{Table of Contents}
 \tableofcontents
-\listoftables
+\cleardoublepage
+\phantomsection
 \addcontentsline{toc}{chapter}{List of Tables}
-\listoffigures
+\listoftables
+\cleardoublepage
+\phantomsection
 \addcontentsline{toc}{chapter}{List of Figures}
+\listoffigures
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%% END FRONT MATTER %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
