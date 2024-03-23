@@ -1,42 +1,42 @@
-%%%% JHU Dissertation title page
-%% if you are not sure, do not change the formatting
-\thispagestyle{empty}
-%%% since everything else is single-spaced, I will use single-spaced
-\singlespacing   
-\begin{center}
-%%% title is about 1.5 inches from the top of the page (single or double-spaced)
-{\large \MakeUppercase{\textbf{Lorem ipsum dolor sit amet consectetuer adipiscing elit}}}
-%
-%
-\\ \vspace{1in}             % gap between the title and the author: 1 inch
-%
-%
-by \\
-John Doe                    % author name goes here
-%
-%
-\\ \vspace{1.5in}           % gap between the author and statement: 1.5 inches
-%
-%
-A dissertation submitted to The Johns Hopkins University in conformity\\
+%%%% JHU Dissertation title page (if you are not sure, do not change the formatting)
+
+\begin{titlepage}
+
+\singlespacing \centering       % center single-spaced style
+\thispagestyle{empty}           % hides page numbering on the title page
+
+
+\vspace*{-\TitleTopOffset pt}   % adjusting offset to place title 1.5 inch from top       
+
+\thesistitle{\LaTeX\ Dissertation Template for Johns Hopkins University}
+
+\vspace{1in}                    % gap between the title and the author: 1 inch
+
+\thesisauthor{John Doe}         % author name for the thesis
+
+\vspace{1.5in}                  % gap between the author and statement: 1.5 inches
+
+
+%%%% Dissertation or Thesis statement
+A dissertation submitted to The Johns Hopkins University in conformity \\
 with the requirements for the degree of Doctor of Philosophy 
 %%%% for masters thesis replace the above line with the following:
 % A thesis submitted to Johns Hopkins University in conformity \\
-% with the requirements for the degree of [your Masters degree]
+% with the requirements for the degree of [your Masters degree name]
 %
 %
-\\ \vspace{0.5in}           % gap between statement and location: 0.5 inch
+\vspace{0.5in} \\               % gap between statement and location: 0.5 inch
 %
 %
-Baltimore, Maryland\\       % location (always the same)
-MONTH YEAR                  % date of submission goes here
-%
-%
-\\ \vspace{2.75in}          % about 2 inches above from the bottom of the page 
-%
-%
-%%%% copyright statement
-{\copyright{} YEAR John Doe \\
-All rights reserved}
+\location \\                    % prints Baltimore, Maryland
+\thesisdate{Month}{YEAR}        % thesis submission month and year
 
-\end{center}
+
+%%%% copyright statement (optional)
+%% if your copyright statement is far not 2 inches from the bottom of the page, 
+%% then adjust the following height inside \vspace
+\vspace{2 in}
+
+\thesiscopyright{YEAR}{John Doe}
+
+\end{titlepage}

@@ -14,8 +14,10 @@
 % add the citation for the chapter if it is a reprint (change the publisher name)
 This chapter is adapted from the following publication with permission from \emph{publisher}: 
 \begin{spacing}{\FullCiteSpacing}
-    \fullcite{einstein}
+    \fullcite{einstein}. \mybibexclude{einstein}.
 \end{spacing}
+% mybibexclude command makes sure this does not get included in the reference list.
+% this paper will not appear if it's cited elsewhere as well.
 
 
 % add your chapter text here
