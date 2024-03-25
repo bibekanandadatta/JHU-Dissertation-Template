@@ -125,6 +125,8 @@ The preamble section of the `00-main.tex` file has been subdivided into multiple
 - If you find all the packages and their settings and macros to be overwhelming and distracting during writing and editing, you can cut and paste all these contents to a separate `my-preamble.tex` file (name it as you like) in the project directory. Then you can use the command `input{my-preamble.tex}` to make your main file appear cleaner and less distracting. See [managing a large project on Overleaf](https://www.overleaf.com/learn/latex/Management_in_a_large_project).
   - You can also upgrade the template-related settings to make a LaTeX package for the thesis using the `.sty` file.
 
+- Inside the `\begin{document} ... \end{document}` environment, the title page, and other front matters (abstract, dedication), technical chapters, bibliography chapter, and appendix chapters are added using the `\include{ }` statement. There is no separate chapter for TOC, LOT, LOF, etc, and additionally, headers are customized based on the type of chapter (numbered vs. unnumbered).
+
 
 ### Title page
 
