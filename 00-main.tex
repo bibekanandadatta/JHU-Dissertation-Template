@@ -14,7 +14,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % This is an unofficial dissertation template for Johns Hopkins University.
-% As of March 04, 2024, the template follows the dissertation formatting 
+% As of March 25, 2024, the template follows the dissertation formatting 
 % requirements provided by the  Johns Hopkins University Sheridan Library.
 % It is the user's responsibility to ensure that the current requirements are 
 % followed: https://www.library.jhu.edu/library-services/electronic-theses-dissertations/formatting-requirements/
@@ -26,7 +26,7 @@
 % Updated by John Muschelli on January 29, 2016 
 % Updated by Leonardo Collado Torres on April 13, 2016 
 % Updated by John Clayton in December 2019
-% Last Updated by Bibekananda Datta on March 24, 2024
+% Last Updated by Bibekananda Datta on March 25, 2024
 % This version is heavily edited and customized from the previous version
 %%%%%%%%%%%%%%%%%%%%%%%%%%% CURRENT VERSION INCLUDES %%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Reorganization of the necessary packages (you may need more) and their settings.
@@ -162,7 +162,8 @@
 \usepackage{enumitem}                       % to manage list environment
 \usepackage{float}                          % to manage floating environment
 \usepackage[T1]{fontenc}                    % for font encoding
-\usepackage[bottom,multiple]{footmisc}      % footnote environment management
+% footnote environment management
+\usepackage[bottom,multiple,hang,flushmargin]{footmisc}      
 \usepackage{graphicx,wrapfig}               % to manage images
 \usepackage{geometry}                       % to manage margins and others
 \usepackage{fancyhdr}                       % for header/ footer settings
@@ -176,16 +177,16 @@
 \usepackage{csquotes}                       % yet another package to manage quote
 
 %%%% table-related packages
-\usepackage{booktabs,longtable,dcolumn,makecell,multicol,multirow,tabularx,xltabular}
+\usepackage{booktabs,longtable,dcolumn,makecell,multicol,multirow,tabularx,xltabular,rotating}
 
 \usepackage{setspace}                       % sets space between lines
 \usepackage{seqsplit}                       % splits long character sequence
 \usepackage[rightcaption]{sidecap}          % for sideway captions
 \usepackage{tocloft}                        % to manage table of contents, etc.
-\usepackage{parskip}                        % paragraph-related spacings (after tocloft)
 \usepackage{textcomp}                       % text companion fonts in TS1
 \usepackage[absolute]{textpos}              % position text at certain location
-\usepackage{titlesec}                       % managing different titles
+\usepackage{titlesec}                       % managing different title environments
+\usepackage{parskip}                        % default spacing around environments
 \usepackage{tikz}                           % drawing related package
 \usepackage{subcaption}                     % individual panel and caption
 
@@ -236,7 +237,6 @@
 
 %% settings for TikZ library (you can add more settings here)
 \usetikzlibrary{positioning,shapes,arrows}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% END PACKAGE OPTIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -490,6 +490,8 @@ with the requirements for the degree of {#2}
 
 
 
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%% DOCUMENT BEGINS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
@@ -533,7 +535,6 @@ with the requirements for the degree of {#2}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%% END FRONT MATTER %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% MAIN TEXT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
