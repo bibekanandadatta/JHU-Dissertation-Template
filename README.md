@@ -19,13 +19,14 @@ This template is also [available on Overleaf as an unofficial template](https://
 
 The previous version of the template used default options for the LaTeX report class and different packages which had unusually large font sizes and extra white spaces around different environments. So, I decided to reorganize the template and add more customization by loading the necessary packages. Compared to the previous version, for the current version of the template, I have:
 
+  - Reorganized the code in the template in a more readable and understandable format
+  - Custom macros to generate title page and front matters (TOC, LOT, LOF)
+  - Updated the appearance of the table of contents, list of figures, and list of tables.
   - Added customization options to control the font size and shape of different headings.
   - Added customization options to control the white space for different environments.
-  - Reorganized the loading of common packages (you may need more) and their settings.
-  - Modularized all the settings, formatting, and macros. You can add more as needed.
   - Added specific settings for adding quotes (epigraph package) to the chapters
   - Added examples of customized macros for mathematical and non-mathematical environments.
-  - Updated the appearance of table of contents, list of figures, and list of tables.
+  - Added support to generate PDF/A output on Overleaf directly.
 
 
 
@@ -34,7 +35,7 @@ The previous version of the template used default options for the LaTeX report c
 Since the template is based on the report class, it is subdivided into multiple chapters. There are separate .tex files for all the front matters (mandatory or optional), technical chapters, and back matters (references and appendices).
 
 - `00-main.tex` file is the driver or root file which includes all the preamble, document settings, package settings, and macros as needed as well as the auxiliary .tex files for each chapter. I would recommend going through the different sections of this file before you start working to understand the available packages and options.
-- `filename.tex` are the .tex files dedicated for individual pages (e.g., title, dedication) or environments (such as abstract, references, etc.) or chapters. These files are called from the `00-main.tex` file using an `\include{}` command which flushes all the floating objects and starts a new page.
+- `<filename>.tex` are the .tex files dedicated for individual pages (e.g., title, dedication) or environments (such as abstract, references, etc.) or chapters. These files are called from the `00-main.tex` file using an `\include{}` command which flushes all the floating objects and starts a new page.
 - `figures` subdirectory contains all the figures for the thesis. You can add the figures as chapter-wise PDF files or as just individual images with allowable extensions. Images are called using the `\includegraphics{}` command in a figure environment. You can also use the `\includegraphicx{}` command to avoid using specific image file extensions.
 - `thesis.bib` file is a biblatex file that contains all the bibliographic items. Use Zotero or some other citation manager to generate the biblatex file containing all the items.
 - `latexmkrc` additional settings for the make file to generate PDF/A output. This is required to be in the main directory of the Overleaf project.
@@ -55,20 +56,9 @@ I prefer using Overleaf for all of my LaTeX compilation and I recommend it stron
 
 - Once you have imported the project, you need to compile the `00-main.tex` file using the `pdflatex` option (default on Overleaf) which will call all the auxiliary files included to produce the final PDF. It should compile without any error on Overleaf. There might be warnings, but you can ignore them. 
 
-
-Although it is very convenient to write your document on Overleaf, consider backing up your work on Overleaf using Git or GitHub integration or Dropbox sync feature.
-
-
-### Generating PDF/A compliant output file for the JH Library on Overleaf
-
-Johns Hopkins Library requires the electronic copy of the thesis must be [generated in PDF/A format](https://www.adobe.com/uk/acrobat/resources/document-files/pdf-types/pdf-a.html) which is not trivial. Compiling LaTeX documents is a bit of an involved process but thanks to Overleaf we do not have to worry about it. [Check here to learn how they do it](https://www.overleaf.com/learn/how-to/How_does_Overleaf_compile_my_project%3F). I have not done the compilation locally for this project and do not plan on doing it. So I am unable to provide any help in that regard.
-
-- Learn about [latexmkrc file on Overleaf](https://www.overleaf.com/learn/latex/Articles/How_to_use_latexmkrc_with_Overleaf) which you will need to generate PDF/A file.
-- [This documentation](https://www.overleaf.com/latex/templates/creating-pdf-slash-a-and-pdf-slash-x-files-with-the-pdfx-package/bbbycnbyqhnm) provides details on how to generate PDF/A compilant output on Overleaf. **Open as Template** to see what is included in the project.
-  - Briefly, PDF/A compliant output is generated by including `\usepackage{pdfx}` command in the preamble, and to ensure the compilation worked properly, the project directory needs to include `latexmkrc` input file in which you will need to specify the timezone; [check supported timezones here](https://www.php.net/manual/en/timezones.php).
-  - Optionally, to include the meta-data in the generated PDF, you can edit the `output.xmpdata`. The given fields are very simple.
-
-- So far, I have not found any convenient way of validating if the generated PDF is compliant with library-specified PDF/A format for free. Library has computers with Adobe Acrobat Pro installed that can validate the format of the electronic copy of your thesis. If you or your lab has a license to this program, you can do it there as well. Finally, if you find it is not compliant (for any unknown reason), this program will also allow you to convert the format. 
+> [!TIP]
+>
+> Although it is very convenient to write your document on Overleaf, consider backing up your work on Overleaf using Git or GitHub integration or the Dropbox sync feature.
 
 
 
@@ -88,10 +78,9 @@ As mentioned before, the template is based on the standard report class. However
   - For the subsection headings, I used `\normalsize\itshape` (*italic 12 pt*).
   - For the table and figure captions, I used `\small` (10.95 pt), and for the footnotes, I used `\footnotesize` (10 pt).
 
-- All the texts in the Abstract, Acknowledgement, and the main texts are double-spaced. Dedication and any other special prefaces could be spaced to the author's liking. You can define local environments for dedication and quotes to be arbitrarily spaced.
-  - Table of Contents (TOC), List of Tables (LOT), and List of Figures (LOF) in the front matter are one-half-spaced.
-  - Item spacing in TOC is default from the `tocloft` package and item spacing in the LOT and LOF is 6 pt. 
-  - Bibliographic items in the back matter are single-spaced with `0.5\baselineskip` spacing between each item.
+- All the texts in the Abstract, Dedication, and Acknowledgement, and the main texts are double-spaced.
+  - Table of Contents (TOC), List of Tables (LOT), and List of Figures (LOF) in the front matter, and bibliographic references in the back matter are one-half-spaced.
+  - Item spacing in TOC is default from the `tocloft` package. Item spacing in the LOT and LOF and Bibliographic references is 7.25 pt (approximately `0.5\baselineskip`). 
   - Footnotes are single-spaced with `\baselineskip` spacing between each footnote.
 
 - Currently, the document is formatted to have **three** levels of paragraph-style environments (section, subsection, subsubsection) for writing. All of them are shown in the Table of Contents as well.
@@ -131,6 +120,7 @@ The preamble section of the `00-main.tex` file has been subdivided into multiple
 
 - Inside the `\begin{document} ... \end{document}` environment, the title page, and other front matters (abstract, dedication), technical chapters, bibliography chapter, and appendix chapters are added using the `\include{ }` statement. There is no separate chapter for TOC, LOT, LOF, etc, and additionally, headers are customized based on the type of chapter (numbered vs. unnumbered).
 
+- Currently, the chapters are filled with randomly generated text by the `blindtext` package. Remove them to get started with your document.
 
 ### Title page
 
@@ -143,16 +133,20 @@ The thesis title page is defined using the `titlepage` environment which is cent
 - `\ThesisCopyright{ }{ }:` prints the optional copyright statement 2 inches from the bottom of the page. The first and second arguments to this macro are Year and Author name.
 
 
-### Table of Contents, List of Tables, and List of Figures
+### Prefaces and TOC, LOT, LOF
+
+- Except for the Abstract, other contents in the front matter can be arbitrarily spaced. For now, the Acknowledgment and Dedication pages are also double-spaced. However, a local `spacing` environment can be used for specialized preface pages.
 
 - All of the contents in TOC, LOT, and LOF are hyperlinked using the `linktoc=all` option in the `\hypersetup{}`. You can change this option to remove hyperlinks in TOC or just hyperlink the pages, etc. You can also change the color of the hyperlink for TOC (currently it is black) while any other hyperlink throughout the document has a blue color.
 
 - Three different simple macros are defined to print the Table of Contents, List of Tables, and List of Figures in that order. These macros were defined to extend the functionalities (title change, appearance in the TOC, proper page numbering, etc.) of the default commands of similar kinds offered by LaTeX.
-  - `\mytableofcontents:` to print the table of contents
-  - `\mylistoftables:` to print the list of tables
-  - `\mylistoffigures:` to print the list of figures
+  - `\mytableofcontents:` to print the table of contents.
+  - `\mylistoftables:` to print the list of tables.
+  - `\mylistoffigures:` to print the list of figures.
 
-- Currently, the template does not have any specific settings or package options to print List of Abbreviations and List of Symbols. You can look into `glossaries`, `glossaries-extra`, and `tocloft` packages to define custom lists to be printed.
+- Currently, the template does not have any specific settings or package options to print the List of Supplementary Materials, the List of Abbreviations, and the List of Symbols. You can look into `glossaries`, `glossaries-extra`, and `tocloft` packages to define custom lists to be printed.
+
+
 
 
 ### Contents within the main text
@@ -194,10 +188,9 @@ The thesis title page is defined using the `titlepage` environment which is cent
 
 - You can use the `\linenumbers` command from the `lineno` package anywhere inside the main text document when you would like to have line numbers on the left margin. It might be useful during the drafting stage. Currently, this package is loaded with the `pagewise` line numbering option.
 
-- Finally, you may consider using the `microtype` package to have better typography. Customizing the settings for this package is a bit of an involved process and requires some effort, hence not included in the template. To understand and appreciate microtypography, check the details on using [microtype package for writing a thesis here](https://www.khirevich.com/latex/microtype/).
-
 - To use colors in your writing (such as hyperlinking or text coloring) or drawing, you can consider using the `xcolor` package with the `dvipsnames` option (already loaded with this option in the preamble). Check [how to use colors in LaTeX on Overleaf](https://www.overleaf.com/learn/latex/Using_colors_in_LaTeX).
 
+- Finally, you may consider using the `microtype` package to have better typography. Customizing the settings for this package is a bit of an involved process and requires some effort, hence not included in the template. To understand and appreciate microtypography, check the details on using [microtype package for writing a thesis here](https://www.khirevich.com/latex/microtype/).
 
 
 ### Figures and Tables
@@ -214,19 +207,34 @@ The thesis title page is defined using the `titlepage` environment which is cent
 
 - The name of your bib file has to be specified in the `BibFileName` variable in the `LIST OF VARIABLES FOR FORMATTING` section. If your bib file has a different name than the given file, then change the variable name.
 
-- The bibliography file is based on BibLaTeX which is a more modern and flexible package compared to BibTeX and natbib. Perhaps consider using Zotero, Mendely, EndNote, or some other citation manager to generate a standard BibLaTeX file. To change the default format of the bibliography, look for the `\usepackage[ ... ]{biblatex}` command and change the option based on your need and/or preference.
+- The bibliography file is based on BibLaTeX which is a more modern and flexible package compared to BibTeX and natbib. Perhaps consider using Zotero, Mendely, EndNote, or some other citation manager to generate a standard BibLaTeX file. Learn about [citation styles in BibLaTeX](https://www.overleaf.com/learn/latex/Biblatex_citation_styles).
+
+- To change the default format of the bibliography, look for the following command and change the options based on your need and/or preference:
+```
+`\usepackage[ ... ]{biblatex}`
+```
 
 - Bibliographic references are printed using the following command which will ensure the citations included in the `\mybibexlude{}` command are not printed.
 ```
 \printbibliography[heading=none,notcategory=mypapers]
 ```
 
-### PDF 
 
-In case you generate a very large PDF, you can use the following commands (currently commented and I have not validated them) for the `pdflatex` compiler. Use StackExchange and Google to tweak them to generate a compressed PDF.
-- `\pdfcompresslevel=9`
-- `\pdfminorversion=5`
-- `\pdfobjcompresslevel=2`
+### Generating PDF/A compliant output file for the JH Library on Overleaf
+
+Johns Hopkins Library requires the electronic copy of the thesis must be [generated in PDF/A format](https://www.adobe.com/uk/acrobat/resources/document-files/pdf-types/pdf-a.html) which is not trivial. Compiling LaTeX documents is a bit of an involved process but thanks to Overleaf we do not have to worry about it. [Check here to learn how they do it](https://www.overleaf.com/learn/how-to/How_does_Overleaf_compile_my_project%3F). I have not done the compilation locally for this project and do not plan on doing it. So I am unable to provide any help in that regard.
+
+- Learn about [latexmkrc file on Overleaf](https://www.overleaf.com/learn/latex/Articles/How_to_use_latexmkrc_with_Overleaf) which you will need to generate PDF/A file.
+- [This documentation](https://www.overleaf.com/latex/templates/creating-pdf-slash-a-and-pdf-slash-x-files-with-the-pdfx-package/bbbycnbyqhnm) provides details on how to generate PDF/A compilant output on Overleaf. **Open as Template** to see what is included in the project.
+  - Briefly, PDF/A compliant output is generated by including `\usepackage{pdfx}` command in the preamble, and to ensure the compilation worked properly, the project directory needs to include `latexmkrc` input file in which you will need to specify the timezone; [check supported timezones here](https://www.php.net/manual/en/timezones.php).
+  - Optionally, to include the meta-data in the generated PDF, you can edit the `output.xmpdata`. The given fields are very simple.
+
+- So far, I have not found any convenient way of validating if the generated PDF is compliant with library-specified PDF/A format for free. Library has computers with Adobe Acrobat Pro installed that can validate the format of the electronic copy of your thesis. If you or your lab has a license to this program, you can do it there as well. Finally, if you find it is not compliant (for any unknown reason), this program will also allow you to convert the format. 
+
+- In case you generate a very large PDF, you can use the following commands (currently commented and I have not validated them) for the `pdflatex` compiler. Use StackExchange and Google to tweak them to generate a compressed PDF.
+  - `\pdfcompresslevel=9`
+  - `\pdfminorversion=5`
+  - `\pdfobjcompresslevel=2`
 
 
 Keep writing ... and Happy Graduation :tada:!
