@@ -53,8 +53,10 @@ I prefer using Overleaf for all of my LaTeX compilation and I recommend it stron
   
 - If you have your Overleaf and GitHub account linked and want to have copies of the project in both places, you can **fork** this repository. Then go to Overleaf and click on **New Project** -> **Import from GitHub**, it should list the forked project for listing. Once imported, you can start working on Overleaf. But Overleaf and GitHub will not sync automatically; you will have to do it to have an updated version on GitHub.
 
-Once you have imported the project, you need to compile the `00-main.tex` file using the `pdflatex` option (default on Overleaf) which will call all the auxiliary files included to produce the final PDF. It should compile without any error on Overleaf. There might be warnings, but you can ignore them. 
+- Once you have imported the project, you need to compile the `00-main.tex` file using the `pdflatex` option (default on Overleaf) which will call all the auxiliary files included to produce the final PDF. It should compile without any error on Overleaf. There might be warnings, but you can ignore them. 
 
+
+Although it is very convenient to write your document on Overleaf, consider backing up your work on Overleaf using Git or GitHub integration or Dropbox sync feature.
 
 
 ### Generating PDF/A compliant output file for the JH Library on Overleaf
@@ -67,6 +69,8 @@ Johns Hopkins Library requires the electronic copy of the thesis must be [genera
   - Optionally, to include the meta-data in the generated PDF, you can edit the `output.xmpdata`. The given fields are very simple.
 
 - So far, I have not found any convenient way of validating if the generated PDF is compliant with library-specified PDF/A format for free. Library has computers with Adobe Acrobat Pro installed that can validate the format of the electronic copy of your thesis. If you or your lab has a license to this program, you can do it there as well. Finally, if you find it is not compliant (for any unknown reason), this program will also allow you to convert the format. 
+
+
 
 
 ## Document formatting (customization beyond the requirements)
@@ -105,7 +109,7 @@ As mentioned before, the template is based on the standard report class. However
 
 
 
-## Basic User Guidelines
+## Basic user guidelines
 
 Overleaf has a huge collection of tutorials and examples on different LaTeX-related typesetting topics (margins and page size, math, table, footnote, and bibliography management). You will most likely find what you need there. Another useful resource for [writing thesis in LaTeX is here](https://www.khirevich.com/latex/). 
 
