@@ -86,7 +86,7 @@ Overleaf has a huge collection of tutorials and examples on different LaTeX-rela
  
 - The bibliography file is based on BibLaTeX which is a more modern package compared to BibTeX and natbib. Use Zotero (this is what I use) or some other citation manager to generate a standard BibLaTeX file.
 
-The most common and popular packages for writing dissertations are added in the `LaTeX CLASS AND PACKAGES` sections. Check the packages; add any additional package you need and/or customize your options there.
+- The most common and popular packages for writing thesis or dissertations are added in the `LaTeX CLASS AND PACKAGES` sections. Check the packages; add any additional package you need and/or customize your options there.
 
 - By default, tables are defined to have `\arraystretch{1.5}` (which is equivalent to double-spaced text). If you would like to customize the spacing inside a table globally throughout the document, you can try decreasing/ increasing the variable `GlobalTableSpacing`. However, I suggest doing it locally by defining a group for each table (StackExhange or StackOverflow is your friend here) where you can redefine `\arraystretch` for the individual tables as needed. Also if the table is wider than the page during editing, you may want to use the landscape tables which are placed sideways and may go over multiple pages (someone on StackExhange or StackOverflow has done it for sure).
 

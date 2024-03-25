@@ -2,41 +2,33 @@
 
 \begin{titlepage}
 
-\singlespacing \centering       % center single-spaced style
-\thispagestyle{empty}           % hides page numbering on the title page
+% centered single-spaced title page w/ no page numbering
+\begin{center}
+\singlespacing  \thispagestyle{empty}       
 
+%%%% thesis title: 1.5 inches from the top of the page
+\ThesisTitle{\LaTeX\ Dissertation Template for Johns Hopkins University}
 
-\vspace*{-\TitleTopOffset pt}   % adjusting offset to place title 1.5 inch from top       
+\vspace{1in}                    % gap between the title and the author: approx. 1 inch
 
-\thesistitle{\LaTeX\ Dissertation Template for Johns Hopkins University}
-
-\vspace{1in}                    % gap between the title and the author: 1 inch
-
-\thesisauthor{John Doe}         % author name for the thesis
+\ThesisAuthor{John Doe}         % author name for the thesis
 
 \vspace{1.5in}                  % gap between the author and statement: 1.5 inches
 
+%%%% for masters change arguments to: {thesis}{masters program name}
+\ThesisStatement{dissertation}{Doctor of Philosophy}  
+%% gap between statement and location: approx. 0.5 inch
+\vspace{0.5in} \\               
 
-%%%% Dissertation or Thesis statement
-A dissertation submitted to The Johns Hopkins University in conformity \\
-with the requirements for the degree of Doctor of Philosophy 
-%%%% for masters thesis replace the above line with the following:
-% A thesis submitted to Johns Hopkins University in conformity \\
-% with the requirements for the degree of [your Masters degree name]
-%
-%
-\vspace{0.5in} \\               % gap between statement and location: 0.5 inch
-%
-%
-\location \\                    % prints Baltimore, Maryland
-\thesisdate{Month}{YEAR}        % thesis submission month and year
+\Location \\                    % prints Baltimore, Maryland as the location
+\ThesisDate{Month}{YEAR}        % thesis submission month and year (single-spaced)
 
 
-%%%% copyright statement (optional)
-%% if your copyright statement is far not 2 inches from the bottom of the page, 
-%% then adjust the following height inside \vspace
-\vspace{2 in}
+%%%% optional copyright statement: approx. 2 inches from the bottom of the page
+%% year and name are input argument for copyright statement
+\ThesisCopyright{YEAR}{John Doe}
 
-\thesiscopyright{YEAR}{John Doe}
+
+\end{center}
 
 \end{titlepage}

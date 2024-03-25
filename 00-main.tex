@@ -9,7 +9,7 @@
 %%             PLEASE CHECK THE README.md FILE BEFORE YOU PROCEED             %%
 %%              it may be convenient to read this file on GitHub              %%
 %%   GitHub: https://github.com/bibekananda-datta/JHU-Dissertation-Template   %%
-%% template hosted on the GitHub repository is likely to be the most updated  %%
+%% template hosted on this GitHub repository is likely to be the most updated %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -26,7 +26,7 @@
 % Updated by John Muschelli on January 29, 2016 
 % Updated by Leonardo Collado Torres on April 13, 2016 
 % Updated by John Clayton in December 2019
-% Last Updated by Bibekananda Datta on March 14, 2024
+% Last Updated by Bibekananda Datta on March 24, 2024
 % This version is heavily edited and customized from the previous version
 %%%%%%%%%%%%%%%%%%%%%%%%%%% CURRENT VERSION INCLUDES %%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Reorganization of the necessary packages (you may need more) and their settings.
@@ -50,12 +50,11 @@
 \def\BibFileName{thesis.bib}                % name of BibLaTeX file with all the bibliography
 \def\FigurePath{figures}                    % subdirectory for the figure files
 
-
 %%%% font size and typeset for different environments
-%% check here for details: https://www.sascha-frank.com/latex-font-size.html
+%% check here for details: https://en.wikibooks.org/wiki/LaTeX/Fonts
 \def\FontPackage{lmodern}                   % latin modern font (you can also change it to times)
 \def\BaseFont{12pt}                         % main text font size for document
-\def\TitleFont{\Large\bfseries}             % font format for thesis title
+\def\TitleFont{\Large\bfseries\MakeUppercase}% font format for thesis title
 \def\ChapterFont{\singlespacing\Large\bfseries}
 \def\SectionFont{\large\bfseries}           % section heading font format
 \def\SubsectionFont{\normalsize\bfseries}   % subsection heading font format
@@ -74,14 +73,15 @@
 
 %%%% spacing between different environments
 \def\ParagraphSpacing{\baselineskip}        % spacing between paragraph
-\def\ParagraphIndent{0}                     % indentation at the beginning of the paragraph
-\def\FullCiteSpacing{1.25}                  % spacing in a fullcite item
+\def\ParagraphIndent{0 pt}                  % indentation at the beginning of the paragraph
+\def\FullCiteSpacing{1.25}                  % spacing in a fullcite item (stretch)
+\def\LOTItemSpacing{6 pt}                   % spacing between LOT/LOF items
 \def\BibItemSpacing{0.5\baselineskip}       % spacing between bibliographic items in reference
 \def\FootnoteSpacing{\baselineskip}         % spacing between footnotes
-\def\CaptionSpacing{0}                      % spacing between the figure and the caption (unit: pt)
+\def\CaptionSpacing{0 pt}                   % spacing between the figure and the caption (unit: pt)
 
 %% if you have a longer quote, you may have to change it.
-\def\QuoteWidth{0.65\textwidth}             % width of quote in epigraph
+\def\QuoteWidth{0.75\textwidth}             % width of quote in epigraph
 
 
 %% if this seems too widespread for you, try changing it locally using
@@ -99,12 +99,20 @@
 %%%% document formatting (JH library requirement and customizations)
 \def\GlobalMargin{1.0in}                    % margin on all sides
 \def\PrintingOffset{0.5in}                  % additional space on the left margin for the print copy
-\def\HeaderHeight{20}                       % height of the header (unit: pt)
-\def\HeaderSpace{10}                        % space between header and the following text (unit: pt)
-\def\TitleTopOffset{30}                     % combined HederHeight + HeaderSpace 
-\def\ChapterTopMargin{-48}                  % white space on top of the chapter heading (unit: pt)
-\def\ChapterToTitle{-12}                    % space between chapter to title (unit: pt)
-\def\TitleToText{18}                        % space between the chapter title to the following text (unit: pt)
+
+\def\HeaderHeight{18 pt}                    % height of the header 
+\def\HeaderSpace{12 pt}                     % space between header and the following text
+\def\TitleTopSpacing{-\HeaderHeight-\HeaderSpace}
+
+%%%% following numbers are found by trial and error to compensate for spacing around default LaTeX environments
+\def\BeforeTOCTitleSpacing{-27 pt}          % adjustable space before TOC title
+\def\AfterTOCTitleSpacing{33 pt}            % adjustable space after TOC title
+\def\AfterLOTTitleSpacing{45 pt}            % adjustable space after LOT/ LOF title
+\def\NumChapterTopMargin{-45 pt}            % adjustable space before numbered chapter label (unit: pt)
+\def\UnNumChapterTopMargin{-68 pt}          % adjustable space before unnumbered chapter label
+\def\ChapLabelToTitle{-24 pt}               % adjustable space between chapter label to title (unit: pt)
+\def\ChapTitleToText{25 pt}                 % extra space between the chapter title and the following text
+\def\SpaceBeforeQuote{-10 pt}               % adjustable white space before quote
 
 
 %%%% pdflatex compression settings to generate compressed PDF (optional)
@@ -143,14 +151,14 @@
 %% use Zotero or some other reference manager to generate the BibLaTeX file
 %% change the style or other options if you need to
 \usepackage[backend=biber, defernumbers=true, style=nature, maxnames=9, date=year, isbn=false, url=false, doi=true]{biblatex}
-% \usepackage[backend=biber, style=apa, isbn=false, url=false, doi=true]{biblatex}
+% \usepackage[backend=biber, defernumbers=true, style=apa, isbn=false, url=false, doi=true]{biblatex}
 
 \usepackage{blindtext}                      % to generate random filler texts
 \usepackage{calc}                           % to set arithmetic arguments for spacing
 \usepackage{caption}                        % to manage captions
 \usepackage{color}                          % color related packages
 \usepackage{comment}                        % to comment a large amount of text as env
-\usepackage{csquotes,epigraph,varwidth}     % for managing quotes
+\usepackage{epigraph,varwidth}              % for managing quotes
 \usepackage{enumitem}                       % to manage list environment
 \usepackage{float}                          % to manage floating environment
 \usepackage[T1]{fontenc}                    % for font encoding
@@ -164,7 +172,8 @@
 \usepackage[all]{hypcap}                    % for captions on the side of figures
 \usepackage{ifthen}                         % if-then statement in LaTeX
 \usepackage{lscape}                         % landscape mode
-\usepackage{listings}                       % to include codes
+\usepackage{listings,minted}                % to include codes 
+\usepackage{csquotes}                       % yet another package to manage quote
 
 %%%% table-related packages
 \usepackage{booktabs,longtable,dcolumn,makecell,multicol,multirow,tabularx,xltabular}
@@ -172,9 +181,10 @@
 \usepackage{setspace}                       % sets space between lines
 \usepackage{seqsplit}                       % splits long character sequence
 \usepackage[rightcaption]{sidecap}          % for sideway captions
-\usepackage[titles]{tocloft}                % to manage table of content
+\usepackage{tocloft}                        % to manage table of contents, etc.
 \usepackage{parskip}                        % paragraph-related spacings (after tocloft)
 \usepackage{textcomp}                       % text companion fonts in TS1
+\usepackage[absolute]{textpos}              % position text at certain location
 \usepackage{titlesec}                       % managing different titles
 \usepackage{tikz}                           % drawing related package
 \usepackage{subcaption}                     % individual panel and caption
@@ -210,7 +220,7 @@
 
 %% margin settings required by JH library using geometry package
 %% if you have a long chapter title you may need to customize the header settings here
-\geometry{letterpaper, margin=\GlobalMargin, bindingoffset=\PrintingOffset, nomarginpar, includehead, headheight=\HeaderHeight pt, headsep=\HeaderSpace pt, includefoot, heightrounded}
+\geometry{letterpaper, margin=\GlobalMargin, bindingoffset=\PrintingOffset, nomarginpar, includehead, headheight=\HeaderHeight, headsep=\HeaderSpace, includefoot, heightrounded}
 %% you can add showframe option to see how the layout looks like if needed 
 
 
@@ -221,50 +231,66 @@
 
 
 %% settings for caption package (customize or add more as needed)
-\captionsetup{belowskip=\CaptionSpacing pt, font=\CaptionFontSize, labelfont=\CaptionFontType, labelsep=\CaptionSeparator, hypcap=true} 
-
+\captionsetup{belowskip=\CaptionSpacing, font=\CaptionFontSize, labelfont=\CaptionFontType, labelsep=\CaptionSeparator, hypcap=true} 
 
 
 %% settings for TikZ library (you can add more settings here)
 \usetikzlibrary{positioning,shapes,arrows}
 
 
-%% may need to define more Unicode characters if they appear in your thesis
-\DeclareUnicodeCharacter{2212}{-}           % defining Unicode character '-'
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% END PACKAGE OPTIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
+%%%%%%%%%%%%%%%%%%%%%% MACROS FOR TITLE PAGE FORMATTING %%%%%%%%%%%%%%%%%%%%%%%%
+%%%% macro commands for title page formatting
+\newcommand{\ThesisTitle}[1]{
+    \vspace*{\TitleTopSpacing}
+    {\TitleFont {#1} \par}
+}
+
+\newcommand{\ThesisAuthor}[1]{by \\ #1 \\}
+
+\newcommand{\ThesisStatement}[2]{
+A {#1} submitted to The Johns Hopkins University in conformity \\
+with the requirements for the degree of {#2}
+}
+
+\newcommand{\Location}{Baltimore, Maryland}
+
+\newcommand{\ThesisDate}[2]{#1 #2}
+
+\newcommand{\ThesisCopyright}[2]{
+\begin{textblock*}{\textwidth}(\GlobalMargin +\PrintingOffset,9in)
+    \copyright\ {#1} {#2} \\ All rights reserved
+\end{textblock*}
+\null
+}
+
+%%%%%%%%%%%%%%%%%%%% END MACROS FOR TITLE PAGE FORMATTING %%%%%%%%%%%%%%%%%%%%%%
+
 %%%%%%%%%%%%%%%%%%%%%%%% REDEFINITION OF ENVIRONMENTS %%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\newcommand{\thesistitle}[1]{{\TitleFont \MakeUppercase{#1} \par}}
-\newcommand{\thesisauthor}[1]{by \\ #1 \\}
-\newcommand{\location}{Baltimore, Maryland}
-\newcommand{\thesisdate}[2]{#1 #2}
-\newcommand{\thesiscopyright}[2]{\copyright\ {#1} {#2} \\ All rights reserved}
-
 
 %%%% UNNUMBERED CHAPTERS, SECTION, and SUBSECTION COMMAND for ADDING to TOC
 %% removes the 'Chapter #' title while keeping it listed in the TOC
 \newcommand\chap[1]{%
-  \chapter*{#1}%
-  \markboth{#1}{}
-  \addcontentsline{toc}{chapter}{#1}}
+    \chapter*{#1}%
+    \markboth{#1}{}
+    \addcontentsline{toc}{chapter}{#1}}
   
 %% removes the 'Section #' title while keeping it listed in the TOC
 \newcommand\sect[1]{%
-  \section*{#1}%
-  \addcontentsline{toc}{section}{#1}}
+    \section*{#1}%
+    \addcontentsline{toc}{section}{#1}}
   
 %% removes the 'Subsection #' title while keeping it listed in the TOC
 \newcommand\subsect[1]{%
-  \subsection*{#1}%
-  \addcontentsline{toc}{subsection}{#1}}
+    \subsection*{#1}%
+    \addcontentsline{toc}{subsection}{#1}}
 
 %% removes the 'Subsubsection #' title while keeping it listed in the TOC
 \newcommand\subsubsect[1]{%
-  \subsubsection*{#1}%
-  \addcontentsline{toc}{subsubsection}{#1}}
+    \subsubsection*{#1}%
+    \addcontentsline{toc}{subsubsection}{#1}}
 
 %%%%%%%%%%%%%%%%%%%%%%% END REDEFINITION OF ENVIRONMENTS %%%%%%%%%%%%%%%%%%%%%%%
 
@@ -274,27 +300,11 @@
 %%%% choice a font form (or add something else) for your thesis
 \usepackage{\FontPackage}
 
-%%%% TOC shows (chapter to subsection) in the list
 \setcounter{tocdepth}{\NoTocLevel}                      % list depth in ToC
-\setlength{\cftfigindent}{\TocIndent pt}                % indentation from figures in LoF
-\setlength{\cfttabindent}{\TocIndent pt}                % indentation from tables in LoT
-\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}  % dots for chapters too
+\setcounter{secnumdepth}{\NoSectionLevel}               % section to ... subsubsection ...
 
 
-%% tweak to TOC to add 'chapter' to the chapter name instead of a number only
-%% set the width of the box based on the longest label name
-\renewcommand{\cftchappresnum}{\chaptername\space}
-\setlength{\cftchapnumwidth}{\widthof{\textbf{Appendix~999~}}}
-
-
-%% tweak to LoF/ LoT to add 'Figure' & 'Table' to the figure and table caption listing
-%% to change the distance to the start of the figure/ table title
-\renewcommand{\cftfigpresnum}{\bfseries Figure }
-\renewcommand{\cfttabpresnum}{\bfseries Table }
-\setlength{\cftfignumwidth}{\widthof{\textbf{Figure~99.999~}}}
-\setlength{\cfttabnumwidth}{\widthof{\textbf{Table~99.100~}}}
-
-%%%% modified macros/ commands for ToC, LoF, LoT
+%%%% tocloft: modified macros/ commands for ToC, LoF, LoT
 \newcommand{\mytableofcontents}{
     \renewcommand{\contentsname}{Table of Contents}
     \tableofcontents
@@ -312,60 +322,71 @@
     \listoftables
 }
 
+%%%% package tocloft settings: font size and spacing around the titles of ToC/ LoT/ LoF
+\renewcommand{\cfttoctitlefont}{\ChapterFont}
+\renewcommand{\cftlottitlefont}{\ChapterFont}
+\renewcommand{\cftloftitlefont}{\ChapterFont}
 
-%%%% chapter # and title settings (with white space)
-\makeatletter
-\def\@makechapterhead#1{%
-    \vspace*{\ChapterTopMargin \p@}   % white space before the chapter #
-    {\parindent \z@ \raggedright \normalfont
-    \ifnum \c@secnumdepth >\m@ne
-        \ChapterFont \@chapapp\enskip \thechapter 
-        \\ \vspace{\ChapterToTitle \p@}   % space between chapter # and title
-    \fi
-        \interlinepenalty\@M
-        \ChapterFont #1\par\nobreak
-    \vskip \TitleToText \p@         % space between the chapter title and the following text
-  }}
-\makeatother
+\setlength{\cftbeforetoctitleskip}{\BeforeTOCTitleSpacing}
+\setlength{\cftbeforelottitleskip}{\BeforeTOCTitleSpacing}
+\setlength{\cftbeforeloftitleskip}{\BeforeTOCTitleSpacing}
+\setlength{\cftaftertoctitleskip}{\AfterTOCTitleSpacing}
+\setlength{\cftafterlottitleskip}{\AfterLOTTitleSpacing}
+\setlength{\cftafterloftitleskip}{\AfterLOTTitleSpacing}
 
-
-%%%% settings for unnumbered chapters
-\makeatletter
-\def\@makeschapterhead#1{%
-    \vspace*{\ChapterTopMargin \p@} % white space before to the chapter title
-    {\parindent \z@ \raggedright
-    \normalfont
-    \interlinepenalty\@M
-    \ChapterFont  #1\par\nobreak
-    \vskip \TitleToText \p@     % space between the chapter title and the following text
-  }}
-\makeatother
+%% tweak to TOC to add 'chapter' to the chapter name instead of a number only
+%% set the width of the box based on the longest label name
+\renewcommand{\cftchappresnum}{\chaptername\space}
+\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}  % dots for chapters too
+\setlength{\cftchapnumwidth}{\widthof{\textbf{Appendix~999~}}}
 
 
-%%%% to customize space around title headings, use the following command:
-% \titlespacing*{environment-name}{space-left}{space-before}{space-after}
+%% tweak to LOT and LOF to add 'Table'/ 'Figure' to the table/ figure caption listing
+%% to change the distance to the start of the table/ figure title
+\setlength{\cfttabindent}{\TocIndent pt}                % indentation from tables in LoT
+\renewcommand{\cfttabpresnum}{\bfseries Table }
+\setlength{\cfttabnumwidth}{\widthof{\textbf{Table~99.100~}}}
+\setlength{\cftbeforetabskip}{\LOTItemSpacing}          % spacing between each item
+%%
+\setlength{\cftfigindent}{\TocIndent pt}                % indentation from figures in LoF
+\renewcommand{\cftfigpresnum}{\bfseries Figure }
+\setlength{\cftfignumwidth}{\widthof{\textbf{Figure~99.999~}}}
+\setlength{\cftbeforefigskip}{\LOTItemSpacing}          % spacing between each item
 
 
-%%%% using titlesec package for sections, subsection, ... heading format
-\setcounter{secnumdepth}{\NoSectionLevel}           % section to ... subsubsection ...
+
+%%%% titlesec package: settings for chapter label and title
+\titleformat{\chapter}[display]{\ChapterFont}{\chaptertitlename\ \thechapter}{\ChapLabelToTitle}{\ChapterFont}
+\titlespacing*{\chapter}{0pt}{\NumChapterTopMargin}{\ChapTitleToText} 
+\titlespacing*{name=\chapter,numberless}{0pt}{\UnNumChapterTopMargin}{\ChapTitleToText}
+
+%%%% titlesec: settings for sections, subsection, ... heading format
 \titleformat*{\section}{\SectionFont}
 \titleformat*{\subsection}{\SubsectionFont}
 \titleformat*{\subsubsection}{\SubsubsectionFont}
+%% if you had more levels then add settings for paragraph and all.
+
+%%%% to customize space around section headings, use the following command:
+% \titlespacing*{environment-name}{space-left}{space-before}{space-after}
 
 
-%%%% settings for paragraph (and not title) spacing, roughly speaking
+
+%%%% package parksip settings: for paragraph (and not title) spacing, roughly speaking
 \renewcommand{\arraystretch}{\GlobalTableSpacing}   % spacing inside table
 \setlength{\parskip}{\ParagraphSpacing}             % paragraph skip
-\setlength{\parindent}{\ParagraphIndent pt}         % paragraph indentation
+\setlength{\parindent}{\ParagraphIndent}            % paragraph indentation
 \setlength{\bibitemsep}{\BibItemSpacing}            % bib item separation 
 \setlength{\footnotesep}{\FootnoteSpacing}          % separation between footnote
 
 
-%%%% bibliography package settings
+
+%%%% package biblatex settings: bibliography package settings
 \DeclareFieldFormat{titlecase}{\MakeSentenceCase*{#1}}
-\AtBeginBibliography{\urlstyle{rm}}
-\DeclareBibliographyCategory{fullcited}
-\newcommand{\mybibexclude}[1]{\addtocategory{fullcited}{#1}}
+\AtBeginBibliography{\urlstyle{rm}}                 % roman font family for URL (DOI)
+
+%% separate category for papers to be not cited in the bibliography
+\DeclareBibliographyCategory{mypapers}             
+\newcommand{\mybibexclude}[1]{\addtocategory{mypapers}{#1}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%% END DOCUMENT FORMATTING %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -392,6 +413,7 @@
 
 
 \makeatletter
+\setlength{\beforeepigraphskip}{\SpaceBeforeQuote}
 \newsavebox{\epi@textbox}
 \newsavebox{\epi@sourcebox}
 \newlength\epi@finalwidth
@@ -499,8 +521,9 @@
 
 
 %%%% single spacing is too cluttered and double spacing is too wide-spread
-{\TOCTextSpacing                           % one-half spacing for the table of contents
-\hypersetup{linkcolor=black}               % local black hyperlink for TOC
+{\clearpage
+\TOCTextSpacing                            % one-half spacing for the table of contents
+\hypersetup{linkcolor=black}                % local black hyperlink for TOC
 %
 \mytableofcontents
 %
@@ -520,7 +543,6 @@
 \MainTextSpacing                            % restores double spacing in the chapter contents
 
 %% full header for the numbered chapters (to remove header comment out the following lines)
-\renewcommand{\chaptermark}[1]{\markboth{#1}{#1}}
 \fancyhead[L]{\chaptername\ \thechapter. \nouppercase \leftmark}
 
 

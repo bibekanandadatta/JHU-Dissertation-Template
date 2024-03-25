@@ -11,17 +11,19 @@
 % \epigraphhead[0]{whole-above-epigraph-goes-here}
 
 
-% add the citation for the chapter if it is a reprint (change the publisher name)
-This chapter is adapted from the following publication with permission from \emph{publisher}: 
+%%%% add the citation for the chapter if it is a submitted or reprint 
+%% \mybibexclude{} will exclude this from the final bibliography
+%% if this paper appears somewhere else then remove \mybibexclude
+This chapter is adapted from the following publication with permission from \emph{publisher}:
 \begin{spacing}{\FullCiteSpacing}
-    \fullcite{einstein}. \mybibexclude{einstein}.
+    \fullcite{einstein}. \mybibexclude{einstein}
 \end{spacing}
-% mybibexclude command makes sure this does not get included in the reference list.
-% this paper will not appear if it's cited elsewhere as well.
+
 
 
 % add your chapter text here
 \section{Introduction}
-\Blindtext[3]
+\Blindtext[2]
 
 
+\blindtext
