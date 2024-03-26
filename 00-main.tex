@@ -379,6 +379,11 @@ with the requirements for the degree of {#2}
 \setlength{\footnotesep}{\FootnoteSpacing}          % separation between footnote
 
 
+%%%% settings for math environment
+\allowdisplaybreaks[1]
+\numberwithin{equation}{chapter}        % eqn no with chapter prefix
+\setcounter{MaxMatrixCols}{20}          % no of maximum columns in matrix
+
 
 %%%% package biblatex settings: bibliography package settings
 \DeclareFieldFormat{titlecase}{\MakeSentenceCase*{#1}}
@@ -454,12 +459,9 @@ with the requirements for the degree of {#2}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% add all your custom math settings and macros in the following section.
 %% this is where LaTeX supremacy becomes a thing. you can customize a lot.
-%%%%%%%%%%%%%%%%%%%%%%% MATH SETTINGS AND MACROS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% MATH MACROS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\allowdisplaybreaks[1]
-\setcounter{MaxMatrixCols}{20}          % no of maximum columns in matrix
-\numberwithin{equation}{chapter}        % eqn no with chapter prefix
-\newcommand{\dC}{$^{\circ}$C}           % degree celcius symbol
+\newcommand{\dC}{$^{\circ}$C}           % degree celsius symbol
 \newcommand{\vect}[1]{\mathbf{#1}}      % boldface for vectors and tensors
 \DeclareMathOperator{\T}{{\top}}        % transpose of a matrix/ tensor
 \DeclareMathOperator{\tr}{tr}           % trace of a matrix
@@ -474,7 +476,7 @@ with the requirements for the degree of {#2}
 
 %% these are just some examples; add more macros for your custom symbols
 
-%%%%%%%%%%%%%%%%%%%%% END MATH SETTINGS AND MACROS %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% END MATH MACROS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% OTHER MACROS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -488,8 +490,7 @@ with the requirements for the degree of {#2}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-
-
+% \usepackage[unit=in,type=upperleft,color=red,showframe]{fgruler}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%% DOCUMENT BEGINS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%

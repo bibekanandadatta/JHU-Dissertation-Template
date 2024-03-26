@@ -19,14 +19,14 @@ This template is also [available on Overleaf as an unofficial template](https://
 
 The previous version of the template used default options for the LaTeX report class and different packages which had unusually large font sizes and extra white spaces around different environments. So, I decided to reorganize the template and add more customization by loading the necessary packages. Compared to the previous version, for the current version of the template, I have:
 
-  - Reorganized the code in the template in a more readable and understandable format
-  - Custom macros to generate title page and front matters (TOC, LOT, LOF)
-  - Updated the appearance of the table of contents, list of figures, and list of tables.
-  - Added customization options to control the font size and shape of different headings.
-  - Added customization options to control the white space for different environments.
-  - Added specific settings for adding quotes (epigraph package) to the chapters
-  - Added examples of customized macros for mathematical and non-mathematical environments.
-  - Added support to generate PDF/A output on Overleaf directly.
+  - reorganized the code in the template in a more readable and understandable format
+  - added custom macros to generate title page and front matters (TOC, LOT, LOF)
+  - updated the appearance of the table of contents, list of figures, and list of tables.
+  - added customization options to control the font size and shape of different headings.
+  - added customization options to control the white space for different environments.
+  - added specific settings for adding quotes (epigraph package) to the chapters
+  - added examples of customized macros for mathematical and non-mathematical environments.
+  - added support to generate PDF/A output on Overleaf directly.
 
 
 
@@ -90,6 +90,11 @@ As mentioned before, the template is based on the standard report class. However
 
 - The spacing around the section, subsection, and subsubsection headings are chosen to be default offered by the `parskip` package. The paragraphs do not have any indentation with `\baselineskip` spacing in between them.
 
+- Equation numbers are also preceded by chapter numbers as defined by the following command:
+```
+\numberwithin{equation}{chapter}       
+```
+
 - The default spacing between rows inside a table environment is one-half-spaced.
   
 - Captions for the table and figure environments are placed at the bottom of the environments. The caption starts with boldfaced **Figure** and **Table** labels, respectively, for Figure and Table, and uses chapter-wise numbering separated by a period between the chapter label and the number of the corresponding environment followed by a colon before the long caption.
@@ -100,7 +105,7 @@ As mentioned before, the template is based on the standard report class. However
 
 ## Basic user guidelines
 
-Overleaf has a huge collection of tutorials and examples on different LaTeX-related typesetting topics (margins and page size, math, table, footnote, and bibliography management). You will most likely find what you need there. Another useful resource for [writing thesis in LaTeX is here](https://www.khirevich.com/latex/). 
+Overleaf has a huge collection of tutorials and examples on different LaTeX-related typesetting topics (margins and page size, math, table, footnote, and bibliography management). You will most likely find what you need there. Another useful resource for [writing thesis in LaTeX is here](https://www.khirevich.com/latex/). If you would like to do something specific, your best friend is Google; someone on [TeX StackExchange](https://tex.stackexchange.com) has perhaps done it.
 
 The preamble section of the `00-main.tex` file has been subdivided into multiple sections to make the code understandable and readable. A simple descriptions of the sections are below:
 
@@ -145,7 +150,6 @@ The thesis title page is defined using the `titlepage` environment which is cent
   - `\mylistoffigures:` to print the list of figures.
 
 - Currently, the template does not have any specific settings or package options to print the List of Supplementary Materials, the List of Abbreviations, and the List of Symbols. You can look into `glossaries`, `glossaries-extra`, and `tocloft` packages to define custom lists to be printed.
-
 
 
 
@@ -222,7 +226,7 @@ The thesis title page is defined using the `titlepage` environment which is cent
 
 ### Generating PDF/A compliant output file for the JH Library on Overleaf
 
-Johns Hopkins Library requires the electronic copy of the thesis must be [generated in PDF/A format](https://www.adobe.com/uk/acrobat/resources/document-files/pdf-types/pdf-a.html) which is not trivial. Compiling LaTeX documents is a bit of an involved process but thanks to Overleaf we do not have to worry about it. [Check here to learn how they do it](https://www.overleaf.com/learn/how-to/How_does_Overleaf_compile_my_project%3F). I have not done the compilation locally for this project and do not plan on doing it. So I am unable to provide any help in that regard.
+Johns Hopkins Library requires the electronic copy of the thesis must be [generated in PDF/A format](https://en.wikipedia.org/wiki/PDF/A) which is not trivial task. Compiling LaTeX documents is a bit of an involved process but thanks to Overleaf we do not have to worry about it. [Check here to learn how they do it](https://www.overleaf.com/learn/how-to/How_does_Overleaf_compile_my_project%3F). I have not done the compilation locally for this project and do not plan on doing it. So I am unable to provide any help in that regard.
 
 - Learn about [latexmkrc file on Overleaf](https://www.overleaf.com/learn/latex/Articles/How_to_use_latexmkrc_with_Overleaf) which you will need to generate PDF/A file.
 - [This documentation](https://www.overleaf.com/latex/templates/creating-pdf-slash-a-and-pdf-slash-x-files-with-the-pdfx-package/bbbycnbyqhnm) provides details on how to generate PDF/A compilant output on Overleaf. **Open as Template** to see what is included in the project.
@@ -231,7 +235,7 @@ Johns Hopkins Library requires the electronic copy of the thesis must be [genera
 
 - So far, I have not found any convenient way of validating if the generated PDF is compliant with library-specified PDF/A format for free. The library has computers with Adobe Acrobat Pro installed that can validate the format of the electronic copy of your thesis. If you or your lab has a license to this program, you can do it there as well. Finally, if you find it is not compliant (for any unknown reason), this program will also allow you to convert the format. 
 
-- In case you generate a very large PDF, you can use the following commands (currently commented and I have not validated them) for the `pdflatex` compiler. Use StackExchange and Google to tweak them to generate a compressed PDF.
+- In case you generate a very large PDF, you can use the following commands for the `pdflatex` compiler. Currently, these are commented out at the end of the `LIST OF VARIABLES FOR FORMATTING` section, and I have not validated them. Use StackExchange and Google to tweak them to generate a compressed PDF.
   - `\pdfcompresslevel=9`
   - `\pdfminorversion=5`
   - `\pdfobjcompresslevel=2`
