@@ -38,6 +38,7 @@ Since the template is based on the report class, it is subdivided into multiple 
 - `thesis.bib` file is a biblatex file that contains all the bibliographic items. Use Zotero or some other citation manager to generate the biblatex file containing all the items.
 - `latexmkrc` additional settings for the make file to generate PDF/A output. This is required to be in the main directory of the Overleaf project.
 - `output.xmpdata` contains simple meta-data to be tagged in the final PDF/A file. Usage of this file is optional and the content inside is self-explanatory.
+- `JHU_PhD_Dissertation_Template.pdf` is the sample output PDF of the you will obtain when you start working on this project.
 - `README.md` is this file that contains the details related to the template.
 
 
@@ -46,9 +47,9 @@ Since the template is based on the report class, it is subdivided into multiple 
 
 I prefer using Overleaf for all of my LaTeX compilation and I recommend it strongly since Johns Hopkins provides the Overleaf premium account to all students. Overleaf Premium does fast compilation, allows sharing the project with multiple people (advisor, committee members, collaborator, labmates, friends, or family), allows reviews, comments, and chat options, and tracks histories which are great features to boost productivity. You can recover the files if you break them (hopefully you won't). Follow one of the three approaches to get started with this project on Overleaf. Then go through the main file and other files to see how the template is structured.
 
-- If the Overleaf version is outdated for some reason (Overleaf takes a bit of time to update the templates), then you can download/clone this repository from GitHub, and compress it as a zip file. Go to Overleaf, Click on **New Project** -> **Upload Project**, then upload the zipped folder. Compile the `00-main.tex` file using the `Recompile` button on Overleaf.
+- If the Overleaf version is outdated for some reason (Overleaf takes a bit of time to update the templates), then you can download/clone this repository from GitHub, and compress it as a zip file. Go to Overleaf, Click on **New Project** -> **Upload Project**, then upload the zipped folder.
   
-- If you have your Overleaf and GitHub account linked and want to have copies of the project in both places, you can **fork** this repository. Then go to Overleaf and click on **New Project** -> **Import from GitHub**, it should list the forked project for listing. Once imported, you can start working on Overleaf by compiling the `00-main.tex` file using the `Recompile` button on Overleaf.. But Overleaf and GitHub will not sync automatically; you will have to do it to have an updated version on GitHub.
+- If you have your Overleaf and GitHub account linked and want to have copies of the project in both places, you can **fork** this repository. Then go to Overleaf and click on **New Project** -> **Import from GitHub**, it should list the forked project. Once imported, you can start working on it. But Overleaf and GitHub will not sync automatically; you will have to do it to have an updated version on GitHub.
 
 - Once you have imported the project, you need to compile the `00-main.tex` file using the `pdflatex` option (default on Overleaf) which will call all the auxiliary files included to produce the final PDF. It should compile without any error on Overleaf. There might be warnings, but you can ignore them. 
 
