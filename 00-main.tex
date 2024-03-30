@@ -52,10 +52,12 @@
 
 %%%% font size and typeset for different environments
 %% check here for details: https://en.wikibooks.org/wiki/LaTeX/Fonts
-\def\FontPackage{lmodern}                   % latin modern font (you can also change it to times)
+\def\FontPackage{lmodern}                   % latin modern font
 \def\BaseFont{12pt}                         % main text font size for document
-\def\TitleFont{\Large\bfseries\MakeUppercase}% font format for thesis title
-\def\ChapterFont{\singlespacing\Large\bfseries}
+
+
+\def\TitleFont{\Large\bfseries\MakeUppercase}   % font format for thesis title
+\def\ChapterFont{\Large\bfseries\singlespacing} % font format for chapter label and title
 \def\SectionFont{\large\bfseries}           % section heading font format
 \def\SubsectionFont{\normalsize\bfseries}   % subsection heading font format
 \def\SubsubsectionFont{\normalsize\itshape} % subsubsection heading font format
@@ -81,7 +83,7 @@
 \def\CaptionSpacing{0 pt}                   % spacing between the figure and the caption (unit: pt)
 
 %% if you have a longer quote, you may have to change it.
-\def\QuoteWidth{0.75\textwidth}             % width of quote in epigraph
+\def\QuoteWidth{0.75\textwidth}             % width epigraph-based quotes in chapter
 
 
 %% if this seems too widespread for you, try changing it locally using
@@ -100,7 +102,7 @@
 \def\GlobalMargin{1.0in}                    % margin on all sides
 \def\PrintingOffset{0.5in}                  % additional space on the left margin for the print copy
 
-\def\HeaderHeight{18 pt}                    % height of the header 
+\def\HeaderHeight{18 pt}                    % height of the header (prints chapter details)
 \def\HeaderSpace{12 pt}                     % space between header and the following text
 \def\TitleTopSpacing{-\HeaderHeight-\HeaderSpace}
 
@@ -179,6 +181,7 @@
 %%%% table-related packages
 \usepackage{booktabs,longtable,dcolumn,makecell,multicol,multirow,tabularx,xltabular,rotating}
 
+\usepackage{pdfpages}                       % to include pdf file
 \usepackage{setspace}                       % sets space between lines
 \usepackage{seqsplit}                       % splits long character sequence
 \usepackage[rightcaption]{sidecap}          % for sideway captions
@@ -209,14 +212,20 @@
 %% (epigraph, algorithm, listings, etc). be cautious before making any changes.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PACKAGE OPTIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%% add all the images to that folder for cleaner file management
+%%%% add all the images to that folder for cleaner file management
 %% you can add images in chapter-wise PDF format (my preference).
 \graphicspath{{\FigurePath/}}
 
 
-%% this file has to be in BibLaTeX format. Use Zotero or another citation manager 
+%%%% this file has to be in BibLaTeX format. Use Zotero or another citation manager 
 %% to generate the .bib file in BibLaTeX format.
 \addbibresource{\BibFileName}
+
+
+%%%% defining Hopkins-branded custom colors in case you want to use it
+%% you can define your own color and use it for different environments
+\definecolor{HeritageBlue}{RGB}{0,45,114}       % heritage blue
+\definecolor{SpiritBlue}{RGB}{114,172,229}      % spirit blue
 
 
 %% margin settings required by JH library using geometry package
@@ -322,6 +331,8 @@ with the requirements for the degree of {#2}
     \listoftables
 }
 
+
+
 %%%% package tocloft settings: font size and spacing around the titles of ToC/ LoT/ LoF
 \renewcommand{\cfttoctitlefont}{\ChapterFont}
 \renewcommand{\cftlottitlefont}{\ChapterFont}
@@ -366,7 +377,7 @@ with the requirements for the degree of {#2}
 \titleformat*{\subsubsection}{\SubsubsectionFont}
 %% if you had more levels then add settings for paragraph and all.
 
-%%%% to customize space around section headings, use the following command:
+%%%% to customize space around different paragraph headings, use the following:
 % \titlespacing*{environment-name}{space-left}{space-before}{space-after}
 
 
@@ -380,7 +391,7 @@ with the requirements for the degree of {#2}
 
 
 %%%% settings for math environment
-\allowdisplaybreaks[1]
+\allowdisplaybreaks[1]                  % allows page break for long equations
 \numberwithin{equation}{chapter}        % eqn no with chapter prefix
 \setcounter{MaxMatrixCols}{20}          % no of maximum columns in matrix
 
@@ -398,25 +409,24 @@ with the requirements for the degree of {#2}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% following sections will be required only if specific packages are used.
-
-%% if you plan on using quotes, you may need specialized epigraph settings.
-%% hopefully the following settings will work for you if the quote is small.
+%% following section is needed if EPIGRAPH package is used for quotes.
 %% epigraph examples given in chapters 2 and 3 for relatively small quotes.
+%% for longer quote break it down in multiple lines with line break and put
+%% it inside spacing environment to make it appear tighter
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% EPIGRAPH SETTINGS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%% Following settings allow the epigraph and the underline 
 %% settings for arbitrary epigraph length
-\renewcommand{\epigraphflush}{flushright}
+\renewcommand{\epigraphflush}{flushright}           % quote location
 \renewcommand{\epigraphsize}{\small}
-\setlength{\epigraphwidth}{\QuoteWidth}
+\setlength{\epigraphwidth}{\QuoteWidth}             % width of quote environment
 \renewcommand{\textflush}{flushright}
 \renewcommand{\sourceflush}{flushright}
 %% A useful addition
-\newcommand{\epitextfont}{\itshape}
-\newcommand{\episourcefont}{\scshape}
+\newcommand{\epitextfont}{\itshape}                 % quote font shape
+\newcommand{\episourcefont}{\scshape}               % quote author name shape
 
-
+%%%% settings for horizontal line of variable width
 \makeatletter
 \setlength{\beforeepigraphskip}{\SpaceBeforeQuote}
 \newsavebox{\epi@textbox}
@@ -515,7 +525,7 @@ with the requirements for the degree of {#2}
 \fancyhead[L]{\nouppercase \leftmark}       % avoiding upper-case in header
 
 
-%%%% add abstract, dedication, and acknowledgment (and any other front matter)
+%%%% add abstract, dedication, and acknowledgement (and any other front matter)
 \include{02-abstract}
 \include{03-dedication}
 \include{04-acknowledgement}
@@ -543,12 +553,10 @@ with the requirements for the degree of {#2}
 \clearpage                                  % flushes the floats and the new page
 \pagenumbering{arabic}                      % Arabic page numbering
 \MainTextSpacing                            % restores double spacing in the chapter contents
-
-%% full header for the numbered chapters (to remove header comment out the following lines)
 \fancyhead[L]{\chaptername\ \thechapter. \nouppercase \leftmark}
 
 
-%% include all the main text chapters
+%%%% include all the main text chapters
 \include{05-chapter-1}
 \include{06-chapter-2}
 \include{07-chapter-3}
@@ -565,17 +573,17 @@ with the requirements for the degree of {#2}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% BACK MATTER %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%% references
+%%%% bibliographic references
 \clearpage
 \BibTextSpacing                     % one-half spacing for the bib items (too widespread otherwise)
 % you can also change the 'BibItemSeparation' variable to control the spacing
-% header unnumbered chapters (to remove the headers, comment out the following line)
+% header for unnumbered chapters (to remove the headers, comment out the following line)
 \fancyhead[L]{\nouppercase \leftmark}
 
 \include{10-references}             % include reference chapter
 
 
-%%% appendix chapters
+%%%% appendix chapters (optional)
 \MainTextSpacing                    % restoring double spacing for the contents in appendices
 %% full header for appendix chapters (to remove the headers, comment out the following line)
 \fancyhead[L]{\appendixname\ \thechapter. \nouppercase \leftmark}
@@ -586,10 +594,12 @@ with the requirements for the degree of {#2}
 %% add more appendix chapters as you need
 
 
-%% you can also add a biographical sketch/ CV here 
-%% you can write it as other chapters and add the chapter here as before
-%% if you already have a CV as a PDF, add it to the main directory, and use:
+%%%% biographical sketch or curriculum vitae
+%% you can write it as a chapter and add it using \include{...} statement
+% \include{13-biography}
 
+
+%% if you already have a CV as a PDF, add it to the main directory, and use
 % \includepdf[pages=-]{John_Doe_CV.pdf}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%% END BACK MATTER %%%%%%%%%%%%%%%%%%%%%%%%%%%%

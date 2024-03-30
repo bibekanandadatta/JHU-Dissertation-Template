@@ -8,22 +8,26 @@
 
 % if you want to add the quote above the chapter heading then do the following:
 % (for this case, you may have to change \ChapterTopSpace in the main file)
-% \epigraphhead[0]{whole-above-epigraph-goes-here}
+% \epigraphhead[0]{whole-above-epigraph-command-goes-here}
 
 
 %%%% add the citation for the chapter if it is a submitted or reprint 
-%% \mybibexclude{} will exclude this from the final bibliography
-%% if this paper appears somewhere else then remove \mybibexclude
-This chapter is adapted from the following publication with permission from \emph{publisher}:
+%% you can use enumerate or itemize environment if you have more than one paper 
+%% \mybibexclude{} will exclude this citation from the final bibliography
+%% if this paper appears somewhere else then remove \mybibexclude{}
 \begin{spacing}{\FullCiteSpacing}
+    This chapter is adapted from the following publication with permission from \emph{publisher}: 
+    
     \fullcite{einstein}. \mybibexclude{einstein}
 \end{spacing}
 
 
 
-% add your chapter text here
+%%%% add your chapter text here
 \section{Introduction}
-\Blindtext[2]
+\blindtext
+
+
 
 
 \blindtext
