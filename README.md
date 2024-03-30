@@ -125,7 +125,6 @@ The preamble section of the `00-main.tex` file has been subdivided into multiple
 > [!TIP]
 > 
 > If you change any formatting or do further customization, one of the best possible ways to check consistency in spacing is to load the `fgruler` package as below in the preamble (you can change the options by looking into the documentation of this package).
-
     ```
     \usepackage[unit=in,type=upperleft,color=red,showframe]{fgruler}
     ``` 
