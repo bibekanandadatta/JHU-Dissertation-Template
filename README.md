@@ -93,9 +93,9 @@ As mentioned before, the template is based on the standard report class. However
 - The spacing around the section, subsection, and subsubsection headings are chosen to be default offered by the `parskip` package. The paragraphs do not have any indentation with `\baselineskip` spacing in between them.
 
 - Equation numbers are also preceded by chapter numbers as defined by the following command:
-```
-\numberwithin{equation}{chapter}       
-```
+  ```
+  \numberwithin{equation}{chapter}       
+  ```
 
 - The default spacing between rows inside a table environment is one-half-spaced.
   
@@ -176,9 +176,9 @@ The thesis title page is defined using the `titlepage` environment which is cent
 - If any chapter is already published at a journal or conference or available in any of the archival repositories (submitted/ to be submitted to a peer-reviewed journal/conference), it is a good idea to declare it at the beginning of the chapter. Such an example has been shown in Chapter 2 of the template. To have consistent formatting, a `spacing` environment with 1.25 spacing was used, and the publication was printed with the `\fullcite{}` command. 
   - In case the chapter is a part of multiple publications, you can use `enumerate` or `itemize` environments to list all the publications inside the spacing environment.
   - If the listed paper (published, submitted, or in-preparation) is not cited anywhere else and you do not want this to appear in the bibliographic references in the back matter, then use the following command. This command adds the paper to the a group called `mypapers` which are not printed in the bibliography list.
-  ```
-  \mybibexclude{citation-key}
-  ```
+    ```
+    \mybibexclude{citation-key}
+    ```
 
 - For unnumbered chapters that you want to add to the table of contents, use the `\chap` command instead of the `\chapter*` command. (see, *Abstract* and *Acknowledgment*, for example). An exception to this is *Dedication* chapter because it does not have a chapter title.
 
@@ -195,9 +195,9 @@ The thesis title page is defined using the `titlepage` environment which is cent
   - If you have longer thesis title which is spanned over multiple lines in header, consider changing the `\HeaderHeight` to `30 pt` (for double lines) or `42 pt` (for triple lines), i.e., add extra `12 pt` to the default value for each new line.
   - You can also consider making the font size smaller for the headers.
   - Alternatively, you can consider including a shorter chapter title which will be printed as the header by starting the chapter environment as follows:
-  ```
-  \chapter[short-chapter-name]{long-chapter-title}
-  ```
+    ```
+    \chapter[short-chapter-name]{long-chapter-title}
+    ```
   - If customizing the header becomes too difficult, you can also consider removing all the header options by commenting them out in the document section of the `00-main.tex` file. In that case, remove the `includehead`, `headheight`, and `headsep` options from the `\geometry{ ... }` command in the `PACKAGE OPTION` section.
   - In case, you would like to see the layout of your document, then you can add the `showframe` option to the `\geometry{ ... }` command to see the layout of your document. This is a simpler alternative to the `fgruler` package but you will not see a ruler.
 
@@ -228,14 +228,14 @@ The thesis title page is defined using the `titlepage` environment which is cent
 
 - The bibliography file is based on BibLaTeX which is a more modern and flexible package compared to BibTeX and natbib. Consider using Zotero, Mendely, EndNote, or some other citation manager to generate a standard BibLaTeX file.
   - To change the default form of the bibliography (currently, `Nature` style), look for the following command and change the options based on your need and/or preference. Depending on the discipline, you may need to use different form (IEEE, MLA, Harvard) and customize it. As an example, APA styles are also shown there (commented). Learn more about the [citation styles in BibLaTeX](https://www.overleaf.com/learn/latex/Biblatex_citation_styles).
-  ```
-  \usepackage[ ... ]{biblatex}
-  ```
+    ```
+    \usepackage[ ... ]{biblatex}
+    ```
 
 - Bibliographic references are printed using the following command which will ensure the citations included in the `\mybibexclude{}` command are not printed.
-```
-\printbibliography[heading=none,notcategory=mypapers]
-```
+  ```
+  \printbibliography[heading=none,notcategory=mypapers]
+  ```
 
 ### Generating PDF/A compliant output file for the JH Library on Overleaf
 
