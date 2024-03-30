@@ -125,9 +125,9 @@ The preamble section of the `00-main.tex` file has been subdivided into multiple
 > [!TIP]
 > 
 > If you change any formatting or do further customization, one of the best possible ways to check consistency in spacing is to load the `fgruler` package as below in the preamble (you can change the options by looking into the documentation of this package).
-    ```
+
     \usepackage[unit=in,type=upperleft,color=red,showframe]{fgruler}
-    ``` 
+    
 
 - If you do not like the default font (Latin Modern Roman), you can try a different font or combination of font or typeset. However, you should be careful about having consistent typesetting, especially between math and text. [Follow this discussion on StackExchange to learn more about fonts in LaTeX](https://tex.stackexchange.com/questions/59702/suggest-a-nice-font-family-for-my-basic-latex-template-text-and-math). Font package has been loaded using `\usepackage{\FontPackage}` command. Depending on the Font you choose, you may have to add additional options there or even a few other commands to make the typography consistent.
 
