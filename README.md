@@ -249,10 +249,11 @@ Johns Hopkins Library requires the electronic copy of the thesis must be [genera
 - So far, I have not found any convenient way of validating if the generated PDF is compliant with library-specified PDF/A format for free. The library has computers with Adobe Acrobat Pro installed that can validate the format of the electronic copy of your thesis. If you or your lab has a license to this program, you can do it there as well. Finally, if you find it is not compliant (for any unknown reason), this program will also allow you to convert the format. 
 
 - In case you generate a very large PDF, you can use the following commands for the `pdflatex` compiler. Currently, these are commented out at the end of the `LIST OF VARIABLES FOR FORMATTING` section, and I have not validated them. Use StackExchange and Google to tweak them to generate a compressed PDF.
-  - `\pdfcompresslevel=9`
-  - `\pdfminorversion=5`
-  - `\pdfobjcompresslevel=2`
-
+  ```
+  \pdfcompresslevel=9
+  \pdfminorversion=5
+  \pdfobjcompresslevel=2
+  ```
 
 Keep writing ... and Happy Graduation :tada:!
 
