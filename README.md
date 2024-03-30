@@ -2,8 +2,6 @@
 
 This is an unofficial thesis (masters) or dissertation (PhD) template for Johns Hopkins with recent updates by Bibekananda Datta. As of March 2024, the template follows the thesis or dissertation formatting requirements provided by the [Johns Hopkins University Sheridan Library](https://www.library.jhu.edu/library-services/electronic-theses-dissertations/formatting-requirements/). Johns Hopkins Library is flexible in terms of the format except for the title page, margins, and overall double-spaced content. **However, be sure to check the requirements before you proceed any further. It is the user's responsibility to ensure all the formatting requirements are met.**
 
-This template is also [available on Overleaf as an unofficial template](https://www.overleaf.com/latex/templates/johns-hopkins-thesis-slash-dissertation-template/gbfnqqfzffyp). However, GitHub is likely to be the most updated one. Details of using this repository on Overleaf can be found below.
-
 
 
 ## Version history for the template
@@ -48,17 +46,15 @@ Since the template is based on the report class, it is subdivided into multiple 
 
 I prefer using Overleaf for all of my LaTeX compilation and I recommend it strongly since Johns Hopkins provides the Overleaf premium account to all students. Overleaf Premium does fast compilation, allows sharing the project with multiple people (advisor, committee members, collaborator, labmates, friends, or family), allows reviews, comments, and chat options, and tracks histories which are great features to boost productivity. You can recover the files if you break them (hopefully you won't). Follow one of the three approaches to get started with this project on Overleaf. Then go through the main file and other files to see how the template is structured.
 
-- To use it directly on Overleaf, [open the template here](https://www.overleaf.com/latex/templates/johns-hopkins-thesis-slash-dissertation-template/gbfnqqfzffyp). Then click on **Open as Template** and proceed from there to go through the template and edit it.
-
-- If the Overleaf version is outdated for some reason (Overleaf takes a bit of time to update the templates), then you can download/clone this repository from GitHub, and compress it as a zip file. Go to Overleaf, Click on **New Project** -> **Upload Project**, then upload the zipped folder. Continue...
+- If the Overleaf version is outdated for some reason (Overleaf takes a bit of time to update the templates), then you can download/clone this repository from GitHub, and compress it as a zip file. Go to Overleaf, Click on **New Project** -> **Upload Project**, then upload the zipped folder. Compile the `00-main.tex` file using the `Recompile` button on Overleaf.
   
-- If you have your Overleaf and GitHub account linked and want to have copies of the project in both places, you can **fork** this repository. Then go to Overleaf and click on **New Project** -> **Import from GitHub**, it should list the forked project for listing. Once imported, you can start working on Overleaf. But Overleaf and GitHub will not sync automatically; you will have to do it to have an updated version on GitHub.
+- If you have your Overleaf and GitHub account linked and want to have copies of the project in both places, you can **fork** this repository. Then go to Overleaf and click on **New Project** -> **Import from GitHub**, it should list the forked project for listing. Once imported, you can start working on Overleaf by compiling the `00-main.tex` file using the `Recompile` button on Overleaf.. But Overleaf and GitHub will not sync automatically; you will have to do it to have an updated version on GitHub.
 
 - Once you have imported the project, you need to compile the `00-main.tex` file using the `pdflatex` option (default on Overleaf) which will call all the auxiliary files included to produce the final PDF. It should compile without any error on Overleaf. There might be warnings, but you can ignore them. 
 
 > [!TIP]
 >
-> Although it is very convenient to write your document on Overleaf, consider backing up your work on Overleaf using Git or GitHub integration or the Dropbox sync feature.
+> Although it is very convenient to write your document on , consider backing up your work on  using Git or GitHub integration or the Dropbox sync feature.
 
 
 
