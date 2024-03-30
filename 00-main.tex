@@ -50,6 +50,10 @@
 \def\BibFileName{thesis.bib}                % name of BibLaTeX file with all the bibliography
 \def\FigurePath{figures}                    % subdirectory for the figure files
 
+%%%% document formatting (JH library requirement and customizations)
+\def\GlobalMargin{1.0in}                    % margin on all sides
+\def\PrintingOffset{0.5in}                  % additional space on the left margin for the print copy
+
 %%%% font size and typeset for different environments
 %% check here for details: https://en.wikibooks.org/wiki/LaTeX/Fonts
 \def\FontPackage{lmodern}                   % latin modern font
@@ -73,7 +77,12 @@
 %% JH library does not specify spacing for TOC and bibliographic references
 
 
-%%%% spacing between different environments
+\def\HeaderHeight{18 pt}                    % height of the header (prints chapter details)
+\def\HeaderSpace{12 pt}                     % space between header and the following text
+\def\TitleTopSpacing{-\HeaderHeight-\HeaderSpace}
+
+
+%%%% spacing between different common environments
 \def\ParagraphSpacing{\baselineskip}        % spacing between paragraph
 \def\ParagraphIndent{0 pt}                  % indentation at the beginning of the paragraph
 \def\FullCiteSpacing{1.25}                  % spacing in a fullcite item (stretch)
@@ -82,7 +91,7 @@
 \def\FootnoteSpacing{\baselineskip}         % spacing between footnotes
 \def\CaptionSpacing{0 pt}                   % spacing between the figure and the caption (unit: pt)
 
-%% if you have a longer quote, you may have to change it.
+%% if you have a longer quote, you can change it or break the quote in multiple lines
 \def\QuoteWidth{0.75\textwidth}             % width epigraph-based quotes in chapter
 
 
@@ -98,15 +107,11 @@
 %% 3 levels mean: section to subsubsection.. decrease if you want less to show in TOC
 
 
-%%%% document formatting (JH library requirement and customizations)
-\def\GlobalMargin{1.0in}                    % margin on all sides
-\def\PrintingOffset{0.5in}                  % additional space on the left margin for the print copy
 
-\def\HeaderHeight{18 pt}                    % height of the header (prints chapter details)
-\def\HeaderSpace{12 pt}                     % space between header and the following text
-\def\TitleTopSpacing{-\HeaderHeight-\HeaderSpace}
 
-%%%% following numbers are found by trial and error to compensate for spacing around default LaTeX environments
+
+%%%% following numbers are found by trial and error to compensate for spacing 
+%% around default LaTeX environments 
 \def\BeforeTOCTitleSpacing{-27 pt}          % adjustable space before TOC title
 \def\AfterTOCTitleSpacing{33 pt}            % adjustable space after TOC title
 \def\AfterLOTTitleSpacing{45 pt}            % adjustable space after LOT/ LOF title

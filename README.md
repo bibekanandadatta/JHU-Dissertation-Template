@@ -47,7 +47,7 @@ Since the template is based on the report class, it is subdivided into multiple 
 
 ## How to use the template on Overleaf
 
-I prefer using Overleaf for all of my LaTeX compilation and I recommend it strongly since Johns Hopkins provides the Overleaf premium account to all students. Overleaf Premium does fast compilation, allows sharing the project with multiple people (advisor, committee members, collaborator, labmates, friends, or family), allows reviews, comments, and chat options, and tracks histories which are great features to boost productivity. You can recover the files if you break them (hopefully you won't). Follow one of the three approaches to get started with this project on Overleaf. Then go through the `00-main.tex` file and other files to see how the template is structured.
+I prefer using Overleaf for all of my LaTeX compilation and I recommend it strongly since Johns Hopkins provides the Overleaf premium account to all students. Overleaf Premium does fast compilation, allows sharing the project with multiple people (advisor, committee members, collaborator, labmates, friends, or family), allows reviews, comments, and chat options, and tracks histories which are great features to boost productivity. You can recover the files if you break them (hopefully you won't). Follow one of the two approaches to get started with this project on Overleaf. Then go through the `00-main.tex` file and other files to see how the template is structured.
 
 - If the Overleaf version is outdated for some reason (Overleaf takes a bit of time to update the templates), then you can download/clone this repository from GitHub, and compress it as a zip file. Go to Overleaf, Click on **New Project** -> **Upload Project**, then upload the zipped folder.
   
@@ -137,10 +137,13 @@ The preamble section of the `00-main.tex` file has been subdivided into multiple
 
 - Add your math macros and settings in the `MATH MACROS` section. There's a section for non-math `OTHER MACROS` as well. Some examples of both types of macros are added there in the template.
 
-- If you find all the packages and their settings and macros to be overwhelming and distracting during writing and editing, you can cut and paste all these contents to a separate `my-preamble.tex` file (name it as you like) in the project directory. Then you can use the command `input{my-preamble.tex}` to make your main file appear cleaner and less distracting. See [managing a large project on Overleaf](https://www.overleaf.com/learn/latex/Management_in_a_large_project).
-  - You can also upgrade the template-related settings to make a LaTeX class for the thesis using the `.sty` file. But this is a bit of work!
 
 - Inside the `\begin{document} ... \end{document}` environment, the title page, and other front matters (abstract, dedication, etc.), technical chapters, bibliography chapter, and appendix chapters are added using the `\include{ }` statement. There is no separate chapter for TOC, LOT, LOF, etc., and additionally, headers are customized based on the type of chapter (numbered vs. unnumbered).
+
+> [!TIP]
+>
+> If you find all the packages and their settings and macros to be overwhelming and distracting during writing and editing, you can cut and paste all these contents to a separate `my-preamble.tex` file (name it as you like) in the project directory. Then you can use the command `\input{my-preamble.tex}` to make your main file appear cleaner and less distracting. See [managing a large project on Overleaf](https://www.overleaf.com/learn/latex/Management_in_a_large_project).
+
 
 > [!NOTE]
 > 
