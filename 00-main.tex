@@ -28,13 +28,6 @@
 % Updated by John Clayton in December 2019
 % Last Updated by Bibekananda Datta on March 25, 2024
 % This version is heavily edited and customized from the previous version
-%%%%%%%%%%%%%%%%%%%%%%%%%%% CURRENT VERSION INCLUDES %%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Reorganization of the necessary packages (you may need more) and their settings.
-% Modularized all the settings, formatting, and macros. You can add more as needed.
-% Added customization option for font size, typeface, and spacing.
-% Added specific settings for adding quotes before or after the chapter headings.
-% Added settings for including algorithm (algorithm2e) and codes (listing).
-% Updated the appearance of table of contents, list of figures, and list of tables.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% VERSION HISTORY %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -107,8 +100,6 @@
 
 
 
-
-
 %%%% following numbers are found by trial and error to compensate for spacing 
 %% around default LaTeX environments 
 \def\BeforeTOCTitleSpacing{-27 pt}          % adjustable space before TOC title
@@ -154,8 +145,8 @@
 \usepackage[american]{babel}                % for different language typography
 
 %%%% bibliographic package (make sure your bib file is in BibLaTeX format)
-%% use Zotero or some other reference manager to generate the BibLaTeX file
-%% change the style or other options if you need to
+%% use a citation manager program to generate the BibLaTeX file (not BibTeX)
+%% change the style or other options if you need to (google is your friend)
 \usepackage[backend=biber, defernumbers=true, style=nature, maxnames=9, date=year, isbn=false, url=false, doi=true]{biblatex}
 % \usepackage[backend=biber, defernumbers=true, style=apa, isbn=false, url=false, doi=true]{biblatex}
 
@@ -413,9 +404,9 @@ with the requirements for the degree of {#2}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% following section is needed if EPIGRAPH package is used for quotes.
+%% following section is needed if the EPIGRAPH package is used for quotes.
 %% epigraph examples given in chapters 2 and 3 for relatively small quotes.
-%% for longer quote break it down in multiple lines with line break and put
+%% for longer quotes, break it down in multiple lines with line break and put
 %% it inside spacing environment to make it appear tighter
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% EPIGRAPH SETTINGS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -549,6 +540,8 @@ with the requirements for the degree of {#2}
 \mylistoffigures
 }
 
+%% you can add more listing environments here (optional)
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%% END FRONT MATTER %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -579,12 +572,13 @@ with the requirements for the degree of {#2}
 
 %%%% bibliographic references
 \clearpage
-\BibTextSpacing                     % one-half spacing for the bib items (too widespread otherwise)
+\BibTextSpacing                     % one-half spacing for the bib items
 % you can also change the 'BibItemSeparation' variable to control the spacing
 % header for unnumbered chapters (to remove the headers, comment out the following line)
 \fancyhead[L]{\nouppercase \leftmark}
 
 \include{10-references}             % include reference chapter
+
 
 
 %%%% appendix chapters (optional)
