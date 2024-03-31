@@ -45,6 +45,12 @@ The previous version of the template used default options for the LaTeX report c
   - added support to generate PDF/A output on Overleaf directly.
 
 
+### Future task list
+- [ ] Add documentation for different font and bibliographic styles
+- [ ] Add additional listing environments for algorithms, codes, acronyms, supplementary materials, glossaries, etc.
+- [ ] Extend the document styling for paragraph and subparagraph environments and their appearance in TOC.
+
+
 
 ## What is included in this version of the template
 
@@ -69,7 +75,7 @@ I prefer using Overleaf for all of my LaTeX compilation and I recommend it stron
 
 - If the Overleaf version is outdated for some reason (Overleaf takes a bit of time to update the templates), then you can download/clone this repository from GitHub, and compress it as a zip file. Go to Overleaf, Click on **New Project** -> **Upload Project**, then upload the zipped folder.
   
-- If you have your Overleaf and GitHub account linked and want to have copies of the project in both places, you can **fork** this repository. Then go to Overleaf and click on **New Project** -> **Import from GitHub**, it should list the forked project. Once imported, you can start working on it. But Overleaf and GitHub will not sync automatically; you will have to do it to have an updated version on GitHub.
+- If you have your Overleaf and GitHub account linked and want to have copies of the project in both places, you can **fork** this repository. Then go to Overleaf and click on **New Project** -> **Import from GitHub**, it should list the forked project. Once imported, you can start working on it. But Overleaf and GitHub will not sync automatically; you have to do it to have an updated version on GitHub.
 
 - Once you have imported the project, you need to compile the `00-main.tex` file using the `pdflatex` option (default on Overleaf) which will call all the auxiliary `.tex` files included to produce the final PDF. It should compile without any error on Overleaf. There might be warnings, but you can ignore them. 
 
@@ -83,26 +89,33 @@ I prefer using Overleaf for all of my LaTeX compilation and I recommend it stron
 
 
 
-
 ## Document formatting (customization beyond the requirements)
 
-As mentioned before, the template is based on the standard report class. However, I found the default formatting of the LaTeX report class (even with different packages) has disproportionate font sizes and spacing for different environments which led me to the customization while maintaining the requirements. 
+As mentioned before, the template is based on the standard report class. However, I found the default formatting of the LaTeX report class (even with different packages) has disproportionate font sizes and spacing for different environments which led me to the customization while maintaining the requirements. Look into this first to understand [how space is managed in LaTeX](https://www.overleaf.com/learn/latex/Articles/How_to_change_paragraph_spacing_in_LaTeX).
 
-- The document was typeset using Latin Modern Roman font (loaded using the `lmodern` package) for document typeset in LaTeX because the text and math environments have consistent typesetting.
+- The document was typeset using Latin Modern Roman font (loaded using the `lmodern` package) for document typeset as it offers consistent typesetting between the text and math environments.
 
-- The font size for the main text of the document is set to 12 pt. If you use a different font type, you may need to change the font size for better typesetting. For other environments except for the main text, I used relative font size (given below). Learn about [LaTeX font size here](https://www.overleaf.com/learn/latex/Questions/How_do_I_adjust_the_font_size%3F).
+- The font size for the main text of the document is set to 12 pt and is overall double-spaced (library requirement).
+
+- The title page is single-spaced and items were positioned within the page following library guidelines.
+
+- All the texts in the preface chapters and the main text chapters are double-spaced.
+  - You can define local environments in optional preface chapters (acknowledgement, dedication, epigraph, etc.) which have different styles and spacing.
+
+- For different text environments and their headings, relative font sizes are used as given below. Learn about [LaTeX font size here](https://www.overleaf.com/learn/latex/Questions/How_do_I_adjust_the_font_size%3F).
   - For the thesis title and chapter label and title, I used `\Large\bfseries\MakeUppercase` (**boldface 17.28 pt**).
   - For the section headings, I used `\singlespacing\large\bfseries` (**boldface 14.4 pt**) whereas, for the subsection headings, I used `\normalsize\bfseries` (**boldface 12 pt**).
   - For the subsubsection headings, I used `\normalsize\itshape` (*italic 12 pt*).
   - For the table and figure captions, I used `\small` (10.95 pt).
-  - For the footnotes, I used `\footnotesize` (10 pt), and footnote texts are single-spaced with `\baselineskip` spacing between each footnote.
+  - For the footnotes, I used the default `\footnotesize` (10 pt), and footnote texts are single-spaced with `\baselineskip` spacing between each footnote.
 
-- All the texts in the Abstract, Dedication, and Acknowledgement, and the main texts are double-spaced.
-  - Table of Contents (TOC), List of Tables (LOT), and List of Figures (LOF) in the front matter, and bibliographic references in the back matter are one-half-spaced.
-  - Item spacing in TOC is default from the `tocloft` package. Item spacing in the LOT and LOF and Bibliographic references is 7.25 pt (approximately `0.5\baselineskip`). 
 
-- Spacing around headings of these environments is the default spacing provided by the `parskip` package which looks reasonable and great, IMO.
- 
+- The texts of the Table of Contents (TOC), List of Tables (LOT), and List of Figures (LOF) in the front matter, and bibliographic references in the back matter are single-spaced.
+  - Spacing between two consecutive chapter entries in the TOC is `\baselineskip`. For two consecutive sections, it is `0.5\baselineskip`, and for subsections and subsubsections, the space is `0.3\baselineskip`.
+  - Spacing between two consecutive bibliographic items in the bibliographic reference section in the back matter is `\baselineskip`.
+
+- Spacing around the headings of different text environments is the default spacing provided by the `parskip` package.
+
 - Chapter labels are placed approximately 1.5 inches from the top of the page followed by the chapter title in the next line with an approximate spacing of 0.3 inches in between them.
   - Space between the chapter title and the following text is approximately 0.75 inches except for the case when there is a quote. In the latter case, the space followed by the chapter title to the quote and the quote to the following text is 0.5 inches.
 
@@ -183,7 +196,7 @@ The thesis title page is defined using the `titlepage` environment which is cent
 
 ### Prefaces and TOC, LOT, LOF, etc.
 
-- Except for the Abstract, other contents in the front matter can be arbitrarily spaced. For now, the Acknowledgment and Dedication pages are also double-spaced. However, a local `spacing` environment can be used for specialized preface pages to include quote or dedication, etc.
+- Except for the Abstract, other contents in the front matter can be arbitrarily spaced. For now, the Acknowledgment and Dedication pages are also double-spaced. However, a local `spacing` environment can be used for specialized preface pages to include quotes or dedication, etc.
 
 - All of the contents in TOC, LOT, and LOF are hyperlinked using the `linktoc=all` option in the `\hypersetup{}`. You can change this option to remove hyperlinks in TOC or just hyperlink the pages, etc. You can also change the color of the hyperlink for TOC (currently it is black) while any other hyperlink throughout the document has a blue color.
   - You can define a new color for this using the `xcolor` package (see below) and change the option in `\hypersetup{}`.
@@ -200,7 +213,7 @@ The thesis title page is defined using the `titlepage` environment which is cent
 ### Main text
 
 - You can add quotes to the chapter followed by the chapter label and title using the `epigraph` package. Examples are shown in two different chapters of the template.
-  - Currently, the maximum length for the epigraph is set to be `0.75\textwidth` which can be changed by specifying the variable `\QuoteWidth`. You can make it shorter or longer depending on your needs and/or preferences.
+  - Currently, the maximum length for the epigraph is set to be `0.65\textwidth` which can be changed by specifying the variable `\MaxQuoteWidth`. You can make it shorter or longer depending on your needs and/or preferences.
   - If you have a longer quote that spans over multiple lines and you are not happy with the default `doublespacing` you can customize it using a spacing environment around the quote (same as the chapter citation declaration, see below) to make it appear consistent.
     ``` latex
     \begin{spacing}{<some-spacing-value>}
@@ -210,9 +223,9 @@ The thesis title page is defined using the `titlepage` environment which is cent
   - You can also add quotes before the chapter labels and titles (instructions are included inside the chapter), but in that case, you have to change the `\ChapterTopMargin` variable to ensure enough spacing before the chapter label and it may complicate the overall document formatting (not recommended).
 
 
-- If any chapter is already published at a journal or conference or available in any of the archival repositories (submitted/ to be submitted to a peer-reviewed journal/conference), it is a good idea to declare it at the beginning of the chapter. Such an example has been shown in Chapter 2 of the template. To have consistent formatting, a `spacing` environment with 1.25 spacing was used, and the publication was printed with the `\fullcite{}` command. 
+- If any chapter is already published at a journal or conference or available in any of the archival repositories (submitted/ to be submitted to a peer-reviewed journal/conference), it is a good idea to declare it at the beginning of the chapter. Such an example has been shown in Chapter 2 of the template. To have consistent formatting, a `singlespace` environment was used, and the publication was printed with the `\fullcite{}` command. 
   - If the chapter is adapted from multiple publications, you can use `enumerate` or `itemize` environments to list all the publications inside the spacing environment.
-  - If the listed paper (published, submitted, or in preparation) is not cited anywhere else in the document and you do not want this to appear in the bibliographic references in the back matter, then use the following command. This command adds the paper to the group called `mypapers` which are not printed in the bibliography list.
+  - If the listed paper (published, submitted, or in preparation) is not cited anywhere else in the document and you do not want this to appear in the bibliographic references in the back matter, then use the following command. This command adds the paper to the group called `mypapers` which are not printed in the bibliography list. You can place the command anywhere; maybe in the reference chapter before printing the reference when you are sure about which bib items should not be included.
     ``` latex
     \mybibexclude{citation-key}
     ```
@@ -222,15 +235,17 @@ The thesis title page is defined using the `titlepage` environment which is cent
 
 - Similarly, for unnumbered sections, subsections, and subsubsections that you would like to add to the table of contents, use `\sect`, `\subsect`, and `\subsubsect` commands, respectively. If you do not any of these environments to be added to the table of contents, then you can use standard * environments; such as `\section*{}`, etc.
 
-- Currently, **three** numbered environments `\section{}`, `\subsection{}`, and `\subsubsection{}` are activated throughout the document and available in the table of contents. You can decrease or increase this by tweaking variables: `\NoSectionLevel` and `\NoTocLevel`. For such a complicated and long document, it is perhaps not a good idea to have more than three levels of headings in the main text section.
+- Currently, **three** numbered *paragraph environments*, `\section{}`, `\subsection{}`, and `\subsubsection{}`, are available throughout the document and shown in the TOC. You can decrease or increase this by tweaking variables, `\NoSectionLevel` and `\NoTocLevel`.
+  - For such a complicated and long document, it is perhaps not a good idea to have more than three levels of paragraphs in the main text section.
+  - LaTeX report class offers `\paragraph` and `\subparagraph` levels as 4th and 5th level. In case you would like to include those in your document, you will have to configure the styles for them and their appearance in the TOC.
 
-- To override the default spacing from the `parskip` package around the headings of different environments, the `titlesec` package can be used. To customize it, you can add the following command in the preamble (use pt as the units). You may have to do a bit of *trial and error* to find consistent spacing.
+- To override the default spacing from the `parskip` package around the headings of different environments, the `titlesec` package can be used. To customize it, add the following command in the preamble (use pt as the units). You may have to do a bit of *trial and error* to find consistent spacing.
   ``` latex
   \titlespacing*{<environment-name>}{<space-left>}{<space-before>}{<space-after>}
   ```
   
-- Header and footer options in the document are managed using the `\fancyhdr` package. Currently, the header prints the chapter label and the chapter title on the left side. If the chapter name is too long, you may have to customize the header spacing in the geometry settings options to accommodate that. Tweak the variable `\HeaderHeight` for this. The current value is set to `18 pt` which is good for single-line chapter titles.
-  - If you have a longer thesis title that is spanned over multiple header lines, consider changing the `\HeaderHeight` to `30 pt` (for double lines) or `42 pt` (for triple lines), i.e., add an extra `12 pt` to the default value for each new line.
+- Header and footer options in the document are managed using the `\fancyhdr` package. Currently, the header prints the chapter label and the chapter title on the left side. If the chapter name is too long, you may have to customize the header spacing in the geometry settings options to accommodate that. Tweak the variable `\HeaderHeight` for this. The current value is set to `30 pt` which can accommodate double-line headers.
+  - If you have even longer consider changing the `\HeaderHeight` from `30 pt` (for double lines) to `42 pt` (for triple lines).
   - You can also consider making the font size smaller for the headers.
   - Alternatively, you can consider including a shorter chapter title which will be printed as the header by starting the chapter environment as follows:
     ``` latex
@@ -241,7 +256,7 @@ The thesis title page is defined using the `titlepage` environment which is cent
 
 - To list items, use `enumerate` and `itemize` environments. But make sure to customize the spacing to have consistent typography with the double-spaced text document.
 
-- You can add algorithms using the `algorithm2e` package, and codes using the `listings` and `minted` packages. Customize these packages as needed. Similarly, you can add more discipline-specific packages.
+- You can add algorithms using the `algorithm2e` package, and codes using the `listings` and `minted` packages. Customize these packages to your needs/preferences.
 
 - You can use the `\linenumbers` command from the `lineno` package anywhere inside the main text document when you would like to have line numbers on the left margin. It might be useful during the drafting stage. Currently, this package is loaded with the `pagewise` line numbering option.
 
@@ -267,14 +282,15 @@ The thesis title page is defined using the `titlepage` environment which is cent
 
 ### Bibliography
 
-- The name of your bib file has to be specified in the `BibFileName` variable in the `LIST OF VARIABLES FOR FORMATTING` section. If your bib file has a different name than the given file, then change the variable name.
+- The name of your bib file has to be specified in the `BibFileName` variable in the `LIST OF VARIABLES FOR FORMATTING` section. If your bib file has a different name than the given file, then change the variable name or the file name.
 
 
 - The bibliography file is based on BibLaTeX which is a more modern and flexible package compared to BibTeX and natbib. Consider using Zotero, Mendely, EndNote, or some other citation manager to generate a standard BibLaTeX file.
-  - To change the default form of the bibliography (currently, `Nature` style), look for the following command and change the options based on your need and/or preference. Depending on the discipline, you may need to use different citation formats such as IEEE, ACM, APA, ACS, AIP/ APS, AMS, MLA, Harvard, etc. As an example, APA styles are also shown in the template as well (commented). For other citation styles, you may have to scavenge through the internet a little bit to have a properly formatted bibliography. Learn more about the [citation styles in BibLaTeX](https://www.overleaf.com/learn/latex/Biblatex_citation_styles).
+  - To change the default form of the bibliography (currently, `Nature` style), look for the following command and change the options based on your need and/or preference. Depending on the discipline, you may need to use different citation formats such as IEEE, ACM, APA, ACS, AIP/ APS, AMS, MLA, Harvard, etc. As an example, APA styles are also shown in the template as well (commented). Customization can be done by changing options within `[ ... ]` of the following command.
     ``` latex
     \usepackage[ ... ]{biblatex}
     ```
+  - For other citation styles, you may have to scavenge through the internet a little bit to have a properly formatted bibliography. Learn more about the [citation styles in BibLaTeX](https://www.overleaf.com/learn/latex/Biblatex_citation_styles) and check out [biblatex-related packages on TUG](https://ctan.org/topic/biblatex).
 
 
 - Bibliographic references are printed using the following command which will ensure the citations included in the `\mybibexclude{}` command are not printed.
@@ -284,13 +300,13 @@ The thesis title page is defined using the `titlepage` environment which is cent
 
 > [!CAUTION]
 >
-> The `biblatex` package works differently than the older `bibtex` package (which is still available). Make sure you generate the `.bib` file compatible with the `biblatex` package, not the `bibtex` package. If you are required to add a very specific citation style that can not be configured using `biblatex` package at all, then consider removing the options related to it, and then add the package and option related to the `bibtex` package. However this may break down the LaTeX code (not recommended).
+> The `biblatex` package works differently than the older `bibtex` package (which is still available). Make sure you generate the `.bib` file compatible with the `biblatex` package, not the `bibtex` package. If you are required to add a particular citation style that can not be configured using `biblatex` package at all, then consider removing the options related to it, and then add the package and option related to the `bibtex` package. However this may break down the LaTeX code (not recommended).
 
 
 > [!NOTE]
 >
 > Sometimes even if you have done everything right after fixing an error, Overleaf still may not compile your files because of the auxiliary files in the `cache`. In that case, click on the `Logs and Output Files` option beside the `Recompile` button, then click on the `Clear cached files` button at the bottom, and `Recompile` the files again.
-> 
+
 
 ### Generating PDF/A compliant output file for the JH Library on Overleaf
 
@@ -316,4 +332,4 @@ Keep writing ... and Happy Graduation :tada:!
 
 ## Contributing to the project
 
-This template was kept sufficiently general purpose for different disciplines with some customizations of special packages for demonstration purposes. If you have suggestions about specific LaTeX packages to your preference or discipline, it may not be a good idea to add them here. However, if you have suggestions about general formatting, you can fork the repository and create a `pull request` or just find me and let me know.
+This template was kept sufficiently general purpose for different disciplines with some customizations of special packages for demonstration purposes. If you have suggestions about specific LaTeX packages to your preference or discipline, adding them here may not be a good idea. However, if you have suggestions about general formatting, you can fork the repository and create a `pull request` or just find me and let me know.

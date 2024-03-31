@@ -39,20 +39,23 @@
 %% go through all the variables and understand what role they play in formatting
 %%%%%%%%%%%%%%%%%%%%%% LIST OF VARIABLES FOR FORMATTING %%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%% additional paths and files
-\def\BibFileName{thesis.bib}                % name of BibLaTeX file with all the bibliography
-\def\FigurePath{figures}                    % subdirectory for the figure files
-
-%%%% document formatting (JH library requirement and customizations)
+%%%% JH Library requirement (DO NOT CHANGE)
 \def\GlobalMargin{1.0in}                    % margin on all sides
-\def\PrintingOffset{0.5in}                  % additional space on the left margin for the print copy
+\def\PrintingOffset{0.5in}                  % additional left margin for the printed copy
+\def\MainTextSpacing{\doublespacing}        % double-spaced main text (library requirement)
 
-%%%% font size and typeset for different environments
-%% check here for details: https://en.wikibooks.org/wiki/LaTeX/Fonts
-\def\FontPackage{lmodern}                   % latin modern font
+
+%%%% FONT TYPE and SIZE
+\def\FontPackage{lmodern}                   % Latin Modern font
 \def\BaseFont{12pt}                         % main text font size for document
 
+%%%% ADDITIONAL PATHS and FILES
+\def\FigurePath{figures}                    % subdirectory for the figure files
+\def\BibFileName{thesis.bib}                % name of BibLaTeX file 
 
+
+%%%% FONT SIZE and TYPESET for DIFFERENT HEADINGS
+%% check here for details: https://en.wikibooks.org/wiki/LaTeX/Fonts
 \def\TitleFont{\Large\bfseries\MakeUppercase}   % font format for thesis title
 \def\ChapterFont{\Large\bfseries\singlespacing} % font format for chapter label and title
 \def\SectionFont{\large\bfseries}           % section heading font format
@@ -63,53 +66,68 @@
 \def\CaptionSeparator{colon}                % separates caption heading from text. can use 'period' as well
 
 
-%%%% default text spacing set up for the main, front, and back matter
-\def\MainTextSpacing{\doublespacing}        % double spacing in the main text (JH library requirement)
-\def\TOCTextSpacing{\onehalfspacing}        % one-half spacing for TOC texts
-\def\BibTextSpacing{\onehalfspacing}        % one-half spacing for bibliography
-%% JH library does not specify spacing for TOC and bibliographic references
-
-
-\def\HeaderHeight{18 pt}                    % height of the header (prints chapter details)
+%%%% CHAPTER HEADER SETTINGS
+\def\HeaderHeight{30 pt}                    % height of the chapter header
 \def\HeaderSpace{12 pt}                     % space between header and the following text
-\def\TitleTopSpacing{-\HeaderHeight-\HeaderSpace}
 
 
 %%%% spacing between different common environments
 \def\ParagraphSpacing{\baselineskip}        % spacing between paragraph
 \def\ParagraphIndent{0 pt}                  % indentation at the beginning of the paragraph
-\def\LOTItemSpacing{7.25 pt}                % spacing between LOT/LOF items
-\def\BibItemSpacing{0.5\baselineskip}       % spacing between bibliographic items in reference
+\def\CaptionSpacing{0 pt}                   % spacing between the figure and the caption
 \def\FootnoteSpacing{\baselineskip}         % spacing between footnotes
-\def\CaptionSpacing{0 pt}                   % spacing between the figure and the caption (unit: pt)
-
-%% if you have a longer quote, you can change it or break the quote in multiple lines
-\def\QuoteWidth{0.75\textwidth}             % width epigraph-based quotes in chapter
 
 
+%%%% BIBLIOGRAPHY ITEMS
+\def\BibTextSpacing{\singlespacing}         % single-spaced bibliography
+\def\BibItemSpacing{\baselineskip}          % spacing between bibliographic items in reference
+
+
+%%%% CHAPTER QUOTE (EPIGRAPH PACKAGE)
+\def\ChapQuoteFontSize{\small}              % font size of chapter quotes
+\def\ChapQuoteLocation{flushright}          % location of chapter quote
+\def\ChapQuoteTextShape{\itshape}           % font shape for quotes
+\def\ChapQuoteAuthorTextShape{\scshape}     % font shape for quote author
+\def\MaxQuoteWidth{0.65\textwidth}          % width epigraph-based quotes in chapter
+
+
+%%%% GLOBAL SPACING for TABLES
+\def\GlobalTableSpacing{1.5}                % global spacing parameter for table
 %% if this seems too widespread for you, try changing it locally using
 %% \begin{group} ... \renewcommand{\arraystretch} ... \end{group} commands
-\def\GlobalTableSpacing{1.5}                % global spacing parameter for table
 
 
-%%%% section tree level and their table of content appearance
+%%%% SECTION LEVELS and TOC APPEARANCE
 \def\NoSectionLevel{3}                      % 3 levels for sections ... to subsubsection
 \def\NoTocLevel{3}                          % no of levels showed in the table of contents
 \def\TocIndent{0}                           % indentation in the list of figs and tables
-%% 3 levels mean: section to subsubsection.. decrease if you want less to show in TOC
+%% 3 levels mean: section to subsubsection.. decrease if you want to show less in TOC
 
 
+%%%% TOC SPACING of different section levels (chapter to subsubsection)
+\def\TOCTextSpacing{\singlespacing}         % single spacing for TOC texts
+\def\ChapTOCSpacing{\baselineskip}          % spacing between chapters
+\def\SecTOCSpacing{0.5\baselineskip}        % spacing between sections
+\def\SubsecTOCSpacing{0.3\baselineskip}     % ... between subsections
+\def\SubsubsecTOCSpacing{0.3\baselineskip}  % ... between subsubsections
 
-%%%% following numbers are found by trial and error to compensate for spacing 
-%% around default LaTeX environments 
-\def\BeforeTOCTitleSpacing{-27 pt}          % adjustable space before TOC title
-\def\AfterTOCTitleSpacing{33 pt}            % adjustable space after TOC title
-\def\AfterLOTTitleSpacing{45 pt}            % adjustable space after LOT/ LOF title
-\def\NumChapterTopMargin{-45 pt}            % adjustable space before numbered chapter label (unit: pt)
-\def\UnNumChapterTopMargin{-68 pt}          % adjustable space before unnumbered chapter label
-\def\ChapLabelToTitle{-24 pt}               % adjustable space between chapter label to title (unit: pt)
-\def\ChapTitleToText{25 pt}                 % extra space between the chapter title and the following text
-\def\SpaceBeforeQuote{-10 pt}               % adjustable white space before quote
+\def\LOTItemSpacing{\baselineskip}          % spacing between LOT/LOF items
+
+
+%%%% ADHOC HEIGHT ADJUSTMENT VARIABLES for consistent typesettings
+%% following numbers are found by trial and error to compensate 
+%% for default spacing around default LaTeX environments
+\def\TitleTopSpacing{-\HeaderHeight-\HeaderSpace}   % top height adjustment for thesis title
+\def\BeforeTOCTitleSpacing{-27 pt}          % space before TOC title
+\def\AfterTOCTitleSpacing{33 pt}            % space after TOC title
+\def\AfterLOTTitleSpacing{45 pt}            % space after LOT/ LOF title
+
+\def\NumChapterTopMargin{-45 pt}            % space before numbered chapter label
+\def\UnNumChapterTopMargin{-68 pt}          % space before unnumbered chapter label
+\def\ChapLabelToTitle{-24 pt}               % space between chapter label to title 
+\def\ChapTitleToText{25 pt}                 % space between the chapter title and the following text
+\def\SpaceBeforeQuote{-10 pt}               % white space before quote
+
 
 
 %%%% pdflatex compression settings to generate compressed PDF (optional)
@@ -132,24 +150,38 @@
 %% you may have to change the options in biblatex package for the bibliography
 %%%%%%%%%%%%%%%%%%%%%%%%%% LaTeX CLASS AND PACKAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\documentclass[\BaseFont,letterpaper]{report}% report document class w/ 12 pt font
+\documentclass[\BaseFont,letterpaper]{report}% report class w/ 12 pt font
 
-\usepackage[utf8]{inputenc}                 % for encoding input character
-\usepackage[pagewise,mathlines]{lineno}     % linenumbers for drafting
+%%%% SOME PRE-REQUISITE PACKAGES
+\usepackage[utf8]{inputenc}                 % for encoding input character (required)
+\usepackage[american]{babel}                % for different language typography
+\usepackage[T1]{fontenc}                    % for font encoding
 
-%%%% useful math packages
-\usepackage{amsfonts,amssymb,amsmath,amsthm,autobreak,cancel,dsfont,mathtools,mathbbol,mathrsfs,siunitx,upgreek}
 
+%%%% COMMON MATH PACKAGES
+\usepackage{amsfonts,amssymb,amsmath,amsthm,autobreak,
+cancel,dsfont,mathtools,mathbbol,mathrsfs,siunitx,upgreek}
+
+
+%%%% BIBLIOGRAPHIC PACKAGE (change the style or other options if you need to)
+\usepackage[backend=biber, defernumbers=true, style=nature, 
+maxnames=9, date=year, isbn=false, url=false, doi=true]{biblatex}
+
+%% example of APA style
+% \usepackage[backend=biber, defernumbers=true, style=apa, 
+% isbn=false, url=false, doi=true]{biblatex}
+
+
+%%%% TABLE-RELATED PACKAGES
+\usepackage{booktabs,longtable,dcolumn,makecell,
+multicol,multirow,tabularx,xltabular,rotating}
+
+
+
+%%%% OTHER PACKAGES AND OPTIONS
+\usepackage[pagewise,mathlines]{lineno}     % linen umbers for drafting
 \usepackage[ruled]{algorithm2e}             % to manage algorithm environment
 \usepackage[titletoc]{appendix}             % to manage appendix chapters
-\usepackage[american]{babel}                % for different language typography
-
-%%%% bibliographic package (make sure your bib file is in BibLaTeX format)
-%% use a citation manager program to generate the BibLaTeX file (not BibTeX)
-%% change the style or other options if you need to (google is your friend)
-\usepackage[backend=biber, defernumbers=true, style=nature, maxnames=9, date=year, isbn=false, url=false, doi=true]{biblatex}
-% \usepackage[backend=biber, defernumbers=true, style=apa, isbn=false, url=false, doi=true]{biblatex}
-
 \usepackage{blindtext}                      % to generate random filler texts
 \usepackage{calc}                           % to set arithmetic arguments for spacing
 \usepackage{caption}                        % to manage captions
@@ -171,11 +203,6 @@
 \usepackage{lscape}                         % landscape mode
 \usepackage{listings,minted}                % to include codes 
 \usepackage{csquotes}                       % yet another package to manage quote
-
-%%%% table-related packages
-\usepackage{booktabs,longtable,dcolumn,makecell,multicol,multirow,tabularx,xltabular,rotating}
-
-\usepackage{pdfpages}                       % to include pdf file
 \usepackage{setspace}                       % sets space between lines
 \usepackage{seqsplit}                       % splits long character sequence
 \usepackage[rightcaption]{sidecap}          % for sideway captions
@@ -206,63 +233,49 @@
 %% (epigraph, algorithm, listings, etc). be cautious before making any changes.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PACKAGE OPTIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%% add all the images to that folder for cleaner file management
-%% you can add images in chapter-wise PDF format (my preference).
 \graphicspath{{\FigurePath/}}
-
-
-%%%% this file has to be in BibLaTeX format. Use Zotero or another citation manager 
-%% to generate the .bib file in BibLaTeX format.
 \addbibresource{\BibFileName}
 
-
-%%%% defining Hopkins-branded custom colors in case you want to use it
-%% you can define your own color and use it for different environments
-\definecolor{HeritageBlue}{RGB}{0,45,114}       % heritage blue
-\definecolor{SpiritBlue}{RGB}{114,172,229}      % spirit blue
-
-
-%% margin settings required by JH library using geometry package
-%% if you have a long chapter title you may need to customize the header settings here
+%%%% GEOMETRY PACKAGE: margin settings required by JH library using geometry package
 \geometry{letterpaper, margin=\GlobalMargin, bindingoffset=\PrintingOffset, nomarginpar, includehead, headheight=\HeaderHeight, headsep=\HeaderSpace, includefoot, heightrounded}
 %% you can add showframe option to see how the layout looks like if needed 
 
 
-%% settings for the hyperref package
+%%%% HYPERREF PACKAGE
 \hypersetup{linktocpage, unicode, linktoc=all, colorlinks=true, citecolor=blue, filecolor=blue, linkcolor=blue, urlcolor=blue}
-
 \urlstyle{rm}           % removes default \texttt style for hyperlinks
 
 
-%% settings for caption package (customize or add more as needed)
+%%%% CAPTION PACKAGE
 \captionsetup{belowskip=\CaptionSpacing, font=\CaptionFontSize, labelfont=\CaptionFontType, labelsep=\CaptionSeparator, hypcap=true} 
 
 
-%% settings for TikZ library (you can add more settings here)
+%%%% SOME SAMPLE TiKZ LIBRARY SETTINGS
 \usetikzlibrary{positioning,shapes,arrows}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% END PACKAGE OPTIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 %%%%%%%%%%%%%%%%%%%%%% MACROS FOR TITLE PAGE FORMATTING %%%%%%%%%%%%%%%%%%%%%%%%
-%%%% macro commands for title page formatting
-\newcommand{\ThesisTitle}[1]{
+
+\newcommand{\ThesisTitle}[1]{                   % thesis title
     \vspace*{\TitleTopSpacing}
     {\TitleFont {#1} \par}
 }
 
-\newcommand{\ThesisAuthor}[1]{by \\ #1 \\}
+\newcommand{\ThesisAuthor}[1]{by \\ #1 \\}      % thesis author
 
+%% statement for thesis or dissertation
 \newcommand{\ThesisStatement}[2]{
 A {#1} submitted to The Johns Hopkins University in conformity \\
 with the requirements for the degree of {#2}
 }
 
-\newcommand{\Location}{Baltimore, Maryland}
+\newcommand{\Location}{Baltimore, Maryland}     % location
 
-\newcommand{\ThesisDate}[2]{#1 #2}
+\newcommand{\ThesisDate}[2]{#1 #2}              % thesis submission date 
 
-\newcommand{\ThesisCopyright}[2]{
+\newcommand{\ThesisCopyright}[2]{               % optional copyright statement
 \begin{textblock*}{\textwidth}(\GlobalMargin +\PrintingOffset,9in)
     \copyright\ {#1} {#2} \\ All rights reserved
 \end{textblock*}
@@ -301,15 +314,14 @@ with the requirements for the degree of {#2}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% DOCUMENT FORMATTING %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%% choice a font form (or add something else) for your thesis
-\usepackage{\FontPackage}                               % load font package
-\usepackage[T1]{fontenc}                                % package for font encoding
+\usepackage{\FontPackage}
 
 
 \setcounter{tocdepth}{\NoTocLevel}                      % list depth in ToC
 \setcounter{secnumdepth}{\NoSectionLevel}               % section to ... subsubsection ...
 
 
-%%%% tocloft: modified macros/ commands for ToC, LoF, LoT
+%%%% TOCLOFT: modified macros/ commands for ToC, LoF, LoT
 \newcommand{\mytableofcontents}{
     \renewcommand{\contentsname}{Table of Contents}
     \tableofcontents
@@ -327,8 +339,7 @@ with the requirements for the degree of {#2}
     \listoftables
 }
 
-
-%%%% package tocloft settings: font size and spacing around the titles of ToC/ LoT/ LoF
+%%%% font size and spacing around the titles of ToC/ LoT/ LoF
 \renewcommand{\cfttoctitlefont}{\ChapterFont}
 \renewcommand{\cftlottitlefont}{\ChapterFont}
 \renewcommand{\cftloftitlefont}{\ChapterFont}
@@ -344,40 +355,47 @@ with the requirements for the degree of {#2}
 %% set the width of the box based on the longest label name
 \renewcommand{\cftchappresnum}{\chaptername\space}
 \renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}  % dots for chapters too
-\setlength{\cftchapnumwidth}{\widthof{\textbf{Appendix~999~}}}
+\setlength{\cftchapnumwidth}{\widthof{\textbf{Appendix~XXX~}}}
+
+
+\setlength{\cftbeforechapskip}{\ChapTOCSpacing}
+\setlength{\cftbeforesecskip}{\SecTOCSpacing}
+\setlength{\cftbeforesubsecskip}{\SubsecTOCSpacing}
+\setlength{\cftbeforesubsubsecskip}{\SubsubsecTOCSpacing}
 
 
 %% tweak to LOT and LOF to add 'Table'/ 'Figure' to the table/ figure caption listing
 %% to change the distance to the start of the table/ figure title
 \setlength{\cfttabindent}{\TocIndent pt}                % indentation from tables in LoT
 \renewcommand{\cfttabpresnum}{\bfseries Table }
-\setlength{\cfttabnumwidth}{\widthof{\textbf{Table~99.100~}}}
+\setlength{\cfttabnumwidth}{\widthof{\textbf{Table~999.999~}}}
 \setlength{\cftbeforetabskip}{\LOTItemSpacing}          % spacing between each item
-%%
+
+
 \setlength{\cftfigindent}{\TocIndent pt}                % indentation from figures in LoF
 \renewcommand{\cftfigpresnum}{\bfseries Figure }
-\setlength{\cftfignumwidth}{\widthof{\textbf{Figure~99.999~}}}
+\setlength{\cftfignumwidth}{\widthof{\textbf{Figure~999.999~}}}
 \setlength{\cftbeforefigskip}{\LOTItemSpacing}          % spacing between each item
 
 
 
-%%%% titlesec package: settings for chapter label and title
+%%%% TITLESEC: settings for chapter label and title
 \titleformat{\chapter}[display]{\ChapterFont}{\chaptertitlename\ \thechapter}{\ChapLabelToTitle}{\ChapterFont}
 \titlespacing*{\chapter}{0pt}{\NumChapterTopMargin}{\ChapTitleToText} 
 \titlespacing*{name=\chapter,numberless}{0pt}{\UnNumChapterTopMargin}{\ChapTitleToText}
 
-%%%% titlesec: settings for sections, subsection, ... heading format
+%%%% TITLESEC: settings for sections, subsection, ... heading format
 \titleformat*{\section}{\SectionFont}
 \titleformat*{\subsection}{\SubsectionFont}
 \titleformat*{\subsubsection}{\SubsubsectionFont}
 %% if you had more levels then add settings for paragraph and all.
 
-%%%% to customize space around different paragraph headings, use the following:
+%%%% to customize space around section headings, use the following command:
 % \titlespacing*{environment-name}{space-left}{space-before}{space-after}
 
 
 
-%%%% package parksip settings: for paragraph (and not title) spacing, roughly speaking
+%%%% PARSKIP: for paragraph (and not title) spacing, roughly speaking
 \renewcommand{\arraystretch}{\GlobalTableSpacing}   % spacing inside table
 \setlength{\parskip}{\ParagraphSpacing}             % paragraph skip
 \setlength{\parindent}{\ParagraphIndent}            % paragraph indentation
@@ -386,7 +404,7 @@ with the requirements for the degree of {#2}
 
 
 %%%% settings for math environment
-\allowdisplaybreaks[1]                  % allows page break for long equations
+\allowdisplaybreaks[1]                  % page break for long equations
 \numberwithin{equation}{chapter}        % eqn no with chapter prefix
 \setcounter{MaxMatrixCols}{20}          % no of maximum columns in matrix
 
@@ -404,24 +422,21 @@ with the requirements for the degree of {#2}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% following section is needed if the EPIGRAPH package is used for quotes.
+%% following sections will be required only if specific packages are used.
+%% if you plan on using quotes, you may need specialized epigraph settings.
+%% hopefully the following settings will work for you if the quote is small.
 %% epigraph examples given in chapters 2 and 3 for relatively small quotes.
-%% for longer quotes, break it down in multiple lines with line break and put
-%% it inside spacing environment to make it appear tighter
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% EPIGRAPH SETTINGS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%% Following settings allow the epigraph and the underline 
-%% settings for arbitrary epigraph length
-\renewcommand{\epigraphflush}{flushright}           % quote location
-\renewcommand{\epigraphsize}{\small}
-\setlength{\epigraphwidth}{\QuoteWidth}             % width of quote environment
-\renewcommand{\textflush}{flushright}
-\renewcommand{\sourceflush}{flushright}
-%% A useful addition
-\newcommand{\epitextfont}{\itshape}                 % quote font shape
-\newcommand{\episourcefont}{\scshape}               % quote author name shape
+\renewcommand{\epigraphflush}{\ChapQuoteLocation}       % chapter epigraph on right 
+\renewcommand{\epigraphsize}{\ChapQuoteFontSize}        % font size for chapter epigraph
+\setlength{\epigraphwidth}{\MaxQuoteWidth}              % max width of chapter epigraph
+\renewcommand{\textflush}{\ChapQuoteLocation}
+\renewcommand{\sourceflush}{\ChapQuoteLocation}
+\newcommand{\epitextfont}{\ChapQuoteTextShape}          % quote font shape
+\newcommand{\episourcefont}{\ChapQuoteAuthorTextShape}  % quote author name shape
 
-%%%% settings for horizontal line of variable width
+%% following settings puts variable width underline between quote and author
 \makeatletter
 \setlength{\beforeepigraphskip}{\SpaceBeforeQuote}
 \newsavebox{\epi@textbox}
@@ -462,8 +477,8 @@ with the requirements for the degree of {#2}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% add all your custom math settings and macros in the following section.
-%% this is where LaTeX supremacy becomes a thing. you can customize a lot.
+%% add all your custom math and other text macros in the following sections.
+%% these are just some examples; add more macros for your custom symbols
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% MATH MACROS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand{\dC}{$^{\circ}$C}           % degree celsius symbol
@@ -474,12 +489,9 @@ with the requirements for the degree of {#2}
 \DeclareMathOperator{\grad}{grad}       % gradient of vector and tensor
 \DeclareMathOperator{\curl}{curl}       % curl of vector and tensor
 
-
 %% theorem-style remark environment
 \theoremstyle{definition}
 \newtheorem{remark}{Remark}
-
-%% these are just some examples; add more macros for your custom symbols
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% END MATH MACROS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -488,8 +500,6 @@ with the requirements for the degree of {#2}
 
 \newcommand{\COMMENT}{\textcolor{red}}
 \newcommand{\ADDCITATION}{\COMMENT{(ADD CITATION)}}
-
-%% you can also add more simple comments here as you need
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% END OTHER MACROS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -502,65 +512,65 @@ with the requirements for the degree of {#2}
 
 \begin{document}
 
-% \linenumbers                              % useful during drafting
-
-\pagestyle{fancy}
-\renewcommand{\chaptermark}[1]{\markboth{#1}{#1}}
-\fancyhead[R]{}                             % empty top-right header throughout the document
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% FRONT MATTER %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\include{01-title}                          % includ the title page
+%%%% TITLE PAGE
+\include{01-title}        
 
-%% chapter header and page numbering set up
-%% header unnumbered chapters (to remove the headers, comment out the following lines)
+
+%%%% text spacing, page numbering, and header settings
 \MainTextSpacing                            % double spacing for the contents
-\pagenumbering{roman}                       % pagination style: roman numeral
+\pagenumbering{roman}                       % pagination style: Roman numeral
 \setcounter{page}{2}                        % page counter starts at roman ii
-\fancyhead[L]{\nouppercase \leftmark}       % avoiding upper-case in header
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{#1}}
+\fancyhead[R]{}               
+\fancyhead[L]{\nouppercase \leftmark}       % prints header for unnumbered chap
 
 
-%%%% add abstract, dedication, and acknowledgement (and any other front matter)
+%%%% MUST: add the abstract chapter (includes committee as well)
 \include{02-abstract}
+
+
+%%%% OPTIONAL but COMMON: add other preface chapters (order does not matter)
 \include{03-dedication}
 \include{04-acknowledgement}
+\include{05-epigraph}
 
-%% you can add more front matter chapters if you have (follow library guidelines)
 
-
-%%%% single spacing is too cluttered and double spacing is too wide-spread
+%%%% LISTINGS
 {\clearpage
 \TOCTextSpacing                             % one-half spacing for the table of contents
 \hypersetup{linkcolor=black}                % local black hyperlink for TOC
 %
-\mytableofcontents
+\mytableofcontents                          % MUST
 %
-\mylistoftables
+\mylistoftables                             % MUST: if you have tables
 %
-\mylistoffigures
+\mylistoffigures                            % MUST: if you have figures
+%
+%% OPTIONAL: you can add more lists here (you will have to define those)
 }
-
-%% you can add more listing environments here (optional)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%% END FRONT MATTER %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% MAIN TEXT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\clearpage                                  % flushes the floats and the new page
+%%%% PAGE settings 
+\MainTextSpacing                            % restores double spacing 
 \pagenumbering{arabic}                      % Arabic page numbering
-\MainTextSpacing                            % restores double spacing in the chapter contents
 \fancyhead[L]{\chaptername\ \thechapter. \nouppercase \leftmark}
 
 
 %%%% include all the main text chapters
-\include{05-chapter-1}
-\include{06-chapter-2}
-\include{07-chapter-3}
-\include{08-chapter-4}
-\include{09-chapter-5}
+\include{06-chapter-1}
+\include{07-chapter-2}
+\include{08-chapter-3}
+\include{09-chapter-4}
+\include{10-chapter-5}
 
-%% add more chapters as you need
+%% add more main text chapters
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% END MAIN TEXT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -570,34 +580,29 @@ with the requirements for the degree of {#2}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% BACK MATTER %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%% bibliographic references
-\clearpage
+%%%% BIBLIOGRAPHIC REFERENCES
 \BibTextSpacing                     % one-half spacing for the bib items
-% you can also change the 'BibItemSeparation' variable to control the spacing
-% header for unnumbered chapters (to remove the headers, comment out the following line)
 \fancyhead[L]{\nouppercase \leftmark}
 
-\include{10-references}             % include reference chapter
+\include{11-references}             % include reference chapter
 
 
-
-%%%% appendix chapters (optional)
-\MainTextSpacing                    % restoring double spacing for the contents in appendices
-%% full header for appendix chapters (to remove the headers, comment out the following line)
+%%%% OPTIONAL: Appendix chapter (same format as the main chapters)
+\MainTextSpacing                    
 \fancyhead[L]{\appendixname\ \thechapter. \nouppercase \leftmark}
 
-\include{11-appendix-A}
-\include{12-appendix-B}
+\include{12-appendix-A}
+\include{13-appendix-B}
 
 %% add more appendix chapters as you need
 
 
 %%%% biographical sketch or curriculum vitae
 %% you can write it as a chapter and add it using \include{...} statement
-% \include{13-biography}
+% \include{14-biography}
 
 
-%% if you already have a CV as a PDF, add it to the main directory, and use
+%%%% if you already have a CV as a PDF, add it to the main directory:
 % \includepdf[pages=-]{John_Doe_CV.pdf}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%% END BACK MATTER %%%%%%%%%%%%%%%%%%%%%%%%%%%%
