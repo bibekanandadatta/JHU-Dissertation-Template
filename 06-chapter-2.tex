@@ -11,15 +11,18 @@
 % \epigraphhead[0]{whole-above-epigraph-command-goes-here}
 
 
-%%%% add the citation for the chapter if it is a submitted or reprint 
+%%%% MUST: add the citation for the chapter if it is a reprint or submitted paper
 %% you can use enumerate or itemize environment if you have more than one paper 
 %% \mybibexclude{} will exclude this citation from the final bibliography
-%% if this paper appears somewhere else then remove \mybibexclude{}
-\begin{spacing}{\FullCiteSpacing}
-    This chapter is adapted from the following publication with permission from \emph{publisher}: 
+%% if this paper appears somewhere else then remove \mybibexclude{} command
+
+\begin{onehalfspace}    
+    This chapter is adapted from the following article with permission from Elsevier:
     
-    \fullcite{einstein}. \mybibexclude{einstein}
-\end{spacing}
+    \fullcite{einstein}
+    \mybibexclude{einstein}
+\end{onehalfspace}
+
 
 
 
