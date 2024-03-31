@@ -5,7 +5,7 @@ This is an unofficial thesis (masters) or dissertation (PhD) template for Johns 
 As of March 2024, the template follows the thesis or dissertation formatting requirements provided by the [Johns Hopkins University Sheridan Library](https://www.library.jhu.edu/library-services/electronic-theses-dissertations/formatting-requirements/). Johns Hopkins Library is flexible in terms of the format except for the title page, margins, and overall double-spaced content. **However, be sure to check the requirements before you proceed any further. It is the user's responsibility to ensure all the formatting requirements are met.**
 
 
-## Table of Contents 
+## Table of Contents
 
 * [Version history for the template](#version-history-for-the-template)
 * [What is included in this version of the template](#what-is-included-in-this-version-of-the-template)
@@ -147,11 +147,13 @@ The preamble section of the `00-main.tex` file has been subdivided into multiple
 \usepackage[unit=in,type=upperleft,color=red,showframe]{fgruler}
 ```
 
-- If you do not like the default font (Latin Modern Roman), you can try a different font or combination of font or typeset. However, you should be careful about having consistent typesetting, especially between math and text. [Follow this discussion on StackExchange to learn more about fonts in LaTeX](https://tex.stackexchange.com/questions/59702/suggest-a-nice-font-family-for-my-basic-latex-template-text-and-math). Font package has been loaded using `\usepackage{\FontPackage}` command. Depending on the Font you choose, you may have to add additional options there or even a few other commands to make the typography consistent.
-
 > [!WARNING]
 >
 > Finding a different font that offers consistent text and math typography may require you to add customized commands/ macros and options. 
+
+- If you do not like the default font of this template (Latin Modern Roman), you can try a different font or combination of fonts. However, you should be careful about having consistent typesetting, especially between math and text. [Follow this old discussion on StackExchange to learn more about fonts in LaTeX](https://tex.stackexchange.com/questions/59702/suggest-a-nice-font-family-for-my-basic-latex-template-text-and-math).
+  - This TUG page lists [fonts that provide math support](https://tug.org/FontCatalogue/mathfonts.html). But Overleaf may not have all of the packages listed there, and some of the packages may raise conflict with other packages that are already loaded. You can try and figure out which works best for you.
+  - The font package has been loaded using the `\usepackage{\FontPackage}` command in the `DOCUMENT FORMATTING` section of the preamble. Depending on the Font you choose, you may have to add additional options/ packages (follow the above webpage) and simply changing the `\FontPackage` variable may not work.
 
 - Add your math macros and settings in the `MATH MACROS` section. There's a section for non-math `OTHER MACROS` as well. Some examples of both types of macros are added there in the template.
 
@@ -198,10 +200,10 @@ The thesis title page is defined using the `titlepage` environment which is cent
 ### Main text
 
 - You can add quotes to the chapter followed by the chapter label and title using the `epigraph` package. Examples are shown in two different chapters of the template.
-  - Currently, the maximum length for the epigraph is set to be `0.75\textwidth` which can be changed by specifying the variable `\QuoteWidth`. You can make it shorter or longer depending on your needs or/and preferences.
+  - Currently, the maximum length for the epigraph is set to be `0.75\textwidth` which can be changed by specifying the variable `\QuoteWidth`. You can make it shorter or longer depending on your needs and/or preferences.
   - If you have a longer quote that spans over multiple lines and you are not happy with the default `doublespacing` you can customize it using a spacing environment around the quote (same as the chapter citation declaration, see below) to make it appear consistent.
     ``` latex
-    \begin{spacing}{1.25}
+    \begin{spacing}{<some-spacing-value>}
       \epigraph{\enquote{quote-goes-here}}{quote-author}
     \end{spacing}
     ```

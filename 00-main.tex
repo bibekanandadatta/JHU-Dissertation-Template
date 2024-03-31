@@ -158,7 +158,6 @@
 \usepackage{epigraph,varwidth}              % for managing quotes
 \usepackage{enumitem}                       % to manage list environment
 \usepackage{float}                          % to manage floating environment
-\usepackage[T1]{fontenc}                    % for font encoding
 % footnote environment management
 \usepackage[bottom,multiple,hang,flushmargin]{footmisc}      
 \usepackage{graphicx,wrapfig}               % to manage images
@@ -302,7 +301,9 @@ with the requirements for the degree of {#2}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% DOCUMENT FORMATTING %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%% choice a font form (or add something else) for your thesis
-\usepackage{\FontPackage}
+\usepackage{\FontPackage}                               % load font package
+\usepackage[T1]{fontenc}                                % package for font encoding
+
 
 \setcounter{tocdepth}{\NoTocLevel}                      % list depth in ToC
 \setcounter{secnumdepth}{\NoSectionLevel}               % section to ... subsubsection ...
@@ -325,7 +326,6 @@ with the requirements for the degree of {#2}
     \addcontentsline{toc}{chapter}{List of Tables}
     \listoftables
 }
-
 
 
 %%%% package tocloft settings: font size and spacing around the titles of ToC/ LoT/ LoF
