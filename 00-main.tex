@@ -213,7 +213,7 @@ multicol,multirow,tabularx,xltabular,rotating}
 \usepackage{subcaption}                     % individual panel and caption
 
 %%%% if you try to customize spacing around different environments consider:
-% \usepackage[unit=in,type=upperleft,color=red,showframe]{fgruler}
+% \usepackage[unit=in,type=upperleftT,color=red,showframe]{fgruler}
 
 %% add more packages and/or change options of the packages as needed
 
@@ -231,14 +231,14 @@ multicol,multirow,tabularx,xltabular,rotating}
 
 %%%% GEOMETRY PACKAGE: margin settings required by JH library 
 \geometry{letterpaper, margin=\GlobalMargin, bindingoffset=\PrintingOffset, 
-nomarginpar, includehead, headheight=\HeaderHeight, 
-headsep=\HeaderSpace, includefoot, heightrounded}
+    nomarginpar, includehead, headheight=\HeaderHeight, 
+    headsep=\HeaderSpace, includefoot, heightrounded}
 %% you can add showframe option to see how the layout looks like
 
 
 %%%% HYPERREF PACKAGE
 \hypersetup{linktocpage, unicode, linktoc=all, colorlinks=true, 
-citecolor=blue, filecolor=blue, linkcolor=blue, urlcolor=blue}
+    citecolor=blue, filecolor=blue, linkcolor=blue, urlcolor=blue}
 \urlstyle{rm}           % removes default \texttt style for hyperlinks
 
 
@@ -444,20 +444,20 @@ with the requirements for the degree of {#2}
   
 %% removes the 'Section #' title while keeping it listed in the TOC
 \newcommand\sect[1]{%
-    \section*{#1}%
     \phantomsection
+    \section*{#1}%
     \addcontentsline{toc}{section}{#1}}
   
 %% removes the 'Subsection #' title while keeping it listed in the TOC
 \newcommand\subsect[1]{%
-    \subsection*{#1}%
     \phantomsection
+    \subsection*{#1}%
     \addcontentsline{toc}{subsection}{#1}}
 
 %% removes the 'Subsubsection #' title while keeping it listed in the TOC
 \newcommand\subsubsect[1]{%
-    \subsubsection*{#1}%
     \phantomsection
+    \subsubsection*{#1}%
     \addcontentsline{toc}{subsubsection}{#1}}
     
 

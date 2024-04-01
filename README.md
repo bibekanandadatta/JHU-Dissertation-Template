@@ -240,7 +240,7 @@ The thesis title page is defined using the `titlepage` environment which is cent
 
 - For unnumbered chapters that you want to add to the table of contents, use the `\chap` command instead of the `\chapter*` command. (see, *Abstract* and *Acknowledgment*, for example). An exception to this is *Dedication* chapter because it does not have a chapter title.
 
-- Similarly, for unnumbered sections, subsections, and subsubsections that you would like to add to the table of contents, use `\sect`, `\subsect`, and `\subsubsect` environments, respectively. These environments are defined in the `OTHER MACROS` section.
+- Similarly, for unnumbered sections, subsections, and subsubsections that you would like to add to the table of contents, use `\sect{}`, `\subsect{}`, and `\subsubsect{}` environments, respectively. These environments are defined in the `OTHER MACROS` section of the preamble.
   - If you do not any of these environments to be added to the table of contents, then you can use standard * environments; such as `\section*{}`,  etc.
 
 - Currently, **three** numbered *paragraph environments*, `\section{}`, `\subsection{}`, and `\subsubsection{}`, are available throughout the document and **two** levels are shown in the TOC. You can decrease or increase this by tweaking variables, `\NoSectionLevel` and `\NoTocLevel`.
