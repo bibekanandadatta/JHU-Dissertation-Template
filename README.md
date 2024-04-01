@@ -23,16 +23,17 @@ As of March 2024, the template follows the thesis or dissertation formatting req
 
 ## Version history for the template
 
-- The report-class-based template was first created by R. Jacob Vogelstein in May 2007
+- The report class-based template was first created by R. Jacob Vogelstein in May 2007
 - Updated by Noah J. Cowan on March 01, 2010
-- Updated by Brian D. Weitzner on April 29, 2014 
-- Updated by John Muschelli on January 29, 2016 
-- Updated by Leonardo Collado Torres on April 13, 2016 
-- Updated by John Clayton in December 2019
-- The current version is updated by Bibekananda Datta on March 30, 2024
+- [Updated by Brian D. Weitzner](https://github.com/weitzner/jhu-thesis-template) on April 29, 2014 
+- [Updated by John Muschelli](https://github.com/muschellij2/PhD_Thesis) on January 29, 2016 
+- [Updated by Leonardo Collado Torres](https://github.com/lcolladotor/jhu-thesis-template) on April 13, 2016 
+- [Updated by John Clayton](https://github.com/jrclayton/jhu-dissertation-mwe) in December 2019
+- The current version is updated by Bibekananda Datta on March 31, 2024
 
+GitHub search indicates first two versions were based on thesis class.
 
-The previous version of the template used default options for the LaTeX report class and different packages which had unusually large font sizes and extra white spaces around different environments. So, I decided to reorganize the template and add more customization by loading the necessary packages. Compared to the previous version, for the current version of the template, I have:
+The previous versions of the template used default options from the LaTeX report class which had unusually large font sizes and extra white spaces around different environments. So, I decided to reorganize the template and add more customization by loading the necessary packages. Compared to the previous version, for the current version of the template, I have:
 
   - reorganized the code in the template in a more readable and understandable format.
   - formatted the title page following the library guidelines strictly.
@@ -42,7 +43,7 @@ The previous version of the template used default options for the LaTeX report c
   - added customization options to control the white space for different environments.
   - added specific settings for adding quotes (epigraph package) to the chapters.
   - added examples of customized macros for mathematical and non-mathematical environments.
-  - added support to generate PDF/A output on Overleaf directly.
+  - added supporting files to generate PDF/A output on Overleaf directly.
 
 
 
@@ -50,14 +51,14 @@ The previous version of the template used default options for the LaTeX report c
 
 Since the template is based on the report class, it is subdivided into multiple chapters. There are separate .tex files for all the front matters (mandatory or optional), technical chapters, and back matters (references and appendices).
 
-| File name   | Description   |
-| :---------  | :-----------  |
-| `00-main.tex` | file is the driver or root file which includes all the preamble, document settings, package settings, and macros as needed as well as the auxiliary .tex files for each chapter. I would recommend going through the different sections of this file before you start working to understand the available packages and options. |
+| File name     | Description   |
+| :---------    | :-----------  |
+| `00-main.tex` | is the driver or root file which includes all the preamble, document settings, package settings, and macros as needed as well as the auxiliary .tex files for each chapter. I would recommend going through the different sections of this file before you start working to understand the available packages and options. |
 | `<filename>.tex` | are the `.tex` files dedicated to individual pages (e.g., title, dedication) or environments (such as abstract, bibliography, etc.) or technical chapters. These files are called from the `00-main.tex` file using an `\include{}` command which flushes all the floating objects and starts a new page. |
 | `figures` | is the subdirectory containing all the figures for the thesis. You can add the figures as chapter-wise PDF files or as just individual images with allowable extensions. Images are called using the `\includegraphics{}` command in a figure environment. |
 | `thesis.bib` | is a biblatex file that contains all the bibliographic items. Use Zotero, Mendeley, EndNote, or some other citation manager to generate the biblatex file containing all the bibliographic items. |
-| `latexmkrc` | contains additional settings for the make file to generate PDF/A output. This is required to be in the main directory of the Overleaf project. |
-| `output.xmpdata` | contains simple meta-data to be tagged in the final PDF/A file. Usage of this file is optional and the content inside is self-explanatory. |
+| `latexmkrc` | contains additional settings for the make file to generate PDF/A output. This is required to be in the main directory of the Overleaf project. Do not change the file name. |
+| `output.xmpdata` | contains simple meta-data to be tagged in the final PDF/A file. Usage of this file is optional and the content inside is self-explanatory. Do not change the file name if you are compiling on Overleaf. |
 | `template_example.pdf` | is the sample output PDF that you will obtain when you start working on this project. |
 | `README.md` | is this file that contains the details related to the template. |
 
@@ -65,9 +66,9 @@ Since the template is based on the report class, it is subdivided into multiple 
 
 ## How to use the template on Overleaf
 
-I prefer using Overleaf for all of my LaTeX compilation and I recommend it strongly since Johns Hopkins provides the Overleaf premium account to all students. Overleaf Premium does fast compilation, allows sharing the project with multiple people (advisor, committee members, collaborator, labmates, friends, or family), allows reviews, comments, and chat options, and tracks histories which are great features to boost productivity. You can recover the files if you break them (hopefully you won't). Follow one of the two approaches to get started with this project on Overleaf. Then go through the `00-main.tex` file and other files to see how the template is structured.
+Since Johns Hopkins provides [Overleaf premium](https://www.overleaf.com/learn/how-to/Overleaf_premium_features) to all affiliates, my recommendation is to use Overleaf for this template. Follow one of the two approaches to get started with this project on Overleaf. Then go through the `00-main.tex` file and other files to see how the template is structured.
 
-- If the Overleaf version is outdated for some reason (Overleaf takes a bit of time to update the templates), then you can download/clone this repository from GitHub, and compress it as a zip file. Go to Overleaf, Click on **New Project** -> **Upload Project**, then upload the zipped folder.
+- You can download/clone this repository from GitHub, and compress it as a zip file. Go to Overleaf, Click on **New Project** -> **Upload Project**, then upload the zipped folder.
   
 - If you have your Overleaf and GitHub account linked and want to have copies of the project in both places, you can **fork** this repository. Then go to Overleaf and click on **New Project** -> **Import from GitHub**, it should list the forked project. Once imported, you can start working on it. But Overleaf and GitHub will not sync automatically; you have to do it to have an updated version on GitHub.
 
@@ -75,11 +76,11 @@ I prefer using Overleaf for all of my LaTeX compilation and I recommend it stron
 
 > [!NOTE]
 >
-> This template is not available on Overleaf Gallery as it takes time to release any updates made by me and especially does not endorse making small patches or updates. This is also not available as a class on CTAN since it will require the user to have access to the most updated version of LaTeX distribution and frequent updates will be difficult.
+> This template is no longer available on Overleaf Gallery as it takes time to release any updates made by me and especially Overleaf does not endorse making small patches or updates. For the same reason, it is not available a class on CTAN since it will require the user to have access to the most updated version of LaTeX distribution and frequent updates will be difficult.
 
 > [!TIP]
 >
-> Although it is very convenient to write your document on Overleaf, strongly consider backing up your work using Git or GitHub integration or the Dropbox sync feature. This may save you from losing your document in case of an accident.
+> Although it is very convenient to write your document on Overleaf, strongly consider backing up your work using Git or GitHub integration or the Dropbox sync feature. This may save you from losing your document in case of an accident. The second approach may work well in this case.
 
 
 
@@ -142,7 +143,7 @@ The preamble section of the `00-main.tex` file has been subdivided into multiple
 
 - Most of the necessary variables to customize the format and the style of the document are included at the beginning of the `00-main.tex` file in the `LIST OF VARIABLES FOR FORMATTING` section. You can customize different spacing and font style options using these variables. For most cases, tweaking these variables to your needs and preferences will be enough to get the desired formatting. However, some of these variables have values that may appear arbitrary to the user. Those are found by *trial and error* to have a consistent formatting (described above) overriding default formatting offered by the LaTeX report class and added packages.
     
-- The most common and popular packages for writing a thesis or dissertation are added in the `LaTeX CLASS AND PACKAGES` sections. Some packages are loaded with the options specified for formatting purposes. For some other packages, options are specified in the `PACKAGE OPTIONS` section. Before you add a package, please check if it has already been added. Sometimes adding packages in the wrong order may throw a warning or error because of the dependency issue.
+- The most common and popular packages for writing a thesis or dissertation are added in the `LaTeX PACKAGES` sections. Some packages are loaded with the options specified for formatting purposes. For some other packages, options are specified in the `PACKAGE OPTIONS` section. Before you add a package, please check if it has already been added. Sometimes adding packages in the wrong order may throw a warning or error because of the dependency issue.
 
 - Based on the declared variables and loaded package options, formatting-related customized settings are available in the `DOCUMENT FORMATTING` section in the `00-main.tex` file.
 
@@ -160,6 +161,10 @@ The preamble section of the `00-main.tex` file has been subdivided into multiple
 - If you do not like the default font of this template (Latin Modern Roman), you can try a different font or combination of fonts. However, you should be careful about having consistent typesetting, especially between math and text. [Follow this old discussion on StackExchange to learn more about fonts in LaTeX](https://tex.stackexchange.com/questions/59702/suggest-a-nice-font-family-for-my-basic-latex-template-text-and-math).
   - This TUG page lists [fonts that provide math support](https://tug.org/FontCatalogue/mathfonts.html). But Overleaf may not have all of the packages listed there, and some of the packages may raise conflict with other packages that are already loaded. You can try and figure out which works best for you.
   - The font package has been loaded using the `\usepackage{\FontPackage}` command in the `DOCUMENT FORMATTING` section of the preamble. Depending on the Font you choose, you may have to add additional options/ packages (follow the above webpage) and simply changing the `\FontPackage` variable may not work.
+
+
+- Macros related to the title page items are defined in the `TITLE PAGE MACROS` section and the details are given below.
+
 
 - Some essential macros related to different redefined environments are available `OTHER MACROS` (will be discussed below).
 
@@ -187,6 +192,7 @@ The thesis title page is defined using the `titlepage` environment which is cent
 - `\Location:` prints out the location (Baltimore, Maryland).
 - `\ThesisDate{ }{ }:` prints the thesis submission month and year; these are the two arguments to the macro.
 - `\ThesisCopyright{ }{ }:` prints the optional copyright statement 2 inches from the bottom of the page. The first and second arguments to this macro are Year and Author name. 
+
 
 
 ### Prefaces and TOC, LOT, LOF, etc.
@@ -323,12 +329,12 @@ Johns Hopkins Library requires the electronic copy of the thesis must be [genera
 
 > [!IMPORTANT]
 > 
-> To include the meta-data in the generated PDF/A file, you will need to edit the `output.xmpdata`. The given fields are very simple and self-explanatory.
+> To include the meta-data in the generated PDF/A file, you will need to edit the `output.xmpdata`. The given fields are very simple and self-explanatory. Make sure `\Title` and `\Author` fields are there.
 
 
 > [!NOTE]
 >
-> So far, I have not found any convenient way of validating if the generated PDF is compliant with the library-specified PDF/A format for free. The library has computers with Adobe Acrobat Pro installed that can validate the format of the electronic copy of your thesis. If you or your lab has a license to this program, you can do it there as well. Finally, if you find it is not compliant (for any unknown reason), this program will also allow you to convert the format.
+> So far, I have not found any reliable way of validating if the generated PDF is compliant with the library-specified PDF/A format for free. The library has computers with Adobe Acrobat Pro installed that can validate the format of the electronic copy of your thesis. If you or your lab has a license to this program, you can do it there as well. Finally, if you find it is not compliant (for any unknown reason), this program will also allow you to convert the format. [Follow the instructions here](https://www.mathstat.dal.ca/~selinger/pdfa/).
 
 
 Keep writing ... and Happy Graduation :tada:!

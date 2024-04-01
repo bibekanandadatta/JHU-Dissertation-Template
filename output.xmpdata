@@ -1,4 +1,4 @@
-\Title{your-thesis-title}
-\Author{author-name}
-\Subject{PhD thesis}
+\Title{your-thesis-title}       % must
+\Author{author-name}            % must
+\Subject{PhD dissertation}
 \Org{Johns Hopkins University}
