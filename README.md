@@ -45,12 +45,6 @@ The previous version of the template used default options for the LaTeX report c
   - added support to generate PDF/A output on Overleaf directly.
 
 
-### Future task list
-- [ ] Add documentation for different font and bibliographic styles
-- [ ] Add additional listing environments for algorithms, codes, acronyms, supplementary materials, glossaries, etc.
-- [ ] Extend the document styling for paragraph and subparagraph environments and their appearance in TOC.
-
-
 
 ## What is included in this version of the template
 
@@ -95,12 +89,16 @@ As mentioned before, the template is based on the standard report class. However
 
 - The document was typeset using Latin Modern Roman font (loaded using the `lmodern` package) for document typeset as it offers consistent typesetting between the text and math environments.
 
-- The font size for the main text of the document is set to 12 pt and is overall double-spaced (library requirement).
+- The font size for the main text of the document is set to 12 pt and is overall double-spaced (the latter is a library requirement).
 
 - The title page is single-spaced and items were positioned within the page following library guidelines.
 
 - All the texts in the preface chapters and the main text chapters are double-spaced.
   - You can define local environments in optional preface chapters (acknowledgement, dedication, epigraph, etc.) which have different styles and spacing.
+ 
+- The document is formatted to have **three** levels of paragraph-style environments (section, subsection, subsubsection) for writing the thesis.
+
+- The table of contents (TOC) shows only **two** levels (section and subsection) below the chapter level by default.
 
 - For different text environments and their headings, relative font sizes are used as given below. Learn about [LaTeX font size here](https://www.overleaf.com/learn/latex/Questions/How_do_I_adjust_the_font_size%3F).
   - For the thesis title and chapter label and title, I used `\Large\bfseries\MakeUppercase` (**boldface 17.28 pt**).
@@ -110,20 +108,15 @@ As mentioned before, the template is based on the standard report class. However
   - For the footnotes, I used the default `\footnotesize` (10 pt), and footnote texts are single-spaced with `\baselineskip` spacing between each footnote.
 
 
-- The texts of the Table of Contents (TOC), List of Tables (LOT), and List of Figures (LOF) in the front matter, and bibliographic references in the back matter are single-spaced.
-  - Spacing between two consecutive chapter entries in the TOC is `\baselineskip`. For two consecutive sections, it is `0.5\baselineskip`, and for subsections and subsubsections, the space is `0.3\baselineskip`.
+- The texts of the Table of Contents (TOC), List of Tables (LOT), and List of Figures (LOF) in the front matter, and bibliographic references in the back matter are single-spaced for each item.
+  - Spacing between two consecutive chapter entries in the TOC is `\baselineskip`. For two consecutive sections, it is `0.5\baselineskip`, and for subsections and subsubsections (not shown in the default TOC), the space is `0.3\baselineskip`.
   - Spacing between two consecutive bibliographic items in the bibliographic reference section in the back matter is `\baselineskip`.
 
-- Spacing around the headings of different text environments is the default spacing provided by the `parskip` package.
-
-- Chapter labels are placed approximately 1.5 inches from the top of the page followed by the chapter title in the next line with an approximate spacing of 0.3 inches in between them.
+- Chapter labels are placed approximately 1.5 inches from the top of the page followed by the chapter title in the next line with an approximate spacing of 0.25 inches in between them.
   - Space between the chapter title and the following text is approximately 0.75 inches except for the case when there is a quote. In the latter case, the space followed by the chapter title to the quote and the quote to the following text is 0.5 inches.
 
 - The header and footer are placed outside of the margin. The header includes the chapter label and chapter name whereas the footer includes pagination.
-  - The height of the header is 18 pt with 12 pt additional space for the following text. But if you have a long chapter title you may have to change it (details are described later).
-
-- Currently, the document is formatted to have **three** levels of paragraph-style environments (section, subsection, subsubsection) for writing. All of them are shown in the Table of Contents as well.
-
+  - The height of the header is 30 pt with 12 pt additional space for the following text.
 
 - The spacing around the section, subsection, and subsubsection headings are chosen to be default offered by the `parskip` package. The paragraphs do not have any indentation with `\baselineskip` spacing in between them.
 
@@ -132,11 +125,11 @@ As mentioned before, the template is based on the standard report class. However
   \numberwithin{equation}{chapter}       
   ```
 
-- The default spacing between rows inside a table environment is one-half-spaced.
+- The numbering of tables also follows the same scheme as the Figures and Equations (preceded by chapter label). The default spacing between rows inside a table environment is one-half-spaced.
   
 - Captions for the table and figure environments are placed at the bottom of the environments. The caption starts with boldfaced **Figure** and **Table** labels, respectively, for Figure and Table, and uses chapter-wise numbering separated by a period between the chapter label and the number of the corresponding environment followed by a colon before the long caption.
 
-- Default bibliography style is numbered-based `Nature` style citation. Depending on the discipline, you may have to change it; the details are given below. 
+The default bibliography style is the `Nature` style numeric bibliography. Depending on the discipline, you may have to change it; the details are given below. 
 
 
 
@@ -157,7 +150,7 @@ The preamble section of the `00-main.tex` file has been subdivided into multiple
 > 
 > If you change any formatting or do further customization, one of the best possible ways to check consistency in spacing is to load the `fgruler` package as below in the preamble (you can change the options by looking into the documentation of this package).
 ``` latex
-\usepackage[unit=in,type=upperleft,color=red,showframe]{fgruler}
+\usepackage[unit=in,type=upperleftT,color=red,showframe]{fgruler}
 ```
 
 > [!WARNING]
@@ -168,7 +161,9 @@ The preamble section of the `00-main.tex` file has been subdivided into multiple
   - This TUG page lists [fonts that provide math support](https://tug.org/FontCatalogue/mathfonts.html). But Overleaf may not have all of the packages listed there, and some of the packages may raise conflict with other packages that are already loaded. You can try and figure out which works best for you.
   - The font package has been loaded using the `\usepackage{\FontPackage}` command in the `DOCUMENT FORMATTING` section of the preamble. Depending on the Font you choose, you may have to add additional options/ packages (follow the above webpage) and simply changing the `\FontPackage` variable may not work.
 
-- Add your math macros and settings in the `MATH MACROS` section. There's a section for non-math `OTHER MACROS` as well. Some examples of both types of macros are added there in the template.
+- Some essential macros related to different redefined environments are available `OTHER MACROS` (will be discussed below).
+
+- Add your math macros to the `MATH MACROS` section. Some examples of simple math macros are added there in the template. You can add more.
 
 
 - Inside the `\begin{document} ... \end{document}` environment, the title page, and other front matters (abstract, dedication, etc.), technical chapters, bibliography chapter, and appendix chapters are added using the `\include{ }` statement. There is no separate chapter for TOC, LOT, LOF, etc., and additionally, headers are customized based on the type of chapter (numbered vs. unnumbered).
@@ -196,12 +191,14 @@ The thesis title page is defined using the `titlepage` environment which is cent
 
 ### Prefaces and TOC, LOT, LOF, etc.
 
-- Except for the Abstract, other contents in the front matter can be arbitrarily spaced. For now, the Acknowledgment and Dedication pages are also double-spaced. However, a local `spacing` environment can be used for specialized preface pages to include quotes or dedication, etc.
+- Except for the Abstract, other contents in the front matter can be arbitrarily spaced. For now, the Acknowledgment and Dedication pages are also double-spaced. However, a local `spacing` environment can be used for specialized preface pages to include a dedication page or quote, etc.
+
+- The purpose of the TOC is to give a quick overview, thus only **two** levels of paragraph-style headers are shown there. Too long TOC defeats the purpose of having a TOC, but it may be useful to increase this during drafting for navigation purposes. But keep it short and simple for the final version.
 
 - All of the contents in TOC, LOT, and LOF are hyperlinked using the `linktoc=all` option in the `\hypersetup{}`. You can change this option to remove hyperlinks in TOC or just hyperlink the pages, etc. You can also change the color of the hyperlink for TOC (currently it is black) while any other hyperlink throughout the document has a blue color.
   - You can define a new color for this using the `xcolor` package (see below) and change the option in `\hypersetup{}`.
 
-- Three different simple macros are defined to print the Table of Contents, List of Tables, and List of Figures in that order. These macros were defined to extend the functionalities (title change, appearance in the TOC, proper page numbering, etc.) of the default commands of similar kinds offered by LaTeX. Using the default LaTeX commands for TOC, LOT, and LOF perhaps won't serve your purpose.
+- Three different simple macros are defined to print the Table of Contents, List of Tables, and List of Figures in that order. These macros were defined to extend the functionalities (title change, appearance in the TOC, proper page numbering, etc.) of the default commands of similar kinds offered by LaTeX. The macros are available in the `OTHER MACROS` section in the preamble.
   - `\mytableofcontents:` to print the table of contents.
   - `\mylistoftables:` to print the list of tables.
   - `\mylistoffigures:` to print the list of figures.
@@ -211,6 +208,11 @@ The thesis title page is defined using the `titlepage` environment which is cent
 
 
 ### Main text
+
+- Try not to use math expressions for chapter, section, subsection, and subsection titles. If it throws any warning, you can use the following command
+    ``` latex
+    \texorpdfstring{your-math-expression}{expression-for-bookmark}
+    ```
 
 - You can add quotes to the chapter followed by the chapter label and title using the `epigraph` package. Examples are shown in two different chapters of the template.
   - Currently, the maximum length for the epigraph is set to be `0.65\textwidth` which can be changed by specifying the variable `\MaxQuoteWidth`. You can make it shorter or longer depending on your needs and/or preferences.
@@ -225,19 +227,19 @@ The thesis title page is defined using the `titlepage` environment which is cent
 
 - If any chapter is already published at a journal or conference or available in any of the archival repositories (submitted/ to be submitted to a peer-reviewed journal/conference), it is a good idea to declare it at the beginning of the chapter. Such an example has been shown in Chapter 2 of the template. To have consistent formatting, a `singlespace` environment was used, and the publication was printed with the `\fullcite{}` command. 
   - If the chapter is adapted from multiple publications, you can use `enumerate` or `itemize` environments to list all the publications inside the spacing environment.
-  - If the listed paper (published, submitted, or in preparation) is not cited anywhere else in the document and you do not want this to appear in the bibliographic references in the back matter, then use the following command. This command adds the paper to the group called `mypapers` which are not printed in the bibliography list. You can place the command anywhere; maybe in the reference chapter before printing the reference when you are sure about which bib items should not be included.
+  - If the listed paper (published, submitted, or in preparation) is not cited anywhere else in the document and you do not want this to appear in the bibliographic references in the back matter, then use the following command. This command adds the paper to the group called `mypapers` which are not printed in the bibliography list.
     ``` latex
     \mybibexclude{citation-key}
     ```
 
-  
 - For unnumbered chapters that you want to add to the table of contents, use the `\chap` command instead of the `\chapter*` command. (see, *Abstract* and *Acknowledgment*, for example). An exception to this is *Dedication* chapter because it does not have a chapter title.
 
-- Similarly, for unnumbered sections, subsections, and subsubsections that you would like to add to the table of contents, use `\sect`, `\subsect`, and `\subsubsect` commands, respectively. If you do not any of these environments to be added to the table of contents, then you can use standard * environments; such as `\section*{}`, etc.
+- Similarly, for unnumbered sections, subsections, and subsubsections that you would like to add to the table of contents, use `\sect`, `\subsect`, and `\subsubsect` environments, respectively. These environments are defined in the `OTHER MACROS` section.
+  - If you do not any of these environments to be added to the table of contents, then you can use standard * environments; such as `\section*{}`,  etc.
 
-- Currently, **three** numbered *paragraph environments*, `\section{}`, `\subsection{}`, and `\subsubsection{}`, are available throughout the document and shown in the TOC. You can decrease or increase this by tweaking variables, `\NoSectionLevel` and `\NoTocLevel`.
+- Currently, **three** numbered *paragraph environments*, `\section{}`, `\subsection{}`, and `\subsubsection{}`, are available throughout the document and **two** levels are shown in the TOC. You can decrease or increase this by tweaking variables, `\NoSectionLevel` and `\NoTocLevel`.
   - For such a complicated and long document, it is perhaps not a good idea to have more than three levels of paragraphs in the main text section.
-  - LaTeX report class offers `\paragraph` and `\subparagraph` levels as 4th and 5th level. In case you would like to include those in your document, you will have to configure the styles for them and their appearance in the TOC.
+  - LaTeX report class offers `\paragraph` and `\subparagraph` levels as 4th and 5th level. In case you would like to include those in your document, you will have to configure the styles for them.
 
 - To override the default spacing from the `parskip` package around the headings of different environments, the `titlesec` package can be used. To customize it, add the following command in the preamble (use pt as the units). You may have to do a bit of *trial and error* to find consistent spacing.
   ``` latex
@@ -245,25 +247,27 @@ The thesis title page is defined using the `titlepage` environment which is cent
   ```
   
 - Header and footer options in the document are managed using the `\fancyhdr` package. Currently, the header prints the chapter label and the chapter title on the left side. If the chapter name is too long, you may have to customize the header spacing in the geometry settings options to accommodate that. Tweak the variable `\HeaderHeight` for this. The current value is set to `30 pt` which can accommodate double-line headers.
-  - If you have even longer consider changing the `\HeaderHeight` from `30 pt` (for double lines) to `42 pt` (for triple lines).
+  - If you have a longer chapter header consider changing the `\HeaderHeight` from `30 pt` (for double lines) to `42 pt` (for triple lines).
   - You can also consider making the font size smaller for the headers.
   - Alternatively, you can consider including a shorter chapter title which will be printed as the header by starting the chapter environment as follows:
     ``` latex
     \chapter[short-chapter-name]{long-chapter-title}
     ```
   - If customizing the header becomes too difficult, you can also consider removing all the header options by commenting them out in the document section of the `00-main.tex` file. In that case, remove the `includehead`, `headheight`, and `headsep` options from the `\geometry{ ... }` command in the `PACKAGE OPTION` section.
-  - In case, you would like to see the layout of your document, then you can add the `showframe` option to the `\geometry{ ... }` command to see the layout of your document. This is a simpler alternative to the `fgruler` package but you will not see a ruler.
+  -If you make changes in `\HeaderHeight`, then you may have to change the ADHOC HEIGHT ADJUSTMENT VARIABLES to obtain consistent formatting (although inconsistency is hard to notice with bare eyes), use `\fgruler` package as described above to do so.
 
 - To list items, use `enumerate` and `itemize` environments. But make sure to customize the spacing to have consistent typography with the double-spaced text document.
 
 - You can add algorithms using the `algorithm2e` package, and codes using the `listings` and `minted` packages. Customize these packages to your needs/preferences.
 
-- You can use the `\linenumbers` command from the `lineno` package anywhere inside the main text document when you would like to have line numbers on the left margin. It might be useful during the drafting stage. Currently, this package is loaded with the `pagewise` line numbering option.
-
 - To use colors in your writing (such as hyperlinking or text coloring) or drawing, you can consider using the `xcolor` package with the `dvipsnames` option (already loaded with this option in the preamble). Check [how to use colors in LaTeX on Overleaf](https://www.overleaf.com/learn/latex/Using_colors_in_LaTeX).
 
-- Finally, you may consider using the `microtype` package to have better typography. Customizing the settings for this package is a bit of an involved process and requires some effort, hence not included in the template. To understand and appreciate microtypography, check the details on using [microtype package for writing a thesis here](https://www.khirevich.com/latex/microtype/).
-  - It is best not to use the `protrusion` option from the `microtype` package for the TOC, LOT, and LOF. So if you use this package, you may need to set the `protrusion` option to `false` before those environments and set it back to `true` after those environments.
+
+- You can use the `\linenumbers` command from the `lineno` package anywhere inside the main text document when you would like to have line numbers on the left margin. It might be useful during the drafting stage. Currently, this package is loaded with the `pagewise` line numbering option.
+
+- Currently, the default settings of the `microtype` package are activated. To understand and appreciate microtypography, check how to use [the microtype package for writing a thesis here](https://www.khirevich.com/latex/microtype/).
+  - Customizing the settings for this package is an involved process and requires some effort. It also depends on the font type being used. Thus I kept it as minimal as possible. But you are welcome to explore more.
+  - It is best not to use the `protrusion` option from the `microtype` package for the TOC, LOT, and LOF. So they are locally deactivated around these.
 
 
 ### Figures, Tables, and Algorithms
