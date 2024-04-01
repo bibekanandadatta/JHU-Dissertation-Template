@@ -219,7 +219,7 @@ The thesis title page is defined using the `titlepage` environment which is cent
   - If you have a longer quote that spans over multiple lines and you are not happy with the default `doublespacing` you can customize it using a spacing environment around the quote (same as the chapter citation declaration, see below) to make it appear consistent.
     ``` latex
     \begin{spacing}{<some-spacing-value>}
-      \epigraph{\enquote{quote-goes-here}}{quote-author}
+      \epigraph{quote-goes-here}{-- quote-author}
     \end{spacing}
     ```
   - You can also add quotes before the chapter labels and titles (instructions are included inside the chapter), but in that case, you have to change the `\ChapterTopMargin` variable to ensure enough spacing before the chapter label and it may complicate the overall document formatting (not recommended).
