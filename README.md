@@ -294,13 +294,15 @@ The thesis title page is defined using the `titlepage` environment which is cent
 
 - The name of your bib file has to be specified in the `BibFileName` variable in the `LIST OF VARIABLES FOR FORMATTING` section. If your bib file has a different name than the given file, then change the variable name or the file name.
 
+> [!TIP]
+>
+> BibLaTeX is a more modern and flexible package (compared to the `natbib` package and `BibTeX` engine) primarily based on the `biber` backend engine. The `.bib` file for `biblatex` is a little different than the one for `bibtex`. Use a citation manager to generate a `biblatex` compatible file directly. I use Zotero with the `Better BibTeX` plugin and export my `.bib` with the `Better BibLaTeX` compatible format.
 
-- The bibliography file is based on BibLaTeX which is a more modern and flexible package compared to BibTeX and natbib. Consider using Zotero, Mendely, EndNote, or some other citation manager to generate a standard BibLaTeX file.
-  - To change the default form of the bibliography (currently, `Nature` style), look for the following command and change the options based on your need and/or preference. Depending on the discipline, you may need to use different citation formats such as IEEE, ACM, APA, ACS, AIP/ APS, AMS, MLA, Harvard, etc. As an example, APA styles are also shown in the template as well (commented). Customization can be done by changing options within `[ ... ]` of the following command.
+- To change the default form of the bibliography (currently, `Nature` style), look for the following command and change the options based on your need and/or preference. Depending on the discipline, you may need to use different citation formats such as IEEE, ACM, APA, ACS, AIP/ APS, AMS, MLA, etc. As an example, APA and IEEE styles are also shown in the template as well (commented). Customization can be done by changing options within `[ ... ]` of the following command.
     ``` latex
     \usepackage[ ... ]{biblatex}
     ```
-  - For other citation styles, you may have to scavenge through the internet a little bit to have a properly formatted bibliography. Learn more about the [citation styles in BibLaTeX](https://www.overleaf.com/learn/latex/Biblatex_citation_styles) and check out [biblatex-related packages on TUG](https://ctan.org/topic/biblatex).
+- For other citation styles, you may have to scavenge through the internet a little bit to have a properly formatted bibliography. Learn more about the [citation styles in BibLaTeX](https://www.overleaf.com/learn/latex/Biblatex_citation_styles) and check out [biblatex-related packages on TUG](https://ctan.org/topic/biblatex).
 
 
 - Bibliographic references are printed using the following command which will ensure the citations included in the `\mybibexclude{}` command are not printed.
@@ -310,7 +312,8 @@ The thesis title page is defined using the `titlepage` environment which is cent
 
 > [!CAUTION]
 >
-> The `biblatex` package works differently than the older `bibtex` package (which is still available). Make sure you generate the `.bib` file compatible with the `biblatex` package, not the `bibtex` package. If you are required to add a particular citation style that can not be configured using `biblatex` package at all, then consider removing the options related to it, and then add the package and option related to the `bibtex` package. However this may break down the LaTeX code (not recommended).
+> The `biblatex` package works differently than the older `bibtex` package (which is still available and widely used by many journals). If you have a `bibtex` compatible file, then change the option from `backend=biber` to `backend=bibtex` for the `biblatex` package. But you may get warnings and errors thrown by the LaTeX compiler in this case.
+
 
 
 > [!NOTE]
