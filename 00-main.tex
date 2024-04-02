@@ -31,7 +31,7 @@
 
 
 %%%% REPORT CLASS with 12 pt font and onesided printing (book class also works)
-\documentclass[12pt,letterpaper,oneside]{report} 
+\documentclass[12pt,letterpaper]{report} 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -155,12 +155,12 @@ cancel,dsfont,mathtools,mathbbol,mathrsfs,siunitx,upgreek}
      date=year, isbn=false, url=false, doi=true]{biblatex}
 
 %% APA style
-% \usepackage[backend=biber, defernumbers=true, style=apa, 
-%   isbn=false, url=false, doi=true]{biblatex}
+% \usepackage[backend=biber, defernumbers=true, style=apa, maxnames=99,
+%     isbn=false, url=false, doi=true]{biblatex}
 
 %% IEEE style
 % \usepackage[backend=biber,style=ieee,defernumbers=true,maxnames=99, 
-%   date=year, isbn=false, url=false, doi=true]{biblatex}
+%     date=year, isbn=false, url=false, doi=true]{biblatex}
 
 
 %%%% TABLE-RELATED PACKAGES
@@ -207,7 +207,7 @@ multicol,multirow,tabularx,xltabular,rotating}
 \usepackage{textcomp}                       % text companion fonts in TS1
 \usepackage[absolute]{textpos}              % position text at certain location
 \usepackage{titlesec}                       % managing different title environments
-\usepackage[final]{pdfpages}
+\usepackage[final]{pdfpages}                % to insert pdf pages
 \usepackage{parskip}                        % default spacing around environments
 \usepackage{tikz}                           % drawing related package
 \usepackage{subcaption}                     % individual panel and caption
@@ -345,7 +345,7 @@ multicol,multirow,tabularx,xltabular,rotating}
 \setlength{\footnotesep}{\FootnoteSpacing}          % separation between footnote
 
 
-%%%% settings for math environment
+%%%% MATH ENVIRONMENT settings
 \allowdisplaybreaks[1]                  % page break for long equations
 \numberwithin{equation}{chapter}        % eqn no with chapter label
 \setcounter{MaxMatrixCols}{20}          % no of maximum columns in matrix
@@ -406,17 +406,18 @@ multicol,multirow,tabularx,xltabular,rotating}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% TITLE PAGE MACROS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newcommand{\ThesisTitle}[1]{                   % thesis title
+\newcommand{\ThesisTitle}[1]{           % thesis title
     \vspace*{\TitleTopSpacing}
     {\TitleFont {#1} \par}
 }
 
-\newcommand{\ThesisAuthor}[1]{by \\ #1 \\}      % thesis author
+\newcommand{\ThesisAuthor}[1]{          % thesis author
+    by \\ #1 \\}      
 
-%% statement for thesis or dissertation
-\newcommand{\ThesisStatement}[2]{
-A {#1} submitted to The Johns Hopkins University in conformity \\
-with the requirements for the degree of {#2}
+
+\newcommand{\ThesisStatement}[2]{       %% thesis or dissertation statement 
+    A {#1} submitted to The Johns Hopkins University in conformity \\
+    with the requirements for the degree of {#2}
 }
 
 \newcommand{\Location}{Baltimore, Maryland}     % location
