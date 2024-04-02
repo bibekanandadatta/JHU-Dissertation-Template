@@ -59,7 +59,7 @@ Since the template is based on the report class, it is subdivided into multiple 
 | `thesis.bib` | is a biblatex file that contains all the bibliographic items. Use Zotero, Mendeley, EndNote, or some other citation manager to generate the biblatex file containing all the bibliographic items. |
 | `latexmkrc` | contains additional settings for the make file to generate PDF/A output. This is required to be in the main directory of the Overleaf project. Do not change the file name. |
 | `output.xmpdata` | contains simple meta-data to be tagged in the final PDF/A file. Usage of this file is optional and the content inside is self-explanatory. Do not change the file name if you are compiling on Overleaf. |
-| `template_example.pdf` | is the sample output PDF that you will obtain when you start working on this project. |
+| `template.pdf` | is the sample output PDF that you will obtain when you start working on this project. |
 | `README.md` | is this file that contains the details related to the template. |
 
 
@@ -220,7 +220,10 @@ The thesis title page is defined using the `titlepage` environment which is cent
     ``` latex
     \texorpdfstring{your-math-expression}{expression-for-bookmark}
     ```
--
+- If you change the fontsize or shape for any of the headings, depending on the size and shape, the spacing around it may change change as well, specially top margin before chapter label and title. You can change the ADHOC HEIGHT ADJUSTMENT VARIABLES to fine tune them. Use `fgruler` package to adjust heights and spacing. Check the package documentation to see the available options.
+   ``` latex
+   \usepackage[unit=in,type=upperleftT,color=red,showframe]{fgruler}
+   ```
 
 - You can add quotes to the chapter followed by the chapter label and title using the `epigraph` package. Examples are shown in two different chapters of the template.
   - Currently, the maximum length for the epigraph is set to be `0.65\textwidth` which can be changed by specifying the variable `\MaxQuoteWidth`. You can make it shorter or longer depending on your needs and/or preferences.
@@ -230,7 +233,7 @@ The thesis title page is defined using the `titlepage` environment which is cent
       \epigraph{quote-goes-here}{-- quote-author}
     \end{spacing}
     ```
-  - You can also add quotes before the chapter labels and titles (instructions are included inside the chapter), but in that case, you have to change the `\ChapterTopMargin` variable to ensure enough spacing before the chapter label and it may complicate the overall document formatting (not recommended).
+  - You can also add quotes before the chapter labels and titles, but in that case, you have to change the `\ChapterTopMargin` variable to ensure enough spacing before the chapter label and it may complicate the overall document formatting (not recommended).
 
 
 - If any chapter is already published at a journal or conference or available in any of the archival repositories (submitted/ to be submitted to a peer-reviewed journal/conference), it is a good idea to declare it at the beginning of the chapter. Such an example has been shown in Chapter 2 of the template. To have consistent formatting, a `singlespace` environment was used, and the publication was printed with the `\fullcite{}` command. 
@@ -262,7 +265,7 @@ The thesis title page is defined using the `titlepage` environment which is cent
     \chapter[short-chapter-name]{long-chapter-title}
     ```
   - If customizing the header becomes too difficult, you can also consider removing all the header options by commenting them out in the document section of the `00-main.tex` file. In that case, remove the `includehead`, `headheight`, and `headsep` options from the `\geometry{ ... }` command in the `PACKAGE OPTION` section.
-  -If you make changes in `\HeaderHeight`, then you may have to change the ADHOC HEIGHT ADJUSTMENT VARIABLES to obtain consistent formatting (although inconsistency is hard to notice with bare eyes), use `\fgruler` package as described above to do so.
+  -If you make changes in `\HeaderHeight`, then you may have to change the ADHOC HEIGHT ADJUSTMENT VARIABLES to obtain consistent formatting (although inconsistency is hard to notice with bare eyes), use `\fgruler` package as shown above.
 
 - To list items, use `enumerate` and `itemize` environments. But make sure to customize the spacing to have consistent typography with the double-spaced text document.
 
