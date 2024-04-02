@@ -102,12 +102,13 @@ As mentioned before, the template is based on the standard report class. However
 - The table of contents (TOC) shows only **two** levels (section and subsection) below the chapter level by default.
 
 - For different text environments and their headings, relative font sizes are used as given below. Learn about [LaTeX font size here](https://www.overleaf.com/learn/latex/Questions/How_do_I_adjust_the_font_size%3F).
-  - For the thesis title and chapter label and title, I used `\Large\bfseries\MakeUppercase` (**boldface 17.28 pt**).
-  - For the section headings, I used `\singlespacing\large\bfseries` (**boldface 14.4 pt**) whereas, for the subsection headings, I used `\normalsize\bfseries` (**boldface 12 pt**).
-  - For the subsubsection headings, I used `\normalsize\itshape` (*italic 12 pt*).
-  - For the table and figure captions, I used `\small` (10.95 pt).
+  - For the thesis title and chapter label and title, font format is `\Large\bfseries\singlespacing\MakeUppercase` (**boldface 17.28 pt**).
+  - For the section headings, font format is `\large\bfseries\singlespacing` (**boldface 14.4 pt**) whereas, for the subsection headings, font format is `\normalsize\bfseries\singlespacing` (**boldface 12 pt**).
+  - For the subsubsection headings, font formtat is `\normalsize\itshape\singlespacing` (*italic 12 pt*).
+  - For the table and figure captions, font size is `\small` (10.95 pt) and single-spaced.
   - For the footnotes, I used the default `\footnotesize` (10 pt), and footnote texts are single-spaced with `\baselineskip` spacing between each footnote.
-
+  - All of the aforementioned items, i.e., different headings, captions, and footnotes are single-spaced.
+  - Different section headings and subheadings could be Uppercase or Sentence case as you define (nothing specified). Be consistent with definition.
 
 - The texts of the Table of Contents (TOC), List of Tables (LOT), and List of Figures (LOF) in the front matter, and bibliographic references in the back matter are single-spaced for each item.
   - Spacing between two consecutive chapter entries in the TOC is `\baselineskip`. For two consecutive sections, it is `0.5\baselineskip`, and for subsections and subsubsections (not shown in the default TOC), the space is `0.3\baselineskip`.
@@ -166,7 +167,7 @@ The preamble section of the `00-main.tex` file has been subdivided into multiple
 - Macros related to the title page items are defined in the `TITLE PAGE MACROS` section and the details are given below.
 
 
-- Some essential macros related to different redefined environments are available `OTHER MACROS` (will be discussed below).
+- Some essential macros related to different redefined environments are available in `OTHER MACROS` in the preamble (will be discussed below).
 
 - Add your math macros to the `MATH MACROS` section. Some examples of simple math macros are added there in the template. You can add more.
 
@@ -209,16 +210,17 @@ The thesis title page is defined using the `titlepage` environment which is cent
   - `\mylistoftables:` to print the list of tables.
   - `\mylistoffigures:` to print the list of figures.
 
-- Currently, the template does not have any specific settings or package options to print the List of Algorithms, List of Supplementary Materials, the List of Abbreviations, and the List of Symbols, etc. However, you can look into `glossaries`, `glossaries-extra`, and `tocloft` packages to define custom lists to be printed. This might take a little bit of time to do.
+- Currently, the template does not have any specific settings or package options to print the List of Algorithms, the List of Abbreviations, and the List of Symbols, List of Supplementary Materials, etc. However, you can look into `glossaries`, `glossaries-extra`, and `tocloft` packages to define custom lists to be printed. This might take a little bit of time to do.
 
 
 
 ### Main text
 
-- Try not to use math expressions for chapter, section, subsection, and subsection titles. If it throws any warning, you can use the following command
+- It is a good practice not to use math expressions for chapter, section, subsection, and subsection titles. But if you have absolutely have to do it, you may encounter warning given by hyperref package. To resolve, you can use the following command:
     ``` latex
     \texorpdfstring{your-math-expression}{expression-for-bookmark}
     ```
+-
 
 - You can add quotes to the chapter followed by the chapter label and title using the `epigraph` package. Examples are shown in two different chapters of the template.
   - Currently, the maximum length for the epigraph is set to be `0.65\textwidth` which can be changed by specifying the variable `\MaxQuoteWidth`. You can make it shorter or longer depending on your needs and/or preferences.

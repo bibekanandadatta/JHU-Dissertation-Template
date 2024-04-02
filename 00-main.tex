@@ -33,7 +33,6 @@
 %%%% REPORT CLASS with 12 pt font and onesided printing (book class also works)
 \documentclass[12pt,letterpaper]{report} 
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% if possible, make your formatting changes here through the variables 
 %%%%%%%%%%%%%%%%%%%%%% LIST OF VARIABLES FOR FORMATTING %%%%%%%%%%%%%%%%%%%%%%%%
@@ -41,50 +40,58 @@
 %%%% JH Library requirement (DO NOT CHANGE)
 \def\GlobalMargin{1.0in}                    % margin on all sides
 \def\PrintingOffset{0.5in}                  % additional left margin for the printed copy
-\def\MainTextSpacing{\doublespacing}        % double-spaced main text (library requirement)
+\def\MainTextSpacing{\doublespacing}        % double-spaced main text
 
-
-%%%% FONT TYPE and SIZE
-\def\FontPackage{lmodern}                   % Latin Modern font
 
 %%%% ADDITIONAL PATHS and FILES
 \def\FigurePath{figures}                    % subdirectory for the figure files
-\def\BibFileName{thesis.bib}                % name of BibLaTeX file 
+\def\BibFileName{thesis.bib}                % name of BibLaTeX-compatible bib file 
 
 
-%%%% SECTION LEVELS and TOC APPEARANCE
-\def\NoSectionLevel{3}                      % 3 levels for sections ... to subsubsection
-\def\NoTocLevel{2}                          % no of levels showed in the table of contents
-%% 2 levels mean: section and subsection.. decrease if you want to show less in TOC
+\def\FontPackage{lmodern}                   % default font package
 
 
 %%%% FONT SIZE and TYPESET for DIFFERENT HEADINGS
 %% check here for details: https://en.wikibooks.org/wiki/LaTeX/Fonts
-\def\TitleFont{\Large\bfseries\MakeUppercase}   % font format for thesis title
-\def\ChapterFont{\Large\bfseries\singlespacing} % font format for chapter label and title
-\def\SectionFont{\large\bfseries}           % section heading font format
-\def\SubsectionFont{\normalsize\bfseries}   % subsection heading font format
-\def\SubsubsectionFont{\normalsize\itshape} % subsubsection heading font format
-\def\CaptionFontSize{small}                 % caption font size
-\def\CaptionFontType{bf}                    % boldface label for captions
-\def\CaptionSeparator{colon}                % separates caption heading from text. can use 'period' as well
 
-%%%% spacing between different common environments
+%% font format for thesis title
+\def\TitleFont{\Large\bfseries\singlespacing\MakeUppercase}  
+
+%% font for chapter, section, subsection, and subsubsection heading
+\def\NoSectionLevel{3}                      % 3 levels => section to subsubsection
+\def\ChapterFont{\Large\bfseries\singlespacing} 
+\def\SectionFont{\large\bfseries\singlespacing} 
+\def\SubsectionFont{\normalsize\bfseries\singlespacing}  
+\def\SubsubsectionFont{\normalsize\itshape\singlespacing} 
+
+
+%%%% PARAGRAPH
 \def\ParagraphSpacing{\baselineskip}        % spacing between paragraph
 \def\ParagraphIndent{0 pt}                  % indentation at the beginning of the paragraph
-\def\CaptionSpacing{0 pt}                   % spacing between the figure and the caption
+
+
+%% CAPTION
+\def\CaptionFontSize{small}         % caption font size
+\def\CaptionLabelFontType{bf}       % boldface label for captions
+\def\CaptionSeparator{colon}        % separates caption heading from text. can use 'period' as well
+\def\CaptionSpacing{1.0}            % single-spaced captions
+\def\FigureToCaption{0 pt}          % spacing between the figure and the caption
+
+
+%%%% GLOBAL SPACING for TABLES
+\def\GlobalTableSpacing{1.5}                % global spacing parameter for table
+
+
+%%%% HEADER AND FOOTER SETTING
+\def\HeaderHeight{30 pt}                    % height of the chapter header
+\def\HeaderSpace{12 pt}                     % space between header and the following text
+
 \def\FootnoteSpacing{\baselineskip}         % spacing between footnotes
 
 
-
-%%%% TOC SPACING of different section levels (chapter to subsubsection)
-\def\TOCTextSpacing{\singlespacing}         % single spacing for TOC texts
-\def\ChapTOCSpacing{\baselineskip}          % spacing between chapters
-\def\SecTOCSpacing{0.5\baselineskip}        % spacing between sections
-\def\SubsecTOCSpacing{0.3\baselineskip}     % ... between subsections
-\def\SubsubsecTOCSpacing{0.3\baselineskip}  % ... between subsubsections
-\def\TocIndent{0 pt}                        % indentation in the list of figs and tables
-\def\LOTItemSpacing{\baselineskip}          % spacing between LOT/LOF items
+%%%% BIBLIOGRAPHY ITEMS
+\def\BibTextSpacing{\singlespacing}         % single-spaced bibliography
+\def\BibItemSpacing{\baselineskip}          % spacing between bibliographic items in reference
 
 
 %%%% CHAPTER QUOTE (EPIGRAPH PACKAGE)
@@ -94,36 +101,38 @@
 \def\ChapQuoteAuthorTextShape{\scshape}     % font shape for quote author
 \def\MaxQuoteWidth{0.65\textwidth}          % width epigraph-based quotes in chapter
 
-%%%% BIBLIOGRAPHY ITEMS
-\def\BibTextSpacing{\singlespacing}         % single-spaced bibliography
-\def\BibItemSpacing{\baselineskip}          % spacing between bibliographic items in reference
 
 
-%%%% GLOBAL SPACING for TABLES
-\def\GlobalTableSpacing{1.5}                % global spacing parameter for table
-%% if this seems too widespread for you, try changing it locally using
-%% \begin{group} ... \renewcommand{\arraystretch} ... \end{group} commands
+%%%% SECTION LEVELS and TOC APPEARANCE
+\def\NoTocLevel{2}                          % no of levels showed in the table of contents
+\def\TocIndent{0 pt}                        % indentation in the list of figs and tables
+%% 3 levels mean: section to subsubsection.. decrease if you want to show less in TOC
+
+%%%% TOC SPACING of different section levels (chapter to subsubsection)
+\def\TOCTextSpacing{\singlespacing}         % single spacing for TOC texts
+\def\ChapTOCSpacing{\baselineskip}          % spacing between chapters
+\def\SecTOCSpacing{0.5\baselineskip}        % spacing between sections
+\def\SubsecTOCSpacing{0.3\baselineskip}     % ... between subsections
+\def\SubsubsecTOCSpacing{0.3\baselineskip}  % ... between subsubsections
+\def\LOTItemSpacing{\baselineskip}          % spacing between LOT/LOF items
 
 
-
-%%%% CHAPTER HEADER SETTINGS
-\def\HeaderHeight{30 pt}                    % height of the chapter header
-\def\HeaderSpace{12 pt}                     % space between header and the following text
-
-
-%%%% ADHOC HEIGHT ADJUSTMENT VARIABLES for consistent formatting
+%%%% ADHOC HEIGHT ADJUSTMENT VARIABLES for consistent typesettings
 %% following numbers are found by trial and error to compensate 
 %% for default spacing around default LaTeX environments
 \def\TitleTopSpacing{-\HeaderHeight-\HeaderSpace}   % top height adjustment for thesis title
-\def\BeforeTOCTitleSpacing{-31 pt}          % space before TOC title
+\def\BeforeTOCTitleSpacing{-42 pt}          % space before TOC title
 \def\AfterTOCTitleSpacing{34 pt}            % space after TOC title
 \def\AfterLOTTitleSpacing{34 pt}            % space after LOT/ LOF title
 
-\def\NumChapterTopMargin{-54 pt}            % space before numbered chapter label
-\def\UnNumChapterTopMargin{-75 pt}          % space before unnumbered chapter label
+\def\NumChapterTopMargin{-64 pt}            % space before numbered chapter label
+\def\UnNumChapterTopMargin{-85 pt}          % space before unnumbered chapter label
 \def\ChapLabelToTitle{-27 pt}               % space between chapter label to title 
 \def\ChapTitleToText{24 pt}                 % space between the chapter title and the following text
-\def\SpaceBeforeQuote{-10 pt}               % white space before quote
+\def\SpaceBeforeQuote{-20 pt}               % white space before quote
+
+%%%% if you want to change any of the heights, adjust using a ruler:
+% \usepackage[unit=in,type=upperleftT,color=red,showframe]{fgruler}
 
 %%%%%%%%%%%%%%%%%%%% END LIST OF VARIABLES FOR FORMATTING %%%%%%%%%%%%%%%%%%%%%%
 
@@ -139,14 +148,13 @@
 \usepackage[T1]{fontenc}                    % for font encoding
 
 
-%%%% DEFAULT FONT PACKAGE (you can add something else ignoring \FontPackage variable)
-\usepackage{\FontPackage}
-% \usepackage[sc]{mathpazo}                 % Palatino font for example
-
-
 %%%% COMMON MATH PACKAGES
 \usepackage{amsfonts,amssymb,amsmath,amsthm,autobreak,
 cancel,dsfont,mathtools,mathbbol,mathrsfs,siunitx,upgreek}
+
+
+%%%% DEFAULT FONT (you can specify other fonts - compatibility could be an issue)
+\usepackage{\FontPackage}
 
 
 %%%% BIBLIOGRAPHIC PACKAGE (change the style or other options if you need to)
@@ -161,6 +169,7 @@ cancel,dsfont,mathtools,mathbbol,mathrsfs,siunitx,upgreek}
 %% IEEE style
 % \usepackage[backend=biber,style=ieee,defernumbers=true,maxnames=99, 
 %     date=year, isbn=false, url=false, doi=true]{biblatex}
+
 
 
 %%%% TABLE-RELATED PACKAGES
@@ -243,8 +252,9 @@ multicol,multirow,tabularx,xltabular,rotating}
 
 
 %%%% CAPTION PACKAGE
-\captionsetup{belowskip=\CaptionSpacing, font=\CaptionFontSize, 
-    labelfont=\CaptionFontType, labelsep=\CaptionSeparator, hypcap=true} 
+\captionsetup{belowskip=\FigureToCaption, font=\CaptionFontSize, 
+    labelfont=\CaptionLabelFontType, labelsep=\CaptionSeparator,
+    font={stretch=\CaptionSpacing}, hypcap=true}  
 
 
 
@@ -352,58 +362,6 @@ multicol,multirow,tabularx,xltabular,rotating}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%% END DOCUMENT FORMATTING %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% only if you plan on using chapter quotes, you may need epigraph settings
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EPIGRAPH SETTINGS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\renewcommand{\epigraphflush}{\ChapQuoteLocation}       % chapter epigraph on right 
-\renewcommand{\epigraphsize}{\ChapQuoteFontSize}        % font size for chapter epigraph
-\setlength{\epigraphwidth}{\MaxQuoteWidth}              % max width of chapter epigraph
-\renewcommand{\textflush}{\ChapQuoteLocation}
-\renewcommand{\sourceflush}{\ChapQuoteLocation}
-\newcommand{\epitextfont}{\ChapQuoteTextShape}          % quote font shape
-\newcommand{\episourcefont}{\ChapQuoteAuthorTextShape}  % quote author name shape
-
-%% following settings put variable width underline between quote and author
-\makeatletter
-\setlength{\beforeepigraphskip}{\SpaceBeforeQuote}
-\newsavebox{\epi@textbox}
-\newsavebox{\epi@sourcebox}
-\newlength\epi@finalwidth
-\renewcommand{\epigraph}[2]{%
-    \vspace{\beforeepigraphskip}
-    {\epigraphsize\begin{\epigraphflush}
-    \epi@finalwidth=\z@
-    \sbox\epi@textbox{%
-        \varwidth{\epigraphwidth}
-        \begin{\textflush}\epitextfont#1\end{\textflush}
-        \endvarwidth
-   }%
-    \epi@finalwidth=\wd\epi@textbox
-    \sbox\epi@sourcebox{%
-        \varwidth{\epigraphwidth}
-        \begin{\sourceflush}\episourcefont#2\end{\sourceflush}%
-        \endvarwidth
-   }%
-    \ifdim\wd\epi@sourcebox>\epi@finalwidth 
-        \epi@finalwidth=\wd\epi@sourcebox
-    \fi
-   \leavevmode\vbox{
-        \hb@xt@\epi@finalwidth{\hfil\box\epi@textbox}
-        \vskip 1ex         % gap between quote and rule
-        \hrule height \epigraphrule
-        \vskip 1ex         % gap between rule and author
-        \hb@xt@\epi@finalwidth{\hfil\box\epi@sourcebox}
-   }%
-   \end{\epigraphflush}
-   \vspace{\afterepigraphskip}}}
-\makeatother
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%% END EPIGRAPH SETTINGS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% TITLE PAGE MACROS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand{\ThesisTitle}[1]{           % thesis title
@@ -460,7 +418,11 @@ multicol,multirow,tabularx,xltabular,rotating}
     \phantomsection
     \subsubsection*{#1}%
     \addcontentsline{toc}{subsubsection}{#1}}
-    
+
+%%%% KEYWORDS for abstract
+\newcommand{\keywords}[1]{	
+    \textbf{Keywords:} {#1}
+}
 
 %%%% TOCLOFT: modified macros/ commands for printing ToC, LoF, LoT
 \newcommand{\mytableofcontents}{
@@ -491,6 +453,57 @@ multicol,multirow,tabularx,xltabular,rotating}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% END OTHER MACROS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% only if you plan on using chapter quotes, you may need epigraph settings
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EPIGRAPH SETTINGS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\renewcommand{\epigraphflush}{\ChapQuoteLocation}       % chapter epigraph on right 
+\renewcommand{\epigraphsize}{\ChapQuoteFontSize}        % font size for chapter epigraph
+\setlength{\epigraphwidth}{\MaxQuoteWidth}              % max width of chapter epigraph
+\renewcommand{\textflush}{\ChapQuoteLocation}
+\renewcommand{\sourceflush}{\ChapQuoteLocation}
+\newcommand{\epitextfont}{\ChapQuoteTextShape}          % quote font shape
+\newcommand{\episourcefont}{\ChapQuoteAuthorTextShape}  % quote author name shape
+
+%% following settings put variable width underline between quote and author
+\makeatletter
+\setlength{\beforeepigraphskip}{\SpaceBeforeQuote}
+\newsavebox{\epi@textbox}
+\newsavebox{\epi@sourcebox}
+\newlength\epi@finalwidth
+\renewcommand{\epigraph}[2]{%
+    \vspace{\beforeepigraphskip}
+    {\epigraphsize\begin{\epigraphflush}
+    \epi@finalwidth=\z@
+    \sbox\epi@textbox{%
+        \varwidth{\epigraphwidth}
+        \begin{\textflush}\epitextfont#1\end{\textflush}
+        \endvarwidth
+   }%
+    \epi@finalwidth=\wd\epi@textbox
+    \sbox\epi@sourcebox{%
+        \varwidth{\epigraphwidth}
+        \begin{\sourceflush}\episourcefont#2\end{\sourceflush}%
+        \endvarwidth
+   }%
+    \ifdim\wd\epi@sourcebox>\epi@finalwidth 
+        \epi@finalwidth=\wd\epi@sourcebox
+    \fi
+   \leavevmode\vbox{
+        \hb@xt@\epi@finalwidth{\hfil\box\epi@textbox}
+        \vskip 1ex         % gap between quote and rule
+        \hrule height \epigraphrule
+        \vskip 1ex         % gap between rule and author
+        \hb@xt@\epi@finalwidth{\hfil\box\epi@sourcebox}
+   }%
+   \end{\epigraphflush}
+   \vspace{\afterepigraphskip}}}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% END EPIGRAPH SETTINGS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% define your custom settings for other packages here (algorithm/ listing, etc.)
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
