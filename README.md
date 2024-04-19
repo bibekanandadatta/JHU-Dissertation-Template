@@ -131,7 +131,7 @@ As mentioned before, the template is based on the standard report class. However
   
 - Captions for the table and figure environments are placed at the bottom of the environments. The caption starts with boldfaced **Figure** and **Table** labels, respectively, for Figure and Table, and uses chapter-wise numbering separated by a period between the chapter label and the number of the corresponding environment followed by a colon before the long caption.
 
-The default bibliography style is the `Nature` style numeric bibliography. Depending on the discipline, you may have to change it; the details are given below. 
+- The default bibliography style is a modified `Nature` style numeric bibliography in which the full journal title is printed instead of the abbreviated journal title. Depending on the discipline, you may have to change it; the details are given below. 
 
 
 
@@ -210,17 +210,17 @@ The thesis title page is defined using the `titlepage` environment which is cent
   - `\mylistoftables:` to print the list of tables.
   - `\mylistoffigures:` to print the list of figures.
 
-- Currently, the template does not have any specific settings or package options to print the List of Algorithms, the List of Abbreviations, and the List of Symbols, List of Supplementary Materials, etc. However, you can look into `glossaries`, `glossaries-extra`, and `tocloft` packages to define custom lists to be printed. This might take a little bit of time to do.
+- Currently, the template does not have any specific settings or package options to print the List of Algorithms, the List of Abbreviations, the List of Symbols, the List of Supplementary Materials, etc. However, you can look into `glossaries`, `glossaries-extra`, and `tocloft` packages to define custom lists to be printed. This might take a little bit of time to do.
 
 
 
 ### Main text
 
-- It is a good practice not to use math expressions for chapter, section, subsection, and subsection titles. But if you have absolutely have to do it, you may encounter warning given by hyperref package. To resolve, you can use the following command:
+- It is a good practice not to use math expressions for chapter, section, subsection, and subsection titles. But if you have to do it, you may encounter warnings given by the hyperref package. To resolve this, you can use the following command:
     ``` latex
     \texorpdfstring{your-math-expression}{expression-for-bookmark}
     ```
-- If you change the fontsize or shape for any of the headings, depending on the size and shape, the spacing around it may change change as well, specially top margin before chapter label and title. You can change the ADHOC HEIGHT ADJUSTMENT VARIABLES to fine tune them. Use `fgruler` package to adjust heights and spacing. Check the package documentation to see the available options.
+- If you change the font size or shape for any of the headings, depending on the size and shape, the spacing around it may change as well, especially top margin before the chapter label and title. You can change the ADHOC HEIGHT ADJUSTMENT VARIABLES to fine-tune them. Use `fgruler` package to adjust heights and spacing. Check the package documentation to see the available options.
    ``` latex
    \usepackage[unit=in,type=upperleftT,color=red,showframe]{fgruler}
    ```

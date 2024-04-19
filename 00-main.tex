@@ -73,7 +73,7 @@
 %% CAPTION
 \def\CaptionFontSize{small}         % caption font size
 \def\CaptionLabelFontType{bf}       % boldface label for captions
-\def\CaptionSeparator{colon}        % separates caption heading from text. can use 'period' as well
+\def\CaptionSeparator{colon}        % separates caption label from caption text
 \def\CaptionSpacing{1.0}            % single-spaced captions
 \def\FigureToCaption{0 pt}          % spacing between the figure and the caption
 
@@ -221,9 +221,6 @@ multicol,multirow,tabularx,xltabular,rotating}
 \usepackage{tikz}                           % drawing related package
 \usepackage{subcaption}                     % individual panel and caption
 
-%%%% if you try to customize spacing around different environments consider:
-% \usepackage[unit=in,type=upperleftT,color=red,showframe]{fgruler}
-
 %% add more packages and/or change options of the packages as needed
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% END LaTeX PACKAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -254,24 +251,40 @@ multicol,multirow,tabularx,xltabular,rotating}
 %%%% CAPTION PACKAGE
 \captionsetup{belowskip=\FigureToCaption, font=\CaptionFontSize, 
     labelfont=\CaptionLabelFontType, labelsep=\CaptionSeparator,
-    font={stretch=\CaptionSpacing}, hypcap=true}  
+    font={stretch=\CaptionSpacing}, hypcap=true} 
 
 
 
 %%%% BIBLATEX: bibliography package settings
 \addbibresource{\BibFileName}           % name of the bib file 
-\DeclareFieldFormat{titlecase}{\MakeSentenceCase*{#1}}
+% \DeclareFieldFormat{titlecase}{\MakeSentenceCase*{#1}}
 \AtBeginBibliography{\urlstyle{rm}}     % roman font family for URL (DOI)
 \AtBeginBibliography{\vspace*{8pt}}     % add space for single-spaced bib text
+
+%% the following block ensures articles are sentence case 
+%% but the journal names are title case 
+\DeclareFieldFormat{sentencecase}{\MakeSentenceCase{#1}}
+\renewbibmacro*{title}{%
+  \ifthenelse{\iffieldundef{title}\AND\iffieldundef{subtitle}}
+    {}
+    {\ifthenelse{\ifentrytype{article}\OR\ifentrytype{inbook}%
+      \OR\ifentrytype{incollection}\OR\ifentrytype{inproceedings}%
+      \OR\ifentrytype{inreference}}
+      {\printtext[title]{%
+        \printfield[sentencecase]{title}%
+        \setunit{\subtitlepunct}%
+        \printfield[sentencecase]{subtitle}}}%
+      {\printtext[title]{%
+        \printfield[titlecase]{title}%
+        \setunit{\subtitlepunct}%
+        \printfield[titlecase]{subtitle}}}%
+     \newunit}%
+  \printfield{titleaddon}}
 
 
 %% separate category for papers to be not cited in the bibliography
 \DeclareBibliographyCategory{mypapers}             
 \newcommand{\mybibexclude}[1]{\addtocategory{mypapers}{#1}}
-
-
-%%%% SOME SAMPLE TikZ LIBRARY OPTIONS
-\usetikzlibrary{positioning,shapes,arrows}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% END PACKAGE OPTIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -281,7 +294,7 @@ multicol,multirow,tabularx,xltabular,rotating}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% DOCUMENT FORMATTING %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \setcounter{tocdepth}{\NoTocLevel}                  % list depth in ToC
-\setcounter{secnumdepth}{\NoSectionLevel}           % section to ... subsubsection ...
+\setcounter{secnumdepth}{\NoSectionLevel}           % section to ... subsubsection
 
 
 %%%% font size and spacing around the titles of ToC/ LoT/ LoF
@@ -312,28 +325,31 @@ multicol,multirow,tabularx,xltabular,rotating}
 
 %% tweak to LOT and LOF to add 'Table'/ 'Figure' to the table/ figure caption listing
 %% to change the distance to the start of the table/ figure title
+\newcommand*{\noaddvspace}{\renewcommand*{\addvspace}[1]{}}
+
 \setlength{\cfttabindent}{\TocIndent}               % indentation from tables in LoT
 \renewcommand{\cfttabpresnum}{\bfseries Table }
 \setlength{\cfttabnumwidth}{\widthof{\textbf{Table~999.999~}}}
 \setlength{\cftbeforetabskip}{\LOTItemSpacing}      % spacing between each item
+\addtocontents{lot}{\protect\noaddvspace}
 
 
 \setlength{\cftfigindent}{\TocIndent}               % indentation from figures in LoF
 \renewcommand{\cftfigpresnum}{\bfseries Figure }
 \setlength{\cftfignumwidth}{\widthof{\textbf{Figure~999.999~}}}
 \setlength{\cftbeforefigskip}{\LOTItemSpacing}      % spacing between each item
+\addtocontents{lof}{\protect\noaddvspace}
+
 
 
 %%%% TITLESEC: settings for chapter label and title
 \titleformat{\chapter}[display]{\ChapterFont}
     {\chaptertitlename\ \thechapter}{\ChapLabelToTitle}{\ChapterFont}
 
-%
-\titlespacing*{\chapter}{0pt}{\NumChapterTopMargin}
-    {\ChapTitleToText} 
-%
-\titlespacing*{name=\chapter,numberless}{0pt}
-    {\UnNumChapterTopMargin}{\ChapTitleToText}
+\titlespacing*{\chapter}{0pt}{\NumChapterTopMargin}{\ChapTitleToText} 
+
+\titlespacing*{name=\chapter,numberless}{0pt}{\UnNumChapterTopMargin}
+    {\ChapTitleToText}
 
 
 %%%% TITLESEC: settings for sections, subsection, ... heading format
@@ -355,7 +371,7 @@ multicol,multirow,tabularx,xltabular,rotating}
 \setlength{\footnotesep}{\FootnoteSpacing}          % separation between footnote
 
 
-%%%% MATH ENVIRONMENT settings
+%%%% settings for math environment
 \allowdisplaybreaks[1]                  % page break for long equations
 \numberwithin{equation}{chapter}        % eqn no with chapter label
 \setcounter{MaxMatrixCols}{20}          % no of maximum columns in matrix
@@ -451,16 +467,16 @@ multicol,multirow,tabularx,xltabular,rotating}
 \newcommand{\ADDCITATION}{\COMMENT{(ADD CITATION)}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% END OTHER MACROS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% only if you plan on using chapter quotes, you may need epigraph settings
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% EPIGRAPH SETTINGS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\setlength{\epigraphwidth}{\MaxQuoteWidth}              % max width of chapter epigraph
 \renewcommand{\epigraphflush}{\ChapQuoteLocation}       % chapter epigraph on right 
 \renewcommand{\epigraphsize}{\ChapQuoteFontSize}        % font size for chapter epigraph
-\setlength{\epigraphwidth}{\MaxQuoteWidth}              % max width of chapter epigraph
 \renewcommand{\textflush}{\ChapQuoteLocation}
 \renewcommand{\sourceflush}{\ChapQuoteLocation}
 \newcommand{\epitextfont}{\ChapQuoteTextShape}          % quote font shape
@@ -527,6 +543,7 @@ multicol,multirow,tabularx,xltabular,rotating}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%% DOCUMENT BEGINS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \begin{document}
 
@@ -605,6 +622,8 @@ multicol,multirow,tabularx,xltabular,rotating}
 \printbibliography[title={Bibliographic references},
     heading=bibintoc,notcategory=mypapers]
 \clearpage                              % flushes out floating header
+
+
 
 
 %%%% OPTIONAL: Appendix chapter (same format as the main chapters)
