@@ -71,11 +71,11 @@
 
 
 %% CAPTION
-\def\CaptionFontSize{small}         % caption font size
-\def\CaptionLabelFontType{bf}       % boldface label for captions
-\def\CaptionSeparator{colon}        % separates caption label from caption text
-\def\CaptionSpacing{1.0}            % single-spaced captions
-\def\FigureToCaption{0 pt}          % spacing between the figure and the caption
+\def\CaptionFontSize{small}                 % caption font size
+\def\CaptionLabelFontType{bf}               % boldface label for captions
+\def\CaptionSeparator{colon}                % separates caption label from caption text
+\def\CaptionSpacing{1.0}                    % single-spaced captions
+\def\FigureToCaption{0 pt}                  % spacing between the figure and the caption
 
 
 %%%% GLOBAL SPACING for TABLES
@@ -104,9 +104,10 @@
 
 
 %%%% SECTION LEVELS and TOC APPEARANCE
-\def\NoTocLevel{2}                          % no of levels showed in the table of contents
-\def\TocIndent{0 pt}                        % indentation in the list of figs and tables
+\def\NoTOCLevel{2}                          % no of levels showed in the table of contents
+\def\TOCIndent{0 pt}                        % indentation in the list of figs and tables
 %% 3 levels mean: section to subsubsection.. decrease if you want to show less in TOC
+
 
 %%%% TOC SPACING of different section levels (chapter to subsubsection)
 \def\TOCTextSpacing{\singlespacing}         % single spacing for TOC texts
@@ -115,6 +116,7 @@
 \def\SubsecTOCSpacing{0.3\baselineskip}     % ... between subsections
 \def\SubsubsecTOCSpacing{0.3\baselineskip}  % ... between subsubsections
 \def\LOTItemSpacing{\baselineskip}          % spacing between LOT/LOF items
+
 
 
 %%%% ADHOC HEIGHT ADJUSTMENT VARIABLES for consistent typesettings
@@ -293,7 +295,7 @@ multicol,multirow,tabularx,xltabular,rotating}
 %% further tweaking variables for the current consistent document formatting
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% DOCUMENT FORMATTING %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\setcounter{tocdepth}{\NoTocLevel}                  % list depth in ToC
+\setcounter{tocdepth}{\NoTOCLevel}                  % list depth in ToC
 \setcounter{secnumdepth}{\NoSectionLevel}           % section to ... subsubsection
 
 
@@ -327,14 +329,14 @@ multicol,multirow,tabularx,xltabular,rotating}
 %% to change the distance to the start of the table/ figure title
 \newcommand*{\noaddvspace}{\renewcommand*{\addvspace}[1]{}}
 
-\setlength{\cfttabindent}{\TocIndent}               % indentation from tables in LoT
+\setlength{\cfttabindent}{\TOCIndent}               % indentation from tables in LoT
 \renewcommand{\cfttabpresnum}{\bfseries Table }
 \setlength{\cfttabnumwidth}{\widthof{\textbf{Table~999.999~}}}
 \setlength{\cftbeforetabskip}{\LOTItemSpacing}      % spacing between each item
 \addtocontents{lot}{\protect\noaddvspace}
 
 
-\setlength{\cftfigindent}{\TocIndent}               % indentation from figures in LoF
+\setlength{\cftfigindent}{\TOCIndent}               % indentation from figures in LoF
 \renewcommand{\cftfigpresnum}{\bfseries Figure }
 \setlength{\cftfignumwidth}{\widthof{\textbf{Figure~999.999~}}}
 \setlength{\cftbeforefigskip}{\LOTItemSpacing}      % spacing between each item
@@ -371,10 +373,12 @@ multicol,multirow,tabularx,xltabular,rotating}
 \setlength{\footnotesep}{\FootnoteSpacing}          % separation between footnote
 
 
+
 %%%% settings for math environment
 \allowdisplaybreaks[1]                  % page break for long equations
 \numberwithin{equation}{chapter}        % eqn no with chapter label
 \setcounter{MaxMatrixCols}{20}          % no of maximum columns in matrix
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%% END DOCUMENT FORMATTING %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -522,6 +526,7 @@ multicol,multirow,tabularx,xltabular,rotating}
 %%% define your custom settings for other packages here (algorithm/ listing, etc.)
 
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% these are just some examples; add more macros for your custom commands
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% MATH MACROS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -589,7 +594,7 @@ multicol,multirow,tabularx,xltabular,rotating}
 %% OPTIONAL: you can add more lists here (but you will have to define those)
 %
 \microtypesetup{protrusion=true}
-
+\hypersetup{linkcolor=blue}                 % revert it back to blue
 %%%%%%%%%%%%%%%%%%%%%%%%%%% END FRONT MATTER %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -626,7 +631,7 @@ multicol,multirow,tabularx,xltabular,rotating}
 
 
 
-%%%% OPTIONAL: Appendix chapter (same format as the main chapters)
+%%%% OPTIONAL: Appendix chapter (same header format as the main chapters)
 \MainTextSpacing                    
 \fancyhead[L]{\appendixname\ \thechapter. \nouppercase \leftmark}
 
