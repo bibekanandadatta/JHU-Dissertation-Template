@@ -50,10 +50,11 @@
 
 \def\FontPackage{lmodern}                   % default font package
 
+\def\HyperlinkColor{blue}                   % color for hyperlinks
+
 
 %%%% FONT SIZE and TYPESET for DIFFERENT HEADINGS
 %% check here for details: https://en.wikibooks.org/wiki/LaTeX/Fonts
-
 %% font format for thesis title
 \def\TitleFont{\Large\bfseries\singlespacing\MakeUppercase}  
 
@@ -121,7 +122,8 @@
 
 %%%% ADHOC HEIGHT ADJUSTMENT VARIABLES for consistent typesettings
 %% following numbers are found by trial and error to compensate 
-%% for default spacing around default LaTeX environments
+%% for the default spacing around different LaTeX environments.
+%% unless you find inconsistent formatting, you may not need to change these
 \def\TitleTopSpacing{-\HeaderHeight-\HeaderSpace}   % top height adjustment for thesis title
 \def\BeforeTOCTitleSpacing{-42 pt}          % space before TOC title
 \def\AfterTOCTitleSpacing{34 pt}            % space after TOC title
@@ -150,13 +152,24 @@
 \usepackage[T1]{fontenc}                    % for font encoding
 
 
-%%%% COMMON MATH PACKAGES
-\usepackage{amsfonts,amssymb,amsmath,amsthm,autobreak,
-cancel,dsfont,mathtools,mathbbol,mathrsfs,siunitx,upgreek}
-
-
 %%%% DEFAULT FONT (you can specify other fonts - compatibility could be an issue)
 \usepackage{\FontPackage}
+
+
+%%%% COMMON MATH PACKAGES
+\usepackage{amsfonts,amssymb,amsmath,amsthm,autobreak,
+    cancel,dsfont,mathtools,mathbbol,mathrsfs,siunitx,upgreek}
+
+
+%%%% TABLE-RELATED PACKAGES
+\usepackage{booktabs,longtable,dcolumn,makecell,
+    multicol,multirow,tabularx,xltabular,rotating}
+
+
+%%%% package for micro-typography (you can define more settings)
+%% see details here: https://www.khirevich.com/latex/microtype/
+\usepackage[activate={true,nocompatibility}]{microtype}
+
 
 
 %%%% BIBLIOGRAPHIC PACKAGE (change the style or other options if you need to)
@@ -171,18 +184,6 @@ cancel,dsfont,mathtools,mathbbol,mathrsfs,siunitx,upgreek}
 %% IEEE style
 % \usepackage[backend=biber,style=ieee,defernumbers=true,maxnames=99, 
 %     date=year, isbn=false, url=false, doi=true]{biblatex}
-
-
-
-%%%% TABLE-RELATED PACKAGES
-\usepackage{booktabs,longtable,dcolumn,makecell,
-multicol,multirow,tabularx,xltabular,rotating}
-
-
-
-%%%% package for micro-typography (you can define more settings)
-%% see details here: https://www.khirevich.com/latex/microtype/
-\usepackage[activate={true,nocompatibility}]{microtype}
 
 
 
@@ -204,7 +205,7 @@ multicol,multirow,tabularx,xltabular,rotating}
 \usepackage{glossaries}                     % to add glossaries
 \usepackage{fancyhdr}                       % for header/ footer settings
 \usepackage[dvipsnames]{xcolor}             % color-related package
-\usepackage[a-1b]{pdfx}                     % to generate PDF/A file (before hyperref)
+\usepackage[a-1b]{pdfx}                     % to generate PDF/A file (add before hyperref)
 \usepackage[pdfa]{hyperref}                 % for hyperlink management 
 \usepackage[all]{hypcap}                    % for captions on the side of figures
 \usepackage{ifthen}                         % if-then statement in LaTeX code
@@ -224,7 +225,6 @@ multicol,multirow,tabularx,xltabular,rotating}
 \usepackage{subcaption}                     % individual panel and caption
 
 %% add more packages and/or change options of the packages as needed
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% END LaTeX PACKAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -246,7 +246,8 @@ multicol,multirow,tabularx,xltabular,rotating}
 
 %%%% HYPERREF PACKAGE
 \hypersetup{linktocpage, unicode, linktoc=all, colorlinks=true, 
-    citecolor=blue, filecolor=blue, linkcolor=blue, urlcolor=blue}
+    citecolor=\HyperlinkColor, filecolor=\HyperlinkColor, 
+    linkcolor=\HyperlinkColor, urlcolor=\HyperlinkColor}
 \urlstyle{rm}           % removes default \texttt style for hyperlinks
 
 
@@ -254,7 +255,6 @@ multicol,multirow,tabularx,xltabular,rotating}
 \captionsetup{belowskip=\FigureToCaption, font=\CaptionFontSize, 
     labelfont=\CaptionLabelFontType, labelsep=\CaptionSeparator,
     font={stretch=\CaptionSpacing}, hypcap=true} 
-
 
 
 %%%% BIBLATEX: bibliography package settings
@@ -284,7 +284,7 @@ multicol,multirow,tabularx,xltabular,rotating}
   \printfield{titleaddon}}
 
 
-%% separate category for papers to be not cited in the bibliography
+%%%% separate category for papers to be not cited in the bibliography
 \DeclareBibliographyCategory{mypapers}             
 \newcommand{\mybibexclude}[1]{\addtocategory{mypapers}{#1}}
 
@@ -372,37 +372,30 @@ multicol,multirow,tabularx,xltabular,rotating}
 \setlength{\bibitemsep}{\BibItemSpacing}            % bib item separation 
 \setlength{\footnotesep}{\FootnoteSpacing}          % separation between footnote
 
-
-
-%%%% settings for math environment
-\allowdisplaybreaks[1]                  % page break for long equations
-\numberwithin{equation}{chapter}        % eqn no with chapter label
-\setcounter{MaxMatrixCols}{20}          % no of maximum columns in matrix
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%% END DOCUMENT FORMATTING %%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% TITLE PAGE MACROS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newcommand{\ThesisTitle}[1]{           % thesis title
+\newcommand{\ThesisTitle}[1]{           % prints thesis title
     \vspace*{\TitleTopSpacing}
     {\TitleFont {#1} \par}
 }
 
-\newcommand{\ThesisAuthor}[1]{          % thesis author
-    by \\ #1 \\}      
+\newcommand{\ThesisAuthor}[1]{          % prints by ... thesis author in two lines
+    by \\ #1 \\
+}      
 
-
-\newcommand{\ThesisStatement}[2]{       %% thesis or dissertation statement 
+\newcommand{\ThesisStatement}[2]{       % prints thesis or dissertation statement 
     A {#1} submitted to The Johns Hopkins University in conformity \\
     with the requirements for the degree of {#2}
 }
 
-\newcommand{\Location}{Baltimore, Maryland}     % location
+\newcommand{\Location}{Baltimore, Maryland}     % prints location
 
-\newcommand{\ThesisDate}[2]{#1 #2}              % thesis submission date 
+\newcommand{\ThesisDate}[2]{#1 #2}              % prints thesis submission date 
 
-\newcommand{\ThesisCopyright}[2]{               % optional copyright statement
+\newcommand{\ThesisCopyright}[2]{               % prints the optional copyright statement
 \begin{textblock*}{\textwidth}(\GlobalMargin +\PrintingOffset,9in)
     \copyright\ {#1} {#2} \\ All rights reserved
 \end{textblock*}
@@ -466,7 +459,7 @@ multicol,multirow,tabularx,xltabular,rotating}
     \clearpage
 }
 
-%%%% IN-TEXT MACROS for notes
+%%%% IN-TEXT MACROS for own notes (you can define more)
 \newcommand{\COMMENT}{\textcolor{red}}
 \newcommand{\ADDCITATION}{\COMMENT{(ADD CITATION)}}
 
@@ -523,14 +516,20 @@ multicol,multirow,tabularx,xltabular,rotating}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%% END EPIGRAPH SETTINGS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%% define your custom settings for other packages here (algorithm/ listing, etc.)
 
+%%% define custom settings for other packages here (algorithm/ listing, etc.)
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% these are just some examples; add more macros for your custom commands
+%% these are just some examples; add more settings, macros, environments, etc. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% MATH MACROS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%% basic settings for math environment
+\allowdisplaybreaks[1]                  % page break for long equations
+\numberwithin{equation}{chapter}        % eqn no with chapter label
+\setcounter{MaxMatrixCols}{20}          % no of maximum columns in matrix
+
+%% custom math macros
 \newcommand{\dC}{$^{\circ}$C}           % degree celsius symbol
 \newcommand{\vect}[1]{\mathbf{#1}}      % boldface for vectors and tensors
 \DeclareMathOperator{\T}{{\top}}        % transpose of a matrix/ tensor
@@ -539,16 +538,17 @@ multicol,multirow,tabularx,xltabular,rotating}
 \DeclareMathOperator{\grad}{grad}       % gradient of vector and tensor
 \DeclareMathOperator{\curl}{curl}       % curl of vector and tensor
 
-%% theorem-style remark environment
+%% theorem-style remark environment (custom)
 \theoremstyle{definition}
 \newtheorem{remark}{Remark}
-
+\counterwithin{remark}{chapter}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% END MATH MACROS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%% DOCUMENT BEGINS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%% DOCUMENT BEGINS HERE %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
 
@@ -579,10 +579,9 @@ multicol,multirow,tabularx,xltabular,rotating}
 %% you can have other chapters and the order does not matter
 
 
-
 %%%% LISTINGS
-\microtypesetup{protrusion=false}
-\TOCTextSpacing                             % one-half spacing for the table of contents
+\TOCTextSpacing                             % single spacing for the table of contents
+\microtypesetup{protrusion=false}           % turn off protrusion from microtype
 \hypersetup{linkcolor=black}                % local black hyperlink for TOC
 %
 \mytableofcontents                          % MUST
@@ -593,8 +592,9 @@ multicol,multirow,tabularx,xltabular,rotating}
 %
 %% OPTIONAL: you can add more lists here (but you will have to define those)
 %
-\microtypesetup{protrusion=true}
 \hypersetup{linkcolor=blue}                 % revert it back to blue
+\microtypesetup{protrusion=true}            % turn on protrusion from microtype
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%% END FRONT MATTER %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -625,13 +625,12 @@ multicol,multirow,tabularx,xltabular,rotating}
 \BibTextSpacing                         % text spacing for each bib item
 \fancyhead[L]{\nouppercase \leftmark}
 \printbibliography[title={Bibliographic references},
-    heading=bibintoc,notcategory=mypapers]
+    heading=bibintoc, notcategory=mypapers]
 \clearpage                              % flushes out floating header
 
 
-
-
-%%%% OPTIONAL: Appendix chapter (same header format as the main chapters)
+%%%% Appendix chapter (same header format as the main chapters)
+%% if you do not have appendix chapters, then comment them out
 \MainTextSpacing                    
 \fancyhead[L]{\appendixname\ \thechapter. \nouppercase \leftmark}
 
@@ -639,7 +638,7 @@ multicol,multirow,tabularx,xltabular,rotating}
 \include{11-appendix-A}
 \include{12-appendix-B}
 
-%% add more appendix chapters if you have
+%% add more appendix chapters if you have 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%% END BACK MATTER %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

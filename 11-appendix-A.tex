@@ -1,11 +1,11 @@
-%% necessary customization for the appendix and headers
+%%%% necessary customization for the appendix and headers
 \appendix 
 \makeatletter
 \addtocontents{toc}{\protect\renewcommand\protect\cftchappresnum{\@chapapp\ }}
 \makeatother
 \renewcommand{\thechapter}{\Alph{chapter}}
 
-\chapter{Some necessary information}
+\chapter{Some necessary information} \label{chap:appendix-a}
 
 %% add your chapter text here
 \Blindtext[3]

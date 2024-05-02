@@ -12,6 +12,7 @@ As of March 2024, the template follows the thesis or dissertation formatting req
 * [How to use the template on Overleaf](#how-to-use-the-template-on-overleaf)
 * [Document formatting (customization beyond the requirements)](#document-formatting-customization-beyond-the-requirements)
 * [Basic user guidelines](#basic-user-guidelines)
+  + [Before you begin](#before-you-begin)
   + [Title page](#title-page)
   + [Prefaces and TOC, LOT, LOF, etc.](#prefaces-and-toc-lot-lof-etc)
   + [Main text](#main-text)
@@ -31,16 +32,15 @@ The report class-based template was first created by R. Jacob Vogelstein in May 
 - [updated by John Clayton](https://github.com/jrclayton/jhu-dissertation-mwe) in December 2019.
 - updated by Bibekananda Datta on March 31, 2024.
 
-The previous versions of the template mostly used the default options from the LaTeX report class which had unusually large font sizes and extra white spaces around different environments. So, I decided to reorganize the template and add more customization by loading the necessary packages. Compared to the previous version, for the current version of the template, I have:
-  - reorganized the code in the template in a more readable and understandable format.
-  - formatted the title page following the library guidelines strictly with easy-to-use macros.
-  - added custom macros to generate title page and front matters (TOC, LOT, LOF).
-  - updated the appearance of the table of contents, list of figures, and list of tables.
-  - added customization options to control the font size and shape of different headings.
-  - added customization options to control the white space for different environments.
-  - added specific settings for adding quotes (epigraph package) to the chapters.
-  - added examples of customized macros for mathematical and non-mathematical environments.
-  - added supporting files to generate PDF/A output on Overleaf directly.
+Compared to the previous version, the current version of the template has:
+  - latex code reorganized in a more readable and understandable format with easy-to-customize formatting variables
+  - title page formatted following the library guidelines strictly with easy-to-use macros
+  - the updated appearance of the table of contents (TOC), list of figures (LOF), and list of tables (LOT) with custom macros for each of them
+  - customization options to control the font size, shape, and white space of different headings
+  - specific settings for adding quotes to the chapters (epigraph package)
+  - examples of customized macros for mathematical and non-mathematical environments
+  - supporting files to generate PDF/A output on Overleaf directly
+
 
 > [!NOTE]
 >
@@ -52,12 +52,12 @@ The previous versions of the template mostly used the default options from the L
 
 Since the template is based on the report class, it is subdivided into multiple chapters. There are separate .tex files for all the front matters (mandatory or optional), technical chapters, and appendices.
 
-| File name     | Description   |
-| :---------    | :-----------  |
+| File name | Description |
+| --------- | ----------- |
 | `00-main.tex` | is the driver or root file which includes all the preamble, document settings, package settings, and macros as needed as well as the auxiliary .tex files for each chapter. I would recommend going through the different sections of this file before you start working to understand the available packages and options. |
 | `<filename>.tex` | are the `.tex` files dedicated to individual pages (e.g., title, dedication) or environments (such as abstract, bibliography, etc.) or technical chapters. These files are called from the `00-main.tex` file using an `\include{}` command which flushes all the floating objects and starts a new page. |
 | `figures` | is the subdirectory containing all the figures for the thesis. You can add the figures as chapter-wise PDF files or as just individual images with allowable extensions. Images are called using the `\includegraphics{}` command in a figure environment. |
-| `thesis.bib` | is a biblatex file that contains all the bibliographic items. Use Zotero, Mendeley, EndNote, or some other citation manager to generate the biblatex file containing all the bibliographic items. |
+| `thesis.bib` | is a biblatex-compatible file that contains all the bibliographic items. Use Zotero, Mendeley, EndNote, or some other citation manager to generate this file. |
 | `latexmkrc` | contains additional settings for the make file to generate PDF/A output. This is required to be in the main directory of the Overleaf project. Do not change the file name. |
 | `output.xmpdata` | contains simple meta-data to be tagged in the final PDF/A file. Usage of this file is optional and the content inside is self-explanatory. Do not change the file name if you are compiling on Overleaf. |
 | `template.pdf` | is the sample output PDF that you will obtain when you start working on this project. Check this file to ensure you are content with the formatting. |
@@ -267,11 +267,9 @@ The thesis title page is defined using the `titlepage` environment which is cent
     \chapter[short-chapter-name]{long-chapter-title}
     ```
   - If customizing the header becomes too difficult, you can also consider removing all the header options by commenting them out in the document section of the `00-main.tex` file. In that case, remove the `includehead`, `headheight`, and `headsep` options from the `\geometry{ ... }` command in the `PACKAGE OPTION` section.
-  -If you make changes in `\HeaderHeight`, then you may have to change the `ADHOC HEIGHT ADJUSTMENT VARIABLES` to obtain consistent formatting (although inconsistency is hard to notice with bare eyes), use `\fgruler` package as shown above.
+  -If you make changes in `\HeaderHeight`, then you may have to change the `ADHOC HEIGHT ADJUSTMENT VARIABLES` to obtain consistent formatting (although inconsistency is hard to notice with bare eyes), use the `\fgruler` package as shown above.
 
 - To list items, use `enumerate` and `itemize` environments. But make sure to customize the spacing to have consistent typography with the double-spaced text document.
-
-- You can add algorithms using the `algorithm2e` package, and codes using the `listings` and `minted` packages. Customize these packages to your needs/preferences.
 
 - To use colors in your writing (such as hyperlinking or text coloring) or drawing, you can consider using the `xcolor` package with the `dvipsnames` option (already loaded with this option in the preamble). Check [how to use colors in LaTeX on Overleaf](https://www.overleaf.com/learn/latex/Using_colors_in_LaTeX).
 
@@ -282,7 +280,14 @@ The thesis title page is defined using the `titlepage` environment which is cent
   - Customizing the settings for this package is an involved process and requires some effort. It also depends on the font type being used. Thus I kept it as minimal as possible. But you are welcome to explore more.
   - It is best not to use the `protrusion` option from the `microtype` package for the TOC, LOT, and LOF. So they are locally deactivated around these.
 
-
+- In the first appendix chapter (see `11-appendix-A.tex` file), you will need the following preamble before you begin the chapter to properly add the appendix to the TOC.
+  ``` latex
+  \appendix 
+  \makeatletter
+  \addtocontents{toc}{\protect\renewcommand\protect\cftchappresnum{\@chapapp\ }}
+  \makeatother
+  \renewcommand{\thechapter}{\Alph{chapter}}
+  ```
 
 
 ### Figures, Tables, and Algorithms
@@ -297,25 +302,23 @@ The thesis title page is defined using the `titlepage` environment which is cent
 - For algorithms and pseudocodes, the `algorithm2e` package has been loaded as it is the most flexible (provides a lot of customization options) and updated package. In case you already have your algorithm typeset using a different package, change the package. To learn more about algorithm-related LaTeX packages, [see here](https://www.overleaf.com/learn/latex/Algorithms).
   - Similar to the figures and tables, you can print the list of algorithms in the front matter of your thesis. However, to have a consistent formatting of this similar to the other listings, you will need to define macros.
 
+- You can add codes using the `listings` and `minted` packages (both of them are loaded in the preamble). Customize these packages to your needs/preferences.
 
 
 
 ### Bibliography
 
-
-> [!CAUTION]
->
-> BibLaTeX is a more modern and flexible package (compared to the `natbib` package and `BibTeX` engine) primarily based on the `biber` backend engine.  The `biblatex` package works differently than the older `bibtex` package (which is still available and widely used by many journals). If you have a `bibtex` compatible file, then change the option from `backend=biber` to `backend=bibtex` for the `biblatex` package. But you may get warnings and errors thrown by the LaTeX compiler in this case.
+The bibliography in this template is managed by the BibLaTeX package instead of the BibTeX or Natbib package. BibLaTeX is a more modern and flexible package compared to the `natbib` package and `BibTeX` engine and is primarily based on the `biber` backend engine.  
 
 
 > [!TIP]
 >
->  The `.bib` file for `biblatex` is a little different than the one for `bibtex`. Use a citation manager to generate a `biblatex` compatible file directly. I use Zotero with the `Better BibTeX` plugin and export my `.bib` with the biblatex compatible format.
+>  Since the `.bib` file for `biblatex` is a little different than the one for `bibtex`. Use a citation manager to generate a `biblatex` compatible file directly. I use Zotero with the `Better BibTeX` plugin and export my `.bib` with the biblatex compatible format. **Please make sure to go through the generated `.bib` file to find inconsistency and formatting issues with the bib entries and fields.**
 
 
 - The name of your bib file has to be specified in the `BibFileName` variable in the `LIST OF VARIABLES FOR FORMATTING` section. If your bib file has a different name than the given file, then change the variable name or the file name.
 
-- To change the default form of the bibliography (currently, `Nature` style), look for the following command and change the options based on your need and/or preference. Depending on the discipline, you may need to use different citation formats such as IEEE, ACM, APA, ACS, AIP/ APS, AMS, MLA, etc. As an example, APA and IEEE styles are also shown in the template as well (commented). Customization can be done by changing options within `[ ... ]` of the following command.
+- To change the default form of the bibliography (currently, `Nature` style), look for the following command and change the options based on your need and/or preference. Depending on the discipline, you may need to use different citation formats such as IEEE, ACM, APA, ACS, AIP/ APS, AMS, MLA, etc. As an example, APA and IEEE styles are also shown in the template as well (commented). Customization can be done by changing the options within `[ ... ]` of the following command.
     ``` latex
     \usepackage[ ... ]{biblatex}
     ```
@@ -331,10 +334,14 @@ The thesis title page is defined using the `titlepage` environment which is cent
   \clearpage                              
   ```
 
-
+> [!WARNING]
+>
+> If you have a `bibtex` compatible file, then change the option from `backend=biber` to `backend=bibtex` for the `biblatex` package. But you may get warnings and errors thrown by the LaTeX compiler in this case.
+> 
 
 
 ### Generating PDF/A compliant output file for the JH Library on Overleaf
+
 
 Johns Hopkins Library requires the electronic copy of the thesis must be [generated in PDF/A format](https://en.wikipedia.org/wiki/PDF/A) which is not a trivial task. Even compiling LaTeX documents is a bit of an involved process but thanks to Overleaf we do not have to worry about it. For fun, you can [check here to learn how they do it](https://www.overleaf.com/learn/how-to/How_does_Overleaf_compile_my_project%3F). I have not done the compilation locally for this project and do not plan on doing it. So I am unable to provide any help in that regard.
 
