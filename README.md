@@ -13,9 +13,10 @@ As of March 2024, the template follows the thesis or dissertation formatting req
 * [Document formatting (customization beyond the requirements)](#document-formatting-customization-beyond-the-requirements)
 * [Basic user guidelines](#basic-user-guidelines)
   + [Before you begin](#before-you-begin)
+  + [The main file](#the-main-file)
   + [Title page](#title-page)
   + [Prefaces and TOC, LOT, LOF, etc.](#prefaces-and-toc-lot-lof-etc)
-  + [Main text](#main-text)
+  + [Chapter texts](#chapter-texts)
   + [Figures, Tables, and Algorithms](#figures-tables-and-algorithms)
   + [Bibliography](#bibliography)
   + [Generating PDF/A compliant output file for the JH Library on Overleaf](#generating-pdfa-compliant-output-file-for-the-jh-library-on-overleaf)
@@ -152,7 +153,7 @@ Since the default formatting of the LaTeX report class (even with different pack
 Overleaf has a huge collection of tutorials and examples on different LaTeX-related typesetting topics (margins and page size, math, table, footnote, and bibliography management). You will most likely find what you need there. Another useful resource for [writing thesis in LaTeX is here](https://www.khirevich.com/latex/). If you would like to do something specific, your best friend is Google; most likely someone on [TeX StackExchange](https://tex.stackexchange.com) has done it before.
 
 
-### The `00-main.tex` file
+### The main file
 
 The preamble section of the `00-main.tex` file has been subdivided into multiple sections to make the code understandable and readable. A simple descriptions of the sections are below:
 
@@ -219,7 +220,7 @@ The thesis title page is defined using the `titlepage` environment which is cent
 
 
 
-### Main text
+### Chapter texts
 
 - It is a good practice not to use math expressions for chapter, section, subsection, and subsection titles. But if you have to do it, you may encounter warnings given by the hyperref package. To resolve this, you can use the following command:
     ``` latex
