@@ -241,7 +241,7 @@
 \geometry{letterpaper, margin=\GlobalMargin, bindingoffset=\PrintingOffset, 
     nomarginpar, includehead, headheight=\HeaderHeight, 
     headsep=\HeaderSpace, includefoot, heightrounded}
-%% you can add showframe option to see how the layout looks like
+%% you can add the showframe option to see what the layout looks like
 
 
 %%%% HYPERREF PACKAGE
@@ -250,6 +250,17 @@
     linkcolor=\HyperlinkColor, urlcolor=\HyperlinkColor}
 \urlstyle{rm}           % removes default \texttt style for hyperlinks
 
+
+%%% FOOTNOTE FIX for HYPERREF
+\makeatletter
+\let\Hy@org@makefntext\@makefntext
+\renewcommand\@makefntext[1]{%
+  \Hy@org@makefntext{%
+    \Hy@raisedlink{\hyper@anchorstart{Hfootnote.\the\c@Hfootnote}\hyper@anchorend}%
+    #1%
+  }%
+}
+\makeatother
 
 %%%% CAPTION PACKAGE
 \captionsetup{belowskip=\FigureToCaption, font=\CaptionFontSize, 
@@ -284,7 +295,7 @@
   \printfield{titleaddon}}
 
 
-%%%% separate category for papers to be not cited in the bibliography
+%%%% separate category for papers not to be cited in the bibliography
 \DeclareBibliographyCategory{mypapers}             
 \newcommand{\mybibexclude}[1]{\addtocategory{mypapers}{#1}}
 
@@ -354,11 +365,11 @@
     {\ChapTitleToText}
 
 
-%%%% TITLESEC: settings for sections, subsection, ... heading format
+%%%% TITLESEC: settings for sections, subsections, ... heading format
 \titleformat*{\section}{\SectionFont}
 \titleformat*{\subsection}{\SubsectionFont}
 \titleformat*{\subsubsection}{\SubsubsectionFont}
-%% if you had more levels then add settings for paragraph and subparagraph
+%% if you had more levels, then add settings for paragraph and subparagraph
 
 
 %% to customize space around section headings, use the following command:
