@@ -71,7 +71,7 @@ Since the template is based on the report class, it is subdivided into multiple 
 
 ## How to use the template on Overleaf
 
-Since Johns Hopkins provides [Overleaf premium](https://www.overleaf.com/learn/how-to/Overleaf_premium_features) to all affiliates, my recommendation is to use Overleaf for this template. Follow one of the two approaches to get started with this project on Overleaf. Then go through the `00-main.tex` file and other files to see how the template is structured.
+Since Whiting School of Engineering of Johns Hopkins University provides [Overleaf premium](https://www.overleaf.com/learn/how-to/Overleaf_premium_features) to all affiliates, my recommendation is to use Overleaf for this template if you are in WSE. Even if you are not, you can still use Overleaf without the premium features. Follow one of the two approaches to get started with this project on Overleaf. Then go through the `00-main.tex` file and other files to see how the template is structured.
 
 - You can download/clone this repository from GitHub, and compress it as a zip file. Go to Overleaf, Click on **New Project** -> **Upload Project**, then upload the zipped folder.
   
