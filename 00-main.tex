@@ -121,7 +121,7 @@
 
 
 %%%% ADHOC HEIGHT ADJUSTMENT VARIABLES for consistent typesettings
-%% following numbers are found by trial and error to compensate 
+%% The following numbers are found by trial and error to compensate 
 %% for the default spacing around different LaTeX environments.
 %% unless you find inconsistent formatting, you may not need to change these
 \def\TitleTopSpacing{-\HeaderHeight-\HeaderSpace}   % top height adjustment for thesis title
@@ -142,7 +142,7 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% add packages as needed but sometimes the order of the packages matters.
+%% add packages as needed, but sometimes the order of the packages matters.
 %% you may have to change the options of the biblatex package for the bibliography.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LaTeX PACKAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -241,7 +241,7 @@
 \geometry{letterpaper, margin=\GlobalMargin, bindingoffset=\PrintingOffset, 
     nomarginpar, includehead, headheight=\HeaderHeight, 
     headsep=\HeaderSpace, includefoot, heightrounded}
-%% you can add the showframe option to see what the layout looks like
+%% You can add the showframe option to see what the layout looks like
 
 
 %%%% HYPERREF PACKAGE
@@ -249,19 +249,6 @@
     citecolor=\HyperlinkColor, filecolor=\HyperlinkColor, 
     linkcolor=\HyperlinkColor, urlcolor=\HyperlinkColor}
 \urlstyle{rm}           % removes default \texttt style for hyperlinks
-
-%% footmisc's hang/flushmargin options redefine \@makefntext and drop
-%% hyperref's Hfootnote.N anchor, so footnote-mark links land at the
-%% top of the document. Re-inject the anchor inside \@makefntext.
-\makeatletter
-\let\Hy@org@makefntext\@makefntext
-\renewcommand\@makefntext[1]{%
-  \Hy@org@makefntext{%
-    \Hy@raisedlink{\hyper@anchorstart{Hfootnote.\the\c@Hfootnote}\hyper@anchorend}%
-    #1%
-  }%
-}
-\makeatother
 
 
 %%% FOOTNOTE FIX for HYPERREF
@@ -274,6 +261,8 @@
   }%
 }
 \makeatother
+
+
 
 %%%% CAPTION PACKAGE
 \captionsetup{belowskip=\FigureToCaption, font=\CaptionFontSize, 
@@ -313,6 +302,8 @@
 \newcommand{\mybibexclude}[1]{\addtocategory{mypapers}{#1}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% END PACKAGE OPTIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
