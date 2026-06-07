@@ -264,17 +264,6 @@
 \makeatother
 
 
-%%% FOOTNOTE FIX for HYPERREF
-\makeatletter
-\let\Hy@org@makefntext\@makefntext
-\renewcommand\@makefntext[1]{%
-  \Hy@org@makefntext{%
-    \Hy@raisedlink{\hyper@anchorstart{Hfootnote.\the\c@Hfootnote}\hyper@anchorend}%
-    #1%
-  }%
-}
-\makeatother
-
 %%%% CAPTION PACKAGE
 \captionsetup{belowskip=\FigureToCaption, font=\CaptionFontSize, 
     labelfont=\CaptionLabelFontType, labelsep=\CaptionSeparator,
