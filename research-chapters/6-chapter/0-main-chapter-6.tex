@@ -9,8 +9,8 @@
 \end{figure}
 
 \section*{Non-technical Abstract}
-When AI systems generate text—whether summarizing an article, translating a document, or answering a question—someone needs to judge whether the output is any good. Increasingly, that someone is another AI. Large language models (LLMs) have proven surprisingly good at evaluating writing across many different tasks.
-These AI judges work reasonably well on their own, but they do an even better job when you give them a ``gold standard'' example to compare against—essentially an answer key. The problem is that creating these answer keys is expensive and time-consuming. For every new test, you need human experts to write out ideal versions of the answers by hand, which can mean hundreds or thousands of carefully crafted examples.
+When AI systems generate text someone needs to judge whether the output is any good. Increasingly, that someone is another AI. Large language models (LLMs) have proven surprisingly good at evaluating writing across many different tasks.
+These AI judges work reasonably well on their own, but they do an even better job when you give them a ``gold standard'' example to compare against. The problem is that creating these answer keys is expensive and time-consuming. For every new test, you need human experts to write out ideal versions of the answers by hand, which can mean hundreds or thousands of carefully crafted examples.
 In this chapter, we propose a middle-ground solution: instead of giving the AI judge a perfect answer key, what if we gave it something close enough? We call this ``reference-adjusted evaluation.'' The idea is that even a related example, not an exact match, gives the AI something to compare against, which sharpens its judgment. We show that this approach meaningfully improves how well AI judges perform, without requiring the costly process of building a custom answer key from scratch. This makes it easier and cheaper for researchers and developers to reliably evaluate new AI systems.
 
 \input{research-chapters/6-chapter/1-Introduction}

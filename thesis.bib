@@ -7,15 +7,18 @@
 }
 
 @inproceedings{Vaswani2017AttentionIA,
- author = {Vaswani, Ashish and Shazeer, Noam and Parmar, Niki and Uszkoreit, Jakob and Jones, Llion and Gomez, Aidan N and Kaiser, \L ukasz and Polosukhin, Illia},
- booktitle = {Advances in Neural Information Processing Systems},
- editor = {I. Guyon and U. Von Luxburg and S. Bengio and H. Wallach and R. Fergus and S. Vishwanathan and R. Garnett},
- pages = {},
- publisher = {Curran Associates, Inc.},
- title = {Attention is All you Need},
- url = {https://proceedings.neurips.cc/paper_files/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf},
- volume = {30},
- year = {2017}
+author = {Vaswani, Ashish and Shazeer, Noam and Parmar, Niki and Uszkoreit, Jakob and Jones, Llion and Gomez, Aidan N. and Kaiser, \L{}ukasz and Polosukhin, Illia},
+title = {Attention is all you need},
+year = {2017},
+isbn = {9781510860964},
+publisher = {Curran Associates Inc.},
+address = {Red Hook, NY, USA},
+abstract = {The dominant sequence transduction models are based on complex recurrent or convolutional neural networks that include an encoder and a decoder. The best performing models also connect the encoder and decoder through an attention mechanism. We propose a new simple network architecture, the Transformer, based solely on attention mechanisms, dispensing with recurrence and convolutions entirely. Experiments on two machine translation tasks show these models to be superior in quality while being more parallelizable and requiring significantly less time to train. Our model achieves 28.4 BLEU on the WMT 2014 English-to-German translation task, improving over the existing best results, including ensembles, by over 2 BLEU. On the WMT 2014 English-to-French translation task, our model establishes a new single-model state-of-the-art BLEU score of 41.0 after training for 3.5 days on eight GPUs, a small fraction of the training costs of the best models from the literature.},
+booktitle = {Proceedings of the 31st International Conference on Neural Information Processing Systems},
+pages = {6000–6010},
+numpages = {11},
+location = {Long Beach, California, USA},
+series = {NIPS'17}
 }
 
 @inproceedings{Lev2019TalkSummAD,
@@ -27,15 +30,42 @@
       Konopnicki, David",
     editor = "Korhonen, Anna  and
       Traum, David  and
-      M{\`a}rquez, Llu{\'\i}s",
+      M{\`a}rquez, Llu{\'i}s",
     booktitle = "Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics",
     month = jul,
     year = "2019",
     address = "Florence, Italy",
     publisher = "Association for Computational Linguistics",
-    url = "https://aclanthology.org/P19-1204",
+    url = "https://aclanthology.org/P19-1204/",
     doi = "10.18653/v1/P19-1204",
     pages = "2125--2131",
+    abstract = "Currently, no large-scale training data is available for the task of scientific paper summarization. In this paper, we propose a novel method that automatically generates summaries for scientific papers, by utilizing videos of talks at scientific conferences. We hypothesize that such talks constitute a coherent and concise description of the papers' content, and can form the basis for good summaries. We collected 1716 papers and their corresponding videos, and created a dataset of paper summaries. A model trained on this dataset achieves similar performance as models trained on a dataset of summaries created manually. In addition, we validated the quality of our summaries by human experts."
+}
+
+
+@inproceedings{tang-etal-2023-understanding,
+    title = "Understanding Factual Errors in Summarization: Errors, Summarizers, Datasets, Error Detectors",
+    author = "Tang, Liyan  and
+      Goyal, Tanya  and
+      Fabbri, Alex  and
+      Laban, Philippe  and
+      Xu, Jiacheng  and
+      Yavuz, Semih  and
+      Kryscinski, Wojciech  and
+      Rousseau, Justin  and
+      Durrett, Greg",
+    editor = "Rogers, Anna  and
+      Boyd-Graber, Jordan  and
+      Okazaki, Naoaki",
+    booktitle = "Proceedings of the 61st Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)",
+    month = jul,
+    year = "2023",
+    address = "Toronto, Canada",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2023.acl-long.650/",
+    doi = "10.18653/v1/2023.acl-long.650",
+    pages = "11626--11644",
+    abstract = "The propensity of abstractive summarization models to make factual errors has been studied extensively, including design of metrics to detect factual errors and annotation of errors in current systems' outputs. However, the ever-evolving nature of summarization systems, metrics, and annotated benchmarks makes factuality evaluation a moving target, and drawing clear comparisons among metrics has become increasingly difficult. In this work, we aggregate factuality error annotations from nine existing datasets and stratify them according to the underlying summarization model. We compare performance of state-of-the-art factuality metrics, including recent ChatGPT-based metrics, on this stratified benchmark and show that their performance varies significantly across different types of summarization models. Critically, our analysis shows that much of the recent improvement in the factuality detection space has been on summaries from older (pre-Transformer) models instead of more relevant recent summarization models. We further perform a finer-grained analysis per error-type and find similar performance variance across error types for different factuality metrics. Our results show that no one metric is superior in all settings or for all error types, and we provide recommendations for best practices given these insights."
 }
 
 @inproceedings{Cohan2015ScientificAS,
@@ -129,23 +159,26 @@
 @article{Wang2015iPosterIP,
   title={iPoster: Interactive Poster Generation based on Topic Structure and Slide Presentation},
   author={Yuanyuan Wang and Yukiko Kawai and Kazutoshi Sumiya},
-  journal={Transactions of The Japanese Society for Artificial Intelligence},
+  journal={Information and Media Technologies},
+  volume={10},
+  number={1},
+  pages={145-156},
   year={2015},
-  volume={30},
-  pages={112-123},
-  url={https://api.semanticscholar.org/CorpusID:55145092}
+  doi={10.11185/imt.10.145}
 }
-
 @inproceedings{Wei2022ChainOT,
- author = {Wei, Jason and Wang, Xuezhi and Schuurmans, Dale and Bosma, Maarten and ichter, brian and Xia, Fei and Chi, Ed and Le, Quoc V and Zhou, Denny},
- booktitle = {Advances in Neural Information Processing Systems},
- editor = {S. Koyejo and S. Mohamed and A. Agarwal and D. Belgrave and K. Cho and A. Oh},
- pages = {24824--24837},
- publisher = {Curran Associates, Inc.},
- title = {Chain-of-Thought Prompting Elicits Reasoning in Large Language Models},
- url = {https://proceedings.neurips.cc/paper_files/paper/2022/file/9d5609613524ecf4f15af0f7b31abca4-Paper-Conference.pdf},
- volume = {35},
- year = {2022}
+author = {Wei, Jason and Wang, Xuezhi and Schuurmans, Dale and Bosma, Maarten and Ichter, Brian and Xia, Fei and Chi, Ed H. and Le, Quoc V. and Zhou, Denny},
+title = {Chain-of-thought prompting elicits reasoning in large language models},
+year = {2022},
+isbn = {9781713871088},
+publisher = {Curran Associates Inc.},
+address = {Red Hook, NY, USA},
+abstract = {We explore how generating a chain of thought—a series of intermediate reasoning steps—significantly improves the ability of large language models to perform complex reasoning. In particular, we show how such reasoning abilities emerge naturally in sufficiently large language models via a simple method called chain-of-thought prompting, where a few chain of thought demonstrations are provided as exemplars in prompting.Experiments on three large language models show that chain-of-thought prompting improves performance on a range of arithmetic, commonsense, and symbolic reasoning tasks. The empirical gains can be striking. For instance, prompting a PaLM 540B with just eight chain-of-thought exemplars achieves state-of-the-art accuracy on the GSM8K benchmark of math word problems, surpassing even finetuned GPT-3 with a verifier.},
+booktitle = {Proceedings of the 36th International Conference on Neural Information Processing Systems},
+articleno = {1800},
+numpages = {14},
+location = {New Orleans, LA, USA},
+series = {NIPS '22}
 }
 
 @inproceedings{Brown2020LanguageMA,
@@ -253,13 +286,6 @@ location = {La Rochelle, France}
   number={},
   pages={276-280},
   doi={10.1109/IS.2010.5548399}}
-
-@article{freedman2007statistics,
-  title={Statistics (international student edition)},
-  author={Freedman, David and Pisani, Robert and Purves, Roger},
-  journal={Pisani, R. Purves, 4th edn. WW Norton \& Company, New York},
-  year={2007}
-}
 
 @article{Zdravkova2023IntegrationOL,
   title={Integration of Large Language Models into Higher Education: A Perspective from Learners},
@@ -457,7 +483,7 @@ location = {La Rochelle, France}
 }
 
 @article{dale1948formula,
-  title={A formula for predicting readability: Instructions},
+  title={A formula for predicting readability},
   author={Dale, Edgar and Chall, Jeanne S},
   journal={Educational research bulletin},
   pages={37--54},
@@ -512,14 +538,13 @@ location = {La Rochelle, France}
     pages = "11669--11687"
 }
 
-@misc{zou2025representationengineeringtopdownapproach,
-      title={Representation Engineering: A Top-Down Approach to AI Transparency}, 
-      author={Andy Zou and Long Phan and Sarah Chen and James Campbell and Phillip Guo and Richard Ren and Alexander Pan and Xuwang Yin and Mantas Mazeika and Ann-Kathrin Dombrowski and Shashwat Goel and Nathaniel Li and Michael J. Byun and Zifan Wang and Alex Mallen and Steven Basart and Sanmi Koyejo and Dawn Song and Matt Fredrikson and J. Zico Kolter and Dan Hendrycks},
-      year={2025},
-      eprint={2310.01405},
-      archivePrefix={arXiv},
-      primaryClass={cs.LG},
-      url={https://arxiv.org/abs/2310.01405}, 
+@article{zou2025representationengineeringtopdownapproach,
+  title={Representation Engineering: A Top-Down Approach to AI Transparency},
+  author={Andy Zou and Long Phan and Sarah Chen and James Campbell and Phillip Guo and Richard Ren and Alexander Pan and Xuwang Yin and Mantas Mazeika and Ann-Kathrin Dombrowski and Shashwat Goel and Nathaniel Li and Michael J. Byun and Zifan Wang and Alex Troy Mallen and Steven Basart and Sanmi Koyejo and Dawn Song and Matt Fredrikson and Zico Kolter and Dan Hendrycks},
+  journal={ArXiv},
+  year={2023},
+  volume={abs/2310.01405},
+  url={https://api.semanticscholar.org/CorpusID:263605618}
 }
 
 @inproceedings{cachola-etal-2024-knowledge,
@@ -646,24 +671,31 @@ abstract = {Disinformation - the deliberate spread of false or misleading inform
   url={https://api.semanticscholar.org/CorpusID:266693225}
 }
 
-@misc{ding2024fewertruncationsimprovelanguage,
-      title={Fewer Truncations Improve Language Modeling}, 
-      author={Hantian Ding and Zijian Wang and Giovanni Paolini and Varun Kumar and Anoop Deoras and Dan Roth and Stefano Soatto},
-      year={2024},
-      eprint={2404.10830},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL},
-      url={https://arxiv.org/abs/2404.10830}, 
+@inproceedings{ding2024fewertruncationsimprovelanguage,
+author = {Ding, Hantian and Wang, Zijian and Paolini, Giovanni and Kumar, Varun and Deoras, Anoop and Roth, Dan and Soatto, Stefano},
+title = {Fewer truncations improve language modeling},
+year = {2024},
+publisher = {JMLR.org},
+abstract = {In large language model training, input documents are typically concatenated together and then split into sequences of equal length to avoid padding tokens. Despite its efficiency, the concatenation approach compromises data integrity--it inevitably breaks many documents into incomplete pieces, leading to excessive truncations that hinder the model from learning to compose logically coherent and factually consistent content that is grounded on the complete context. To address the issue, we propose Best-fit Packing, a scalable and efficient method that packs documents into training sequences through length-aware combinatorial optimization. Our method completely eliminates unnecessary truncations while retaining the same training efficiency as concatenation. Empirical results from both text and code pretraining show that our method achieves superior performance (e.g., relatively +4.7\% on reading comprehension; +16.8\% in context following; and +9.2\% on program synthesis), and reduces closed-domain hallucination effectively by up to 58.3\%.},
+booktitle = {Proceedings of the 41st International Conference on Machine Learning},
+articleno = {439},
+numpages = {19},
+location = {Vienna, Austria},
+series = {ICML'24}
 }
 
-@misc{rajbhandari2020zeromemoryoptimizationstraining,
-      title={ZeRO: Memory Optimizations Toward Training Trillion Parameter Models}, 
-      author={Samyam Rajbhandari and Jeff Rasley and Olatunji Ruwase and Yuxiong He},
-      year={2020},
-      eprint={1910.02054},
-      archivePrefix={arXiv},
-      primaryClass={cs.LG},
-      url={https://arxiv.org/abs/1910.02054}, 
+@inproceedings{rajbhandari2020zeromemoryoptimizationstraining,
+author = {Rajbhandari, Samyam and Rasley, Jeff and Ruwase, Olatunji and He, Yuxiong},
+title = {ZeRO: memory optimizations toward training trillion parameter models},
+year = {2020},
+isbn = {9781728199986},
+publisher = {IEEE Press},
+abstract = {Large deep learning models offer significant accuracy gains, but training billions to trillions of parameters is challenging. Existing solutions such as data and model parallelisms exhibit fundamental limitations to fit these models into limited device memory, while obtaining computation, communication and development efficiency. We develop a novel solution, Zero Redundancy Optimizer (ZeRO), to optimize memory, vastly improving training speed while increasing the model size that can be efficiently trained. ZeRO eliminates memory redundancies in data- and model-parallel training while retaining low communication volume and high computational granularity, allowing us to scale the model size proportional to the number of devices with sustained high efficiency. Our analysis on memory requirements and communication volume demonstrates: ZeRO has the potential to scale beyond 1 Trillion parameters using today's hardware.We implement and evaluate ZeRO: it trains large models of over 100B parameter with super-linear speedup on 400 GPUs, achieving throughput of 15 Petaflops. This represents an 8x increase in model size and 10x increase in achievable performance over state-of-the-art. In terms of usability, ZeRO can train large models of up to 13B parameters (e.g., larger than Megatron GPT 8.3B and T5 11B) without requiring model parallelism which is harder for scientists to apply. Last but not the least, researchers have used the system breakthroughs of ZeRO to create Turing-NLG, the world's largest language model at the time (17B parameters) with record breaking accuracy.},
+booktitle = {Proceedings of the International Conference for High Performance Computing, Networking, Storage and Analysis},
+articleno = {20},
+numpages = {16},
+location = {Atlanta, Georgia},
+series = {SC '20}
 }
 
 @misc{hu2021loralowrankadaptationlarge,
@@ -676,14 +708,18 @@ abstract = {Disinformation - the deliberate spread of false or misleading inform
       url={https://arxiv.org/abs/2106.09685}, 
 }
 
-@misc{dettmers2023qloraefficientfinetuningquantized,
-      title={QLoRA: Efficient Finetuning of Quantized LLMs}, 
-      author={Tim Dettmers and Artidoro Pagnoni and Ari Holtzman and Luke Zettlemoyer},
-      year={2023},
-      eprint={2305.14314},
-      archivePrefix={arXiv},
-      primaryClass={cs.LG},
-      url={https://arxiv.org/abs/2305.14314}, 
+@inproceedings{dettmers2023qloraefficientfinetuningquantized,
+author = {Dettmers, Tim and Pagnoni, Artidoro and Holtzman, Ari and Zettlemoyer, Luke},
+title = {QLORA: efficient finetuning of quantized LLMs},
+year = {2023},
+publisher = {Curran Associates Inc.},
+address = {Red Hook, NY, USA},
+abstract = {We present QLORA, an efficient finetuning approach that reduces memory usage enough to finetune a 65B parameter model on a single 48GB GPU while preserving full 16-bit finetuning task performance. QLORA backpropagates gradients through a frozen, 4-bit quantized pretrained language model into Low Rank Adapters (LoRA). Our best model family, which we name Guanaco, outperforms all previous openly released models on the Vicuna benchmark, reaching 99.3\% of the performance level of ChatGPT while only requiring 24 hours of finetuning on a single GPU. QLORA introduces a number of innovations to save memory without sacrificing performance: (a) 4-bit NormalFloat (NF4), a new data type that is information theoretically optimal for normally distributed weights (b) Double Quantization to reduce the average memory footprint by quantizing the quantization constants, and (c) Paged Optimizers to manage memory spikes. We use QLORA to finetune more than 1,000 models, providing a detailed analysis of instruction following and chatbot performance across 8 instruction datasets, multiple model types (LLaMA, T5), and model scales that would be infeasible to run with regular finetuning (e.g. 33B and 65B parameter models). Our results show that QLoRA finetuning on a small high-quality dataset leads to state-of-the-art results, even when using smaller models than the previous SoTA. We provide a detailed analysis of chatbot performance based on both human and GPT-4 evaluations showing that GPT-4 evaluations are a cheap and reasonable alternative to human evaluation. Furthermore, we find that current chatbot benchmarks are not trustworthy to accurately evaluate the performance levels of chatbots. A lemon-picked analysis demonstrates where Guanaco fails compared to ChatGPT. We release all of our models and code, including CUDA kernels for 4-bit training.. Equal contribution. https://github.com/artidoro/qlora and https://github.com/TimDettmers/bitsandbytes},
+booktitle = {Proceedings of the 37th International Conference on Neural Information Processing Systems},
+articleno = {441},
+numpages = {28},
+location = {New Orleans, LA, USA},
+series = {NIPS '23}
 }
 
 @misc{khattab2023dspycompilingdeclarativelanguage,
@@ -696,14 +732,27 @@ abstract = {Disinformation - the deliberate spread of false or misleading inform
       url={https://arxiv.org/abs/2310.03714}, 
 }
 
-@misc{opsahlong2024optimizinginstructionsdemonstrationsmultistage,
-      title={Optimizing Instructions and Demonstrations for Multi-Stage Language Model Programs}, 
-      author={Krista Opsahl-Ong and Michael J Ryan and Josh Purtell and David Broman and Christopher Potts and Matei Zaharia and Omar Khattab},
-      year={2024},
-      eprint={2406.11695},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL},
-      url={https://arxiv.org/abs/2406.11695}, 
+@inproceedings{opsahlong2024optimizinginstructionsdemonstrationsmultistage,
+    title = "Optimizing Instructions and Demonstrations for Multi-Stage Language Model Programs",
+    author = "Opsahl-Ong, Krista  and
+      Ryan, Michael J  and
+      Purtell, Josh  and
+      Broman, David  and
+      Potts, Christopher  and
+      Zaharia, Matei  and
+      Khattab, Omar",
+    editor = "Al-Onaizan, Yaser  and
+      Bansal, Mohit  and
+      Chen, Yun-Nung",
+    booktitle = "Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing",
+    month = nov,
+    year = "2024",
+    address = "Miami, Florida, USA",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2024.emnlp-main.525/",
+    doi = "10.18653/v1/2024.emnlp-main.525",
+    pages = "9340--9366",
+    abstract = "Language Model Programs, i.e. sophisticated pipelines of modular language model (LM) calls, are increasingly advancing NLP tasks, but they require crafting prompts that are jointly effective for all modules. We study prompt optimization for LM programs, i.e. how to update these prompts to maximize a downstream metric without access to module-level labels or gradients. To make this tractable, we factorize our problem into optimizing the free-form instructions and few-shot demonstrations of every module and introduce several strategies to craft task-grounded instructions and navigate credit assignment across modules. Our strategies include (i) program- and data-aware techniques for proposing effective instructions, (ii) a stochastic mini-batch evaluation function for learning a surrogate model of our objective, and (iii) a meta-optimization procedure in which we refine how LMs construct proposals over time. Using these insights we develop MIPRO, a novel algorithm for optimizing LM programs. MIPRO outperforms baseline optimizers on five of seven diverse multi-stage LM programs using a best-in-class open-source model (Llama-3-8B), by as high as 13{\%} accuracy. We have released our new optimizers and benchmark in DSPy at [http://dspy.ai](http://dspy.ai)."
 }
 
 @misc{gemmateam2024gemmaopenmodelsbased,
@@ -1022,6 +1071,7 @@ author = {Zhang, Jingqing and Zhao, Yao and Saleh, Mohammad and Liu, Peter J.},
 title = {PEGASUS: pre-training with extracted gap-sentences for abstractive summarization},
 year = {2020},
 publisher = {JMLR.org},
+abstract = {Recent work pre-training Transformers with self-supervised objectives on large text corpora has shown great success when fine-tuned on downstream NLP tasks including text summarization. However, pre-training objectives tailored for abstractive text summarization have not been explored. Furthermore there is a lack of systematic evaluation across diverse domains. In this work, we propose pretraining large Transformer-based encoder-decoder models on massive text corpora with a new self-supervised objective. In PEGASUS, important sentences are removed/masked from an input document and are generated together as one output sequence from the remaining sentences, similar to an extractive summary. We evaluated our best PEGASUS model on 12 downstream summarization tasks spanning news, science, stories, instructions, emails, patents, and legislative bills. Experiments demonstrate it achieves state-of-the-art performance on all 12 downstream datasets measured by ROUGE scores. Our model also shows surprising performance on low-resource summarization, surpassing previous state-of-the-art results on 6 datasets with only 1000 examples. Finally we validated our results using human evaluation and show that our model summaries achieve human performance on multiple datasets.},
 booktitle = {Proceedings of the 37th International Conference on Machine Learning},
 articleno = {1051},
 numpages = {12},
@@ -1053,8 +1103,10 @@ series = {ICML'20}
     publisher = "MIT Press",
     url = "https://aclanthology.org/2021.tacl-1.24/",
     doi = "10.1162/tacl_a_00373",
-    pages = "391--409"
+    pages = "391--409",
+    abstract = "The scarcity of comprehensive up-to-date studies on evaluation metrics for text summarization and the lack of consensus regarding evaluation protocols continue to inhibit progress. We address the existing shortcomings of summarization evaluation methods along five dimensions: 1) we re-evaluate 14 automatic evaluation metrics in a comprehensive and consistent fashion using neural summarization model outputs along with expert and crowd-sourced human annotations; 2) we consistently benchmark 23 recent summarization models using the aforementioned automatic evaluation metrics; 3) we assemble the largest collection of summaries generated by models trained on the CNN/DailyMail news dataset and share it in a unified format; 4) we implement and share a toolkit that provides an extensible and unified API for evaluating summarization models across a broad range of automatic metrics; and 5) we assemble and share the largest and most diverse, in terms of model types, collection of human judgments of model-generated summaries on the CNN/Daily Mail dataset annotated by both expert judges and crowd-source workers. We hope that this work will help promote a more complete evaluation protocol for text summarization as well as advance research in developing evaluation metrics that better correlate with human judgments."
 }
+
 
 @inproceedings{yang-klein-2021-fudge,
 	title        = {{FUDGE}: Controlled Text Generation With Future Discriminators},
@@ -1068,11 +1120,20 @@ series = {ICML'20}
 }
 
 @article{chung2022scaling,
-	title        = {Scaling Instruction-Finetuned Language Models},
-	author       = {Chung, Hyung Won and Hou, Le and Longpre, Shayne and Zoph, Barret and Tay, Yi and Fedus, William and Li, Eric and Wang, Xuezhi and Dehghani, Mostafa and Brahma, Siddhartha and others},
-	year         = 2022,
-	journal      = {arXiv preprint arXiv:2210.11416},
-	url          = {https://arxiv.org/abs/2210.11416},
+author = {Chung, Hyung Won and Hou, Le and Longpre, Shayne and Zoph, Barret and Tai, Yi and Fedus, William and Li, Yunxuan and Wang, Xuezhi and Dehghani, Mostafa and Brahma, Siddhartha and Webson, Albert and Gu, Shixiang Shane and Dai, Zhuyun and Suzgun, Mirac and Chen, Xinyun and Chowdhery, Aakanksha and Castro-Ros, Alex and Pellat, Marie and Robinson, Kevin and Valter, Dasha and Narang, Sharan and Mishra, Gaurav and Yu, Adams and Zhao, Vincent and Huang, Yanping and Dai, Andrew and Yu, Hongkun and Petrov, Slav and Chi, Ed H. and Dean, Jeff and Devlin, Jacob and Roberts, Adam and Zhou, Denny and Le, Quoc V. and Wei, Jason},
+title = {Scaling instruction-finetuned language models},
+year = {2024},
+issue_date = {January 2024},
+publisher = {JMLR.org},
+volume = {25},
+number = {1},
+issn = {1532-4435},
+abstract = {Finetuning language models on a collection of datasets phrased as instructions has been shown to improve model performance and generalization to unseen tasks. In this paper we explore instruction finetuning with a particular focus on (1) scaling the number of tasks, (2) scaling the model size, and (3) finetuning on chain-of-thought data. We find that instruction finetuning with the above aspects dramatically improves performance on a variety of model classes (PaLM, T5, U-PaLM), prompting setups (zero-shot, few-shot, CoT), and evaluation benchmarks (MMLU, BBH, TyDiQA, MGSM, open-ended generation, RealToxicityPrompts). For instance, Flan-PaLM 540B instruction-finetuned on 1.8K tasks outperforms PaLM 540B by a large margin (+9.4\% on average). Flan-PaLM 540B achieves state-of-the-art performance on several benchmarks (at time of release), such as 75.2\% on five-shot MMLU. We also publicly release Flan-T5 checkpoints, which achieve strong few-shot performance even compared to much larger models, such as PaLM 62B. Overall, instruction finetuning is a general method for improving the performance and usability of pretrained language models.},
+journal = {J. Mach. Learn. Res.},
+month = jan,
+articleno = {70},
+numpages = {53},
+keywords = {natural language processing, language models, instruction finetuning, chain-of-thought reasoning, bias \& toxicity}
 }
 
 @inproceedings{NEURIPS2022_b1efde53,
@@ -1106,13 +1167,18 @@ series = {ICML'20}
 }
 
 
-@article{hoffmann2022training,
-	title        = {An empirical analysis of compute-optimal large language model training},
-	author       = {Hoffmann, Jordan and Borgeaud, Sebastian and Mensch, Arthur and Buchatskaya, Elena and Cai, Trevor and Rutherford, Eliza and de Las Casas, Diego and Hendricks, Lisa Anne and Welbl, Johannes and Clark, Aidan and Hennigan, Thomas and Noland, Eric and Millican, Katherine and van den Driessche, George and Damoc, Bogdan and Guy, Aurelia and Osindero, Simon and Simonyan, Kar\'{e}n and Elsen, Erich and Vinyals, Oriol and Rae, Jack and Sifre, Laurent},
-	year         = 2022,
-	booktitle    = nips,
-	url          = {https://proceedings.neurips.cc/paper\_files/paper/2022/file/c1e2faff6f588870935f114ebe04a3e5-Paper-Conference.pdf},
+@inproceedings{hoffmann2022training,
+ author = {Hoffmann, Jordan and Borgeaud, Sebastian and Mensch, Arthur and Buchatskaya, Elena and Cai, Trevor and Rutherford, Eliza and de Las Casas, Diego and Hendricks, Lisa Anne and Welbl, Johannes and Clark, Aidan and Hennigan, Thomas and Noland, Eric and Millican, Katherine and van den Driessche, George and Damoc, Bogdan and Guy, Aurelia and Osindero, Simon and Simonyan, Kar\'{e}n and Elsen, Erich and Vinyals, Oriol and Rae, Jack and Sifre, Laurent},
+ booktitle = {Advances in Neural Information Processing Systems},
+ editor = {S. Koyejo and S. Mohamed and A. Agarwal and D. Belgrave and K. Cho and A. Oh},
+ pages = {30016--30030},
+ publisher = {Curran Associates, Inc.},
+ title = {An empirical analysis of compute-optimal large language model training},
+ url = {https://proceedings.neurips.cc/paper_files/paper/2022/file/c1e2faff6f588870935f114ebe04a3e5-Paper-Conference.pdf},
+ volume = {35},
+ year = {2022}
 }
+
 
 @article{liu2023lost,
 	title        = {Lost in the middle: How language models use long contexts},
@@ -1123,13 +1189,12 @@ series = {ICML'20}
 }
 
 @article{srivastava2023beyond,
-	title        = {Beyond the Imitation Game: Quantifying and extrapolating the capabilities of language models},
-	author       = {Aarohi Srivastava and Abhinav Rastogi and Abhishek Rao and Abu Awal Md Shoeb and Abubakar Abid and Adam Fisch and Adam R. Brown and Adam Santoro and Aditya Gupta and Adri\`{a} Garriga-Alonso and Agnieszka Kluska and Aitor Lewkowycz and Akshat Agarwal and Alethea Power and Alex Ray and Alex Warstadt and Alexander W. Kocurek and Ali Safaya and Ali Tazarv and Alice Xiang and Alicia Parrish and Allen Nie and Aman Hussain and Amanda Askell and Amanda Dsouza and Ambrose Slone and Ameet Rahane and Anantharaman S. Iyer and Anders Andreassen and Andrea Madotto and Andrea Santilli and Andreas Stuhlm\"{u}ller and Andrew Dai and Andrew La and Andrew Lampinen and Andy Zou and Angela Jiang and Angelica Chen and Anh Vuong and Animesh Gupta and Anna Gottardi and Antonio Norelli and Anu Venkatesh and Arash Gholamidavoodi and Arfa Tabassum and Arul Menezes and Arun Kirubarajan and Asher Mullokandov and Ashish Sabharwal and Austin Herrick and Avia Efrat and Aykut Erdem and Ayla Karaka\c{s} and B. Ryan Roberts and Bao Sheng Loe and Barret Zoph and Bart\l{}omiej Bojanowski and Batuhan \"{O}zyurt and Behnam Hedayatnia and Behnam Neyshabur and Benjamin Inden and Benno Stein and Berk Ekmekci and Bill Yuchen Lin and Blake Howald and Bryan Orinion and Cameron Diao and Cameron Dour and Catherine Stinson and Cedrick Argueta and C\'{e}sar Ferri Ram\'{\i}rez and Chandan Singh and Charles Rathkopf and Chenlin Meng and Chitta Baral and Chiyu Wu and Chris Callison-Burch and Chris Waites and Christian Voigt and Christopher D. Manning and Christopher Potts and Cindy Ramirez and Clara E. Rivera and Clemencia Siro and Colin Raffel and Courtney Ashcraft and Cristina Garbacea and Damien Sileo and Dan Garrette and Dan Hendrycks and Dan Kilman and Dan Roth and Daniel Freeman and Daniel Khashabi and Daniel Levy and Daniel Mosegu\'{\i} Gonz\'{a}lez and Danielle Perszyk and Danny Hernandez and Danqi Chen and Daphne Ippolito and Dar Gilboa and David Dohan and David Drakard and David Jurgens and Debajyoti Datta and Deep Ganguli and Denis Emelin and Denis Kleyko and Deniz Yuret and Derek Chen and Derek Tam and Dieuwke Hupkes and Diganta Misra and Dilyar Buzan and Dimitri Coelho Mollo and Diyi Yang and Dong-Ho Lee and Dylan Schrader and Ekaterina Shutova and Ekin Dogus Cubuk and Elad Segal and Eleanor Hagerman and Elizabeth Barnes and Elizabeth Donoway and Ellie Pavlick and Emanuele Rodola and Emma Lam and Eric Chu and Eric Tang and Erkut Erdem and Ernie Chang and Ethan A. Chi and Ethan Dyer and Ethan Jerzak and Ethan Kim and Eunice Engefu Manyasi and Evgenii Zheltonozhskii and Fanyue Xia and Fatemeh Siar and Fernando Mart\'{\i}nez-Plumed and Francesca Happ\'{e} and Francois Chollet and Frieda Rong and Gaurav Mishra and Genta Indra Winata and Gerard de Melo and Germ\'{a}n Kruszewski and Giambattista Parascandolo and Giorgio Mariani and Gloria Wang and Gonzalo Jaimovitch-L\'{o}pez and Gregor Betz and Guy Gur-Ari and Hana Galijasevic and Hannah Kim and Hannah Rashkin and Hannaneh Hajishirzi and Harsh Mehta and Hayden Bogar and Henry Shevlin and Hinrich Sch\"{u}tze and Hiromu Yakura and Hongming Zhang and Hugh Mee Wong and Ian Ng and Isaac Noble and Jaap Jumelet and Jack Geissinger and Jackson Kernion and Jacob Hilton and Jaehoon Lee and Jaime Fern\'{a}ndez Fisac and James B. Simon and James Koppel and James Zheng and James Zou and Jan Koco\'{n} and Jana Thompson and Janelle Wingfield and Jared Kaplan and Jarema Radom and Jascha Sohl-Dickstein and Jason Phang and Jason Wei and Jason Yosinski and Jekaterina Novikova and Jelle Bosscher and Jennifer Marsh and Jeremy Kim and Jeroen Taal and Jesse Engel and Jesujoba Alabi and Jiacheng Xu and Jiaming Song and Jillian Tang and Joan Waweru and John Burden and John Miller and John U. Balis and Jonathan Batchelder and Jonathan Berant and J\"{o}rg Frohberg and Jos Rozen and Jose Hernandez-Orallo and Joseph Boudeman and Joseph Guerr and Joseph Jones and Joshua B. Tenenbaum and Joshua S. Rule and Joyce Chua and Kamil Kanclerz and Karen Livescu and Karl Krauth and Karthik Gopalakrishnan and Katerina Ignatyeva and Katja Markert and Kaustubh D. Dhole and Kevin Gimpel and Kevin Omondi and Kory Mathewson and Kristen Chiafullo and Ksenia Shkaruta and Kumar Shridhar and Kyle McDonell and Kyle Richardson and Laria Reynolds and Leo Gao and Li Zhang and Liam Dugan and Lianhui Qin and Lidia Contreras-Ochando and Louis-Philippe Morency and Luca Moschella and Lucas Lam and Lucy Noble and Ludwig Schmidt and Luheng He and Luis Oliveros Col\'{o}n and Luke Metz and L\"{u}tfi Kerem \c{S}enel and Maarten Bosma and Maarten Sap and Maartje ter Hoeve and Maheen Farooqi and Manaal Faruqui and Mantas Mazeika and Marco Baturan and Marco Marelli and Marco Maru and Maria Jose Ram\'{\i}rez Quintana and Marie Tolkiehn and Mario Giulianelli and Martha Lewis and Martin Potthast and Matthew L. Leavitt and Matthias Hagen and M\'{a}ty\'{a}s Schubert and Medina Orduna Baitemirova and Melody Arnaud and Melvin McElrath and Michael A. Yee and Michael Cohen and Michael Gu and Michael Ivanitskiy and Michael Starritt and Michael Strube and Micha\l{} Sw\k{e}drowski and Michele Bevilacqua and Michihiro Yasunaga and Mihir Kale and Mike Cain and Mimee Xu and Mirac Suzgun and Mitch Walker and Mo Tiwari and Mohit Bansal and Moin Aminnaseri and Mor Geva and Mozhdeh Gheini and Mukund Varma T and Nanyun Peng and Nathan A. Chi and Nayeon Lee and Neta Gur-Ari Krakover and Nicholas Cameron and Nicholas Roberts and Nick Doiron and Nicole Martinez and Nikita Nangia and Niklas Deckers and Niklas Muennighoff and Nitish Shirish Keskar and Niveditha S. Iyer and Noah Constant and Noah Fiedel and Nuan Wen and Oliver Zhang and Omar Agha and Omar Elbaghdadi and Omer Levy and Owain Evans and Pablo Antonio Moreno Casares and Parth Doshi and Pascale Fung and Paul Pu Liang and Paul Vicol and Pegah Alipoormolabashi and Peiyuan Liao and Percy Liang and Peter Chang and Peter Eckersley and Phu Mon Htut and Pinyu Hwang and Piotr Mi\l{}kowski and Piyush Patil and Pouya Pezeshkpour and Priti Oli and Qiaozhu Mei and Qing Lyu and Qinlang Chen and Rabin Banjade and Rachel Etta Rudolph and Raefer Gabriel and Rahel Habacker and Ramon Risco and Rapha\"{e}l Milli\`{e}re and Rhythm Garg and Richard Barnes and Rif A. Saurous and Riku Arakawa and Robbe Raymaekers and Robert Frank and Rohan Sikand and Roman Novak and Roman Sitelew and Ronan LeBras and Rosanne Liu and Rowan Jacobs and Rui Zhang and Ruslan Salakhutdinov and Ryan Chi and Ryan Lee and Ryan Stovall and Ryan Teehan and Rylan Yang and Sahib Singh and Saif M. Mohammad and Sajant Anand and Sam Dillavou and Sam Shleifer and Sam Wiseman and Samuel Gruetter and Samuel R. Bowman and Samuel S. Schoenholz and Sanghyun Han and Sanjeev Kwatra and Sarah A. Rous and Sarik Ghazarian and Sayan Ghosh and Sean Casey and Sebastian Bischoff and Sebastian Gehrmann and Sebastian Schuster and Sepideh Sadeghi and Shadi Hamdan and Sharon Zhou and Shashank Srivastava and Sherry Shi and Shikhar Singh and Shima Asaadi and Shixiang Shane Gu and Shubh Pachchigar and Shubham Toshniwal and Shyam Upadhyay and Shyamolima and Debnath and Siamak Shakeri and Simon Thormeyer and Simone Melzi and Siva Reddy and Sneha Priscilla Makini and Soo-Hwan Lee and Spencer Torene and Sriharsha Hatwar and Stanislas Dehaene and Stefan Divic and Stefano Ermon and Stella Biderman and Stephanie Lin and Stephen Prasad and Steven T. Piantadosi and Stuart M. Shieber and Summer Misherghi and Svetlana Kiritchenko and Swaroop Mishra and Tal Linzen and Tal Schuster and Tao Li and Tao Yu and Tariq Ali and Tatsu Hashimoto and Te-Lin Wu and Th\'{e}o Desbordes and Theodore Rothschild and Thomas Phan and Tianle Wang and Tiberius Nkinyili and Timo Schick and Timofei Kornev and Titus Tunduny and Tobias Gerstenberg and Trenton Chang and Trishala Neeraj and Tushar Khot and Tyler Shultz and Uri Shaham and Vedant Misra and Vera Demberg and Victoria Nyamai and Vikas Raunak and Vinay Ramasesh and Vinay Uday Prabhu and Vishakh Padmakumar and Vivek Srikumar and William Fedus and William Saunders and William Zhang and Wout Vossen and Xiang Ren and Xiaoyu Tong and Xinran Zhao and Xinyi Wu and Xudong Shen and Yadollah Yaghoobzadeh and Yair Lakretz and Yangqiu Song and Yasaman Bahri and Yejin Choi and Yichi Yang and Yiding Hao and Yifu Chen and Yonatan Belinkov and Yu Hou and Yufang Hou and Yuntao Bai and Zachary Seid and Zhuoye Zhao and Zijian Wang and Zijie J. Wang and Zirui Wang and Ziyi Wu},
-	year         = 2023,
-	journal      = tmlr,
-	url          = {https://arxiv.org/abs/2206.04615},
-	data         = {https://github.com/google/BIG-bench},
-	awards       = {Finalist for outstanding certification.},
+  title={Beyond the Imitation Game: Quantifying and extrapolating the capabilities of language models},
+  author={Aarohi Srivastava and Abhinav Rastogi and Abhishek Rao and Abu Awal Md Shoeb and Abubakar Abid and Adam Fisch and Adam R. Brown and Adam Santoro and Aditya Gupta and Adri{\`a} Garriga-Alonso and Agnieszka Kluska and Aitor Lewkowycz and Akshat Agarwal and Alethea Power and Alex Ray and Alex Warstadt and Alexander W. Kocurek and Ali Safaya and Ali Tazarv and Alice Xiang and Alicia Parrish and Allen Nie and Aman Hussain and Amanda Askell and Amanda Dsouza and Ambrose Slone and Ameet Rahane and Anantharaman S. Iyer and Anders Andreassen and Andrea Madotto and Andrea Santilli and Andreas Stuhlmuller and Andrew M. Dai and Andrew La and Andrew Kyle Lampinen and Andy Zou and Angela Jiang and Angelica Chen and Anh Vuong and Animesh Gupta and Anna Gottardi and Antonio Norelli and Anu Venkatesh and Arash Gholamidavoodi and Arfa Tabassum and Arul Menezes and Arun Kirubarajan and Asher Mullokandov and Ashish Sabharwal and Austin Herrick and Avia Efrat and Aykut Erdem and Ayla Karakacs and B. Ryan Roberts and Bao Sheng Loe and Barret Zoph and Bartlomiej Bojanowski and Batuhan Ozyurt and Behnam Hedayatnia and Behnam Neyshabur and Benjamin Inden and Benno Stein and Berk Ekmekci and Bill Yuchen Lin and Blake Stephen Howald and Bryan Orinion and Cameron Diao and Cameron Dour and Catherine Stinson and Cedrick Argueta and C'esar Ferri Ram'irez and Chandan Singh and Charles Rathkopf and Chenlin Meng and Chitta Baral and Chiyu Wu and Chris Callison-Burch and Chris Waites and Christian Voigt and Christopher D. Manning and Christopher Potts and Cindy Ramirez and Clara E. Rivera and Clemencia Siro and Colin Raffel and Courtney Ashcraft and Cristina Garbacea and Damien Sileo and Dan Garrette and Dan Hendrycks and Dan Kilman and Dan Roth and Daniel Freeman and Daniel Khashabi and Daniel Levy and Daniel Mosegu'i Gonz'alez and Danielle R. Perszyk and Danny Hernandez and Danqi Chen and Daphne Ippolito and Dar Gilboa and David Dohan and David Drakard and David Jurgens and Debajyoti Datta and Deep Ganguli and Denis Emelin and Denis Kleyko and Deniz Yuret and Derek Chen and Derek Tam and Dieuwke Hupkes and Diganta Misra and Dilyar Buzan and Dimitri Coelho Mollo and Diyi Yang and Dong-Ho Lee and Dylan Schrader and Ekaterina Shutova and Ekin Dogus Cubuk and Elad Segal and Eleanor Hagerman and Elizabeth Barnes and Elizabeth Donoway and Ellie Pavlick and Emanuele Rodol{\`a} and Emma Lam and Eric Chu and Eric Tang and Erkut Erdem and Ernie Chang and Ethan A. Chi and Ethan Dyer and Ethan J. Jerzak and Ethan Kim and Eunice Engefu Manyasi and Evgenii Zheltonozhskii and Fanyue Xia and Fatemeh Siar and Fernando Mart'inez-Plumed and Francesca Happ'e and François Chollet and Frieda Rong and Gaurav Mishra and Genta Indra Winata and Gerard de Melo and Germ{\'a}n Kruszewski and Giambattista Parascandolo and Giorgio Mariani and Gloria Xinyue Wang and Gonzalo Jaimovitch-L'opez and Gregor Betz and Guy Gur-Ari and Hana Galijasevic and Hannah Kim and Hannah Rashkin and Hannaneh Hajishirzi and Harsh Mehta and Hayden Bogar and Henry Shevlin and Hinrich Schutze and Hiromu Yakura and Hongming Zhang and Hugh Mee Wong and Ian Ng and Isaac Noble and Jaap Jumelet and Jack Geissinger and John Kernion and Jacob Hilton and Jaehoon Lee and Jaime Fern{\'a}ndez Fisac and James B. Simon and James Koppel and James Zheng and James Zou and Jan Koco'n and Jana Thompson and Janelle Wingfield and Jared Kaplan and Jarema Radom and Jascha Narain Sohl-Dickstein and Jason Phang and Jason Wei and Jason Yosinski and Jekaterina Novikova and Jelle Bosscher and Jennifer Marsh and Jeremy Kim and Jeroen Taal and Jesse Engel and Jesujoba Oluwadara Alabi and Jiacheng Xu and Jiaming Song and Jillian Tang and Jane W Waweru and John Burden and John Miller and John U. Balis and Jonathan Batchelder and Jonathan Berant and Jorg Frohberg and Jos Rozen and Jos{\'e} Hern{\'a}ndez-Orallo and Joseph Boudeman and Joseph Guerr and Joseph Jones and Joshua B. Tenenbaum and Joshua S. Rule and Joyce Chua and Kamil Kanclerz and Karen Livescu and Karl Krauth and Karthik Gopalakrishnan and Katerina Ignatyeva and Katja Markert and Kaustubh D. Dhole and Kevin Gimpel and Kevin Omondi and Kory Wallace Mathewson and Kristen Chiafullo and Ksenia Shkaruta and Kumar Shridhar and Kyle McDonell and Kyle Richardson and Laria Reynolds and Leo Gao and Li Zhang and Liam Dugan and Lianhui Qin and Lidia Contreras-Ochando and Louis-philippe Morency and Luca Moschella and Luca Lam and Lucy Noble and Ludwig Schmidt and Luheng He and Luis Oliveros Col'on and Luke Metz and Lutfi Kerem cSenel and Maarten Bosma and Maarten Sap and Maartje ter Hoeve and Maheen Farooqi and Manaal Faruqui and Mantas Mazeika and Marco Baturan and Marco Marelli and Marco Maru and Maria Jose Ram’irez Quintana and Marie Tolkiehn and Mario Giulianelli and Martha Lewis and Martin Potthast and Matthew L. Leavitt and Matthias Hagen and M{\'a}ty{\'a}s Schubert and Medina Baitemirova and Melody Arnaud and Melvin McElrath and Michael A. Yee and Michael Cohen and Michael Gu and Michael Ivanitskiy and Michael Starritt and Michael Strube and Michal Swkedrowski and Michele Bevilacqua and Michihiro Yasunaga and Mihir Kale and Mike Cain and Mimee Xu and Mirac Suzgun and Mitch Walker and Monica Tiwari and Mohit Bansal and Moin Aminnaseri and Mor Geva and Mozhdeh Gheini and T. MukundVarma and Nanyun Peng and Nathan A. Chi and Nayeon Lee and Neta Gur-Ari Krakover and Nicholas Cameron and Nicholas Roberts and Nick Doiron and Nicole Martinez and Nikita Nangia and Niklas Deckers and Niklas Muennighoff and Nitish Shirish Keskar and Niveditha Iyer and Noah Constant and Noah Fiedel and Nuan Wen and Oliver Zhang and Omar Agha and Omar Elbaghdadi and Omer Levy and Owain Evans and Pablo Antonio Moreno Casares and Parth Doshi and Pascale Fung and Paul Pu Liang and Paul Vicol and Pegah Alipoormolabashi and Peiyuan Liao and Percy Liang and Peter Chang and Peter Eckersley and Phu Mon Htut and Pinyu Hwang and P. Milkowski and Piyush S. Patil and Pouya Pezeshkpour and Priti Oli and Qiaozhu Mei and Qing Lyu and Qinlang Chen and Rabin Banjade and Rachel Etta Rudolph and Raefer Gabriel and Rahel Habacker and Ramon Risco and Raphael Milliere and Rhythm Garg and Richard Barnes and Rif A. Saurous and Riku Arakawa and Robbe Raymaekers and Robert Frank and Rohan Sikand and Roman Novak and Roman Sitelew and Ronan Le Bras and Rosanne Liu and Rowan Jacobs and Rui Zhang and Ruslan Salakhutdinov and Ryan Chi and Ryan Lee and Ryan Stovall and Ryan Teehan and Rylan Yang and Sahib Singh and Saif Mohammad and Sajant Anand and Sam Dillavou and Sam Shleifer and Sam Wiseman and Samuel Gruetter and Samuel R. Bowman and Samuel S. Schoenholz and Sanghyun Han and Sanjeev Kwatra and Sarah A. Rous and Sarik Ghazarian and Sayan Ghosh and Sean Casey and Sebastian Bischoff and Sebastian Gehrmann and Sebastian Schuster and Sepideh Sadeghi and Shadi S. Hamdan and Sharon Zhou and Shashank Srivastava and Sherry Shi and Shikhar Singh and Shima Asaadi and Shixiang Shane Gu and Shubh Pachchigar and Shubham Toshniwal and Shyam Upadhyay and Shyamolima Debnath and Siamak Shakeri and Simon Thormeyer and Simone Melzi and Siva Reddy and Sneha Priscilla Makini and Soo-Hwan Lee and Spencer Bradley Torene and Sriharsha Hatwar and Stanislas Dehaene and Stefan Divic and Stefano Ermon and Stella Biderman and Stephanie L. Lin and Stephen Prasad and Steven T Piantadosi and Stuart M. Shieber and Summer Misherghi and Svetlana Kiritchenko and Swaroop Mishra and Tal Linzen and Tal Schuster and Tao Li and Tao Yu and Tariq Ali and Tatsunori Hashimoto and Te-Lin Wu and Théo Desbordes and Theodore Rothschild and Thomas Phan and Tianle Wang and Tiberius Nkinyili and Timo Schick and Timofei Kornev and Titus Tunduny and Tobias Gerstenberg and Trenton Chang and Trishala Neeraj and Tushar Khot and Tyler Shultz and Uri Shaham and Vedant Misra and Vera Demberg and Victoria Nyamai and Vikas Raunak and Vinay Venkatesh Ramasesh and Vinay Uday Prabhu and Vishakh Padmakumar and Vivek Srikumar and William Fedus and William Saunders and William Zhang and Wout Vossen and Xiang Ren and Xiaoyu Tong and Xinran Zhao and Xinyi Wu and Xudong Shen and Yadollah Yaghoobzadeh and Yair Lakretz and Yangqiu Song and Yasaman Bahri and Yejin Choi and Yichi Yang and Yiding Hao and Yifu Chen and Yonatan Belinkov and Yu Hou and Yu Hou and Yuntao Bai and Zachary Seid and Zhuoye Zhao and Zijian Wang and Zijie J. Wang and Zirui Wang and Ziyi Wu},
+  journal={ArXiv},
+  year={2022},
+  volume={abs/2206.04615},
+  url={https://api.semanticscholar.org/CorpusID:263625818}
 }
 
 @inproceedings{zheng2023judging,
@@ -1158,19 +1223,16 @@ series = {ICML'20}
   url={https://api.semanticscholar.org/CorpusID:274023239}
 }
 
-@article{ef903df0-98e8-341d-9e07-ada8904086a0,
- ISSN = {00135984, 15548279},
- URL = {http://www.jstor.org/stable/995916},
- author = {Edward L. Thorndike},
- journal = {The Elementary School Journal},
- number = {6},
- pages = {470--472},
- publisher = {University of Chicago Press},
- reviewed-author = {William S. Gray and Bernice E. Leary},
- urldate = {2025-02-10},
- volume = {36},
- year = {1936}
+@book{gray1935makes,
+  title={What Makes a Book Readable: With Special Reference to Adults of Limited Reading Ability},
+  author={Gray, W.S. and Leary, B.E. and Joint Committee on the Reading Interests and Habits of Adults},
+  lccn={35027192},
+  series={Studies in library science},
+  url={https://books.google.com/books?id=Xp8KAAAAMAAJ},
+  year={1935},
+  publisher={University of Chicago Press}
 }
+
 
 @article{dubay2004principles,
   title={The principles of readability},
@@ -1300,13 +1362,13 @@ title="An analysis of readability metrics on English exam",
 author={Johannes Sibeko and Menno van Zaanen},
 volume={3},  url={https://upjournals.up.ac.za/index.php/dhasa/article/view/3864},  DOI={10.55492/dhasa.v3i01.3864},  number={01}, journal={Journal of the Digital Humanities Association of Southern Africa }, year={2022}, month={Feb.} }
 
-@inproceedings{tajner2012WhatCR,
-  title={What can readability measures really tell us about text complexity},
-  author={{\v{S}}tajner, Sanja and Evans, Richard and Orasan, Constantin and Mitkov, Ruslan},
-  booktitle={Proceedings of workshop on natural language processing for improving textual accessibility},
-  pages={14--22},
-  year={2012},
-  organization={Citeseer}
+@article{tajner2012WhatCR,
+author = {Stajner, Sanja and Evans, Richard and Orasan, Constantin and Mitkov, Ruslan},
+year = {2012},
+month = {01},
+pages = {14-22},
+title = {What can readability measures really tell us about text complexity?},
+journal = {Proceedings of Workshop on natural language processing for improving textual accessibility}
 }
 
 @inproceedings{Manor2019PlainES,
@@ -1432,17 +1494,16 @@ volume={3},  url={https://upjournals.up.ac.za/index.php/dhasa/article/view/3864}
   url={https://api.semanticscholar.org/CorpusID:269588132}
 }
 
-@book{smith1967automated,
-  title={Automated readability index},
-  author={Smith, Edgar A and Senter, RJ},
-  volume={66},
-  number={220},
+@article{smith1967automated,
+  title={Automated readability index.},
+  author={E A Smith and R. Senter},
+  journal={AMRL-TR. Aerospace Medical Research Laboratories},
   year={1967},
-  publisher={Aerospace Medical Research Laboratories, Aerospace Medical Division, Air Force Systems Command}
+  pages={
+          1-14
+        },
+  url={https://api.semanticscholar.org/CorpusID:38558516}
 }
-
-@article{Isnaeni_2017, 
-title={Readability of English Written Materials}, volume={1}, url={https://journal3.uin-alauddin.ac.id/index.php/elite/article/view/3356}, number={1}, journal={ Elite : English and Literature Journal}, author={Isnaeni, Nur Rachma}, year={2017}, month={Sep.}, pages={179-191} }
 
 @article{spache1953new,
   title={A new readability formula for primary-grade reading materials},
@@ -1822,6 +1883,7 @@ series = {AAAI'18/IAAI'18/EAAI'18}
     url = "https://aclanthology.org/D18-1207/",
     doi = "10.18653/v1/D18-1207",
     pages = "1808--1817",
+    abstract = "Abstractive text summarization aims to shorten long text documents into a human readable form that contains the most important facts from the original document. However, the level of actual abstraction as measured by novel phrases that do not appear in the source document remains low in existing approaches. We propose two techniques to improve the level of abstraction of generated summaries. First, we decompose the decoder into a contextual network that retrieves relevant parts of the source document, and a pretrained language model that incorporates prior knowledge about language generation. Second, we propose a novelty metric that is optimized directly through policy learning to encourage the generation of novel phrases. Our model achieves results comparable to state-of-the-art models, as determined by ROUGE scores and human evaluations, while achieving a significantly higher level of abstraction as measured by n-gram overlap with the source document."
 }
 
 @inproceedings{hsu2018unified,
@@ -2444,9 +2506,6 @@ series = {AAAI'16}
     title={See the alarming extent of NIH and NSF funding cuts in 2025}, url={https://www.sciencenews.org/article/nih-nsf-cuts-2025-data}, journal={Science News}, author={Crockett, Christopher}, year={2026}, month={Jan}
 } 
 
-@misc{aaas2026rdbudget, 
-    url={https://www.aaas.org/news/fy-2026-rd-appropriations-presidential-budget-request}, journal={FY 2026 R&D appropriations: The Presidential Budget Request}, publisher={ American Association for the Advancement of Science (AAAS)}, year={2025}, month={Jun}
-    }
 
 @misc{Agarwal_2025, title={White House proposes steep cuts to science and education funding}, url={https://www.aau.edu/newsroom/leading-research-universities-report/white-house-proposes-steep-cuts-science-and-education}, journal={Association of American Universities (AAU)}, author={Agarwal, Kritika}, year={2025}, month={Jun}} 
 
@@ -2500,11 +2559,24 @@ series = {AAAI'16}
 }
 
 @inproceedings{kryscinski2020evaluating,
-  title     = {Evaluating the Factual Consistency of Abstractive Text Summarization},
-  author    = {Kry{\'s}ci{\'n}ski, Wojciech and McCann, Bryan and Xiong, Caiming and Socher, Richard},
-  booktitle = {Proceedings of the Conference on Empirical Methods in Natural Language Processing (EMNLP)},
-  year      = {2020},
-  pages     = {9332--9346}
+    title = "Evaluating the Factual Consistency of Abstractive Text Summarization",
+    author = "Kryscinski, Wojciech  and
+      McCann, Bryan  and
+      Xiong, Caiming  and
+      Socher, Richard",
+    editor = "Webber, Bonnie  and
+      Cohn, Trevor  and
+      He, Yulan  and
+      Liu, Yang",
+    booktitle = "Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP)",
+    month = nov,
+    year = "2020",
+    address = "Online",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2020.emnlp-main.750/",
+    doi = "10.18653/v1/2020.emnlp-main.750",
+    pages = "9332--9346",
+    abstract = "The most common metrics for assessing summarization algorithms do not account for whether summaries are factually consistent with source documents. We propose a weakly-supervised, model-based approach for verifying factual consistency and identifying conflicts between source documents and generated summaries. Training data is generated by applying a series of rule-based transformations to the sentences of source documents. The factual consistency model is then trained jointly for three tasks: 1) predict whether each summary sentence is factually consistent or not, 2) in either case, extract a span in the source document to support this consistency prediction, 3) for each summary sentence that is deemed inconsistent, extract the inconsistent span from it. Transferring this model to summaries generated by several neural models reveals that this highly scalable approach outperforms previous models, including those trained with strong supervision using datasets from related domains, such as natural language inference and fact checking. Additionally, human evaluation shows that the auxiliary span extraction tasks provide useful assistance in the process of verifying factual consistency. We also release a manually annotated dataset for factual consistency verification, code for training data generation, and trained model weights at \url{https://github.com/salesforce/factCC}."
 }
 
 @inproceedings{wang2020asking,
@@ -2689,11 +2761,24 @@ series = {AAAI'16}
 }
 
 @inproceedings{he2022ctrlsum,
-  title     = {{CTRLsum}: Towards Generic Controllable Text Summarization},
-  author    = {He, Junxian and Kry{\'s}ci{\'n}ski, Wojciech and McCann, Bryan and Rajani, Nazneen and Xiong, Caiming},
-  booktitle = {Proceedings of the Conference on Empirical Methods in Natural Language Processing (EMNLP)},
-  year      = {2022},
-  pages     = {5879--5915}
+    title = "{CTRL}sum: Towards Generic Controllable Text Summarization",
+    author = "He, Junxian  and
+      Kryscinski, Wojciech  and
+      McCann, Bryan  and
+      Rajani, Nazneen  and
+      Xiong, Caiming",
+    editor = "Goldberg, Yoav  and
+      Kozareva, Zornitsa  and
+      Zhang, Yue",
+    booktitle = "Proceedings of the 2022 Conference on Empirical Methods in Natural Language Processing",
+    month = dec,
+    year = "2022",
+    address = "Abu Dhabi, United Arab Emirates",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2022.emnlp-main.396/",
+    doi = "10.18653/v1/2022.emnlp-main.396",
+    pages = "5879--5915",
+    abstract = "Current summarization systems yield generic summaries that are disconnected from users' preferences and expectations. To address this limitation, we present CTRLsum, a generic framework to control generated summaries through a set of keywords. During training keywords are extracted automatically without requiring additional human annotations. At test time CTRLsum features a control function to map control signal to keywords; through engineering the control function, the same trained model is able to be applied to control summaries on various dimensions, while neither affecting the model training process nor the pretrained models. We additionally explore the combination of keywords and text prompts for more control tasks. Experiments demonstrate the effectiveness of CTRLsum on three domains of summarization datasets and five control tasks: (1) entity-centric and (2) length-controllable summarization, (3) contribution summarization on scientific papers, (4) invention purpose summarization on patent filings, and (5) question-guided summarization on news articles. Moreover, when used in a standard, unconstrained summarization setting, CTRLsum is comparable or better than strong pretrained systems."
 }
 
 @inproceedings{chandrasekaran2020overview,
@@ -2775,11 +2860,25 @@ series = {AAAI'16}
     abstract = "BERT (Devlin et al., 2018) and RoBERTa (Liu et al., 2019) has set a new state-of-the-art performance on sentence-pair regression tasks like semantic textual similarity (STS). However, it requires that both sentences are fed into the network, which causes a massive computational overhead: Finding the most similar pair in a collection of 10,000 sentences requires about 50 million inference computations ({\textasciitilde}65 hours) with BERT. The construction of BERT makes it unsuitable for semantic similarity search as well as for unsupervised tasks like clustering. In this publication, we present Sentence-BERT (SBERT), a modification of the pretrained BERT network that use siamese and triplet network structures to derive semantically meaningful sentence embeddings that can be compared using cosine-similarity. This reduces the effort for finding the most similar pair from 65 hours with BERT / RoBERTa to about 5 seconds with SBERT, while maintaining the accuracy from BERT. We evaluate SBERT and SRoBERTa on common STS tasks and transfer learning tasks, where it outperforms other state-of-the-art sentence embeddings methods."
 }
 
-@inproceedings{august2022paperplain,
-  title     = {{PaperPlain}: Making Medical Research Papers Approachable to Healthcare Consumers with Natural Language Processing},
-  author    = {August, Tal and Wang, Lucy Lu and Bragg, Jonathan and Hearst, Marti A. and Head, Andrew and Lo, Kyle},
-  booktitle = {ACM Transactions on Computer-Human Interaction},
-  year      = {2022}
+@article{august2022paperplain,
+author = {August, Tal and Wang, Lucy Lu and Bragg, Jonathan and Hearst, Marti A. and Head, Andrew and Lo, Kyle},
+title = {
+Paper Plain: Making Medical Research Papers Approachable to Healthcare Consumers with Natural Language Processing},
+year = {2023},
+issue_date = {October 2023},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {30},
+number = {5},
+issn = {1073-0516},
+url = {https://doi.org/10.1145/3589955},
+doi = {10.1145/3589955},
+abstract = {When seeking information not covered in patient-friendly documents, healthcare consumers may turn to the research literature. Reading medical papers, however, can be a challenging experience. To improve access to medical papers, we explore four features enabled by natural language processing: definitions of unfamiliar terms, in-situ plain language section summaries, a collection of key questions that guides readers to answering passages, and plain language summaries of those passages. We embody these features into a prototype system, Paper Plain. We evaluate Paper Plain, finding that participants who used the prototype system had an easier time reading research papers without a loss in paper comprehension compared to those who used a typical PDF reader. Altogether, the study results suggest that guiding readers to relevant passages and providing plain language summaries alongside the original paper content can make reading medical papers easier and give readers more confidence to approach these papers.},
+journal = {ACM Trans. Comput.-Hum. Interact.},
+month = sep,
+articleno = {74},
+numpages = {38},
+keywords = {Augmented reading, plain language summaries, healthcare consumers}
 }
 
 @inproceedings{goldsack2022making,
@@ -2921,11 +3020,25 @@ series = {AAAI'16}
 }
 
 @inproceedings{kryscinski2019neural,
-  title     = {Neural Text Summarization: A Critical Evaluation},
-  author    = {Kry{\'s}ci{\'n}ski, Wojciech and Keskar, Nitish Shirish and McCann, Bryan and Xiong, Caiming and Socher, Richard},
-  booktitle = {Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing (EMNLP-IJCNLP)},
-  pages     = {540--551},
-  year      = {2019}
+    title = "Neural Text Summarization: A Critical Evaluation",
+    author = "Kryscinski, Wojciech  and
+      Keskar, Nitish Shirish  and
+      McCann, Bryan  and
+      Xiong, Caiming  and
+      Socher, Richard",
+    editor = "Inui, Kentaro  and
+      Jiang, Jing  and
+      Ng, Vincent  and
+      Wan, Xiaojun",
+    booktitle = "Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing and the 9th International Joint Conference on Natural Language Processing (EMNLP-IJCNLP)",
+    month = nov,
+    year = "2019",
+    address = "Hong Kong, China",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/D19-1051/",
+    doi = "10.18653/v1/D19-1051",
+    pages = "540--551",
+    abstract = "Text summarization aims at compressing long documents into a shorter form that conveys the most important parts of the original document. Despite increased interest in the community and notable research effort, progress on benchmark datasets has stagnated. We critically evaluate key ingredients of the current research setup: datasets, evaluation metrics, and models, and highlight three primary shortcomings: 1) automatically collected datasets leave the task underconstrained and may contain noise detrimental to training and evaluation, 2) current evaluation protocol is weakly correlated with human judgment and does not account for important characteristics such as factual correctness, 3) models overfit to layout biases of current datasets and offer limited diversity in their outputs."
 }
 
 @inproceedings{gabriel2021goyfaithful,
@@ -2952,11 +3065,11 @@ series = {AAAI'16}
 }
 
 
-@misc{honnibal2020spacy,
-  title  = {{spaCy}: Industrial-strength Natural Language Processing in {Python}},
-  author = {Honnibal, Matthew and Montani, Ines and Van Landeghem, Sofie and Boyd, Adriane},
-  year   = {2020},
-  doi    = {10.5281/zenodo.1212303}
+@article{honnibal2020spacy,
+author = {Honnibal, Matthew and Montani, Ines and Van Landeghem, Sofie and Boyd, Adriane},
+doi = {10.5281/zenodo.1212303},
+title = {{spaCy: Industrial-strength Natural Language Processing in Python}},
+year = {2020}
 }
 
 @article{spearman1904proof,
@@ -3027,11 +3140,26 @@ series = {AAAI'16}
   year      = {2020}
 }
 
-@inproceedings{cardenas2024scinews,
-  title     = {{SciNews}: From Scholarly Complexities to Public Narratives -- A Dataset for Scientific News Report Generation},
-  author    = {C{\'a}rdenas, Dongqi Pu Ronnie and Yang, Yifan and Ng, Vincent},
-  booktitle = {Proceedings of the 2024 Joint International Conference on Computational Linguistics, Language Resources and Evaluation (LREC-COLING)},
-  year      = {2024}
+@inproceedings{pu-etal-2024-scinews,
+    title = "{S}ci{N}ews: From Scholarly Complexities to Public Narratives {--} a Dataset for Scientific News Report Generation",
+    author = "Liu, Dongqi  and
+      Wang, Yifan  and
+      Loy, Jia  and
+      Demberg, Vera",
+    editor = "Calzolari, Nicoletta  and
+      Kan, Min-Yen  and
+      Hoste, Veronique  and
+      Lenci, Alessandro  and
+      Sakti, Sakriani  and
+      Xue, Nianwen",
+    booktitle = "Proceedings of the 2024 Joint International Conference on Computational Linguistics, Language Resources and Evaluation (LREC-COLING 2024)",
+    month = may,
+    year = "2024",
+    address = "Torino, Italia",
+    publisher = "ELRA and ICCL",
+    url = "https://aclanthology.org/2024.lrec-main.1258/",
+    pages = "14429--14444",
+    abstract = "Scientific news reports serve as a bridge, adeptly translating complex research articles into reports that resonate with the broader public. The automated generation of such narratives enhances the accessibility of scholarly insights. In this paper, we present a new corpus to facilitate this paradigm development. Our corpus comprises a parallel compilation of academic publications and their corresponding scientific news reports across nine disciplines. To demonstrate the utility and reliability of our dataset, we conduct an extensive analysis, highlighting the divergences in readability and brevity between scientific news narratives and academic manuscripts. We benchmark our dataset employing state-of-the-art text generation models. The evaluation process involves both automatic and human evaluation, which lays the groundwork for future explorations into the automated generation of scientific news reports. The dataset and code related to this work are available at https://dongqi.me/projects/SciNews."
 }
 
 @misc{kim2023prometheus,
@@ -3133,7 +3261,7 @@ series = {AAAI'16}
 @inproceedings{10.5555/3737916.3742333,
 author = {Tan, Daniel and Chanin, David and Lynch, Aengus and Paige, Brooks and Kanoulas, Dimitrios and Garriga-Alonso, Adri\`{a} and Kirk, Robert},
 title = {Analysing the generalisation and reliability of steering vectors},
-year = {2025},
+year = {2024},
 isbn = {9798331314385},
 publisher = {Curran Associates Inc.},
 address = {Red Hook, NY, USA},

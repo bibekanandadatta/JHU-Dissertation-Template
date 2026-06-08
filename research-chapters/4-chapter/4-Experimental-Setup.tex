@@ -94,7 +94,7 @@ For SFT, QLoRa/LoRa SFT and DSPy Prompt Optimization, we tested the models abili
 
 \section{Meeting Data Requirements}\label{sec:data-selection}
 
-We begin with four different scientific summarization datasets: eLife~\cite{goldsack2022making}, Eureka~\cite{Zaman2020HTSSAN}, PLOS~\cite{goldsack2022making}, and SciNews~\cite{cardenas2024scinews}. These datasets are designed for  scientific PLS, allowing us to use the lay summary as the positive example and the abstract as the technical, negative example. 
+We begin with four different scientific summarization datasets: eLife~\cite{goldsack2022making}, Eureka~\cite{Zaman2020HTSSAN}, PLOS~\cite{goldsack2022making}, and SciNews~\cite{pu-etal-2024-scinews}. These datasets are designed for  scientific PLS, allowing us to use the lay summary as the positive example and the abstract as the technical, negative example. 
 
 % meet 2 requirements: (1) The positive and negative examples must be sufficiently different in readability and (2) The positive and negative examples must have approximately the same content, only differing in their readability level.
 
@@ -105,7 +105,7 @@ We choose an extraction dataset that follows the requirements outlined in~\S\ref
     \centering
     \includegraphics[width=.75\linewidth]{research-chapters/4-chapter/figures/dale_chall_histograms.png}
     \vspace{-3mm}
-    \caption{Histogram of the Dale-Chall readability scores for the lay and technical summaries and the Bhattacharyya distance (BD) of each dataset.}
+    \caption[Histogram of the Dale-Chall readability scores for the lay and technical summaries.]{Histogram of the Dale-Chall readability scores for the lay and technical summaries and the Bhattacharyya distance (BD) of each dataset.}
     \label{fig:dale-chall-hists}
     \vspace{-5mm}
 \end{figure}

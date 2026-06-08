@@ -16,7 +16,7 @@
 \begin{figure}
 \centering
     \includegraphics[width=0.95\linewidth]{research-chapters/5-chapter/figures/count_acl_eval.pdf}
-    \caption{Evaluation metrics used by papers published in the ACL Anthology. We report the count of papers using each method out of a total of 18 papers. We additionally report the evaluation strategies used by PLS shared tasks and the number of participants.}
+    \caption[Evaluation metrics used by papers published in the ACL Anthology.]{Evaluation metrics used by papers published in the ACL Anthology. We report the count of papers using each method out of a total of 18 papers. We additionally report the evaluation strategies used by PLS shared tasks and the number of participants.}
     \label{fig:lit-survey-results}
 \end{figure}
 We found 18 ACL Anthology papers on the task of PLS and 3 shared tasks, representing 81 additional papers. \Cref{fig:lit-survey-results} shows the literature survey results, excluding metrics used by a single paper. FKGL is the most popular metric, followed by CLI and DCRS. LM-based evaluations are uncommon (4 of the 18 papers). The shared task BioLaySumm used FKGL and DCRS for both years, adding CLI in 2024. BioLaySumm 2025 is ongoing at the time of writing; the organizers plan to use FKGL, DCRS, and CLI. Our survey shows that PLS is an increasingly popular topic of study, as the number of participants in shared tasks increased from 8 in 2020 to 53 in 2024, emphasizing the importance of PLS evaluation. Less popular metrics include GFI, ARI, lexical proxies (e.g., number of sentences in a document), and FRE. In \cref{subsec:results-rqtwo}, we place the highest importance on the results of the most commonly used evaluation metrics: FKGL, CLI, and DCRS.
@@ -41,7 +41,7 @@ Traditional readability metrics do not account for elements of the summary that 
     \centering
     \vspace{-2mm}
     \includegraphics[width=.99\columnwidth]{research-chapters/5-chapter/figures/best-prompt.pdf}
-        \caption{The best performing prompt of the 3 we tested. We report the results of this prompt in~\Cref{subtab:lm-corr-results} and the results of the remaining prompts in~\Cref{appendix:prompt}.}
+        \caption[The best performing prompt of the 3 we tested.]{The best performing prompt of the 3 we tested. We report the results of this prompt in~\Cref{subtab:lm-corr-results} and the results of the remaining prompts in~\Cref{appendix:prompt}.}
     \label{fig:best-prompt}
 \end{figure}
 
@@ -60,7 +60,7 @@ The model notes that the summary ``may require some effort and attention,'' cont
 \begin{figure*}[h]
 \centering\includegraphics[width=.99\textwidth]{research-chapters/5-chapter/figures/lm_readability-scores.pdf}
     \vspace{-3mm}
-    \caption{Histogram of LM readability scores and the mean scores ($\mu$) for each dataset, as judged by \texttt{Llama 3.3 70B}. As we can see from the results, PLOS and CELLS are judged to be similarly readable to the expert targets datasets (arXiv, PubMed, and SciTLDR). The most readable PLS datasets are CDSR and SciNews.}
+    \caption[Histogram of LM readability scores and the mean scores for each dataset.]{Histogram of LM readability scores and the mean scores ($\mu$) for each dataset, as judged by \texttt{Llama 3.3 70B}. As we can see from the results, PLOS and CELLS are judged to be similarly readable to the expert targets datasets (arXiv, PubMed, and SciTLDR). The most readable PLS datasets are CDSR and SciNews.}
     \vspace{-4mm}
     \label{fig:histogram-datasets}
 \end{figure*}
@@ -104,7 +104,7 @@ We've shown that most LM judgments of readability correlate higher with human ju
         \label{fig:keywords-dataset}
     \end{subfigure}
 
-    \caption{Keywords mentioned in the reasoning of the LM evaluator for why a summary was given a certain readability score. \Cref{fig:keywords-score} contains the keywords stratified by score and \Cref{fig:keywords-dataset} contains keywords stratified by dataset.}
+    \caption[Keywords mentioned in the reasoning of the LM evaluator for why a summary was given a certain readability score.]{Keywords mentioned in the reasoning of the LM evaluator for why a summary was given a certain readability score. \Cref{fig:keywords-score} contains the keywords stratified by score and \Cref{fig:keywords-dataset} contains keywords stratified by dataset.}
     \label{fig:keyword-analysis}
     \vspace{-6mm}
 \end{figure}

@@ -2,8 +2,7 @@
 
 
 \section*{Non-technical Abstract}
-The majority of work on summarization evaluation focuses on evaluating general summary quality (e.g. ROUGE, BERTScore) or specific desired properties (e.g. readability, factuality). However, these metrics fail to measure the utility of a summary to an individual user. For example, a biomedical researcher learning about the latest vaccine research will have different informational needs than a family doctor. In this chapter, we test how sensitive popular summarization metrics are to informational differences and find that many popular metrics, including strong LLM-as-judge metrics, fail to basic perturbation tests of informational content. We additionally conduct an expert human evaluation, in which we specifically measure summary preferences based on informational satisfaction in relation to a specific person's background and use-case. We find that both traditional and LLM-based metrics are insufficient measures of informational satisfaction and correlate poorly with human judgment.
-
+When computers automatically summarize documents, how do we know if the summaries are any good? Researchers have built various tools to measure summary quality, from older word-matching methods to newer approaches that use AI systems as judges. However, these metrics fail to acknowledge a good summary for one person isn't necessarily good for another. A scientist studying vaccine development needs different details than a family doctor reading about the same research. In this chapter, we tested whether popular evaluation tools can detect meaningful changes in a summary's information content, and we asked human experts to judge summaries based on whether the information matched what a specific reader would actually need. Both the traditional metrics and the newer AI-based ones fell short, revealing a real gap between what we're measuring and what readers actually care about.
 
 
 

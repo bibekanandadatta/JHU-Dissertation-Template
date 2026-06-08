@@ -8,13 +8,13 @@
     \centering
     \includegraphics[width=.75\linewidth]{research-chapters/4-chapter/figures/Fig1-horz.pdf}
     \vspace{-2mm}
-    \caption{Visual Representation of our task.}
+    \caption{Visual Representation of readability controlled summarization.}
     \label{fig:steer-clear-main-fig}
     \vspace{-6mm}
 \end{figure}
 
 \section*{Non-Technical Abstract}
-Scientific papers are often dense and full of jargon, which makes them hard to understand for anyone outside the field. To bridge this gap, researchers have developed tools that automatically create "plain language summaries"—simplified versions of technical documents that non-experts can follow.
+Scientific papers are often dense and full of jargon, which makes them hard to understand for anyone outside the field. To bridge this gap, researchers have developed tools that automatically create ``plain language summaries,'' or simplified versions of technical documents that non-experts can follow.
 However, most of these tools treat readability as an either/or choice; a summary is written for experts, or it's written for everyday readers. In reality, readability exists on a spectrum. A curious high schooler, a journalist, and a doctor reading outside their specialty all need different levels of simplification.
 In this chapter, we introduce a lightweight method using ``control vectors,'' a technique that lets us dial readability up or down with precision, rather than flipping a single switch. We also propose a framework for choosing the right training data, built around two key rules: the examples we learn from must (1) represent genuinely different reading levels, and (2) cover the same underlying content.
 Our results show that this approach gives finer, more reliable control over how readable a summary is compared to other popular methods, while requiring only a small amount of data.
