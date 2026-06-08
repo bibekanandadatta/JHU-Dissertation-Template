@@ -8,7 +8,7 @@ Past work has shown that the Coleman-Liau readability index (CLI)~\cite{Coleman1
 
 \subsection{Baselines Implementation Details}\label{sec:base-details}
 We compare the ability of the control vector methods to In-Context Learning (ICL), Supervised Fine Tuning (SFT), LoRa/QLoRa SFT and DSPy Prompt Optimization. We use the sub-selected 128 most readable summaries dataset to ensure data fairness with our method.
- ICL has shown great abilities in instruction following, and is a similarly low data, lightweight method~\cite{Brown2020LanguageMA}. For ICL, we take a positive and negative example from the extraction set (\S\ref{sec:data-selection}) as examples of a lay summary and technical summary, respectively. We then provide the document to the model and ask it to summarize the document with a specified readability level. We repeat this with 5 levels of specified readability.SFT and QLoRa/LoRa SFT based methods \cite{hu2021loralowrankadaptationlarge, dettmers2023qloraefficientfinetuningquantized}.  Prompt Optimization has shown promise as a way to control language models without expensive training \cite{khattab2023dspycompilingdeclarativelanguage}. 
+ ICL has shown great abilities in instruction following, and is a similarly low data, lightweight method~\cite{Brown2020LanguageMA}. For ICL, we take a positive and negative example from the extraction set (\S\ref{sec:data-selection}) as examples of a lay summary and technical summary, respectively. We then provide the document to the model and ask it to summarize the document with a specified readability level. We repeat this with 5 levels of specified readability. We additionally use SFT and QLoRa/LoRa SFT as baselines \cite{hu2021loralowrankadaptationlarge, dettmers2023qloraefficientfinetuningquantized}. Prompt Optimization has shown promise as a way to control language models without expensive training \cite{khattab2023dspycompilingdeclarativelanguage}. 
 We compared our control-vector method against commonly used alternatives, including In Context Learning (ICL) \cite{Brown2020LanguageMA}, Supervised Fine-Tuning (SFT), LoRA/QLoRA based Supervised Fine-Tuning \cite{hu2021loralowrankadaptationlarge, dettmers2023qloraefficientfinetuningquantized}, and Prompt Optimization.
 \subsubsection{ICL}
 We use the following prompt for our ICL baseline, based on the prompts used in~\cite{ribeiro-etal-2023-generating}:
@@ -33,10 +33,10 @@ We use the following prompt during inference using the control vectors:
 \textexample{Document: <SOURCE>  \textbackslash n 
 Summarize:}
 
-We experiment with the effect of number of examples provided to the model and its effect on controllability. In our setup, a ``shot'' is a pair of positive and negative summaries, so for each setting a $N$-shot experiment contains $2*N$ total summaries. We experiment with $N=[1,8,64,128]$ shots to match up to the total number of example pair provided to the control vector experiments. The shots are randomly sampled from the training dataset and we randomly sample 100 examples from the test set for inference. We use LLaMa 8b, the best performing model in~\Cref{tab:main-results}. The results are in~\Cref{tab:icl-mini}.
+We experiment with the effect of number of examples provided to the model and its effect on controllability. In our setup, a ``shot'' is a pair of positive and negative summaries, so for each setting a $N$-shot experiment contains $2*N$ total summaries. We experiment with $N=[1,8,64,128]$ shots to match up to the total number of example pairs provided to the control vector experiments. The shots are randomly sampled from the training dataset and we randomly sample 100 examples from the test set for inference. We use LLaMa 8b, the best performing model in~\Cref{tab:main-results}. The results are in~\Cref{tab:icl-mini}.
 \input{research-chapters/4-chapter/tables/icl-mini}
 
-The number of shots provided to for In-Context Learning does not have a significant effect on the overall controllability or quality of the summaries. Therefore, to save compute by number of tokens, we use $N=1$ for the ICL experiments in the main body of results, reported in~\Cref{sec:4-chapter-results}.
+The number of shots provided for In-Context Learning does not have a significant effect on the overall controllability or quality of the summaries. Therefore, to save compute by number of tokens, we use $N=1$ for the ICL experiments in the main body of results, reported in~\Cref{sec:4-chapter-results}.
 
 
 \subsubsection{SFT}
@@ -57,7 +57,7 @@ For prompt optimization, we used the DSPy \cite{khattab2023dspycompilingdeclarat
 % We used \texttt{google/gemma-7b-it} \cite{gemmateam2024gemmaopenmodelsbased} and \texttt{meta-llama/Llama-3.1-8B-Instruct} \cite{grattafiori2024llama3} as they are strong open source models instruction following models that are easily trainable on 1-2 A100 80GB GPUs. 
 
 \subsubsection{Hyperparameters Used}
-We took hyperparameters from the AxBench Paper \cite{wu2025axbenchsteeringllmssimple} for the LoRa-SFT and SFT as they provided a fair comparison between Control Vectors, SFT, and Prompting-based Methods. However, we modified the number of epochs and bathc size as our datasets were much longer in both number of items and length of inputs. In Table \ref{tab:baseline_hyperparameters}, we show the hyperparameters used for each baseline method. 
+We took hyperparameters from the AxBench Paper \cite{wu2025axbenchsteeringllmssimple} for the LoRa-SFT and SFT as they provided a fair comparison between Control Vectors, SFT, and Prompting-based Methods. However, we modified the number of epochs and batch size as our datasets were much longer in both number of items and length of inputs. In Table \ref{tab:baseline_hyperparameters}, we show the hyperparameters used for each baseline method. 
 
 \begin{table*}[t]
 \centering
@@ -86,7 +86,7 @@ Auto                        & --       & --       & --       & medium \\
 \end{table*}
 
 \subsubsection{Inference and Evaluation}
-For SFT, QLoRa/LoRa SFT and DSPy Prompt Optimization, we tested the models ability by telling the model to provide summaries at readability scores of 1,3,5,7,9 mirroring the range of Dale Chall, evaluate the models ability to change the readability similarly to the control vectors. 
+For SFT, QLoRa/LoRa SFT and DSPy Prompt Optimization, we tested the model's ability by telling the model to provide summaries at readability scores of 1,3,5,7,9 mirroring the range of Dale Chall, to evaluate the model's ability to change the readability similarly to the control vectors. 
 
 
 
@@ -110,7 +110,7 @@ We choose an extraction dataset that follows the requirements outlined in~\S\ref
     \vspace{-5mm}
 \end{figure}
 
-Req. 2 states that the positive and negative examples must have approximately the same content, only differing in their readability level. In order to measure overlap in content, we use Sentence Transformers to retrieve an embedding matrix for the example pairs, then compute the cosine similarity~\cite{reimers-gurevych-2019-sentence}. We use Specter for the embeddings, a model trained on scientific data~\cite{cohan-etal-2020-specter}. The resulting mean cosine similarity scores are as follows: $0.631$ for eLife, $0.604$ for PLOS, $0.575$ for Eureka, and $0.590$ for SciNews. Based on these scores, we conclude that eLife and PLOS have the highest content similarity while Eureka and SciNews have the lowest. This aligns from the construction of the datasets: eLife and PLOS's lay summaries written by the original paper authors to be accessible explanations of their papers while Eureka and SciNews's summaries are news reports discussing papers. Upon inspection, we find that Eureka and SciNews often contain information not present in the abstract, such as interviews with the authors or information on a study's funding source. 
+Req. 2 states that the positive and negative examples must have approximately the same content, only differing in their readability level. In order to measure overlap in content, we use Sentence Transformers to retrieve an embedding matrix for the example pairs, then compute the cosine similarity~\cite{reimers-gurevych-2019-sentence}. We use Specter for the embeddings, a model trained on scientific data~\cite{cohan-etal-2020-specter}. The resulting mean cosine similarity scores are as follows: $0.631$ for eLife, $0.604$ for PLOS, $0.575$ for Eureka, and $0.590$ for SciNews. Based on these scores, we conclude that eLife and PLOS have the highest content similarity while Eureka and SciNews have the lowest. This aligns with the construction of the datasets: eLife and PLOS's lay summaries are written by the original paper authors to be accessible explanations of their papers while Eureka and SciNews's summaries are news reports discussing papers. Upon inspection, we find that Eureka and SciNews often contain information not present in the abstract, such as interviews with the authors or information on a study's funding source. 
 Based on this analysis, we conclude that eLife best meets the requirements. As the control vector method does not require a large extraction dataset, we select 128 of the most readable examples (lowest Dale-Chall) from the eLife training set. Choosing the most readable examples gives the control vectors the best examples of readability. We use this setup to report our main results in~\S\ref{sec:4-chapter-results}. 
 
 \input{research-chapters/4-chapter/tables/dataset-examples}

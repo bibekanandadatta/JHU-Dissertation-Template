@@ -12,10 +12,10 @@ For most settings, using Center for the Contrastive Combination and Avg for the 
 
 
 \subsection{Analysis of extraction dataset requirements.}\label{sec:other-datasets-exp}
-We conduct experiments using the non-compliant datasets. We extract control vectors using the 128 most readable summaries from each train dataset, similar to the process in~\S\ref{sec:data-selection}. For evaluation, we randomly sample 248 examples from each test set. At inference, we use the control vectors extracted from each datasets' respective extraction set. This is an easier task than that presented above as it does not test generalization to other datasets. We use Center as our Contrastive Combination method and Avg as our reduction method, the best performing setting above. Results are below:
+We conduct experiments using the non-compliant datasets. We extract control vectors using the 128 most readable summaries from each train dataset, similar to the process in~\S\ref{sec:data-selection}. For evaluation, we randomly sample 248 examples from each test set. At inference, we use the control vectors extracted from each dataset's respective extraction set. This is an easier task than that presented above as it does not test generalization to other datasets. We use Center as our Contrastive Combination method and Avg as our reduction method, the best performing setting above. Results are below:
 \input{research-chapters/4-chapter/tables/other-dataset-results}
 
-We find that the non-compliant datasets perform poorly. Eureka results in a moderate negative correlation, likely a result of the extraneous information present in the lay summaries, which can increase the readability scores. SciNews and PLOS have low correlation scores, indicating poor controlability. This contrasted with the high performance presented in~\Cref{tab:ch-4-main-results-mini} provides evidence for the validity of our requirement framework.
+We find that the non-compliant datasets perform poorly. Eureka results in a moderate negative correlation, likely a result of the extraneous information present in the lay summaries, which can increase the readability scores. SciNews and PLOS have low correlation scores, indicating poor controllability. This, contrasted with the high performance presented in~\Cref{tab:ch-4-main-results-mini}, provides evidence for the validity of our requirement framework.
 
 \input{research-chapters/4-chapter/tables/latency-results}
 \subsection{Latency testing}\label{appendix:latency-testing}
