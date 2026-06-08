@@ -7,7 +7,7 @@ We report the results of all the ablations in~\Cref{tab:main-results-llama}, ~\C
 \subsection{Baselines for Control Vectors Discussion}\label{appendix:chap-4-baseline-discussion}
 The baselines were less simple to run than the control vectors leading to four major issues: Resource Usage, Out of Memory Errors, Lack of Support Out of the Box, and Small Training Set. 
 \paragraph{Resource Usage}
-For DSPy, it also used way more resources than control vectors while performing worse. The DSPy method we use uses in context learning which forces the prompt to include extremely long examples. This could lead to some of the sources not being able to be summarized as the total length of the prompt was more than the max context length of the model. This was the main issue with DSPy for these smaller models. 
+For DSPy, it also used way more resources than control vectors while performing worse. The DSPy method uses in context learning which forces the prompt to include extremely long examples. This could lead to some of the sources not being able to be summarized as the total length of the prompt was more than the max context length of the model. This was the main issue with DSPy for these smaller models. 
 
 As for SFT and QLoRa/LoRa-SFT, it requires more forward passes as finetuning is multiple epochs with the same amount of tokens. In addition, it requires expensive backward passes that require more memory. Even with this more computation, our method performs better while keeping training costs down. 
 \paragraph{Out of Memory Errors}
