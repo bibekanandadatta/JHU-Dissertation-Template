@@ -1,6 +1,6 @@
 \section[Perturbation Testing Results]{Perturbation Testing Results \hyperref[chsevenrq1]{\chsevenrqone}}
 
-Results for the five perturbation tests for all metrics described in~\Cref{sec:ch-7-experimental-setup} are presented in~\Cref{tab:different_audience,tab:distractor_sentences,tab:incremental_addition,tab:lengthen_prose,tab:shorten_prose} and visualized in~\Cref{fig:pertubation-vis-non-llm,fig:pertubation-vis-llm}.
+Results for the five perturbation tests for all metrics described in~\Cref{sec:ch-7-experimental-setup} are presented in~\Cref{tab:different_audience,tab:distractor_sentences,tab:incremental_addition,tab:lengthen_prose,tab:shorten_prose} and visualized in~\Cref{fig:perturbation-vis-non-llm,fig:perturbation-vis-llm}.
 
 \paragraph{Distractor sentences.} Appending unrelated sentences should cause reference-based metrics to decrease. The lexical overlap metrics (ROUGE-1/L, BLEU, chrF, METEOR, compression) behave as expected, all reaching $\rho = -1.0$ with $M = 1.0$. More notably, BERTScore, BLANC, and SummaQA fail to produce a defined correlation, and the LLM-based metrics are inconsistent across judges: under Llama-3.3-70B only FActScore ($\rho = -0.60$) and coherence ($\rho = -0.58$) pass, while under Prometheus-7B a different and largely non-overlapping subset passes (relevance, fluency, the annotator-style judge, persona recall). The metrics most often advocated as ``content-aware'' alternatives to ROUGE are thus the \emph{least} reliable detectors of obviously off-topic content.
 
@@ -12,15 +12,15 @@ Results for the five perturbation tests for all metrics described in~\Cref{sec:c
 
 \paragraph{Summary of robustness findings.} No single metric passes all of the tests it should, and most pass only the distractor-injection test, the perturbation furthest from realistic variation. LLM-based metrics offer a partial complement, recovering sensitivity on incremental addition where lexical metrics catastrophically fail, but they are highly inconsistent across judge models: dimensions that pass under Llama-3.3-70B routinely fail or invert under Prometheus-7B. Most importantly, every evaluated metric is approximately insensitive, or actively misleading, to audience-shift rewrites, the dimension along which informational satisfaction varies between users. These results motivate the human evaluation in~\Cref{sec:ch-7-human-eval-results}.
 
-\input{research-chapters/7-chapter/tables/pertubations}
+\input{research-chapters/7-chapter/tables/perturbations}
 
 \begin{figure*}[htbp]
     \centering
     \begin{subfigure}[t]{0.95\textwidth}
         \centering
-        \includegraphics[width=\linewidth]{research-chapters/7-chapter/figures/pertubation-lexical.png}
+        \includegraphics[width=\linewidth]{research-chapters/7-chapter/figures/perturbation-lexical.png}
         \caption{Lexical-based metrics}
-        \label{fig:pertubation-lexical}
+        \label{fig:perturbation-lexical}
     \end{subfigure}
     \vspace{1em}
     \begin{subfigure}[t]{0.95\textwidth}
@@ -30,7 +30,7 @@ Results for the five perturbation tests for all metrics described in~\Cref{sec:c
         \label{fig:perturbation-non-lexical}
     \end{subfigure}
     \caption[Visualization of how non-LLM-based metrics react to the 5 perturbation tests.]{Visualization of how non-LLM-based metrics react to the 5 perturbation tests outlined in~\Cref{sec:ch-7-experimental-setup}.}
-    \label{fig:pertubation-vis-non-llm}
+    \label{fig:perturbation-vis-non-llm}
 \end{figure*}
 
 \begin{figure*}[htbp]
@@ -39,7 +39,7 @@ Results for the five perturbation tests for all metrics described in~\Cref{sec:c
         \centering
         \includegraphics[width=\linewidth]{research-chapters/7-chapter/figures/perturbation-llama-70b.png}
         \caption{LLM-based metrics using Llama-3.3-70B}
-        \label{fig:pertubation-llama-70b}
+        \label{fig:perturbation-llama-70b}
     \end{subfigure}
     \vspace{1em}
     \begin{subfigure}[t]{0.95\textwidth}
@@ -49,7 +49,7 @@ Results for the five perturbation tests for all metrics described in~\Cref{sec:c
         \label{fig:perturbation-prometheus}
     \end{subfigure}
     \caption[Visualization of how LLM-based metrics react to the 5 perturbation tests.]{Visualization of how LLM-based metrics react to the 5 perturbation tests outlined in~\Cref{sec:ch-7-experimental-setup}. Scores are normalized to the same range for comparative visualization. }
-    \label{fig:pertubation-vis-llm}
+    \label{fig:perturbation-vis-llm}
 \end{figure*}
 
 

@@ -24,7 +24,7 @@ relative to the source, and summary length. A spaCy-based
 \cite{honnibal2020spacy} syntactic-complexity metric, measured in
 both words and sentences, is included as a reference-free baseline
 that captures only surface properties of the summary. We use the
-SumEval package to compute the above metrics~\cite{fabbri2021summeval}.
+SummEval package to compute the above metrics~\cite{fabbri2021summeval}.
  
 For non-lexical, embedding- and model-based evaluation, we include
 BERTScore \cite{zhang2020bertscore}, which computes token-level
@@ -45,7 +45,7 @@ informativeness, and an overall score. Finally, we include
 LLM-as-judge prompts that mirror the instructions provided to the
 annotator (LLM Judge: Annotator). 
 
-Finally, we experiment with a variant of FActScore that measures the utility of information nuggets to the user, rather the fidelty of the nuggets to the source. We refer to these metrics as Persona Recall and Persona Precision.
+Finally, we experiment with a variant of FActScore that measures the utility of information nuggets to the user, rather than the fidelity of the nuggets to the source. We refer to these metrics as Persona Recall and Persona Precision.
  Both decompose a summary into atomic informational nuggets via an LLM extraction step, then judge each nugget against the target persona (role, domain, info needs, query). Persona Precision measures the fraction of summary nuggets that an LLM judge deems relevant to the persona, penalizing off-topic or persona-irrelevant content. Persona Recall first prompts the LLM to generate a list of information requirements implied by the persona and source document, then checks what fraction of those requirements is covered by the summary's nuggets, penalizing omissions of persona-critical information. Together they capture whether a summary contains the right information for a specific reader and nothing extraneous.
 
 
@@ -81,9 +81,9 @@ the \emph{expected direction} that a faithful metric should follow.
     should detect as a quality drop relative to the original audience.
 \end{enumerate}
 
-We use Llama-3.3-70B to generate the LLM-based pertubations (tests~3-5). % We present an analysis of the quality of the generated summaries in~\todo.
+We use Llama-3.3-70B to generate the LLM-based perturbations (tests~3-5). % We present an analysis of the quality of the generated summaries in~\todo.
 
-We compute the the Spearman rank correlation $\rho$~\cite{spearman1904proof} between perturbation level and mean metric score. We additionally resport the Monotonicity (M) as the fraction of consecutive level transitions whose sign matches the expected direction. For \emph{stable} tests, a transition is considered correct when the absolute score change is below 5\% of the baseline score.
+We compute the Spearman rank correlation $\rho$~\cite{spearman1904proof} between perturbation level and mean metric score. We additionally report the Monotonicity (M) as the fraction of consecutive level transitions whose sign matches the expected direction. For \emph{stable} tests, a transition is considered correct when the absolute score change is below 5\% of the baseline score.
 The expected output of each statistic, along with each expected direction is reported in~\Cref{tab:expected_directions}.
 
 \input{research-chapters/7-chapter/tables/expected-stats}
